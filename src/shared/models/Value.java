@@ -1,12 +1,14 @@
 package shared.models;
 
+import shared.common.BaseModel;
+
 /**
  * Created with IntelliJ IDEA.
  * UserAccessor: film42
  * Date: 10/13/13
  * Time: 5:25 PM
  */
-public class Value {
+public class Value extends BaseModel {
 
     private int id;
     private String value;

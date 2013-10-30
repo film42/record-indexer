@@ -1,0 +1,87 @@
+
+GET /get-projects
+
+  return Project.all()
+
+POST /search
+
+  return
+
+
+handlers.get("/services/submitProject", new Handler(HandlerExchange exchange) {
+
+  Project_Params projectParams = new Project_Params(exchange.params.body);
+
+  Database db = Database.connect();
+
+  ProjectAccessor project = ProjectAccessor.withParams(db, projectParams);
+
+  db.commit(true);
+
+});
+
+
+
+project
+  image
+  [field]
+  user
+  record
+
+
+ProjectAccessor.find(23)
+
+{
+  id: 1,
+  numPerImg: 10,
+  firstY: 300,
+  record_height: 20
+  image: {
+    id: 1
+    file
+  },
+  records: [
+    {id, etc...
+      field: {
+        id: 23
+        name: "Test"
+      }
+    }
+
+  ]
+}
+
+
+{
+  id: 1
+  file: "/test.jpg"
+}
+
+{
+
+}
+
+
+project.save()
+
+{
+  id: 1
+  name: ewr
+  x: y
+  image {
+    file: "/werwer.jpg"
+  }
+}
+
+UPDATE projects WHERE id = 1, WITH FIELDS x="y", name=""
+  ;; AND CRAETE images WITH FIELDS file="/wewer.jpg", project_id="1"
+  AND CREATE fields WITH FIELDS a,b,c,project_id=1
+  AND CREATE fields WITH FIELDS a,b,c,project_id=1
+  AND CREATE fields WITH FIELDS a,b,c,project_id=1
+  AND CREATE fields WITH FIELDS a,b,c,project_id=1
+  AND CREATE fields WITH FIELDS a,b,c,project_id=1
+  AND CREATE fields WITH FIELDS a,b,c,project_id=1
+  AND CREATE fields WITH FIELDS a,b,c,project_id=1
+  AND CREATE fields WITH FIELDS a,b,c,project_id=1
+
+

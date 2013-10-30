@@ -1,12 +1,14 @@
 package shared.models;
 
+import shared.common.BaseModel;
+
 /**
  * Created with IntelliJ IDEA.
  * UserAccessor: film42
  * Date: 10/13/13
  * Time: 5:15 PM
  */
-public class User {
+public class User extends BaseModel {
 
     private int id;
     private String username;
@@ -16,6 +18,7 @@ public class User {
     private String email;
     private int indexedRecords;
     private int projectId;
+    private int imageId;
 
     public int getId() {
         return id;
@@ -79,5 +82,13 @@ public class User {
 
     public void setProjectId(int projectId) {
         this.projectId = projectId;
+    }
+
+    public int getImageId() {
+        return imageId;
+    }
+
+    public void setImageId(int imageId) {
+        this.imageId = imageId;
     }
 }

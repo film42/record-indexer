@@ -16,10 +16,11 @@ public class Fields_Res {
 
     public void addField(int id, int number,
                          String title, String helpUrl,
-                         int xCoord, int pixelWidth) {
+                         int xCoord, int pixelWidth,
+                         String knownData) {
 
         Fields response = null;
-        response = new Fields(id, number, title, helpUrl, xCoord, pixelWidth);
+        response = new Fields(id, number, title, helpUrl, xCoord, pixelWidth, knownData);
         fields.add(response);
 
     }

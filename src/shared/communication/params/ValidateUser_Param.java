@@ -1,5 +1,8 @@
 package shared.communication.params;
 
+import com.thoughtworks.xstream.XStream;
+import com.thoughtworks.xstream.io.xml.StaxDriver;
+
 /**
  * Created with IntelliJ IDEA.
  * User: film42
@@ -10,6 +13,19 @@ public class ValidateUser_Param {
 
     private String username;
     private String password;
+
+    /**
+     * Serializer from xml
+     *
+     * @param xml
+     * @return
+     */
+    public static ValidateUser_Param serialize(String xml) {
+        XStream xstream = new XStream(new StaxDriver());
+        xstream.alias("user", ValidateUser_Param.class);
+
+        return (ValidateUser_Param)xstream.fromXML(xml);
+    }
 
     public String getUsername() {
         return username;

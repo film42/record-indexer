@@ -1,8 +1,15 @@
 package shared.communication.responses;
 
+import com.thoughtworks.xstream.XStream;
+import com.thoughtworks.xstream.annotations.XStreamAlias;
+import com.thoughtworks.xstream.annotations.XStreamImplicit;
+import com.thoughtworks.xstream.io.xml.StaxDriver;
 import server.db.ProjectAccessor;
 import server.db.UserAccessor;
+import shared.communication.common.Project_Res;
+import shared.models.Project;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -11,26 +18,28 @@ import java.util.List;
  * Date: 10/14/13
  * Time: 7:27 PM
  */
+@XStreamAlias("projects")
 public class Projects_Res {
 
-    private class Project {
+    public Projects_Res() {
 
-        private int id;
-        private String title;
-
-        public Project(int id, String title) {
-            this.id = id;
-            this.title = title;
-        }
     }
 
-    private List<Project> projectsList;
+    @XStreamImplicit
+    private List<Project_Res> projectsList = new ArrayList<Project_Res>();
 
     public void addProject(int id, String title) {
-        projectsList.add(new Project(id, title));
+        projectsList.add(new Project_Res(id, title));
     }
 
-    public List<Project> getProjectsList() {
+    public List<Project_Res> getProjectsList() {
         return projectsList;
+    }
+
+    public String toXML() {
+        XStream xstream = new XStream(new StaxDriver());
+        xstream.autodetectAnnotations(true);
+
+        return xstream.toXML(this);
     }
 }

@@ -1,5 +1,7 @@
 package shared.models;
 
+import shared.common.BaseModel;
+
 import java.util.List;
 
 /**
@@ -8,7 +10,7 @@ import java.util.List;
  * Date: 10/13/13
  * Time: 5:16 PM
  */
-public class Field {
+public class Field extends BaseModel {
 
     private int id;
     private String title;

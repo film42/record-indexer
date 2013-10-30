@@ -1,13 +1,18 @@
 package shared.communication.common;
 
+import com.thoughtworks.xstream.annotations.XStreamAlias;
+
 /**
  * Created with IntelliJ IDEA.
  * User: film42
  * Date: 10/14/13
  * Time: 7:59 PM
  */
+
+@XStreamAlias("field")
 public class Fields {
 
+    private String knownData;
     private int id;
     private int number;
     private String title;
@@ -17,7 +22,8 @@ public class Fields {
 
     public Fields(int id, int number,
                   String title, String helpUrl,
-                  int xCoord, int pixelWidth) {
+                  int xCoord, int pixelWidth,
+                  String knownData) {
 
         this.id = id;
         this.number = number;
@@ -25,6 +31,6 @@ public class Fields {
         this.helpUrl = helpUrl;
         this.xCoord = xCoord;
         this.pixelWidth = pixelWidth;
-
+        this.knownData = knownData;
     }
 }

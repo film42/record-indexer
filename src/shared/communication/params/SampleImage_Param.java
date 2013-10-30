@@ -1,5 +1,8 @@
 package shared.communication.params;
 
+import com.thoughtworks.xstream.XStream;
+import com.thoughtworks.xstream.io.xml.StaxDriver;
+
 /**
  * Created with IntelliJ IDEA.
  * User: film42
@@ -34,5 +37,15 @@ public class SampleImage_Param {
 
     public void setProjectId(int projectId) {
         this.projectId = projectId;
+    }
+
+    public static SampleImage_Param serialize(String xml) {
+        XStream xstream = new XStream(new StaxDriver());
+        xstream.alias("user", SampleImage_Param.class);
+        xstream.alias("sampleImage", SampleImage_Param.class);
+        xstream.alias("sampleimage", SampleImage_Param.class);
+        xstream.alias("sample", SampleImage_Param.class);
+
+        return (SampleImage_Param)xstream.fromXML(xml);
     }
 }

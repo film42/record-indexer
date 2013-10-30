@@ -1,7 +1,14 @@
 package shared.communication.responses;
 
+import com.thoughtworks.xstream.XStream;
+import com.thoughtworks.xstream.annotations.XStreamAlias;
+import com.thoughtworks.xstream.io.xml.StaxDriver;
 import shared.communication.common.Fields;
+import shared.models.Field;
+import shared.models.Image;
+import shared.models.Project;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -10,9 +17,10 @@ import java.util.List;
  * Date: 10/14/13
  * Time: 7:35 PM
  */
+@XStreamAlias("downloadBatch")
 public class DownloadBatch_Res {
 
-    private int id;
+    private int batchId;
     private int projectId;
     private String imageUrl;
     private int firstYCoord;
@@ -20,44 +28,37 @@ public class DownloadBatch_Res {
     private int numberOfRecords;
     private int numberOfFields;
     private int recordsPerImage;
-    private String knownValuesUrl;
-    private List<Fields> fields;
+
+    private List<Fields> fields = new ArrayList<Fields>();
 
 
-    public DownloadBatch_Res(int id,
-                             int projectId,
-                             String imageUrl,
-                             int firstYCoord,
-                             int recordHeight,
-                             int numberOfRecords,
-                             int numberOfFields,
-                             int recordsPerImage,
-                             String knownValuesUrl) {
+    public DownloadBatch_Res(Image image, Project project,
+                             int fieldCount, int recordCount) {
 
-        this.id = id;
-        this.projectId = projectId;
-        this.imageUrl = imageUrl;
-        this.firstYCoord = firstYCoord;
-        this.recordHeight = recordHeight;
-        this.numberOfRecords = numberOfRecords;
-        this.numberOfFields = numberOfFields;
-        this.recordsPerImage = recordsPerImage;
-        this.knownValuesUrl = knownValuesUrl;
+        this.batchId = image.getId();
+        this.imageUrl = image.getFile();
 
+        this.projectId = project.getId();
+        this.firstYCoord = project.getFirstYCoord();
+        this.recordHeight = project.getRecordHeight();
+        this.recordsPerImage = project.getRecordsPerImage();
+
+        this.numberOfRecords = recordCount;
+        this.numberOfFields = fieldCount;
     }
 
-    public void addField(int id, int number,
-                         String title, String helpUrl,
-                         int xCoord, int pixelWidth) {
+    public void addField(Field field, int position) {
 
         Fields response = null;
-        response = new Fields(id, number, title, helpUrl, xCoord, pixelWidth);
+        response = new Fields(field.getId(), position, field.getTitle(),
+                              field.getHelpHtml(), field.getxCoord(),
+                              field.getWidth(), field.getKnownData());
         fields.add(response);
 
     }
 
-    public int getId() {
-        return id;
+    public int getBatchId() {
+        return batchId;
     }
 
     public int getProjectId() {
@@ -94,5 +95,11 @@ public class DownloadBatch_Res {
      */
     public List<Fields> getFields() {
         return fields;
+    }
+
+    public String toXML() {
+        XStream xstream = new XStream(new StaxDriver());
+        xstream.autodetectAnnotations(true);
+        return xstream.toXML(this);
     }
 }
