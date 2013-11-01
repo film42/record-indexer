@@ -48,4 +48,10 @@ public class SampleImage_Param {
 
         return (SampleImage_Param)xstream.fromXML(xml);
     }
+
+    public String toXML() {
+        XStream xstream = new XStream(new StaxDriver());
+        xstream.alias("sampleImage", SampleImage_Param.class);
+        return xstream.toXML(this);
+    }
 }

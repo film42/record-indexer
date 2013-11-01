@@ -1,7 +1,9 @@
 package shared.communication.params;
 
 import com.thoughtworks.xstream.XStream;
+import com.thoughtworks.xstream.annotations.XStreamAlias;
 import com.thoughtworks.xstream.io.xml.StaxDriver;
+import shared.communication.responses.ValidateUser_Res;
 
 /**
  * Created with IntelliJ IDEA.
@@ -9,6 +11,7 @@ import com.thoughtworks.xstream.io.xml.StaxDriver;
  * Date: 10/14/13
  * Time: 7:06 PM
  */
+@XStreamAlias("user")
 public class ValidateUser_Param {
 
     private String username;
@@ -41,5 +44,13 @@ public class ValidateUser_Param {
 
     public void setPassword(String password) {
         this.password = password;
+    }
+
+    public String toXML() {
+        XStream xstream = new XStream(new StaxDriver());
+        xstream.autodetectAnnotations(true);
+        xstream.alias("user", ValidateUser_Res.class);
+
+        return xstream.toXML(this);
     }
 }

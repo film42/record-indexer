@@ -30,4 +30,11 @@ public class SampleImage_Res {
         return xstream.toXML(this);
     }
 
+    public static SampleImage_Res serialize(String xml) {
+        XStream xstream = new XStream(new StaxDriver());
+        xstream.autodetectAnnotations(true);
+        xstream.alias("sampleImage", SampleImage_Res.class);
+
+        return (SampleImage_Res)xstream.fromXML(xml);
+    }
 }

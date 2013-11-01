@@ -3,6 +3,8 @@ package shared.communication.responses;
 
 import com.thoughtworks.xstream.XStream;
 import com.thoughtworks.xstream.io.xml.StaxDriver;
+import shared.communication.params.DownloadBatch_Param;
+import shared.communication.params.ValidateUser_Param;
 import shared.models.User;
 
 /**
@@ -40,6 +42,13 @@ public class ValidateUser_Res {
 
     public int getIndexedRecords() {
         return indexedRecords;
+    }
+
+    public static ValidateUser_Res serialize(String xml) {
+        XStream xstream = new XStream(new StaxDriver());
+        xstream.alias("user", ValidateUser_Res.class);
+
+        return (ValidateUser_Res)xstream.fromXML(xml);
     }
 
     public String toXML() {

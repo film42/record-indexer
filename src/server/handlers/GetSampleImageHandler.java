@@ -32,10 +32,11 @@ public class GetSampleImageHandler extends BaseHanlder {
             UserAccessor userAccessor = UserAccessor.find(sampleImageParam.getUsername());
             ProjectAccessor projectAccessor = ProjectAccessor.find(sampleImageParam.getProjectId());
 
-            String response = NOT_AUTHORIZED;
             if(userAccessor == null || projectAccessor == null) {
-                response = INTERNAL_ERROR;
-            } else if (userAccessor.getPassword().equals(sampleImageParam.getPassword())) {
+                writeServerErrorResponse(exchange, INTERNAL_ERROR);
+                return;
+            } else if (userAccessor.login(sampleImageParam.getPassword())) {
+                String response = "";
 
                 List<ImageAccessor> imageAccessor = projectAccessor.getImages();
 
@@ -43,9 +44,12 @@ public class GetSampleImageHandler extends BaseHanlder {
                     SampleImage_Res sampleImageRes = new SampleImage_Res(imageAccessor.get(0).getModel());
                     response = sampleImageRes.toXML();
                 }
+
+                writeSuccessResponse(exchange, response);
+                return;
             }
 
-            writeSuccessResponse(exchange, response);
+            writeServerErrorResponse(exchange, NOT_AUTHORIZED);
         }
     };
 

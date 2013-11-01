@@ -30,10 +30,11 @@ public class GetProjectsHandler extends BaseHanlder {
 
             UserAccessor userAccessor = UserAccessor.find(projectsParam.getUsername());
 
-            String response;
             if(userAccessor == null) {
-                response = INTERNAL_ERROR;
-            } else if(userAccessor.getPassword().equals(projectsParam.getPassword())) {
+                writeServerErrorResponse(exchange, INTERNAL_ERROR);
+                return;
+            } else if(userAccessor.login(projectsParam.getPassword())) {
+                String response;
                 Projects_Res projectsRes = new Projects_Res();
 
                 List<ProjectAccessor> projectAccessors = ProjectAccessor.all();
@@ -47,11 +48,11 @@ public class GetProjectsHandler extends BaseHanlder {
                 }
 
                 response = projectsRes.toXML();
-            } else {
-                response = NOT_AUTHORIZED;
+                writeSuccessResponse(exchange, response);
+                return;
             }
 
-            writeSuccessResponse(exchange, response);
+            writeBadAuthenticationResponse(exchange, NOT_AUTHORIZED);
         }
     };
 

@@ -25,7 +25,7 @@ public class Projects_Res {
 
     }
 
-    @XStreamImplicit
+    @XStreamImplicit()
     private List<Project_Res> projectsList = new ArrayList<Project_Res>();
 
     public void addProject(int id, String title) {
@@ -41,5 +41,13 @@ public class Projects_Res {
         xstream.autodetectAnnotations(true);
 
         return xstream.toXML(this);
+    }
+
+    public static Projects_Res serialize(String xml) {
+        XStream xstream = new XStream(new StaxDriver());
+        xstream.autodetectAnnotations(true);
+        xstream.alias("projects", Projects_Res.class);
+
+        return  (Projects_Res)xstream.fromXML(xml);
     }
 }

@@ -44,8 +44,9 @@ public class DownloadBatchHandler extends BaseHanlder {
 
             String response = NOT_AUTHORIZED;
             if(userAccessor == null || availableList.size() == 0) {
-                response = INTERNAL_ERROR;
-            } else if (userAccessor.getPassword().equals(downloadBatchParam.getPassword())) {
+                writeServerErrorResponse(exchange, response);
+            } else if (userAccessor.login(downloadBatchParam.getPassword())) {
+                // TODO: Make this not a bug anymore, ok?
                 ImageAccessor assignImage = availableList.get(0);
                 userAccessor.setImageId(assignImage.getId());
 
@@ -65,7 +66,13 @@ public class DownloadBatchHandler extends BaseHanlder {
 
                     response = downloadBatchRes.toXML();
 
-                } else response = INTERNAL_ERROR;
+                } else {
+                    writeBadAuthenticationResponse(exchange, NOT_AUTHORIZED);
+                    return;
+                }
+            } else {
+                writeBadAuthenticationResponse(exchange, NOT_AUTHORIZED);
+                return;
             }
 
             writeSuccessResponse(exchange, response);

@@ -51,4 +51,11 @@ public class DownloadBatch_Param {
 
         return (DownloadBatch_Param)xstream.fromXML(xml);
     }
+
+    public String toXML() {
+        XStream xstream = new XStream(new StaxDriver());
+        xstream.autodetectAnnotations(true);
+        xstream.alias("downloadBatch", DownloadBatch_Param.class);
+        return xstream.toXML(this);
+    }
 }

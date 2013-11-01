@@ -91,4 +91,10 @@ public class User extends BaseModel {
     public void setImageId(int imageId) {
         this.imageId = imageId;
     }
+
+    // Helpers
+
+    public boolean login(String password) {
+        return this.password.equals(password);
+    }
 }

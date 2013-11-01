@@ -28,18 +28,21 @@ public class ValidateUserHandler extends BaseHanlder {
 
             UserAccessor userAccessor = UserAccessor.find(validateUserParam.getUsername());
 
-            String response;
             if(userAccessor == null) {
-                response = INTERNAL_ERROR;
-            } else if(userAccessor.getPassword().equals(validateUserParam.getPassword())) {
+                writeBadAuthenticationResponse(exchange, NOT_AUTHORIZED);
+                return;
+            } else if(userAccessor.login(validateUserParam.getPassword())) {
+                String response;
                 ValidateUser_Res validateUserRes;
                 validateUserRes = new ValidateUser_Res(true, userAccessor.getModel());
                 response = validateUserRes.toXML();
-            } else {
-                response = NOT_AUTHORIZED;
+
+                writeSuccessResponse(exchange, response);
+                return;
             }
 
-            writeSuccessResponse(exchange, response);
+            writeBadAuthenticationResponse(exchange, NOT_AUTHORIZED);
+
         }
     };
 

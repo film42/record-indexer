@@ -4,6 +4,7 @@ import com.thoughtworks.xstream.XStream;
 import com.thoughtworks.xstream.annotations.XStreamAlias;
 import com.thoughtworks.xstream.io.xml.StaxDriver;
 import shared.communication.common.Fields;
+import shared.communication.params.DownloadBatch_Param;
 import shared.models.Field;
 import shared.models.Image;
 import shared.models.Project;
@@ -101,5 +102,13 @@ public class DownloadBatch_Res {
         XStream xstream = new XStream(new StaxDriver());
         xstream.autodetectAnnotations(true);
         return xstream.toXML(this);
+    }
+
+    public static DownloadBatch_Res serialize(String xml) {
+        XStream xstream = new XStream(new StaxDriver());
+        xstream.autodetectAnnotations(true);
+        xstream.alias("downloadBatch", DownloadBatch_Res.class);
+
+        return (DownloadBatch_Res)xstream.fromXML(xml);
     }
 }

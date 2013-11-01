@@ -54,7 +54,8 @@ public class RecordAccessor extends Record implements DatabaseAccessor {
                 ResultSet resultSet = database.query(query);
 
                 if (resultSet.next()) {
-                    return buildFromResultSet(resultSet);
+                    RecordAccessor recordAccessor = buildFromResultSet(resultSet);
+                    return recordAccessor;
                 }
 
                 return null;
