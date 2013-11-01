@@ -58,6 +58,7 @@ public class Communicator {
 
     public DownloadBatch_Res downloadBatch(DownloadBatch_Param downloadBatch)
             throws UnauthorizedAccessException, RemoteServerErrorException {
+
         String resource = "downloadBatch/";
         String response = HttpClient.post(serverPath+resource, downloadBatch.toXML());
 
@@ -71,8 +72,16 @@ public class Communicator {
         return null;
     }
 
-    public Fields_Res getFields(Fields_Param fields) {
-        return null;
+    public Fields_Res getFields(Fields_Param fields)
+            throws UnauthorizedAccessException, RemoteServerErrorException {
+
+        String resource = "getFields/";
+        String response = HttpClient.post(serverPath+resource, fields.toXML());
+
+        if(response == null)
+            return null;
+
+        return Fields_Res.serialize(response);
     }
 
     public Search_Res search(Search_Param search) {

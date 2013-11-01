@@ -18,7 +18,7 @@ import java.io.InputStream;
  */
 public class ValidateUserHandler extends BaseHanlder {
 
-    private HttpHandler validateUserHandler = new HttpHandler() {
+    private HttpHandler handler = new HttpHandler() {
         @Override
         public void handle(HttpExchange exchange) throws IOException {
             InputStream inputStream = exchange.getRequestBody();
@@ -29,7 +29,7 @@ public class ValidateUserHandler extends BaseHanlder {
             UserAccessor userAccessor = UserAccessor.find(validateUserParam.getUsername());
 
             if(userAccessor == null) {
-                writeBadAuthenticationResponse(exchange, NOT_AUTHORIZED);
+                writeBadAuthenticationResponse(exchange);
                 return;
             } else if(userAccessor.login(validateUserParam.getPassword())) {
                 String response;
@@ -41,12 +41,12 @@ public class ValidateUserHandler extends BaseHanlder {
                 return;
             }
 
-            writeBadAuthenticationResponse(exchange, NOT_AUTHORIZED);
+            writeBadAuthenticationResponse(exchange);
 
         }
     };
 
     public HttpHandler getHandler() {
-        return validateUserHandler;
+        return handler;
     }
 }

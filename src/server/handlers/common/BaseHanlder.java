@@ -46,11 +46,11 @@ public class BaseHanlder {
         writeReponse(200, exchange, response);
     }
 
-    protected void writeServerErrorResponse(HttpExchange exchange, String response) throws IOException {
-        writeReponse(500, exchange, response);
+    protected void writeServerErrorResponse(HttpExchange exchange) throws IOException {
+        writeReponse(500, exchange, INTERNAL_ERROR);
     }
 
-    protected void writeBadAuthenticationResponse(HttpExchange exchange, String response) throws IOException {
-        writeReponse(401, exchange, response);
+    protected void writeBadAuthenticationResponse(HttpExchange exchange) throws IOException {
+        writeReponse(401, exchange, NOT_AUTHORIZED);
     }
 }

@@ -21,7 +21,7 @@ import java.util.List;
  */
 public class GetSampleImageHandler extends BaseHanlder {
 
-    private HttpHandler getSampleImageHandler = new HttpHandler() {
+    private HttpHandler handler = new HttpHandler() {
         @Override
         public void handle(HttpExchange exchange) throws IOException {
             InputStream inputStream = exchange.getRequestBody();
@@ -33,7 +33,7 @@ public class GetSampleImageHandler extends BaseHanlder {
             ProjectAccessor projectAccessor = ProjectAccessor.find(sampleImageParam.getProjectId());
 
             if(userAccessor == null || projectAccessor == null) {
-                writeServerErrorResponse(exchange, INTERNAL_ERROR);
+                writeServerErrorResponse(exchange);
                 return;
             } else if (userAccessor.login(sampleImageParam.getPassword())) {
                 String response = "";
@@ -43,18 +43,18 @@ public class GetSampleImageHandler extends BaseHanlder {
                 if(imageAccessor.size() > 0) {
                     SampleImage_Res sampleImageRes = new SampleImage_Res(imageAccessor.get(0).getModel());
                     response = sampleImageRes.toXML();
-                }
 
-                writeSuccessResponse(exchange, response);
-                return;
+                    writeSuccessResponse(exchange, response);
+                    return;
+                }
             }
 
-            writeServerErrorResponse(exchange, NOT_AUTHORIZED);
+            writeServerErrorResponse(exchange);
         }
     };
 
     public HttpHandler getHandler() {
-        return getSampleImageHandler;
+        return handler;
     }
 
 }

@@ -7,10 +7,7 @@ import com.thoughtworks.xstream.io.xml.StaxDriver;
 import server.db.*;
 import server.db.common.Database;
 import server.errors.ServerException;
-import server.handlers.DownloadBatchHandler;
-import server.handlers.GetProjectsHandler;
-import server.handlers.GetSampleImageHandler;
-import server.handlers.ValidateUserHandler;
+import server.handlers.*;
 import shared.communication.params.DownloadBatch_Param;
 import shared.communication.params.Projects_Param;
 import shared.communication.params.SampleImage_Param;
@@ -175,6 +172,7 @@ public class Server {
         server.createContext("/getSampleImage", new GetSampleImageHandler().getHandler());
         server.createContext("/validateUser", new ValidateUserHandler().getHandler());
         server.createContext("/downloadBatch", new DownloadBatchHandler().getHandler());
+        server.createContext("/getFields",  new GetFieldsHandler().getHandler());
 
         System.out.println("Starting server on port: " + SERVER_PORT_NUMBER);
         server.start();

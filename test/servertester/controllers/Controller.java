@@ -6,15 +6,10 @@ import client.communication.Communicator;
 import client.communication.errors.RemoteServerErrorException;
 import client.communication.errors.UnauthorizedAccessException;
 import client.communication.modules.HttpClient;
+import server.handlers.GetFieldsHandler;
 import servertester.views.*;
-import shared.communication.params.DownloadBatch_Param;
-import shared.communication.params.Projects_Param;
-import shared.communication.params.SampleImage_Param;
-import shared.communication.params.ValidateUser_Param;
-import shared.communication.responses.DownloadBatch_Res;
-import shared.communication.responses.Projects_Res;
-import shared.communication.responses.SampleImage_Res;
-import shared.communication.responses.ValidateUser_Res;
+import shared.communication.params.*;
+import shared.communication.responses.*;
 
 public class Controller implements IController {
 
@@ -220,6 +215,28 @@ public class Controller implements IController {
     }
     
     private void getFields() {
+        Fields_Param fieldsParam = new Fields_Param();
+
+        String username = getView().getParameterValues()[0];
+        String password = getView().getParameterValues()[1];
+        String projectId = getView().getParameterValues()[2];
+
+        fieldsParam.setUsername(username);
+        fieldsParam.setPassword(password);
+        fieldsParam.setProjectId(Integer.parseInt(projectId));
+
+        Fields_Res fieldsRes = null;
+        try {
+            fieldsRes = communicator.getFields(fieldsParam);
+        } catch (UnauthorizedAccessException e) {
+            getView().setResponse("FAILED");
+            return;
+        } catch (RemoteServerErrorException e) {
+            getView().setResponse("FAILED");
+            return;
+        }
+
+        getView().setResponse(fieldsRes.toXML());
     }
     
     private void submitBatch() {

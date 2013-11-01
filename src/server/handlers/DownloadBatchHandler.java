@@ -22,7 +22,7 @@ import java.util.List;
  */
 public class DownloadBatchHandler extends BaseHanlder {
 
-    private HttpHandler downloadBatchHandler = new HttpHandler() {
+    private HttpHandler handler = new HttpHandler() {
         @Override
         public void handle(HttpExchange exchange) throws IOException {
             InputStream inputStream = exchange.getRequestBody();
@@ -38,13 +38,12 @@ public class DownloadBatchHandler extends BaseHanlder {
                 imageAccessor = userAccessor.getImage();
                 availableList = ImageAccessor.allAvailible(downloadBatchParam.getProjectId());
             } else {
-                writeSuccessResponse(exchange, INTERNAL_ERROR);
+                writeServerErrorResponse(exchange);
                 return;
             }
 
-            String response = NOT_AUTHORIZED;
             if(userAccessor == null || availableList.size() == 0) {
-                writeServerErrorResponse(exchange, response);
+                writeServerErrorResponse(exchange);
             } else if (userAccessor.login(downloadBatchParam.getPassword())) {
                 // TODO: Make this not a bug anymore, ok?
                 ImageAccessor assignImage = availableList.get(0);
@@ -52,7 +51,7 @@ public class DownloadBatchHandler extends BaseHanlder {
 
                 // Save the new user information
                 if(userAccessor.save()) {
-
+                    String response;
                     ProjectAccessor projectAccessor = assignImage.getProject();
                     List<FieldAccessor> fieldAccessorList = projectAccessor.getFields();
 
@@ -65,22 +64,17 @@ public class DownloadBatchHandler extends BaseHanlder {
                         downloadBatchRes.addField(fieldAccessorList.get(i).getModel(), (i+1));
 
                     response = downloadBatchRes.toXML();
-
-                } else {
-                    writeBadAuthenticationResponse(exchange, NOT_AUTHORIZED);
+                    writeSuccessResponse(exchange, response);
                     return;
                 }
-            } else {
-                writeBadAuthenticationResponse(exchange, NOT_AUTHORIZED);
-                return;
             }
 
-            writeSuccessResponse(exchange, response);
+            writeServerErrorResponse(exchange);
         }
     };
 
     public HttpHandler getHandler() {
-        return downloadBatchHandler;
+        return handler;
     }
 
 }
