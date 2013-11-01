@@ -71,6 +71,9 @@ public class Database {
      */
     public void openConnection() throws ServerException {
         try {
+            // Ensure we don't hit a collision
+            if(connection != null) return;
+
             connection = DriverManager.getConnection(dbUrl);
             connection.setAutoCommit(false);
         } catch (SQLException e) {
@@ -86,6 +89,7 @@ public class Database {
      */
     public void closeConnection() throws SQLException {
         connection.close();
+        connection = null;
     }
 
     /**
@@ -103,7 +107,12 @@ public class Database {
                     throw new ServerException("Bad query update");
                 }
             }
-            connection.commit();
+            try {
+                connection.commit();
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+
         } catch (SQLException e) {
             //e.printStackTrace();
             throw new ServerException(String.format("Error committing %d queries, rolling back!",
@@ -162,6 +171,7 @@ public class Database {
      * @param sql A String sql command that each accessor can pass in as it builds
      */
     public void addQuery(String sql) throws SQLException {
+        System.out.println(sql);
         PreparedStatement preparedStatement;
 
         preparedStatement = connection.prepareStatement(sql);

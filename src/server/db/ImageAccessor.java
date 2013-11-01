@@ -214,4 +214,26 @@ public class ImageAccessor extends Image implements DatabaseAccessor {
 
         return null;
     }
+
+    public void addRecord(List<Value> valueList) {
+        try {
+            database.openConnection();
+
+            RecordAccessor recordAccessor = new RecordAccessor();
+            recordAccessor.setImageId(this.getId());
+
+            database.addQuery(recordAccessor.toSQL(Database.SPECIFIED_PRIMARY_KEY));
+
+            for(Value value : valueList) {
+                ValueAccessor valueAccessor = new ValueAccessor(value);
+                // Will auto add the record added just above this loop
+                database.addQuery(valueAccessor.toSQL(Database.SPECIFIED_PRIMARY_KEY));
+            }
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } catch (ServerException e) {
+            e.printStackTrace();
+        }
+    }
 }

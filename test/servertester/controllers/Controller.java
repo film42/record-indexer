@@ -6,10 +6,12 @@ import client.communication.Communicator;
 import client.communication.errors.RemoteServerErrorException;
 import client.communication.errors.UnauthorizedAccessException;
 import client.communication.modules.HttpClient;
+import server.errors.ServerException;
 import server.handlers.GetFieldsHandler;
 import servertester.views.*;
 import shared.communication.params.*;
 import shared.communication.responses.*;
+import shared.models.Value;
 
 public class Controller implements IController {
 
@@ -104,6 +106,13 @@ public class Controller implements IController {
             break;
         }
     }
+
+    // TODO: Make this return the string responses desired
+    // TODO: Actually copy fies on import, and routes for those
+    // TODO: Test more of the DAs and Server Classes if possible
+    // TODO: Implement a logger
+    // TODO: Search and Submit
+    // TODO: Make sure a user is removed when you do "submitBatch"
 
     private Communicator communicator = new Communicator("http://localhost:8090/");
     
@@ -238,11 +247,75 @@ public class Controller implements IController {
 
         getView().setResponse(fieldsRes.toXML());
     }
-    
+
+
     private void submitBatch() {
+        SubmitBatch_Param submitBatchParam = new SubmitBatch_Param();
+
+        String username = getView().getParameterValues()[0];
+        String password = getView().getParameterValues()[1];
+        String imageId = getView().getParameterValues()[2];
+        String recordValues = getView().getParameterValues()[3];
+
+        submitBatchParam.setUsername(username);
+        submitBatchParam.setPassword(password);
+        submitBatchParam.setImageId(Integer.parseInt(imageId));
+
+        // Parse Record Params
+        for(List<Value> values : parseRecordsList(recordValues)) {
+            submitBatchParam.addRecord(values);
+        }
+
+        getView().setRequest(submitBatchParam.toXML());
+
+        SubmitBatch_Res submitBatchRes = null;
+        try {
+            submitBatchRes = communicator.submitBatch(submitBatchParam);
+        } catch (UnauthorizedAccessException e) {
+            getView().setResponse("FAILED");
+            return;
+        } catch (RemoteServerErrorException e) {
+            getView().setResponse("FAILED");
+            return;
+        }
+
+        getView().setResponse(submitBatchRes.toXML());
     }
-    
+
     private void search() {
+    }
+
+    /* ******************************
+                HELPERS
+    ******************************* */
+    private List<Value> parseValueSet(String valueSet) {
+        List<Value> valueList = new ArrayList<Value>();
+        String[] values = valueSet.split(",");
+
+        for(String strValue : values) {
+            Value value = new Value();
+            value.setValue(strValue);
+            value.setType("STRING");
+            valueList.add(value);
+        }
+
+        return valueList;
+    }
+
+
+    private List<List<Value> > parseRecordsList(String data) {
+
+        List<List<Value> > recordList = new ArrayList<List<Value> >();
+
+        for(String valueSet : data.split(";")) {
+            //if(valueSet.split(",").length != expectedValuesPerRow)
+            //    throw new ServerException("Incorrect values list (records) format");
+
+            List<Value> valueList = parseValueSet(valueSet);
+            recordList.add(valueList);
+        }
+
+        return recordList;
     }
 
 }

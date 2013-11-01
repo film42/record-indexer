@@ -37,7 +37,7 @@ public class ValueAccessor extends Value implements DatabaseAccessor {
      * @param value
      */
     public ValueAccessor(Value value) {
-        super();
+        super(value.getId(), value.getValue(), value.getType(), value.getRecordId());
     }
 
     /**

@@ -173,6 +173,7 @@ public class Server {
         server.createContext("/validateUser", new ValidateUserHandler().getHandler());
         server.createContext("/downloadBatch", new DownloadBatchHandler().getHandler());
         server.createContext("/getFields",  new GetFieldsHandler().getHandler());
+        server.createContext("/submitBatch",  new SubmitBatchHandler().getHandler());
 
         System.out.println("Starting server on port: " + SERVER_PORT_NUMBER);
         server.start();

@@ -68,8 +68,16 @@ public class Communicator {
         return DownloadBatch_Res.serialize(response);
     }
 
-    public SubmitBatch_Res submitBatch(SubmitBatch_Param submitBatch) {
-        return null;
+    public SubmitBatch_Res submitBatch(SubmitBatch_Param submitBatch)
+            throws UnauthorizedAccessException, RemoteServerErrorException {
+
+        String resource = "submitBatch/";
+        String response = HttpClient.post(serverPath+resource, submitBatch.toXML());
+
+        if(response == null)
+            return null;
+
+        return SubmitBatch_Res.serialize(response);
     }
 
     public Fields_Res getFields(Fields_Param fields)

@@ -1,7 +1,13 @@
 package shared.communication.params;
 
-import shared.communication.common.Fields;
+import com.thoughtworks.xstream.XStream;
+import com.thoughtworks.xstream.annotations.XStreamAlias;
+import com.thoughtworks.xstream.io.xml.StaxDriver;
+import shared.communication.common.ARecord;
+import shared.communication.responses.Fields_Res;
+import shared.models.Value;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -14,18 +20,20 @@ public class SubmitBatch_Param {
 
     private String username;
     private String password;
-    private int id;
-    private List<Fields> fields;
+    private int imageId;
 
-    public void addField(int id, int number,
-                         String title, String helpUrl,
-                         int xCoord, int pixelWidth,
-                         String knownData) {
+    private List<ARecord> recordValues = new ArrayList<ARecord>();
 
-        Fields response = null;
-        response = new Fields(id, number, title, helpUrl, xCoord, pixelWidth, knownData);
-        fields.add(response);
+    public SubmitBatch_Param() {}
 
+    public SubmitBatch_Param(String username, String password, int imageId) {
+        this.username = username;
+        this.password = password;
+        this.imageId = imageId;
+    }
+
+    public List<ARecord> getRecordValues() {
+        return this.recordValues;
     }
 
     public String getUsername() {
@@ -36,15 +44,48 @@ public class SubmitBatch_Param {
         return password;
     }
 
-    public int getId() {
-        return id;
+    public int getImageId() {
+        return imageId;
     }
 
-    /**
-     *
-     * @return A List of common.Field for params
-     */
-    public List<Fields> getFields() {
-        return fields;
+    public void setUsername(String username) {
+        this.username = username;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
+    public void setImageId(int imageId) {
+        this.imageId = imageId;
+    }
+
+    public void addRecord(List<Value> values) {
+        ARecord aRecord = new ARecord();
+        aRecord.setValues(values);
+        recordValues.add(aRecord);
+    }
+
+    public static SubmitBatch_Param serialize(String xml) {
+        XStream xstream = new XStream(new StaxDriver());
+        xstream.autodetectAnnotations(true);
+        xstream.alias("submit", SubmitBatch_Param.class);
+        xstream.alias("submitBatch", SubmitBatch_Param.class);
+
+        xstream.alias("value", Value.class);
+
+
+        return  (SubmitBatch_Param)xstream.fromXML(xml);
+    }
+
+    public String toXML() {
+        XStream xstream = new XStream(new StaxDriver());
+        xstream.autodetectAnnotations(true);
+        xstream.alias("submitBatch", SubmitBatch_Param.class);
+
+        xstream.alias("value", Value.class);
+
+        return xstream.toXML(this);
     }
 }
+

@@ -7,8 +7,11 @@ import org.junit.Test;
 import server.db.ImageAccessor;
 import server.db.ProjectAccessor;
 import server.db.UserAccessor;
+import server.db.ValueAccessor;
 import server.db.common.Database;
+import shared.models.Value;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import static org.junit.Assert.* ;
@@ -32,7 +35,7 @@ public class ImageAccessorTest {
     }
 
     @Test
-    public void testAll() throws Exception {
+    public void testFindAll() throws Exception {
         // Create a project and save
         ProjectAccessor projectAccessor = Factories.sampleProject();
         assertEquals(true, projectAccessor.save());
@@ -87,6 +90,38 @@ public class ImageAccessorTest {
         assertNotSame(0, imageAccessor.getId());
 
         assertNotNull(ImageAccessor.find(imageAccessor.getId()));
+    }
+
+    @Test
+    public void testSaveRecordValues() throws Exception {
+        List<Value> valuesList = new ArrayList<Value>();
+        // Add two value models to the list
+        Value value = new Value();
+        value.setType("STRING");
+        value.setValue("Testing 123");
+        valuesList.add(value);
+
+        Value value1 = new Value();
+        value1.setType("STRING");
+        value1.setValue("Testing 456");
+        valuesList.add(value1);
+
+        ImageAccessor imageAccessor = Factories.sampleImage();
+
+        // Standard user test
+        assertEquals(true, imageAccessor.save());
+        assertNotSame(0, imageAccessor.getId());
+        assertNotNull(ImageAccessor.find(imageAccessor.getId()));
+
+
+        // Test to make sure there are no values
+        assertEquals(0, ValueAccessor.all().size());
+
+        imageAccessor.addRecord(valuesList);
+        assertEquals(true, imageAccessor.save());
+
+        // Let's ensure we have 2 values now
+        assertEquals(2, ValueAccessor.all().size());
     }
 
     @Test

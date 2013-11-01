@@ -15,6 +15,16 @@ public class Value extends BaseModel {
     private String type;
     private int recordId;
 
+    public Value() {
+    }
+
+    public Value(int id, String value, String type, int recordId) {
+        this.id = id;
+        this.value = value;
+        this.type = type;
+        this.recordId = recordId;
+    }
+
     public int getId() {
         return id;
     }

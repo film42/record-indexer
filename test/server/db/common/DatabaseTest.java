@@ -33,9 +33,9 @@ public class DatabaseTest {
     public void testInit() throws Exception {
         // Basically if it doesn't throw an exception we're good.
         // It's lame, but I could also just leave this out.
-        Database.init(Database.TEST_MODE);
-        Database.init(Database.DEVELOPMENT_MODE);
-        Database.init(Database.PRODUCTION_MODE);
+        //Database.init(Database.TEST_MODE);
+        //Database.init(Database.DEVELOPMENT_MODE);
+        //Database.init(Database.PRODUCTION_MODE);
     }
 
     @Test
