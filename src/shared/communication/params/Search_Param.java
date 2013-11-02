@@ -1,5 +1,10 @@
 package shared.communication.params;
 
+import com.thoughtworks.xstream.XStream;
+import com.thoughtworks.xstream.io.xml.StaxDriver;
+import shared.models.Value;
+
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -11,16 +16,24 @@ import java.util.List;
 public class Search_Param {
 
     private String username;
-    private String password;
-    private List<Integer> fieldsIds;
-    private List<String> searchParams;
 
+    private String password;
+    private List<Integer> fieldsIds = new ArrayList<Integer>();
+    private List<String> searchParams = new ArrayList<String>();
     public String getUsername() {
         return username;
     }
 
     public String getPassword() {
         return password;
+    }
+
+    public void setUsername(String username) {
+        this.username = username;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
     }
 
     public void addSearchParam(String param) {
@@ -37,5 +50,21 @@ public class Search_Param {
 
     public List<String> getSearchParams() {
         return searchParams;
+    }
+
+    public String toXML() {
+        XStream xstream = new XStream(new StaxDriver());
+        xstream.autodetectAnnotations(true);
+        xstream.alias("search", Search_Param.class);
+
+        return xstream.toXML(this);
+    }
+
+    public static Search_Param serialize(String xml) {
+        XStream xstream = new XStream(new StaxDriver());
+        xstream.autodetectAnnotations(true);
+        xstream.alias("search", Search_Param.class);
+
+        return  (Search_Param)xstream.fromXML(xml);
     }
 }

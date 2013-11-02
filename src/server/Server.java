@@ -174,6 +174,7 @@ public class Server {
         server.createContext("/downloadBatch", new DownloadBatchHandler().getHandler());
         server.createContext("/getFields",  new GetFieldsHandler().getHandler());
         server.createContext("/submitBatch",  new SubmitBatchHandler().getHandler());
+        server.createContext("/search",  new SearchHandler().getHandler());
 
         System.out.println("Starting server on port: " + SERVER_PORT_NUMBER);
         server.start();

@@ -113,6 +113,14 @@ public class FieldAccessor extends Field implements DatabaseAccessor {
         return projectAccessor;
     }
 
+    public List<ValueAccessor> getValues() {
+
+        // Field => arrayPos && project_id 4
+        // Project(4) => Records => ValuesOf(arrayPos)
+        // Values => values[all].equals(query1,2,3)
+        return null;
+    }
+
     //
     // Required Operations
     //

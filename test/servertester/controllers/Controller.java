@@ -111,8 +111,10 @@ public class Controller implements IController {
     // TODO: Actually copy fies on import, and routes for those
     // TODO: Test more of the DAs and Server Classes if possible
     // TODO: Implement a logger
-    // TODO: Search and Submit
-    // TODO: Make sure a user is removed when you do "submitBatch"
+    // TODO: Search
+    // TODO: UNCOMMENT: Make sure a user is removed when you do "submitBatch"
+    // TODO: Uncomment the download batch debug thing
+
 
     private Communicator communicator = new Communicator("http://localhost:8090/");
     
@@ -283,14 +285,40 @@ public class Controller implements IController {
     }
 
     private void search() {
+        String username = getView().getParameterValues()[0];
+        String password = getView().getParameterValues()[1];
+        String fieldIds = getView().getParameterValues()[2];
+        String queryWords = getView().getParameterValues()[3];
+
+        Search_Param searchParam = new Search_Param();
+        for(String fieldId : parseCommaString(fieldIds)) {
+            searchParam.addFieldId(Integer.parseInt(fieldId));
+        }
+        for(String query : parseCommaString(queryWords)) {
+            searchParam.addSearchParam(query);
+        }
+
+        Search_Res searchRes = null;
+        try {
+            searchRes = communicator.search(searchParam);
+        } catch (UnauthorizedAccessException e) {
+            getView().setResponse("FAILED");
+            return;
+        } catch (RemoteServerErrorException e) {
+            getView().setResponse("FAILED");
+            return;
+        }
+
     }
 
     /* ******************************
                 HELPERS
     ******************************* */
+    // For submitBatch
     private List<Value> parseValueSet(String valueSet) {
         List<Value> valueList = new ArrayList<Value>();
-        String[] values = valueSet.split(",");
+        // Love that -1 for magic hey-oh
+        String[] values = valueSet.split(",", -1);
 
         for(String strValue : values) {
             Value value = new Value();
@@ -302,20 +330,22 @@ public class Controller implements IController {
         return valueList;
     }
 
-
+    // For submitBatch
     private List<List<Value> > parseRecordsList(String data) {
 
         List<List<Value> > recordList = new ArrayList<List<Value> >();
 
         for(String valueSet : data.split(";")) {
-            //if(valueSet.split(",").length != expectedValuesPerRow)
-            //    throw new ServerException("Incorrect values list (records) format");
-
             List<Value> valueList = parseValueSet(valueSet);
             recordList.add(valueList);
         }
 
         return recordList;
+    }
+
+    // For search
+    private String[] parseCommaString(String stringWithCommas) {
+        return stringWithCommas.split(",");
     }
 
 }

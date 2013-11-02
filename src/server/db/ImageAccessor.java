@@ -227,7 +227,7 @@ public class ImageAccessor extends Image implements DatabaseAccessor {
             for(Value value : valueList) {
                 ValueAccessor valueAccessor = new ValueAccessor(value);
                 // Will auto add the record added just above this loop
-                database.addQuery(valueAccessor.toSQL(Database.SPECIFIED_PRIMARY_KEY));
+                database.addQuery(valueAccessor.toSQL(Database.AUTO_PRIMARY_KEY));
             }
 
         } catch (SQLException e) {

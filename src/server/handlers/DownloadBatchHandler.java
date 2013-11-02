@@ -45,7 +45,15 @@ public class DownloadBatchHandler extends BaseHanlder {
             if(userAccessor == null || availableList.size() == 0) {
                 writeServerErrorResponse(exchange);
             } else if (userAccessor.login(downloadBatchParam.getPassword())) {
-                // TODO: Make this not a bug anymore, ok?
+
+                // Check for image existence, should use an int comparison, this is cleaner looking, though
+                if(userAccessor.getImage() != null) {
+                    // TODO: Uncomment this
+                    //writeServerErrorResponse(exchange);
+                    //return;
+                }
+
+                // The user doesn't have an image
                 ImageAccessor assignImage = availableList.get(0);
                 userAccessor.setImageId(assignImage.getId());
 

@@ -92,8 +92,16 @@ public class Communicator {
         return Fields_Res.serialize(response);
     }
 
-    public Search_Res search(Search_Param search) {
-        return null;
+    public Search_Res search(Search_Param search)
+            throws UnauthorizedAccessException, RemoteServerErrorException {
+
+        String resource = "search/";
+        String response = HttpClient.post(serverPath+resource, search.toXML());
+
+        if(response == null)
+            return null;
+
+        return Search_Res.serialize(response);
     }
 
 }
