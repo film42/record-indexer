@@ -149,7 +149,7 @@ public class UserAccessor extends User implements DatabaseAccessor {
     public String toSQL(boolean autoPrimaryKey) {
         String newBase = "insert into 'users' (";
         String updateBase = "insert or replace into 'users' (";
-        String newColumns = "username, password, first_name, last_name, email, indexed_records, image_id";
+        String newColumns = "username,password,first_name,last_name,email,indexed_records,image_id";
         String updateColumns = "id, " + newColumns;
         String middle = ") SELECT ";
 

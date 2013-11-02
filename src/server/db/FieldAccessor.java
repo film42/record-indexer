@@ -113,12 +113,41 @@ public class FieldAccessor extends Field implements DatabaseAccessor {
         return projectAccessor;
     }
 
-    public List<ValueAccessor> getValues() {
+    /**
+     * Returns a list of values that match this field.
+     * Ex: fields position #3 means we want all values from this project
+     *     that have the #3 position.
+     *
+     * @return list of all matching column valueAccessors
+     */
+    public List<ValueAccessor> getColumnValues() {
+        List<Object> response =  Transaction.array(new Transaction() {
+            @Override
+            public List<Object> array() throws SQLException, ServerException {
+                database.openConnection();
+                List<Object> accessorList = new ArrayList<Object>();
 
-        // Field => arrayPos && project_id 4
-        // Project(4) => Records => ValuesOf(arrayPos)
-        // Values => values[all].equals(query1,2,3)
-        return null;
+                String query;
+                query = "select * from 'values' where record_id in (select id from records where "+
+                        "image_id in (select id from images where project_id in (select id from "+
+                        "projects where id in (select project_id from fields where id is "+
+                        ""+getId()+")))) and position is (select position from fields where id is "+
+                        ""+getId()+");";
+                ResultSet resultSet = database.query(query);
+
+                while(resultSet.next()) {
+                    accessorList.add(ValueAccessor.buildFromResultSet(resultSet));
+                }
+                return accessorList;
+            }
+        }, database);
+
+        List<ValueAccessor> valueAccessorList = new ArrayList<ValueAccessor>();
+        for(Object object : response) {
+            valueAccessorList.add((ValueAccessor)object);
+        }
+
+        return valueAccessorList;
     }
 
     //
@@ -156,7 +185,7 @@ public class FieldAccessor extends Field implements DatabaseAccessor {
     public String toSQL(boolean autoPrimaryKey) {
         String newBase = "insert into 'fields' (";
         String updateBase = "insert or replace into 'fields' (";
-        String newColumns = "title, x_coord, width, help_html, known_data, project_id";
+        String newColumns = "title, x_coord, width, help_html, known_data, position, project_id";
         String updateColumns = "id, " + newColumns;
         String middle = ") SELECT ";
 
@@ -164,9 +193,10 @@ public class FieldAccessor extends Field implements DatabaseAccessor {
         if(autoPrimaryKey) primaryKey = database.LAST_PROJECT;
         else primaryKey = Integer.toString(getProjectId());
 
-        String newValues = String.format("%s,%d,%d,%s,%s,%s", SQL.format(getTitle()), getxCoord(),
-                                                              getWidth(), SQL.format(getHelpHtml()),
-                                                              SQL.format(getKnownData()), primaryKey);
+        String newValues = String.format("%s,%d,%d,%s,%s,%d,%s",SQL.format(getTitle()), getxCoord(),
+                                                          getWidth(), SQL.format(getHelpHtml()),
+                                                          SQL.format(getKnownData()), getPosition(),
+                                                          primaryKey);
         String updateValues = String.format("%d,%s", getId(), newValues);
         String end = ";";
 
@@ -200,7 +230,8 @@ public class FieldAccessor extends Field implements DatabaseAccessor {
         fieldAccessor.setWidth(resultSet.getInt(4));
         fieldAccessor.setHelpHtml(resultSet.getString(5));
         fieldAccessor.setKnownData(resultSet.getString(6));
-        fieldAccessor.setProjectId(resultSet.getInt(7));
+        fieldAccessor.setPosition(Integer.parseInt(resultSet.getString(7)));
+        fieldAccessor.setProjectId(resultSet.getInt(8));
 
         return fieldAccessor;
     }

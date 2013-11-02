@@ -18,6 +18,7 @@ public class Field extends BaseModel {
     private int width;
     private String helpHtml;
     private String knownData;
+    private int position;
     private int projectId;
 
     public int getId() {
@@ -74,5 +75,13 @@ public class Field extends BaseModel {
 
     public void setProjectId(int projectId) {
         this.projectId = projectId;
+    }
+
+    public int getPosition() {
+        return position;
+    }
+
+    public void setPosition(int position) {
+        this.position = position;
     }
 }

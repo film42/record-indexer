@@ -4,7 +4,6 @@ import com.thoughtworks.xstream.XStream;
 import com.thoughtworks.xstream.annotations.XStreamAlias;
 import com.thoughtworks.xstream.io.xml.StaxDriver;
 import shared.communication.common.Fields;
-import shared.communication.params.DownloadBatch_Param;
 import shared.models.Field;
 import shared.models.Image;
 import shared.models.Project;
@@ -48,10 +47,10 @@ public class DownloadBatch_Res {
         this.numberOfFields = fieldCount;
     }
 
-    public void addField(Field field, int position) {
+    public void addField(Field field) {
 
         Fields response = null;
-        response = new Fields(field.getId(), position, field.getTitle(),
+        response = new Fields(field.getId(), field.getPosition(), field.getTitle(),
                               field.getHelpHtml(), field.getxCoord(),
                               field.getWidth(), field.getKnownData());
         fields.add(response);
@@ -96,6 +95,33 @@ public class DownloadBatch_Res {
      */
     public List<Fields> getFields() {
         return fields;
+    }
+
+    public String toString(String serverPath) {
+        StringBuilder stringBuilder = new StringBuilder();
+
+        stringBuilder.append(getBatchId() + "\n");
+        stringBuilder.append(getProjectId() + "\n");
+        stringBuilder.append(getImageUrl() + "\n");
+        stringBuilder.append(getFirstYCoord() + "\n");
+        stringBuilder.append(getRecordHeight() + "\n");
+        stringBuilder.append(getNumberOfRecords() + "\n");
+        stringBuilder.append(getNumberOfFields() + "\n");
+
+        for(Fields field : fields) {
+            stringBuilder.append(field.getId() + "\n");
+            stringBuilder.append(field.getNumber() + "\n");
+            stringBuilder.append(field.getTitle() + "\n");
+            stringBuilder.append(serverPath + field.getHelpUrl() + "\n");
+            stringBuilder.append(field.getxCoord() + "\n");
+            stringBuilder.append(field.getPixelWidth() + "\n");
+
+            if(field.getKnownData() != null && !field.getKnownData().isEmpty()) {
+                stringBuilder.append(serverPath + field.getKnownData() + "\n");
+            }
+        }
+
+        return stringBuilder.toString();
     }
 
     public String toXML() {

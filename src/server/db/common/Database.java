@@ -171,7 +171,6 @@ public class Database {
      * @param sql A String sql command that each accessor can pass in as it builds
      */
     public void addQuery(String sql) throws SQLException {
-        System.out.println(sql);
         PreparedStatement preparedStatement;
 
         preparedStatement = connection.prepareStatement(sql);

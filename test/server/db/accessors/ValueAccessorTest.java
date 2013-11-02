@@ -44,9 +44,9 @@ public class ValueAccessorTest {
     }
 
     @Test
-    public void testCannotSaveNull() throws  Exception{
+    public void testCanSaveNull() throws  Exception{
         ValueAccessor valueAccessor = new ValueAccessor();
-        assertEquals(false, valueAccessor.save());
+        assertEquals(true, valueAccessor.save());
     }
 
     @Test

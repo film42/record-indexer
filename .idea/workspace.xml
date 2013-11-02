@@ -4,18 +4,18 @@
     <list default="true" id="0e613439-edf5-4c63-8b9d-9c55338b370a" name="Default" comment="" />
     <ignored path="6-record-indexer.iws" />
     <ignored path=".idea/workspace.xml" />
-    <file path="/fragment.java" changelist="0e613439-edf5-4c63-8b9d-9c55338b370a" time="1383348855940" ignored="false" />
-    <file path="/Field.java" changelist="0e613439-edf5-4c63-8b9d-9c55338b370a" time="1382998890275" ignored="false" />
+    <file path="/fragment.java" changelist="0e613439-edf5-4c63-8b9d-9c55338b370a" time="1383436545682" ignored="false" />
+    <file path="/Field.java" changelist="0e613439-edf5-4c63-8b9d-9c55338b370a" time="1383384059947" ignored="false" />
     <file path="/DatabaseAccessor.java" changelist="0e613439-edf5-4c63-8b9d-9c55338b370a" time="1382857030564" ignored="false" />
     <file path="/UserAccessor.java" changelist="0e613439-edf5-4c63-8b9d-9c55338b370a" time="1383336128762" ignored="false" />
-    <file path="/FieldAccessor.java" changelist="0e613439-edf5-4c63-8b9d-9c55338b370a" time="1383348069191" ignored="false" />
-    <file path="/RecordAccessor.java" changelist="0e613439-edf5-4c63-8b9d-9c55338b370a" time="1383172052994" ignored="false" />
-    <file path="/ProjectAccessor.java" changelist="0e613439-edf5-4c63-8b9d-9c55338b370a" time="1383096032098" ignored="false" />
+    <file path="/FieldAccessor.java" changelist="0e613439-edf5-4c63-8b9d-9c55338b370a" time="1383415428622" ignored="false" />
+    <file path="/RecordAccessor.java" changelist="0e613439-edf5-4c63-8b9d-9c55338b370a" time="1383418366619" ignored="false" />
+    <file path="/ProjectAccessor.java" changelist="0e613439-edf5-4c63-8b9d-9c55338b370a" time="1383353618709" ignored="false" />
     <file path="/Project.java" changelist="0e613439-edf5-4c63-8b9d-9c55338b370a" time="1382998897420" ignored="false" />
     <file path="/User.java" changelist="0e613439-edf5-4c63-8b9d-9c55338b370a" time="1383278752835" ignored="false" />
     <file path="/Image.java" changelist="0e613439-edf5-4c63-8b9d-9c55338b370a" time="1382801871783" ignored="false" />
-    <file path="/ImageAccessor.java" changelist="0e613439-edf5-4c63-8b9d-9c55338b370a" time="1383348499679" ignored="false" />
-    <file path="/Record.java" changelist="0e613439-edf5-4c63-8b9d-9c55338b370a" time="1381809780562" ignored="false" />
+    <file path="/ImageAccessor.java" changelist="0e613439-edf5-4c63-8b9d-9c55338b370a" time="1383417354422" ignored="false" />
+    <file path="/Record.java" changelist="0e613439-edf5-4c63-8b9d-9c55338b370a" time="1383417217874" ignored="false" />
     <file path="/Transaction.java" changelist="0e613439-edf5-4c63-8b9d-9c55338b370a" time="1383206507782" ignored="false" />
     <file path="/Projects.java" changelist="0e613439-edf5-4c63-8b9d-9c55338b370a" time="1381803218522" ignored="false" />
     <file path="/ValidateUser.java" changelist="0e613439-edf5-4c63-8b9d-9c55338b370a" time="1381800333702" ignored="false" />
@@ -25,35 +25,35 @@
     <file path="/Fields.java" changelist="0e613439-edf5-4c63-8b9d-9c55338b370a" time="1383063221035" ignored="false" />
     <file path="/GetFields.java" changelist="0e613439-edf5-4c63-8b9d-9c55338b370a" time="1381802848987" ignored="false" />
     <file path="/Search.java" changelist="0e613439-edf5-4c63-8b9d-9c55338b370a" time="1381804335504" ignored="false" />
-    <file path="/Communicator.java" changelist="0e613439-edf5-4c63-8b9d-9c55338b370a" time="1383344962717" ignored="false" />
-    <file path="/ValueAccessor.java" changelist="0e613439-edf5-4c63-8b9d-9c55338b370a" time="1383334644638" ignored="false" />
-    <file path="/Value.java" changelist="0e613439-edf5-4c63-8b9d-9c55338b370a" time="1383333975837" ignored="false" />
-    <file path="/Fields_Res.java" changelist="0e613439-edf5-4c63-8b9d-9c55338b370a" time="1383285356399" ignored="false" />
+    <file path="/Communicator.java" changelist="0e613439-edf5-4c63-8b9d-9c55338b370a" time="1383428115187" ignored="false" />
+    <file path="/ValueAccessor.java" changelist="0e613439-edf5-4c63-8b9d-9c55338b370a" time="1383416061731" ignored="false" />
+    <file path="/Value.java" changelist="0e613439-edf5-4c63-8b9d-9c55338b370a" time="1383384244767" ignored="false" />
+    <file path="/Fields_Res.java" changelist="0e613439-edf5-4c63-8b9d-9c55338b370a" time="1383433018420" ignored="false" />
     <file path="/Tuple.java" changelist="0e613439-edf5-4c63-8b9d-9c55338b370a" time="1381811308602" ignored="false" />
     <file path="/build.xml" changelist="0e613439-edf5-4c63-8b9d-9c55338b370a" time="1382646986339" ignored="false" />
-    <file path="/Server.java" changelist="0e613439-edf5-4c63-8b9d-9c55338b370a" time="1383345358374" ignored="false" />
+    <file path="/Server.java" changelist="0e613439-edf5-4c63-8b9d-9c55338b370a" time="1383436724334" ignored="false" />
     <file path="/ServerException.java" changelist="0e613439-edf5-4c63-8b9d-9c55338b370a" time="1382748130173" ignored="false" />
     <file path="/Database.java" changelist="0e613439-edf5-4c63-8b9d-9c55338b370a" time="1383340923392" ignored="false" />
     <file path="/BaseModel.java" changelist="0e613439-edf5-4c63-8b9d-9c55338b370a" time="1382998938379" ignored="false" />
-    <file path="/Dummy.txt" changelist="0e613439-edf5-4c63-8b9d-9c55338b370a" time="1383345742643" ignored="false" />
-    <file path="/ValueAccessorTest.java" changelist="0e613439-edf5-4c63-8b9d-9c55338b370a" time="1383094797821" ignored="false" />
+    <file path="/Dummy.txt" changelist="0e613439-edf5-4c63-8b9d-9c55338b370a" time="1383436328964" ignored="false" />
+    <file path="/ValueAccessorTest.java" changelist="0e613439-edf5-4c63-8b9d-9c55338b370a" time="1383384742140" ignored="false" />
     <file path="/UserAccessorTest.java" changelist="0e613439-edf5-4c63-8b9d-9c55338b370a" time="1383094301732" ignored="false" />
-    <file path="/Importer.java" changelist="0e613439-edf5-4c63-8b9d-9c55338b370a" time="1383069648719" ignored="false" />
-    <file path="/Projects_Res.java" changelist="0e613439-edf5-4c63-8b9d-9c55338b370a" time="1383279551789" ignored="false" />
-    <file path="/ValidateUser_Res.java" changelist="0e613439-edf5-4c63-8b9d-9c55338b370a" time="1383273248341" ignored="false" />
+    <file path="/Importer.java" changelist="0e613439-edf5-4c63-8b9d-9c55338b370a" time="1383435863311" ignored="false" />
+    <file path="/Projects_Res.java" changelist="0e613439-edf5-4c63-8b9d-9c55338b370a" time="1383428020641" ignored="false" />
+    <file path="/ValidateUser_Res.java" changelist="0e613439-edf5-4c63-8b9d-9c55338b370a" time="1383427729884" ignored="false" />
     <file path="/UsersController.java" changelist="0e613439-edf5-4c63-8b9d-9c55338b370a" time="1383012030873" ignored="false" />
     <file path="/ValidateUser_Param.java" changelist="0e613439-edf5-4c63-8b9d-9c55338b370a" time="1383267312905" ignored="false" />
     <file path="/Projects_Param.java" changelist="0e613439-edf5-4c63-8b9d-9c55338b370a" time="1383101265767" ignored="false" />
     <file path="/SampleImage_Param.java" changelist="0e613439-edf5-4c63-8b9d-9c55338b370a" time="1383021925005" ignored="false" />
-    <file path="/SampleImage_Res.java" changelist="0e613439-edf5-4c63-8b9d-9c55338b370a" time="1383280151806" ignored="false" />
+    <file path="/SampleImage_Res.java" changelist="0e613439-edf5-4c63-8b9d-9c55338b370a" time="1383428181126" ignored="false" />
     <file path="/DownloadBatch_Param.java" changelist="0e613439-edf5-4c63-8b9d-9c55338b370a" time="1383027886688" ignored="false" />
-    <file path="/DownloadBatch_Res.java" changelist="0e613439-edf5-4c63-8b9d-9c55338b370a" time="1383281581077" ignored="false" />
+    <file path="/DownloadBatch_Res.java" changelist="0e613439-edf5-4c63-8b9d-9c55338b370a" time="1383433348003" ignored="false" />
     <file path="/SubmitBatch_Param.java" changelist="0e613439-edf5-4c63-8b9d-9c55338b370a" time="1383342614667" ignored="false" />
     <file path="/Common.java" changelist="0e613439-edf5-4c63-8b9d-9c55338b370a" time="1383070919890" ignored="false" />
     <file path="/ServerUnitTests.java" changelist="0e613439-edf5-4c63-8b9d-9c55338b370a" time="1383070806127" ignored="false" />
     <file path="/SQL.java" changelist="0e613439-edf5-4c63-8b9d-9c55338b370a" time="1383068577793" ignored="false" />
-    <file path="/a.dummy" changelist="0e613439-edf5-4c63-8b9d-9c55338b370a" time="1383342046755" ignored="false" />
-    <file path="/Factories.java" changelist="0e613439-edf5-4c63-8b9d-9c55338b370a" time="1383097253241" ignored="false" />
+    <file path="/a.dummy" changelist="0e613439-edf5-4c63-8b9d-9c55338b370a" time="1383436197905" ignored="false" />
+    <file path="/Factories.java" changelist="0e613439-edf5-4c63-8b9d-9c55338b370a" time="1383384363853" ignored="false" />
     <file path="/ProjectAccessorTest.java" changelist="0e613439-edf5-4c63-8b9d-9c55338b370a" time="1383095784078" ignored="false" />
     <file path="/ImageAccessorTest.java" changelist="0e613439-edf5-4c63-8b9d-9c55338b370a" time="1383340591538" ignored="false" />
     <file path="/DatabaseTest.java" changelist="0e613439-edf5-4c63-8b9d-9c55338b370a" time="1383098919361" ignored="false" />
@@ -61,22 +61,26 @@
     <file path="/Hanlder.java" changelist="0e613439-edf5-4c63-8b9d-9c55338b370a" time="1383099672595" ignored="false" />
     <file path="/GetProjectsHandler.java" changelist="0e613439-edf5-4c63-8b9d-9c55338b370a" time="1383341990282" ignored="false" />
     <file path="/GetSampleImageHandler.java" changelist="0e613439-edf5-4c63-8b9d-9c55338b370a" time="1383284704338" ignored="false" />
-    <file path="/DownloadBatchHandler.java" changelist="0e613439-edf5-4c63-8b9d-9c55338b370a" time="1383350372790" ignored="false" />
-    <file path="/Controller.java" changelist="0e613439-edf5-4c63-8b9d-9c55338b370a" time="1383350400173" ignored="false" />
-    <file path="/HttpClient.java" changelist="0e613439-edf5-4c63-8b9d-9c55338b370a" time="1383278032221" ignored="false" />
+    <file path="/DownloadBatchHandler.java" changelist="0e613439-edf5-4c63-8b9d-9c55338b370a" time="1383433332211" ignored="false" />
+    <file path="/Controller.java" changelist="0e613439-edf5-4c63-8b9d-9c55338b370a" time="1383434371280" ignored="false" />
+    <file path="/HttpClient.java" changelist="0e613439-edf5-4c63-8b9d-9c55338b370a" time="1383426812084" ignored="false" />
     <file path="/HttpResponse.java" changelist="0e613439-edf5-4c63-8b9d-9c55338b370a" time="1383275929509" ignored="false" />
     <file path="/UnauthorizedAccessException.java" changelist="0e613439-edf5-4c63-8b9d-9c55338b370a" time="1383276845353" ignored="false" />
     <file path="/RemoteServerException.java" changelist="0e613439-edf5-4c63-8b9d-9c55338b370a" time="1383276893097" ignored="false" />
-    <file path="/GetFieldsHandler.java" changelist="0e613439-edf5-4c63-8b9d-9c55338b370a" time="1383285327349" ignored="false" />
+    <file path="/GetFieldsHandler.java" changelist="0e613439-edf5-4c63-8b9d-9c55338b370a" time="1383433072612" ignored="false" />
     <file path="/Fields_Param.java" changelist="0e613439-edf5-4c63-8b9d-9c55338b370a" time="1383283863074" ignored="false" />
-    <file path="/SubmitBatchHandler.java" changelist="0e613439-edf5-4c63-8b9d-9c55338b370a" time="1383349781905" ignored="false" />
+    <file path="/SubmitBatchHandler.java" changelist="0e613439-edf5-4c63-8b9d-9c55338b370a" time="1383417314389" ignored="false" />
     <file path="/InvalidFormatException.java" changelist="0e613439-edf5-4c63-8b9d-9c55338b370a" time="1383326367733" ignored="false" />
     <file path="/Records.java" changelist="0e613439-edf5-4c63-8b9d-9c55338b370a" time="1383329872894" ignored="false" />
     <file path="/ARecord.java" changelist="0e613439-edf5-4c63-8b9d-9c55338b370a" time="1383331548652" ignored="false" />
     <file path="/SubmitBatch_Res.java" changelist="0e613439-edf5-4c63-8b9d-9c55338b370a" time="1383342392096" ignored="false" />
-    <file path="/Search_Param.java" changelist="0e613439-edf5-4c63-8b9d-9c55338b370a" time="1383345079730" ignored="false" />
-    <file path="/Search_Res.java" changelist="0e613439-edf5-4c63-8b9d-9c55338b370a" time="1383345008308" ignored="false" />
-    <file path="/SearchHandler.java" changelist="0e613439-edf5-4c63-8b9d-9c55338b370a" time="1383350434516" ignored="false" />
+    <file path="/Search_Param.java" changelist="0e613439-edf5-4c63-8b9d-9c55338b370a" time="1383419335162" ignored="false" />
+    <file path="/Search_Res.java" changelist="0e613439-edf5-4c63-8b9d-9c55338b370a" time="1383433279340" ignored="false" />
+    <file path="/SearchHandler.java" changelist="0e613439-edf5-4c63-8b9d-9c55338b370a" time="1383419214269" ignored="false" />
+    <file path="/StaticsHandler.java" changelist="0e613439-edf5-4c63-8b9d-9c55338b370a" time="1383422915740" ignored="false" />
+    <file path="/BaseHanlder.java" changelist="0e613439-edf5-4c63-8b9d-9c55338b370a" time="1383422967264" ignored="false" />
+    <file path="/a.java" changelist="0e613439-edf5-4c63-8b9d-9c55338b370a" time="1383435315203" ignored="false" />
+    <file path="/sample.java" changelist="0e613439-edf5-4c63-8b9d-9c55338b370a" time="1383435312830" ignored="false" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -136,10 +140,10 @@
       <content type="file-editors">
         <state>
           <leaf>
-            <file leaf-file-name="Projects_Res.java" pinned="false" current="false" current-in-tab="false">
+            <file leaf-file-name="Projects_Res.java" pinned="false" current="false" current-in-tab="true">
               <entry file="file://$PROJECT_DIR$/src/shared/communication/responses/Projects_Res.java">
                 <provider selected="true" editor-type-id="text-editor">
-                  <state line="30" column="0" selection-start="728" selection-end="838" vertical-scroll-proportion="0.0">
+                  <state line="47" column="40" selection-start="1259" selection-end="1259" vertical-scroll-proportion="0.65909094">
                     <folding>
                       <element signature="e#710#723#0" expanded="true" />
                     </folding>
@@ -147,57 +151,19 @@
                 </provider>
               </entry>
             </file>
-            <file leaf-file-name="Server.java" pinned="false" current="false" current-in-tab="false">
-              <entry file="file://$PROJECT_DIR$/src/server/Server.java">
-                <provider selected="true" editor-type-id="text-editor">
-                  <state line="176" column="60" selection-start="6340" selection-end="6340" vertical-scroll-proportion="0.0">
-                    <folding>
-                      <element signature="method#scratch#0;class#Server#0" expanded="false" />
-                    </folding>
-                  </state>
-                </provider>
-              </entry>
-            </file>
-            <file leaf-file-name="Projects_Param.java" pinned="false" current="false" current-in-tab="false">
-              <entry file="file://$PROJECT_DIR$/src/shared/communication/params/Projects_Param.java">
-                <provider selected="true" editor-type-id="text-editor">
-                  <state line="12" column="23" selection-start="279" selection-end="304" vertical-scroll-proportion="0.0">
-                    <folding />
-                  </state>
-                </provider>
-              </entry>
-            </file>
-            <file leaf-file-name="SampleImage_Param.java" pinned="false" current="false" current-in-tab="false">
-              <entry file="file://$PROJECT_DIR$/src/shared/communication/params/SampleImage_Param.java">
-                <provider selected="true" editor-type-id="text-editor">
-                  <state line="11" column="13" selection-start="234" selection-end="234" vertical-scroll-proportion="0.0">
-                    <folding>
-                      <element signature="imports" expanded="true" />
-                    </folding>
-                  </state>
-                </provider>
-              </entry>
-            </file>
-            <file leaf-file-name="DownloadBatch_Param.java" pinned="false" current="false" current-in-tab="false">
-              <entry file="file://$PROJECT_DIR$/src/shared/communication/params/DownloadBatch_Param.java">
-                <provider selected="true" editor-type-id="text-editor">
-                  <state line="51" column="8" selection-start="1322" selection-end="1371" vertical-scroll-proportion="0.0">
-                    <folding>
-                      <element signature="imports" expanded="true" />
-                    </folding>
-                  </state>
-                </provider>
-              </entry>
-            </file>
-            <file leaf-file-name="Controller.java" pinned="false" current="false" current-in-tab="true">
+            <file leaf-file-name="Controller.java" pinned="false" current="false" current-in-tab="false">
               <entry file="file://$PROJECT_DIR$/test/servertester/controllers/Controller.java">
                 <provider selected="true" editor-type-id="text-editor">
-                  <state line="115" column="53" selection-start="3146" selection-end="3146" vertical-scroll-proportion="0.296875">
+                  <state line="222" column="0" selection-start="6777" selection-end="6777" vertical-scroll-proportion="0.0">
                     <folding>
                       <element signature="imports" expanded="true" />
                       <element signature="e#1057#1065#0" expanded="true" />
-                      <element signature="e#10150#10157#0" expanded="true" />
-                      <element signature="e#10626#10640#0" expanded="true" />
+                      <element signature="method#validateUser#0;class#Controller#0" expanded="false" />
+                      <element signature="method#getProjects#0;class#Controller#0" expanded="false" />
+                      <element signature="method#getSampleImage#0;class#Controller#0" expanded="false" />
+                      <element signature="method#submitBatch#0;class#Controller#0" expanded="false" />
+                      <element signature="e#10339#10346#0" expanded="true" />
+                      <element signature="e#10815#10829#0" expanded="true" />
                     </folding>
                   </state>
                 </provider>
@@ -206,7 +172,7 @@
             <file leaf-file-name="Communicator.java" pinned="false" current="false" current-in-tab="false">
               <entry file="file://$PROJECT_DIR$/src/client/communication/Communicator.java">
                 <provider selected="true" editor-type-id="text-editor">
-                  <state line="103" column="32" selection-start="3169" selection-end="3169" vertical-scroll-proportion="0.0">
+                  <state line="22" column="17" selection-start="544" selection-end="544" vertical-scroll-proportion="0.0">
                     <folding />
                   </state>
                 </provider>
@@ -226,9 +192,40 @@
             <file leaf-file-name="Fields_Res.java" pinned="false" current="false" current-in-tab="false">
               <entry file="file://$PROJECT_DIR$/src/shared/communication/responses/Fields_Res.java">
                 <provider selected="true" editor-type-id="text-editor">
-                  <state line="54" column="49" selection-start="1460" selection-end="1510" vertical-scroll-proportion="0.0">
+                  <state line="59" column="58" selection-start="1574" selection-end="1574" vertical-scroll-proportion="0.0">
                     <folding>
                       <element signature="e#587#595#0" expanded="true" />
+                    </folding>
+                  </state>
+                </provider>
+              </entry>
+            </file>
+            <file leaf-file-name="DownloadBatch_Res.java" pinned="false" current="false" current-in-tab="false">
+              <entry file="file://$PROJECT_DIR$/src/shared/communication/responses/DownloadBatch_Res.java">
+                <provider selected="true" editor-type-id="text-editor">
+                  <state line="117" column="0" selection-start="3277" selection-end="3277" vertical-scroll-proportion="0.0">
+                    <folding>
+                      <element signature="e#814#822#0" expanded="true" />
+                    </folding>
+                  </state>
+                </provider>
+              </entry>
+            </file>
+            <file leaf-file-name="Fields.java" pinned="false" current="false" current-in-tab="false">
+              <entry file="file://$PROJECT_DIR$/src/shared/communication/common/Fields.java">
+                <provider selected="true" editor-type-id="text-editor">
+                  <state line="21" column="0" selection-start="414" selection-end="414" vertical-scroll-proportion="0.0">
+                    <folding />
+                  </state>
+                </provider>
+              </entry>
+            </file>
+            <file leaf-file-name="Search_Res.java" pinned="false" current="false" current-in-tab="false">
+              <entry file="file://$PROJECT_DIR$/src/shared/communication/responses/Search_Res.java">
+                <provider selected="true" editor-type-id="text-editor">
+                  <state line="37" column="9" selection-start="1012" selection-end="1012" vertical-scroll-proportion="0.0">
+                    <folding>
+                      <element signature="e#440#447#0" expanded="true" />
                     </folding>
                   </state>
                 </provider>
@@ -245,23 +242,10 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="SubmitBatchHandler.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/server/handlers/SubmitBatchHandler.java">
+      <file leaf-file-name="BaseHanlder.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/server/handlers/common/BaseHanlder.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="84" column="17" selection-start="3434" selection-end="3434" vertical-scroll-proportion="0.0">
-              <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="e#611#3513#0" expanded="true" />
-                <element signature="e#3506#3507#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="SubmitBatch_Res.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/shared/communication/responses/SubmitBatch_Res.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="36" column="29" selection-start="1007" selection-end="1007" vertical-scroll-proportion="0.0">
+            <state line="76" column="9" selection-start="2608" selection-end="2608" vertical-scroll-proportion="0.0">
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -269,26 +253,12 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Search_Param.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/shared/communication/params/Search_Param.java">
+      <file leaf-file-name="GetProjectsHandler.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/server/handlers/GetProjectsHandler.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="31" column="33" selection-start="730" selection-end="730" vertical-scroll-proportion="0.0">
+            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#440#449#0" expanded="true" />
-                <element signature="e#506#514#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ImageAccessor.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/server/db/ImageAccessor.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="229" column="79" selection-start="6937" selection-end="6937" vertical-scroll-proportion="0.0">
-              <folding>
-                <element signature="e#1488#1496#0" expanded="true" />
-                <element signature="e#2023#2038#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -297,7 +267,7 @@
       <file leaf-file-name="Database.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/server/db/common/Database.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="206" column="0" selection-start="6236" selection-end="6236" vertical-scroll-proportion="0.0">
+            <state line="173" column="0" selection-start="5069" selection-end="5069" vertical-scroll-proportion="0.0">
               <folding>
                 <element signature="e#4824#4843#0" expanded="true" />
               </folding>
@@ -305,19 +275,30 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Search_Res.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/shared/communication/responses/Search_Res.java">
+      <file leaf-file-name="UserAccessorTest.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/test/server/db/accessors/UserAccessorTest.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="22" column="0" selection-start="472" selection-end="472" vertical-scroll-proportion="0.0">
+            <state line="87" column="38" selection-start="2620" selection-end="2620" vertical-scroll-proportion="0.0">
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Common.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/test/server/db/Common.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="17" column="13" selection-start="332" selection-end="332" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="SearchHandler.java" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/server/handlers/SearchHandler.java">
+      <file leaf-file-name="DatabaseTest.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/test/server/db/common/DatabaseTest.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="36" column="30" selection-start="1199" selection-end="1199" vertical-scroll-proportion="0.4988864">
+            <state line="40" column="8" selection-start="926" selection-end="926" vertical-scroll-proportion="0.0">
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -325,26 +306,49 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="FieldAccessor.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/server/db/FieldAccessor.java">
+      <file leaf-file-name="ServerUnitTests.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/test/server/ServerUnitTests.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="120" column="20" selection-start="3321" selection-end="3321" vertical-scroll-proportion="0.0">
+            <state line="25" column="1" selection-start="732" selection-end="732" vertical-scroll-proportion="0.0">
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#1306#1314#0" expanded="true" />
-                <element signature="e#1705#1720#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="DownloadBatchHandler.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/server/handlers/DownloadBatchHandler.java">
+      <file leaf-file-name="ProjectAccessor.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/server/db/ProjectAccessor.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="62" column="50" selection-start="2347" selection-end="2347" vertical-scroll-proportion="0.0">
+            <state line="284" column="0" selection-start="9102" selection-end="9102" vertical-scroll-proportion="0.0">
               <folding>
-                <element signature="imports" expanded="true" />
+                <element signature="e#1382#1390#0" expanded="true" />
+                <element signature="e#1785#1802#0" expanded="true" />
+                <element signature="e#2426#2434#0" expanded="true" />
+                <element signature="e#2868#2883#0" expanded="true" />
+                <element signature="e#3355#3363#0" expanded="true" />
+                <element signature="e#3957#3972#0" expanded="true" />
+                <element signature="e#5623#5631#0" expanded="true" />
+                <element signature="e#6065#6080#0" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Server.java" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/server/Server.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="56" column="32" selection-start="1782" selection-end="1782" vertical-scroll-proportion="0.48795182">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="build.xml" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/build.xml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="146" column="30" selection-start="4628" selection-end="4632" vertical-scroll-proportion="1.88">
+              <folding />
             </state>
           </provider>
         </entry>
@@ -359,22 +363,22 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/test/server/db/accessors/ImageAccessorTest.java" />
-        <option value="$PROJECT_DIR$/src/server/db/common/Database.java" />
-        <option value="$PROJECT_DIR$/src/server/handlers/GetProjectsHandler.java" />
-        <option value="$PROJECT_DIR$/src/shared/communication/responses/Fields_Res.java" />
-        <option value="$PROJECT_DIR$/src/shared/communication/responses/SubmitBatch_Res.java" />
-        <option value="$PROJECT_DIR$/src/shared/communication/params/SubmitBatch_Param.java" />
-        <option value="$PROJECT_DIR$/src/client/communication/Communicator.java" />
-        <option value="$PROJECT_DIR$/src/shared/communication/responses/Search_Res.java" />
-        <option value="$PROJECT_DIR$/src/server/Server.java" />
-        <option value="$PROJECT_DIR$/src/shared/communication/params/Search_Param.java" />
         <option value="$PROJECT_DIR$/src/server/db/FieldAccessor.java" />
         <option value="$PROJECT_DIR$/src/server/db/ImageAccessor.java" />
-        <option value="$PROJECT_DIR$/src/server/handlers/SubmitBatchHandler.java" />
+        <option value="$PROJECT_DIR$/src/server/db/ProjectAccessor.java" />
+        <option value="$PROJECT_DIR$/src/server/db/UserAccessor.java" />
+        <option value="$PROJECT_DIR$/src/server/db/ValueAccessor.java" />
+        <option value="$PROJECT_DIR$/src/server/db/importer/Importer.java" />
         <option value="$PROJECT_DIR$/src/server/handlers/DownloadBatchHandler.java" />
-        <option value="$PROJECT_DIR$/test/servertester/controllers/Controller.java" />
-        <option value="$PROJECT_DIR$/src/server/handlers/SearchHandler.java" />
+        <option value="$PROJECT_DIR$/src/server/handlers/GetSampleImageHandler.java" />
+        <option value="$PROJECT_DIR$/src/server/handlers/SubmitBatchHandler.java" />
+        <option value="$PROJECT_DIR$/src/server/handlers/common/BaseHanlder.java" />
+        <option value="$PROJECT_DIR$/checkstyle-report.txt" />
+        <option value="$PROJECT_DIR$/src/server/db/common/Database.java" />
+        <option value="$PROJECT_DIR$/test/server/db/accessors/UserAccessorTest.java" />
+        <option value="$PROJECT_DIR$/test/server/db/common/DatabaseTest.java" />
+        <option value="$PROJECT_DIR$/test/server/ServerUnitTests.java" />
+        <option value="$PROJECT_DIR$/src/server/Server.java" />
       </list>
     </option>
   </component>
@@ -382,9 +386,10 @@
     <treeState />
   </component>
   <component name="ProjectFrameBounds">
-    <option name="y" value="22" />
-    <option name="width" value="1290" />
-    <option name="height" value="821" />
+    <option name="x" value="1907" />
+    <option name="y" value="-297" />
+    <option name="width" value="1466" />
+    <option name="height" value="1195" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="false">
     <OptionsSetting value="true" id="Add" />
@@ -770,6 +775,32 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
+              <option name="myItemId" value="handlers" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="common" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="6-record-indexer" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="6-record-indexer" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="server" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
               <option name="myItemId" value="errors" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
@@ -793,6 +824,32 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="db" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="6-record-indexer" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="6-record-indexer" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="server" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="db" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="importer" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -897,16 +954,16 @@
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="project.structure.last.edited" value="Libraries" />
+    <property name="project.structure.last.edited" value="Project" />
     <property name="GoToFile.includeJavaFiles" value="false" />
     <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary" value="JUnit4" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="OverrideImplement.combined" value="true" />
     <property name="options.splitter.main.proportions" value="0.3" />
-    <property name="options.lastSelected" value="fileTemplates" />
+    <property name="options.lastSelected" value="preferences.sourceCode.General" />
     <property name="MemberChooser.sorted" value="false" />
     <property name="recentsLimit" value="5" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/test" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/lib/commons-io-2.4" />
     <property name="project.structure.side.proportion" value="0.2" />
     <property name="MemberChooser.copyJavadoc" value="false" />
     <property name="GoToClass.toSaveIncludeLibraries" value="false" />
@@ -1141,7 +1198,7 @@
     <configuration default="false" name="Server" type="Application" factoryName="Application">
       <option name="MAIN_CLASS_NAME" value="server.Server" />
       <option name="VM_PARAMETERS" value="" />
-      <option name="PROGRAM_PARAMETERS" value="" />
+      <option name="PROGRAM_PARAMETERS" value="localhost 8090" />
       <option name="WORKING_DIRECTORY" value="file://$PROJECT_DIR$" />
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
       <option name="ALTERNATIVE_JRE_PATH" value="" />
@@ -1263,31 +1320,31 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="22" width="1290" height="821" extended-state="6" />
+    <frame x="1907" y="-297" width="1466" height="1195" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="JetGradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32524964" sideWeight="0.49966103" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Leiningen" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32524964" sideWeight="0.49966103" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Leiningen" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.28673324" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.18567026" sideWeight="0.500339" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Debug" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.18046512" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.31669044" sideWeight="0.5" order="8" side_tool="true" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3281027" sideWeight="0.49966103" order="8" side_tool="false" content_ui="tabs" />
-      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32896763" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Metrics" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4336662" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.10511628" sideWeight="0.49919614" order="11" side_tool="false" content_ui="tabs" />
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32896763" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Metrics" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4336662" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.24949153" sideWeight="0.8140531" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32979593" sideWeight="0.8031384" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32979593" sideWeight="0.8031384" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.2173913" sideWeight="0.7132668" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3580599" sideWeight="0.49966103" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.19014084" sideWeight="0.8195349" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.23348837" sideWeight="0.49966103" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
-      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
   <component name="VcsContentAnnotationSettings">
@@ -1364,63 +1421,9 @@
     <option name="showOnlyWarnings" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/server/db/RecordAccessor.java">
+    <entry file="file://$PROJECT_DIR$/src/server/handlers/GetProjectsHandler.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="19" column="13" selection-start="423" selection-end="423" vertical-scroll-proportion="-4.5790644">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/test/server/db/common/DatabaseTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="35" column="10" selection-start="773" selection-end="773" vertical-scroll-proportion="0.0">
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/server/db/common/Database.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="206" column="0" selection-start="6236" selection-end="6236" vertical-scroll-proportion="0.0">
-          <folding>
-            <element signature="e#4824#4843#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/shared/communication/params/Search_Param.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="31" column="33" selection-start="730" selection-end="730" vertical-scroll-proportion="0.0">
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#440#449#0" expanded="true" />
-            <element signature="e#506#514#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/shared/communication/responses/SubmitBatch_Res.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="36" column="29" selection-start="1007" selection-end="1007" vertical-scroll-proportion="0.0">
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/shared/communication/params/SubmitBatch_Param.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="35" column="0" selection-start="904" selection-end="904" vertical-scroll-proportion="0.0">
-          <folding>
-            <element signature="e#625#634#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/server/handlers/ValidateUserHandler.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="18" column="32" selection-start="478" selection-end="1618" vertical-scroll-proportion="0.0">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -1429,87 +1432,124 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/server/db/ImageAccessor.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="229" column="79" selection-start="6937" selection-end="6937" vertical-scroll-proportion="0.0">
+        <state line="73" column="5" selection-start="2206" selection-end="2206" vertical-scroll-proportion="0.0">
           <folding>
             <element signature="e#1488#1496#0" expanded="true" />
-            <element signature="e#2023#2038#0" expanded="true" />
+            <element signature="e#2039#2054#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/shared/communication/responses/ValidateUser_Res.java">
+    <entry file="file://$PROJECT_DIR$/src/server/db/common/Database.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="51" column="5" selection-start="1302" selection-end="1302" vertical-scroll-proportion="0.0">
+        <state line="173" column="0" selection-start="5069" selection-end="5069" vertical-scroll-proportion="0.0">
+          <folding>
+            <element signature="e#4824#4843#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/server/db/UserAccessor.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="179" column="0" selection-start="5393" selection-end="5393" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="jar:///Library/Java/JavaVirtualMachines/jdk1.7.0_17.jdk/Contents/Home/src.zip!/java/util/List.java">
+    <entry file="file://$PROJECT_DIR$/test/server/db/accessors/UserAccessorTest.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="234" column="12" selection-start="9674" selection-end="9674" vertical-scroll-proportion="0.33238637">
+        <state line="87" column="38" selection-start="2620" selection-end="2620" vertical-scroll-proportion="0.0">
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/server/db/ValueAccessor.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="202" column="55" selection-start="5956" selection-end="5956" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/test/server/db/accessors/ImageAccessorTest.java">
+    <entry file="file://$PROJECT_DIR$/test/server/db/Common.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#2989#2996#0" expanded="true" />
-          </folding>
+        <state line="17" column="13" selection-start="332" selection-end="332" vertical-scroll-proportion="0.0">
+          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/server/handlers/SubmitBatchHandler.java">
+    <entry file="file://$PROJECT_DIR$/src/server/db/importer/Importer.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="84" column="17" selection-start="3434" selection-end="3434" vertical-scroll-proportion="0.0">
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#611#3513#0" expanded="true" />
-            <element signature="e#3506#3507#0" expanded="true" />
-          </folding>
+        <state line="249" column="64" selection-start="9544" selection-end="9544" vertical-scroll-proportion="0.0">
+          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/server/db/FieldAccessor.java">
+    <entry file="file://$PROJECT_DIR$/test/server/db/common/DatabaseTest.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="120" column="20" selection-start="3321" selection-end="3321" vertical-scroll-proportion="0.0">
+        <state line="40" column="8" selection-start="926" selection-end="926" vertical-scroll-proportion="0.0">
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#1306#1314#0" expanded="true" />
-            <element signature="e#1705#1720#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/test/servertester/controllers/Controller.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="115" column="53" selection-start="3146" selection-end="3146" vertical-scroll-proportion="0.296875">
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#1057#1065#0" expanded="true" />
-            <element signature="e#10150#10157#0" expanded="true" />
-            <element signature="e#10626#10640#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/server/handlers/DownloadBatchHandler.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="62" column="50" selection-start="2347" selection-end="2347" vertical-scroll-proportion="0.0">
+        <state line="46" column="63" selection-start="1660" selection-end="1660" vertical-scroll-proportion="0.0">
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/server/handlers/SearchHandler.java">
+    <entry file="file://$PROJECT_DIR$/test/server/ServerUnitTests.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="36" column="30" selection-start="1199" selection-end="1199" vertical-scroll-proportion="0.4988864">
+        <state line="25" column="1" selection-start="732" selection-end="732" vertical-scroll-proportion="0.0">
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/server/handlers/GetSampleImageHandler.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="61" column="0" selection-start="2015" selection-end="2015" vertical-scroll-proportion="0.0">
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/checkstyle-report.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="2" column="0" selection-start="30" selection-end="30" vertical-scroll-proportion="0.071599044">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/server/handlers/SubmitBatchHandler.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="85" column="9" selection-start="3448" selection-end="3448" vertical-scroll-proportion="0.0">
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#611#3454#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/build.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="146" column="30" selection-start="4628" selection-end="4632" vertical-scroll-proportion="1.88">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/server/Server.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="56" column="32" selection-start="1782" selection-end="1782" vertical-scroll-proportion="0.48795182">
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1590,7 +1630,7 @@
       </state>
       <state key="ProjectLibrariesConfigurable.UI">
         <settings>
-          <last-edited>checkstyle-5.3-all</last-edited>
+          <last-edited>commons-io-2</last-edited>
           <splitter-proportions>
             <option name="proportions">
               <list>

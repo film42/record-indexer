@@ -36,6 +36,18 @@ public class Projects_Res {
         return projectsList;
     }
 
+    @Override
+    public String toString() {
+        StringBuilder stringBuilder = new StringBuilder();
+
+        for(Project_Res projectRes : projectsList) {
+            stringBuilder.append(projectRes.getId() + "\n");
+            stringBuilder.append(projectRes.getTitle() + "\n");
+        }
+
+        return stringBuilder.toString();
+    }
+
     public String toXML() {
         XStream xstream = new XStream(new StaxDriver());
         xstream.autodetectAnnotations(true);

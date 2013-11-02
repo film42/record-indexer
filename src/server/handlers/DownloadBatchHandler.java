@@ -46,7 +46,8 @@ public class DownloadBatchHandler extends BaseHanlder {
                 writeServerErrorResponse(exchange);
             } else if (userAccessor.login(downloadBatchParam.getPassword())) {
 
-                // Check for image existence, should use an int comparison, this is cleaner looking, though
+                // Check for image existence, should use an int comparison,
+                // this is cleaner looking, though
                 if(userAccessor.getImage() != null) {
                     // TODO: Uncomment this
                     //writeServerErrorResponse(exchange);
@@ -64,12 +65,13 @@ public class DownloadBatchHandler extends BaseHanlder {
                     List<FieldAccessor> fieldAccessorList = projectAccessor.getFields();
 
 
-                    DownloadBatch_Res downloadBatchRes = new DownloadBatch_Res(assignImage.getModel(),
+                    DownloadBatch_Res downloadBatchRes = new DownloadBatch_Res(
+                                                                        assignImage.getModel(),
                             projectAccessor.getModel(), fieldAccessorList.size(), 0);
 
                     // Add each field
-                    for(int i = 0; i < fieldAccessorList.size(); i++)
-                        downloadBatchRes.addField(fieldAccessorList.get(i).getModel(), (i+1));
+                    for(FieldAccessor fieldAccessor : fieldAccessorList)
+                        downloadBatchRes.addField(fieldAccessor.getModel());
 
                     response = downloadBatchRes.toXML();
                     writeSuccessResponse(exchange, response);

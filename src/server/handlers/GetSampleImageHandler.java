@@ -41,7 +41,8 @@ public class GetSampleImageHandler extends BaseHanlder {
                 List<ImageAccessor> imageAccessor = projectAccessor.getImages();
 
                 if(imageAccessor.size() > 0) {
-                    SampleImage_Res sampleImageRes = new SampleImage_Res(imageAccessor.get(0).getModel());
+                    SampleImage_Res sampleImageRes = new SampleImage_Res(
+                                                            imageAccessor.get(0).getModel());
                     response = sampleImageRes.toXML();
 
                     writeSuccessResponse(exchange, response);

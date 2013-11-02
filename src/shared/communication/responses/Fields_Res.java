@@ -22,6 +22,8 @@ public class Fields_Res {
     @XStreamImplicit()
     private List<Fields> fields = new ArrayList<Fields>();
 
+    private int projectId;
+
     public void addField(Field field, int position) {
 
         Fields response = null;
@@ -38,6 +40,27 @@ public class Fields_Res {
      */
     public List<Fields> getFields() {
         return fields;
+    }
+
+    public int getProjectId() {
+        return projectId;
+    }
+
+    public void setProjectId(int projectId) {
+        this.projectId = projectId;
+    }
+
+    @Override
+    public String toString() {
+        StringBuilder stringBuilder = new StringBuilder();
+
+        for(Fields field : fields) {
+            stringBuilder.append(getProjectId() + "\n");
+            stringBuilder.append(field.getId() + "\n");
+            stringBuilder.append(field.getTitle() + "\n");
+        }
+
+        return stringBuilder.toString();
     }
 
     public String toXML() {

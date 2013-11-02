@@ -20,6 +20,10 @@ public class Communicator {
 
     private String serverPath;
 
+    public String getServerPath() {
+        return serverPath;
+    }
+
     public ValidateUser_Res validateUser(ValidateUser_Param user)
             throws UnauthorizedAccessException, RemoteServerErrorException {
 
@@ -102,6 +106,20 @@ public class Communicator {
             return null;
 
         return Search_Res.serialize(response);
+    }
+
+    public void downloadStatic(String rescource) {
+
+        try {
+            //String response = HttpClient.get(url);
+            HttpClient.getStatic(serverPath+rescource);
+        } catch (UnauthorizedAccessException e) {
+            e.printStackTrace();
+        } catch (RemoteServerErrorException e) {
+            e.printStackTrace();
+        }
+        //return  null;
+
     }
 
 }

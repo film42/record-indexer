@@ -5,6 +5,7 @@ import com.thoughtworks.xstream.io.xml.StaxDriver;
 import shared.communication.common.Tuple;
 import shared.communication.params.Search_Param;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -15,17 +16,35 @@ import java.util.List;
  */
 public class Search_Res {
 
-    private List<Tuple> tuples;
+    private List<Tuple> tuples = new ArrayList<Tuple>();
+
+    public Search_Res(List<Tuple> tupleList) {
+        this.tuples = tupleList;
+    }
 
     public List<Tuple> getSearchResults() {
         return tuples;
     }
 
+    @Override
+    public String toString() {
+        StringBuilder stringBuilder = new StringBuilder();
+
+        for(Tuple tuple: tuples) {
+            stringBuilder.append(tuple.getBatchId() + "\n");
+            stringBuilder.append(tuple.getImageUrl() + "\n");
+            stringBuilder.append(tuple.getRecordNumber() + "\n");
+            stringBuilder.append(tuple.getFieldId() + "\n");
+        }
+
+        return stringBuilder.toString();
+    }
 
     public String toXML() {
         XStream xstream = new XStream(new StaxDriver());
         xstream.autodetectAnnotations(true);
         xstream.alias("search", Search_Res.class);
+        xstream.alias("tuple", Tuple.class);
 
         return xstream.toXML(this);
     }
@@ -34,6 +53,7 @@ public class Search_Res {
         XStream xstream = new XStream(new StaxDriver());
         xstream.autodetectAnnotations(true);
         xstream.alias("search", Search_Res.class);
+        xstream.alias("tuple", Tuple.class);
 
         return  (Search_Res)xstream.fromXML(xml);
     }

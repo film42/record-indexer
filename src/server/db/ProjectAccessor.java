@@ -102,6 +102,34 @@ public class ProjectAccessor extends Project implements DatabaseAccessor {
         return fieldAccessorList;
     }
 
+    public List<ValueAccessor> getValues() {
+
+        List<Object> response =  Transaction.array(new Transaction() {
+            @Override
+            public List<Object> array() throws SQLException, ServerException {
+                database.openConnection();
+                List<Object> accessorList = new ArrayList<Object>();
+
+                String query = "select * from 'values' where record_id in " +
+                                "(select id from records where image_id in " +
+                                "(select id from images where project_id = "+getId()+"));";
+                ResultSet resultSet = database.query(query);
+
+                while(resultSet.next()) {
+                    accessorList.add(ValueAccessor.buildFromResultSet(resultSet));
+                }
+                return accessorList;
+            }
+        }, database);
+
+        List<ValueAccessor> valueAccessorList = new ArrayList<ValueAccessor>();
+        for(Object object : response) {
+            valueAccessorList.add((ValueAccessor)object);
+        }
+
+        return valueAccessorList;
+    }
+
 
     /**
      * Find a Projects_Res with a project_id
@@ -206,8 +234,8 @@ public class ProjectAccessor extends Project implements DatabaseAccessor {
         String newColumns = "title, records_per_image, first_y_coord, record_height";
         String updateColumns = "id, title, records_per_image, first_y_coord, record_height";
         String middle = ") SELECT ";
-        String newValues = String.format("%s,%d,%d,%d", SQL.format(getTitle()), getRecordsPerImage(),
-                                                        getFirstYCoord(), getRecordHeight());
+        String newValues = String.format("%s,%d,%d,%d", SQL.format(getTitle()),getRecordsPerImage(),
+                                                        getFirstYCoord(),getRecordHeight());
         String updateValues = String.format("%d,%s", getId(), newValues);
         String end = ";";
 

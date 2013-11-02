@@ -24,6 +24,11 @@ public class SampleImage_Res {
         return url;
     }
 
+    @Override
+    public String toString() {
+        return getUrl() + "\n";
+    }
+
     public String toXML() {
         XStream xstream = new XStream(new StaxDriver());
         xstream.autodetectAnnotations(true);

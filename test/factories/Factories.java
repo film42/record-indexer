@@ -65,6 +65,7 @@ public class Factories {
         fieldAccessor.setTitle("My Title");
         fieldAccessor.setWidth(333);
         fieldAccessor.setxCoord(222);
+        fieldAccessor.setPosition(1);
 
         return fieldAccessor;
     }

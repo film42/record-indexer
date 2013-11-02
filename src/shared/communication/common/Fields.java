@@ -20,6 +20,7 @@ public class Fields {
     private int xCoord;
     private int pixelWidth;
 
+
     public Fields(int id, int number,
                   String title, String helpUrl,
                   int xCoord, int pixelWidth,
@@ -32,5 +33,33 @@ public class Fields {
         this.xCoord = xCoord;
         this.pixelWidth = pixelWidth;
         this.knownData = knownData;
+    }
+
+    public String getKnownData() {
+        return knownData;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public int getNumber() {
+        return number;
+    }
+
+    public String getTitle() {
+        return title;
+    }
+
+    public String getHelpUrl() {
+        return helpUrl;
+    }
+
+    public int getxCoord() {
+        return xCoord;
+    }
+
+    public int getPixelWidth() {
+        return pixelWidth;
     }
 }

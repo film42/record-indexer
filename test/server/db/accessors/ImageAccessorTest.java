@@ -117,7 +117,7 @@ public class ImageAccessorTest {
         // Test to make sure there are no values
         assertEquals(0, ValueAccessor.all().size());
 
-        imageAccessor.addRecord(valuesList);
+        imageAccessor.addRecord(valuesList, 1);
         assertEquals(true, imageAccessor.save());
 
         // Let's ensure we have 2 values now

@@ -2,6 +2,7 @@ package server;
 
 import com.sun.net.httpserver.*;
 
+import com.sun.org.apache.xml.internal.security.Init;
 import com.thoughtworks.xstream.XStream;
 import com.thoughtworks.xstream.io.xml.StaxDriver;
 import server.db.*;
@@ -33,134 +34,24 @@ import java.util.List;
  */
 public class Server {
 
-    public void scratch() {
-        ValueAccessor valueAccessor = ValueAccessor.find(3);
-
-        List<ValueAccessor> valueAccessorList = ValueAccessor.all();
-
-        for(ValueAccessor vA : valueAccessorList) {
-            System.out.println(vA.getId());
-        }
-
-        UserAccessor userAccessor1 = UserAccessor.find("film42");
-        UserAccessor userAccessor2 = UserAccessor.findByProjectId(1);
-
-        System.out.println(userAccessor2.getProjectId());
-
-        userAccessor1.setEmail("poop@rocks.com");
-
-        System.out.println(userAccessor1.save());
-
-        System.out.println(userAccessor1.getFirstName());
-
-
-        System.out.println(";;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;");
-
-        UserAccessor uA = ProjectAccessor.find(14).getUser().getImage().getUser();
-
-        uA.setEmail("test@example.com");
-        System.out.println(uA.save());
-
-        System.out.println(ProjectAccessor.find(14).getUser().getImage().getUser().getEmail());
-
-        System.out.println(";;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;");
-
-        System.out.println(UserAccessor.find("film42").getImage().getFile());
-
-        UserAccessor userAccessor4 = UserAccessor.find("film42");
-        //ProjectAccessor projectAccessor1 = userAccessor4.getImage();
-        //projectAccessor1.setFirstYCoord(10000);
-        //System.out.println(projectAccessor1.getFirstYCoord());
-        System.out.println(userAccessor4.getImage().getFile());
-
-        System.out.println(";;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;");
-
-        System.out.println(ProjectAccessor.all().size());
-
-        System.out.println(";;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;");
-
-        FieldAccessor fieldAccessor = new FieldAccessor(null);
-
-        fieldAccessor.setKnownData("some path");
-        fieldAccessor.setTitle("First Name");
-        fieldAccessor.setWidth(200);
-        fieldAccessor.setHelpHtml("help.html");
-        fieldAccessor.setxCoord(450);
-
-        System.out.println(fieldAccessor.toSQL(false));
-        System.out.println(fieldAccessor.save());
-        System.out.println(fieldAccessor.getId());
-        fieldAccessor.setHelpHtml("some other ting.html");
-        System.out.println(fieldAccessor.save());
-
-        FieldAccessor fieldAccessor2 = FieldAccessor.find(fieldAccessor.getId());
-
-        System.out.println(fieldAccessor2.getHelpHtml());
-        System.out.println(fieldAccessor2.save());
-
-        System.out.println(FieldAccessor.all().size());
-
-        System.out.println("Getting field accessor (project id): " + FieldAccessor.find(1).getProjectId());
-        System.out.println(FieldAccessor.find(1).getProject().getTitle());
-
-        System.out.println(";;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;");
-
-        ImageAccessor imageAccessor = new ImageAccessor();
-        imageAccessor.setFile("/tmp/base/what????");
-        System.out.println(imageAccessor.getProjectId());
-
-        System.out.println(imageAccessor.toSQL(false));
-        System.out.println(imageAccessor.save());
-        System.out.println(imageAccessor.getId());
-
-        ImageAccessor imageAccessor1 = ImageAccessor.find(imageAccessor.getId());
-
-        System.out.println(imageAccessor1.getFile());
-        imageAccessor1.setProjectId(14);
-        System.out.println(imageAccessor1.save());
-        System.out.println(imageAccessor1.getProject().getTitle());
-
-        System.out.println(";;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;");
-
-        RecordAccessor recordAccessor = new RecordAccessor();
-        recordAccessor.setImageId(3);
-
-        System.out.println(recordAccessor.toSQL(false));
-        System.out.println(recordAccessor.save());
-        System.out.println(recordAccessor.getId());
-
-        RecordAccessor recordAccessor1 = RecordAccessor.find(recordAccessor.getId());
-        recordAccessor1.setId(8);
-        System.out.println(recordAccessor1.save());
-
-        System.out.println(";;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;");
-    }
-
-    public void dataLoaded() {
-        UserAccessor userAccessor = UserAccessor.find("sheila");
-
-        System.out.println(userAccessor.getImage().getUser().getEmail());
-
-        XStream xstream = new XStream(new StaxDriver());
-
-        String response = xstream.toXML(userAccessor);
-
-        System.out.println(response);
-
-
-    }
-
-
-    private static final int SERVER_PORT_NUMBER = 8090;
-    private static final int MAX_WAITING_CONNECTIONS = 10;
-    private static final String HOST = "localhost";
-    private static String BASE_URL = "http://"+HOST+"/my_base/";
+    private static int SERVER_LISTENING_PORT = 8090;
+    private static int MAX_WAITING_CONNECTIONS = 10;
+    private static String HOST = "localhost";
 
     private HttpServer server;
 
-    public void testingServer() {
+    public void run(String host, int port) throws ServerException {
+
+        /* ***********************************
+                   Init Server Vars
+         *********************************** */
+        HOST = host;
+        SERVER_LISTENING_PORT = port;
+
+        Database.init(Database.PRODUCTION_MODE);
+
         try {
-            server = HttpServer.create(new InetSocketAddress(SERVER_PORT_NUMBER),
+            server = HttpServer.create(new InetSocketAddress(SERVER_LISTENING_PORT),
                                        MAX_WAITING_CONNECTIONS);
         } catch (IOException e) {
             e.printStackTrace();
@@ -175,24 +66,16 @@ public class Server {
         server.createContext("/getFields",  new GetFieldsHandler().getHandler());
         server.createContext("/submitBatch",  new SubmitBatchHandler().getHandler());
         server.createContext("/search",  new SearchHandler().getHandler());
+        server.createContext("/",  new StaticsHandler().getHandler());
 
-        System.out.println("Starting server on port: " + SERVER_PORT_NUMBER);
+        System.out.println("Starting server on port: " + SERVER_LISTENING_PORT);
         server.start();
     }
 
-    public void run() {
-        try {
 
-            Database.init(Database.PRODUCTION_MODE);
-            //dataLoaded();
-            testingServer();
+    public static void main(String[] args) throws ServerException {
 
-        } catch (ServerException e) {
-            e.printStackTrace();
-        }
-    }
+       new Server().run(args[0], Integer.parseInt(args[1]));
 
-    public static void main(String[] args) {
-        new Server().run();
     }
 }

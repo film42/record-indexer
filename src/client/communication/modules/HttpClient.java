@@ -25,7 +25,7 @@ public class HttpClient {
      * @return
      * @throws Exception
      */
-    private static String request(String url, String method, String request)
+    private static InputStream request(String url, String method, String request)
             throws RemoteServerErrorException, UnauthorizedAccessException{
 
         try {
@@ -37,13 +37,14 @@ public class HttpClient {
 
             connection.setRequestMethod(method);
 
-            OutputStreamWriter outputStreamWriter = new OutputStreamWriter(connection.getOutputStream());
+            OutputStreamWriter outputStreamWriter = new OutputStreamWriter(
+                                                            connection.getOutputStream());
             outputStreamWriter.write(request);
             outputStreamWriter.close();
 
             switch (connection.getResponseCode()) {
                 case HttpURLConnection.HTTP_OK:
-                    return inputStreamToString(connection.getInputStream());
+                    return connection.getInputStream();
                 case HttpURLConnection.HTTP_UNAUTHORIZED:
                     throw new UnauthorizedAccessException();
                 default:
@@ -60,13 +61,46 @@ public class HttpClient {
     public static String get(String url)
             throws UnauthorizedAccessException, RemoteServerErrorException {
 
-        return request(url, "GET", "");
+        InputStream response = request(url, "GET", "");
+        return inputStreamToString(response);
     }
 
-    public static String post(String url, String request)
+    public static String post(String url, String req)
             throws UnauthorizedAccessException, RemoteServerErrorException {
 
-        return request(url, "POST", request);
+        InputStream response = request(url, "POST", req);
+        return inputStreamToString(response);
+    }
+
+    public static File getStatic(String url)
+            throws UnauthorizedAccessException, RemoteServerErrorException {
+
+        InputStream response = request(url, "GET", "");
+
+        if(response != null) {
+            try {
+
+                ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
+
+
+                byte[] byteArray = new byte[512];
+
+                int bytesRead = 0;
+                while((bytesRead = response.read(byteArray)) != -1) {
+                    byteArrayOutputStream.write(byteArray, 0, bytesRead);
+                }
+
+                byteArrayOutputStream.writeTo(new FileOutputStream("/tmp/testing.png"));
+
+                byteArrayOutputStream.flush();
+                byteArrayOutputStream.close();
+
+
+            } catch (IOException e) {
+                return null;
+            }
+        }
+        return null;
     }
 
     // Copied from server.handlers.common.BaseHandler.java

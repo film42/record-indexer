@@ -76,7 +76,7 @@ public class UserAccessorTest {
     public void testToSQL() throws Exception {
         UserAccessor userAccessor = Factories.sampleUser();
 
-        String sql = "insert into 'users' (username, password, first_name, last_name, email, indexed_records, "
+        String sql = "insert into 'users' (username,password,first_name,last_name,email,indexed_records,"
                      + "image_id) SELECT 'james','apple','Garrett','Thornburg','film42@gmail.com',0,null;";
 
         assertEquals(sql, userAccessor.toSQL(false));

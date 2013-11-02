@@ -119,7 +119,7 @@ public class RecordAccessor extends Record implements DatabaseAccessor {
     public String toSQL(boolean autoPrimaryKey) {
         String newBase = "insert into 'records' (";
         String updateBase = "insert or replace into 'records' (";
-        String newColumns = "image_id";
+        String newColumns = "position, image_id";
         String updateColumns = "id, " + newColumns;
         String middle = ") SELECT ";
 
@@ -127,8 +127,8 @@ public class RecordAccessor extends Record implements DatabaseAccessor {
         if(autoPrimaryKey) primaryKey = database.LAST_IMAGE;
         else primaryKey = Integer.toString(getImageId());
 
-        String newValues = String.format("%s", primaryKey);
-        String updateValues = String.format("%d,%s", getId(), primaryKey);
+        String newValues = String.format("%d,%s", getPosition(), primaryKey);
+        String updateValues = String.format("%d,%s", getId(), newValues);
         String end = ";";
 
         if(isNew()) {
@@ -163,7 +163,8 @@ public class RecordAccessor extends Record implements DatabaseAccessor {
         RecordAccessor recordAccessor = new RecordAccessor();
 
         recordAccessor.setId(resultSet.getInt(1));
-        recordAccessor.setImageId(resultSet.getInt(2));
+        recordAccessor.setPosition(resultSet.getInt(2));
+        recordAccessor.setImageId(resultSet.getInt(3));
 
         return recordAccessor;
     }

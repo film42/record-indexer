@@ -31,6 +31,7 @@ public class GetFieldsHandler extends BaseHanlder {
 
             Fields_Param fieldsParam = Fields_Param.serialize(request);
 
+
             UserAccessor userAccessor = UserAccessor.find(fieldsParam.getUsername());
 
             if(userAccessor == null) {
@@ -49,7 +50,7 @@ public class GetFieldsHandler extends BaseHanlder {
                 }
 
                 List<FieldAccessor> fieldAccessorList = projectAccessor.getFields();
-
+                fieldsRes.setProjectId(projectAccessor.getId());
                 for(int i = 0; i < fieldAccessorList.size(); i++)
                     fieldsRes.addField(fieldAccessorList.get(i).getModel(), (i+1));
 

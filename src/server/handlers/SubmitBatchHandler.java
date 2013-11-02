@@ -27,14 +27,8 @@ public class SubmitBatchHandler  extends BaseHanlder {
             InputStream inputStream = exchange.getRequestBody();
             String request = inputStreamToString(inputStream);
 
-            SubmitBatch_Param submitBatchParam = null;
-            UserAccessor userAccessor = null;
-            try {
-                submitBatchParam = SubmitBatch_Param.serialize(request);
-                userAccessor = UserAccessor.find(submitBatchParam.getUsername());
-            } catch (Exception e) {
-                writeServerErrorResponse(exchange);
-            }
+            SubmitBatch_Param submitBatchParam = SubmitBatch_Param.serialize(request);
+            UserAccessor userAccessor = UserAccessor.find(submitBatchParam.getUsername());
 
             if(userAccessor == null) {
                 writeServerErrorResponse(exchange);
@@ -50,22 +44,25 @@ public class SubmitBatchHandler  extends BaseHanlder {
                 ImageAccessor imageAccessor = userAccessor.getImage();
                 // Assert that imageAccessor isn't null, and it has enough records
                 if(imageAccessor == null
-                        || submitBatchParam.getRecordValues().size()
-                            != imageAccessor.getProject().getRecordsPerImage()) {
+                   || submitBatchParam.getRecordValues().size()
+                      != imageAccessor.getProject().getRecordsPerImage()) {
 
                     writeServerErrorResponse(exchange);
                     return;
                 }
 
                 // Add each record to database
-                for(ARecord aRecord : submitBatchParam.getRecordValues()) {
+                for(int i = 0; i < submitBatchParam.getRecordValues().size(); i++) {
+                    // Get the record shell holder
+                    ARecord aRecord = submitBatchParam.getRecordValues().get(i);
+
                     // Assert that the value count is the same as the number of fields for a project
-                    if(imageAccessor.getProject().getFields().size() != aRecord.getValues().size()) {
+                    if(imageAccessor.getProject().getFields().size() != aRecord.getValues().size()){
                         writeServerErrorResponse(exchange);
                         return;
                     }
 
-                    imageAccessor.addRecord(aRecord.getValues());
+                    imageAccessor.addRecord(aRecord.getValues(), (i + 1));
                 }
 
                 // Congratz, you made it!

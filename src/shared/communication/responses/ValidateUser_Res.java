@@ -44,6 +44,15 @@ public class ValidateUser_Res {
         return indexedRecords;
     }
 
+    @Override
+    public String toString() {
+        String authenticated = "";
+        if(isAuthenticated()) authenticated = "TRUE";
+        else authenticated = "FALSE";
+        return String.format("%s\n%s\n%s\n%d", authenticated, getFirstName(),
+                                               getLastName(), getIndexedRecords());
+    }
+
     public static ValidateUser_Res serialize(String xml) {
         XStream xstream = new XStream(new StaxDriver());
         xstream.alias("user", ValidateUser_Res.class);

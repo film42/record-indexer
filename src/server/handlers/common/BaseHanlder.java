@@ -12,7 +12,8 @@ import java.io.*;
  */
 public class BaseHanlder {
 
-    protected static final String NOT_AUTHORIZED = "<error><authenticated>false</authenticated></error>";
+    protected static final String NOT_AUTHORIZED =
+            "<error><authenticated>false</authenticated></error>";
     protected static final String INTERNAL_ERROR = "<error>Failed</error>";
 
     protected String inputStreamToString(InputStream inputStream) {
@@ -35,7 +36,8 @@ public class BaseHanlder {
         return stringBuilder.toString();
     }
 
-    protected void writeReponse(int status, HttpExchange exchange, String response) throws IOException {
+    protected void writeReponse(int status, HttpExchange exchange, String response)
+                                                                                throws IOException {
         exchange.sendResponseHeaders(status, response.length());
         OutputStream outputStream = exchange.getResponseBody();
         outputStream.write(response.getBytes());
@@ -52,5 +54,29 @@ public class BaseHanlder {
 
     protected void writeBadAuthenticationResponse(HttpExchange exchange) throws IOException {
         writeReponse(401, exchange, NOT_AUTHORIZED);
+    }
+
+    protected void writeFileResponse(HttpExchange exchange, File file) throws IOException {
+        FileInputStream fileInputStream = null;
+        try {
+            fileInputStream = new FileInputStream(file);
+        } catch (Exception e) {
+            writeServerErrorResponse(exchange);
+            return;
+        }
+        OutputStream outputStream = exchange.getResponseBody();
+
+        byte[] bufferArray = new byte[512];
+
+        exchange.sendResponseHeaders(200, file.length());
+
+        int c = 0;
+        while ((c = fileInputStream.read(bufferArray, 0, bufferArray.length)) > 0) {
+            outputStream.write(bufferArray, 0, c);
+            outputStream.flush();
+        }
+
+        outputStream.close();
+        fileInputStream.close();
     }
 }

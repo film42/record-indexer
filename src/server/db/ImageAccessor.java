@@ -53,8 +53,9 @@ public class ImageAccessor extends Image implements DatabaseAccessor {
                 database.openConnection();
                 List<Object> accessorList = new ArrayList<Object>();
 
-                String query = "select * from images where project_id = "+projectIdF+" AND id IS NOT "
-                               + "(select image_id from users where image_id is not null);";
+                String query;
+                query = "select * from images where project_id = "+projectIdF+" AND id IS NOT "
+                        + "(select image_id from users where image_id is not null);";
                 ResultSet resultSet = database.query(query);
 
                 while(resultSet.next()) {
@@ -129,6 +130,39 @@ public class ImageAccessor extends Image implements DatabaseAccessor {
         }
 
         return userAccessor;
+    }
+
+    /**
+     * You can now add a record to an image by simple passing in its values.
+     * This makes life SOOO nice.
+     *
+     * @param valueList a list of Value models
+     * @param position
+     */
+    public void addRecord(List<Value> valueList, int position) {
+        try {
+            database.openConnection();
+
+            RecordAccessor recordAccessor = new RecordAccessor();
+            recordAccessor.setPosition(position);
+            recordAccessor.setImageId(this.getId());
+
+            database.addQuery(recordAccessor.toSQL(Database.SPECIFIED_PRIMARY_KEY));
+
+            for(int i = 0; i < valueList.size(); i++) {
+                Value value = valueList.get(i);
+                ValueAccessor valueAccessor = new ValueAccessor(value);
+                valueAccessor.setPosition((i+1));
+                // Will auto add the record added just above this loop
+                database.addQuery(valueAccessor.toSQL(Database.AUTO_PRIMARY_KEY));
+            }
+
+            // We don't call commit because save() will allow us to batch commit.
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } catch (ServerException e) {
+            e.printStackTrace();
+        }
     }
 
     @Override
@@ -213,27 +247,5 @@ public class ImageAccessor extends Image implements DatabaseAccessor {
         }
 
         return null;
-    }
-
-    public void addRecord(List<Value> valueList) {
-        try {
-            database.openConnection();
-
-            RecordAccessor recordAccessor = new RecordAccessor();
-            recordAccessor.setImageId(this.getId());
-
-            database.addQuery(recordAccessor.toSQL(Database.SPECIFIED_PRIMARY_KEY));
-
-            for(Value value : valueList) {
-                ValueAccessor valueAccessor = new ValueAccessor(value);
-                // Will auto add the record added just above this loop
-                database.addQuery(valueAccessor.toSQL(Database.AUTO_PRIMARY_KEY));
-            }
-
-        } catch (SQLException e) {
-            e.printStackTrace();
-        } catch (ServerException e) {
-            e.printStackTrace();
-        }
     }
 }

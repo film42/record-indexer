@@ -1,17 +1,15 @@
 package server.db.importer;
 
+import org.apache.commons.io.FileUtils;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 import org.w3c.dom.NodeList;
-import org.xml.sax.SAXException;
 import server.db.*;
 import server.db.common.Database;
 
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
-import javax.xml.parsers.ParserConfigurationException;
 import java.io.File;
-import java.io.IOException;
 
 /**
  * Created with IntelliJ IDEA.
@@ -24,13 +22,32 @@ public class Importer {
     public static void main(String[] args) throws Exception {
         Database.init(Database.PRODUCTION_MODE);
 
+        Database.erase();
+
         new Importer().run();
     }
 
     public void run() throws Exception {
+        // Copy Files
+        String pathToXML = "demo/indexer_data/Records/Records.xml";
+        String pathToImages = "demo/indexer_data/Records/images/";
+        String pathToKnownData = "demo/indexer_data/Records/knowndata/";
+        String pathToFieldHelp = "demo/indexer_data/Records/fieldhelp/";
+
+
+        File destinationPath = new File("db/statics/");
+        // Copy images to statics/images
+        FileUtils.copyDirectoryToDirectory(new File(pathToImages), destinationPath);
+        // Copy known_data to statics/knownData
+        FileUtils.copyDirectoryToDirectory(new File(pathToKnownData), destinationPath);
+        // Copy field_help tp statics/fieldHelp
+        FileUtils.copyDirectoryToDirectory(new File(pathToFieldHelp), destinationPath);
+
+
+        // Import XML
         DocumentBuilder builder = DocumentBuilderFactory.newInstance().newDocumentBuilder();
 
-        File xmlFile = new File("demo/indexer_data/Records/Records.xml");
+        File xmlFile = new File(pathToXML);
         Document document = builder.parse(xmlFile);
 
         /**
@@ -61,7 +78,7 @@ public class Importer {
             for(int j = 0; j < fieldsList.getLength(); j++) {
                 Element fieldElement = (Element)fieldsList.item(j);
 
-                parseFieldBlock(fieldElement);
+                parseFieldBlock(fieldElement, (j+1));
             }
 
             /**
@@ -73,25 +90,29 @@ public class Importer {
 
                 parseImageBlock(imageElement);
 
-                /**
-                 * Records
-                 */
-                NodeList recordList = imageElement.getElementsByTagName("record");
-                for(int k = 0; k < recordList.getLength(); k++) {
-                    Element recordElement = (Element)recordList.item(k);
+                iteratingThroughRecords(imageElement);
+            }
+        }
+    }
 
-                    parseRecordBlock(recordElement);
+    public void iteratingThroughRecords(Element imageElement) throws Exception {
+        /**
+         * Records
+         */
+        NodeList recordList = imageElement.getElementsByTagName("record");
+        for(int k = 0; k < recordList.getLength(); k++) {
+            Element recordElement = (Element)recordList.item(k);
 
-                    /**
-                     * Values
-                     */
-                    NodeList valueList = recordElement.getElementsByTagName("value");
-                    for(int l = 0; l < valueList.getLength(); l++) {
-                        Element valueElement = (Element)valueList.item(l);
+            parseRecordBlock(recordElement, (k + 1));
 
-                        parseValueBlock(valueElement);
-                    }
-                }
+            /**
+             * Values
+             */
+            NodeList valueList = recordElement.getElementsByTagName("value");
+            for(int l = 0; l < valueList.getLength(); l++) {
+                Element valueElement = (Element)valueList.item(l);
+
+                parseValueBlock(valueElement, (l+1));
             }
         }
     }
@@ -106,7 +127,8 @@ public class Importer {
         String firstname = userElement.getElementsByTagName("firstname").item(0).getTextContent();
         String lastname = userElement.getElementsByTagName("lastname").item(0).getTextContent();
         String email = userElement.getElementsByTagName("email").item(0).getTextContent();
-        String indexedrecords = userElement.getElementsByTagName("indexedrecords").item(0).getTextContent();
+        String indexedrecords = userElement.getElementsByTagName("indexedrecords")
+                                                                        .item(0).getTextContent();
 
         userAccessor.setUsername(username);
         userAccessor.setPassword(password);
@@ -130,9 +152,12 @@ public class Importer {
         ProjectAccessor projectAccessor = new ProjectAccessor();
 
         String title = projectElement.getElementsByTagName("title").item(0).getTextContent();
-        String recordsperimage = projectElement.getElementsByTagName("recordsperimage").item(0).getTextContent();
-        String firstycoord = projectElement.getElementsByTagName("firstycoord").item(0).getTextContent();
-        String recordheight = projectElement.getElementsByTagName("recordheight").item(0).getTextContent();
+        String recordsperimage = projectElement.getElementsByTagName("recordsperimage")
+                                                                    .item(0).getTextContent();
+        String firstycoord = projectElement.getElementsByTagName("firstycoord")
+                                                                    .item(0).getTextContent();
+        String recordheight = projectElement.getElementsByTagName("recordheight")
+                                                                    .item(0).getTextContent();
 
         projectAccessor.setTitle(title);
         projectAccessor.setRecordsPerImage(Integer.parseInt(recordsperimage));
@@ -148,7 +173,7 @@ public class Importer {
         return projectAccessor;
     }
 
-    public FieldAccessor parseFieldBlock(Element fieldElement) throws Exception {
+    public FieldAccessor parseFieldBlock(Element fieldElement, int number) throws Exception {
         System.out.print("  Parsing Field Block ------- ");
 
         FieldAccessor fieldAccessor = new FieldAccessor();
@@ -167,6 +192,7 @@ public class Importer {
         fieldAccessor.setWidth(Integer.parseInt(width));
         fieldAccessor.setHelpHtml(helphtml);
         fieldAccessor.setKnownData(knowndata);
+        fieldAccessor.setPosition(number);
 
         if(fieldAccessor.save()) System.out.println("Success!");
         else {
@@ -195,10 +221,11 @@ public class Importer {
         return imageAccessor;
     }
 
-    public RecordAccessor parseRecordBlock(Element recordElement) throws Exception {
+    public RecordAccessor parseRecordBlock(Element recordElement, int number) throws Exception {
         System.out.print("    Parsing Record Block ------- ");
 
         RecordAccessor recordAccessor = new RecordAccessor();
+        recordAccessor.setPosition(number);
         if(recordAccessor.save()) System.out.println("Success!");
         else {
             System.out.println("ERROR!");
@@ -208,7 +235,7 @@ public class Importer {
         return recordAccessor;
     }
 
-    public ValueAccessor parseValueBlock(Element valueElement) throws Exception {
+    public ValueAccessor parseValueBlock(Element valueElement, int number) throws Exception {
         System.out.print("      Parsing Value Block ------- ");
 
         ValueAccessor valueAccessor = new ValueAccessor();
@@ -218,6 +245,7 @@ public class Importer {
 
         valueAccessor.setValue(value);
         valueAccessor.setType("String");
+        valueAccessor.setPosition(number);
 
         if(valueAccessor.save()) System.out.println("Success!");
         else {

@@ -11,6 +11,7 @@ import shared.common.BaseModel;
 public class Record extends BaseModel {
 
     private int id;
+    private int position;
     private int imageId;
 
     public int getId() {
@@ -27,5 +28,13 @@ public class Record extends BaseModel {
 
     public void setImageId(int imageId) {
         this.imageId = imageId;
+    }
+
+    public int getPosition() {
+        return position;
+    }
+
+    public void setPosition(int position) {
+        this.position = position;
     }
 }

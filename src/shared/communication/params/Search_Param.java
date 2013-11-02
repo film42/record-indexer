@@ -4,8 +4,7 @@ import com.thoughtworks.xstream.XStream;
 import com.thoughtworks.xstream.io.xml.StaxDriver;
 import shared.models.Value;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.*;
 
 /**
  * Created with IntelliJ IDEA.
@@ -18,8 +17,8 @@ public class Search_Param {
     private String username;
 
     private String password;
-    private List<Integer> fieldsIds = new ArrayList<Integer>();
-    private List<String> searchParams = new ArrayList<String>();
+    private Set<Integer> fieldsIds = new TreeSet<Integer>();
+    private Set<String> searchParams = new TreeSet<String>();
     public String getUsername() {
         return username;
     }
@@ -44,11 +43,11 @@ public class Search_Param {
         fieldsIds.add(fieldId);
     }
 
-    public List<Integer> getFieldsIds() {
+    public Set<Integer> getFieldsIds() {
         return fieldsIds;
     }
 
-    public List<String> getSearchParams() {
+    public Set<String> getSearchParams() {
         return searchParams;
     }
 

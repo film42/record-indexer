@@ -13,6 +13,7 @@ public class Value extends BaseModel {
     private int id;
     private String value;
     private String type;
+    private int position;
     private int recordId;
 
     public Value() {
@@ -55,5 +56,13 @@ public class Value extends BaseModel {
 
     public void setRecordId(int recordId) {
         this.recordId = recordId;
+    }
+
+    public int getPosition() {
+        return position;
+    }
+
+    public void setPosition(int position) {
+        this.position = position;
     }
 }

@@ -114,6 +114,7 @@ public class Controller implements IController {
     // TODO: Search
     // TODO: UNCOMMENT: Make sure a user is removed when you do "submitBatch"
     // TODO: Uncomment the download batch debug thing
+    // TODO: Test case for valuesColumn and getRecord, look for more
 
 
     private Communicator communicator = new Communicator("http://localhost:8090/");
@@ -141,10 +142,7 @@ public class Controller implements IController {
             return;
         }
 
-        String output = String.format("TRUE\n%s\n%s\n%d", validateUserRes.getFirstName(),
-                                                        validateUserRes.getLastName(),
-                                                        validateUserRes.getIndexedRecords());
-        getView().setResponse(output);
+        getView().setResponse(validateUserRes.toString());
     }
     
     private void getProjects() {
@@ -170,7 +168,7 @@ public class Controller implements IController {
             return;
         }
 
-        getView().setResponse(projectsRes.toXML());
+        getView().setResponse(projectsRes.toString());
     }
     
     private void getSampleImage() {
@@ -187,6 +185,7 @@ public class Controller implements IController {
         SampleImage_Res sampleImageRes = null;
         try {
             sampleImageRes = communicator.getSampleImage(sampleImageParam);
+
         } catch (UnauthorizedAccessException e) {
             getView().setResponse("FAILED");
             return;
@@ -195,9 +194,9 @@ public class Controller implements IController {
             return;
         }
 
-        getView().setResponse(sampleImageRes.toXML());
+        getView().setResponse(communicator.getServerPath() + sampleImageRes.toString());
     }
-    
+
     private void downloadBatch() {
         DownloadBatch_Param downloadBatchParam = new DownloadBatch_Param();
 
@@ -222,34 +221,8 @@ public class Controller implements IController {
             return;
         }
 
-        getView().setResponse(downloadBatchRes.toXML());
+        getView().setResponse(downloadBatchRes.toString(communicator.getServerPath()));
     }
-    
-    private void getFields() {
-        Fields_Param fieldsParam = new Fields_Param();
-
-        String username = getView().getParameterValues()[0];
-        String password = getView().getParameterValues()[1];
-        String projectId = getView().getParameterValues()[2];
-
-        fieldsParam.setUsername(username);
-        fieldsParam.setPassword(password);
-        fieldsParam.setProjectId(Integer.parseInt(projectId));
-
-        Fields_Res fieldsRes = null;
-        try {
-            fieldsRes = communicator.getFields(fieldsParam);
-        } catch (UnauthorizedAccessException e) {
-            getView().setResponse("FAILED");
-            return;
-        } catch (RemoteServerErrorException e) {
-            getView().setResponse("FAILED");
-            return;
-        }
-
-        getView().setResponse(fieldsRes.toXML());
-    }
-
 
     private void submitBatch() {
         SubmitBatch_Param submitBatchParam = new SubmitBatch_Param();
@@ -281,7 +254,35 @@ public class Controller implements IController {
             return;
         }
 
-        getView().setResponse(submitBatchRes.toXML());
+        // Was success, so:
+        getView().setResponse("TRUE");
+    }
+
+    private void getFields() {
+        Fields_Param fieldsParam = new Fields_Param();
+
+        String username = getView().getParameterValues()[0];
+        String password = getView().getParameterValues()[1];
+        String projectId = getView().getParameterValues()[2];
+
+        fieldsParam.setUsername(username);
+        fieldsParam.setPassword(password);
+        fieldsParam.setProjectId(Integer.parseInt(projectId));
+
+        getView().setRequest(fieldsParam.toXML());
+
+        Fields_Res fieldsRes = null;
+        try {
+            fieldsRes = communicator.getFields(fieldsParam);
+        } catch (UnauthorizedAccessException e) {
+            getView().setResponse("FAILED");
+            return;
+        } catch (RemoteServerErrorException e) {
+            getView().setResponse("FAILED");
+            return;
+        }
+
+        getView().setResponse(fieldsRes.toString());
     }
 
     private void search() {
@@ -291,12 +292,18 @@ public class Controller implements IController {
         String queryWords = getView().getParameterValues()[3];
 
         Search_Param searchParam = new Search_Param();
+        searchParam.setUsername(username);
+        searchParam.setPassword(password);
+        // Add FieldIds
         for(String fieldId : parseCommaString(fieldIds)) {
             searchParam.addFieldId(Integer.parseInt(fieldId));
         }
+        // Add Query Strings
         for(String query : parseCommaString(queryWords)) {
             searchParam.addSearchParam(query);
         }
+
+        getView().setRequest(searchParam.toXML());
 
         Search_Res searchRes = null;
         try {
@@ -309,6 +316,7 @@ public class Controller implements IController {
             return;
         }
 
+        getView().setResponse(searchRes.toString());
     }
 
     /* ******************************

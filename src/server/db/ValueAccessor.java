@@ -58,11 +58,8 @@ public class ValueAccessor extends Value implements DatabaseAccessor {
                 ResultSet resultSet = database.query(query);
 
                 while(resultSet.next()) {
-                    ValueAccessor valueAccessor = new ValueAccessor();
-                    valueAccessor.setId(resultSet.getInt(1));
-                    valueAccessor.setValue(resultSet.getString(2));
-                    valueAccessor.setType(resultSet.getString(3));
-                    valueAccessor.setRecordId(resultSet.getInt(4));
+                    // Fill up new value accessor
+                    ValueAccessor valueAccessor = buildFromResultSet(resultSet);
 
                     valueAccessorList.add(valueAccessor);
                 }
@@ -97,19 +94,29 @@ public class ValueAccessor extends Value implements DatabaseAccessor {
                 ResultSet resultSet = database.query(query);
 
                 if(resultSet.next()) {
-                    ValueAccessor valueAccessor = new ValueAccessor();
-
-                    valueAccessor.setId(resultSet.getInt(1));
-                    valueAccessor.setValue(resultSet.getString(2));
-                    valueAccessor.setType(resultSet.getString(3));
-                    valueAccessor.setRecordId(resultSet.getInt(4));
-
-                    return valueAccessor;
+                    // Fill up a new ValueAccessor
+                    return buildFromResultSet(resultSet);
                 }
 
                 return null;
             }
         }, database);
+    }
+
+    private RecordAccessor recordAccessor;
+
+    /**
+     * Get a values' record
+     *
+     * @return RecordAccessor(record) or null
+     */
+    public RecordAccessor getRecord() {
+        if(recordAccessor != null) return recordAccessor;
+        else {
+            recordAccessor = RecordAccessor.find(getRecordId());
+        }
+
+        return recordAccessor;
     }
 
     @Override
@@ -142,15 +149,16 @@ public class ValueAccessor extends Value implements DatabaseAccessor {
     @Override
     public String toSQL(boolean autoPrimaryKey) {
         String base = "insert or replace into 'values' (";
-        String newColumns = "value, type, record_id";
-        String updateColumns = "id, value, type, record_id";
+        String newColumns = "value, type, position, record_id";
+        String updateColumns = "id, " + newColumns;
         String middle = ") SELECT ";
 
         String primaryKey;
         if(autoPrimaryKey) primaryKey = database.LAST_RECORD;
         else primaryKey = Integer.toString(getRecordId());
 
-        String newValues = String.format("%s,%s,%s", SQL.format(getValue()), SQL.format(getType()), primaryKey);
+        String newValues = String.format("%s,%s,%d,%s",SQL.format(getValue()),SQL.format(getType()),
+                                                       getPosition(),primaryKey);
         String updateValues = String.format("%d,%s", getId(), newValues);
         String end = ";";
 
@@ -183,5 +191,17 @@ public class ValueAccessor extends Value implements DatabaseAccessor {
         }
 
         return null;
+    }
+
+    public static ValueAccessor buildFromResultSet(ResultSet resultSet) throws SQLException {
+        ValueAccessor valueAccessor = new ValueAccessor();
+
+        valueAccessor.setId(resultSet.getInt(1));
+        valueAccessor.setValue(resultSet.getString(2));
+        valueAccessor.setType(resultSet.getString(3));
+        valueAccessor.setPosition(resultSet.getInt(4));
+        valueAccessor.setRecordId(resultSet.getInt(5));
+
+        return valueAccessor;
     }
 }
