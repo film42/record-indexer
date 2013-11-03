@@ -107,17 +107,14 @@ public class Controller implements IController {
         }
     }
 
-    // TODO: Make this return the string responses desired
-    // TODO: Actually copy fies on import, and routes for those
     // TODO: Test more of the DAs and Server Classes if possible
     // TODO: Implement a logger
-    // TODO: Search
     // TODO: UNCOMMENT: Make sure a user is removed when you do "submitBatch"
     // TODO: Uncomment the download batch debug thing
     // TODO: Test case for valuesColumn and getRecord, look for more
 
-
-    private Communicator communicator = new Communicator("http://localhost:8090/");
+    private String serverPath = "http://"+getView().getHost()+":"+getView().getPort()+"/";
+    private Communicator communicator = new Communicator(serverPath);
     
     private void validateUser() {
         ValidateUser_Param validateUserParam = new ValidateUser_Param();
@@ -194,7 +191,7 @@ public class Controller implements IController {
             return;
         }
 
-        getView().setResponse(communicator.getServerPath() + sampleImageRes.toString());
+        getView().setResponse(serverPath + sampleImageRes.toString());
     }
 
     private void downloadBatch() {
@@ -221,7 +218,7 @@ public class Controller implements IController {
             return;
         }
 
-        getView().setResponse(downloadBatchRes.toString(communicator.getServerPath()));
+        getView().setResponse(downloadBatchRes.toString(serverPath));
     }
 
     private void submitBatch() {

@@ -43,7 +43,7 @@ public class Server {
     public void run(String host, int port) throws ServerException {
 
         /* ***********************************
-                   Init Server Vars
+                   Init Server Args
          *********************************** */
         HOST = host;
         SERVER_LISTENING_PORT = port;
