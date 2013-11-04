@@ -70,8 +70,8 @@ public class SubmitBatchHandler  extends BaseHanlder {
                     int current = userAccessor.getIndexedRecords();
                     int toAdd = imageAccessor.getProject().getRecordsPerImage();
                     userAccessor.setIndexedRecords(current + toAdd);
-                    // Remove the user from this image
-                    //userAccessor.setImageId(0);
+                    // Toggle the next line to debug reset image_id
+                    userAccessor.setImageId(0);
 
                     // Updating user
                     if(userAccessor.save()) {

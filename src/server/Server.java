@@ -1,30 +1,12 @@
 package server;
 
-import com.sun.net.httpserver.*;
-
-import com.sun.org.apache.xml.internal.security.Init;
-import com.thoughtworks.xstream.XStream;
-import com.thoughtworks.xstream.io.xml.StaxDriver;
-import server.db.*;
+import com.sun.net.httpserver.HttpServer;
 import server.db.common.Database;
 import server.errors.ServerException;
 import server.handlers.*;
-import shared.communication.params.DownloadBatch_Param;
-import shared.communication.params.Projects_Param;
-import shared.communication.params.SampleImage_Param;
-import shared.communication.params.ValidateUser_Param;
-import shared.communication.responses.DownloadBatch_Res;
-import shared.communication.responses.Projects_Res;
-import shared.communication.responses.SampleImage_Res;
-import shared.communication.responses.ValidateUser_Res;
-import shared.models.Project;
-import shared.models.User;
 
-import java.io.*;
+import java.io.IOException;
 import java.net.InetSocketAddress;
-import java.sql.SQLException;
-import java.util.ArrayList;
-import java.util.List;
 
 /**
  * Created with IntelliJ IDEA.

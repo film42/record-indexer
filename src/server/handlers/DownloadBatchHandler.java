@@ -46,12 +46,10 @@ public class DownloadBatchHandler extends BaseHanlder {
                 writeServerErrorResponse(exchange);
             } else if (userAccessor.login(downloadBatchParam.getPassword())) {
 
-                // Check for image existence, should use an int comparison,
-                // this is cleaner looking, though
+                // Check for image existence, error if not there
                 if(userAccessor.getImage() != null) {
-                    // TODO: Uncomment this
-                    //writeServerErrorResponse(exchange);
-                    //return;
+                    writeServerErrorResponse(exchange);
+                    return;
                 }
 
                 // The user doesn't have an image

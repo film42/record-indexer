@@ -102,7 +102,7 @@ public class DownloadBatch_Res {
 
         stringBuilder.append(getBatchId() + "\n");
         stringBuilder.append(getProjectId() + "\n");
-        stringBuilder.append(getImageUrl() + "\n");
+        stringBuilder.append(serverPath + getImageUrl() + "\n");
         stringBuilder.append(getFirstYCoord() + "\n");
         stringBuilder.append(getRecordHeight() + "\n");
         stringBuilder.append(getNumberOfRecords() + "\n");

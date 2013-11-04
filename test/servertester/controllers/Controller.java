@@ -39,12 +39,22 @@ public class Controller implements IController {
         operationSelected();
     }
 
+    // TODO: Test more of the DAs and Server Classes if possible
+    // TODO: Implement a logger
+    // TODO: Uncomment the download batch debug thing
+    // TODO: Test case for getRecord, look for more
+    private String serverPath;
+    private Communicator communicator;
+
     @Override
     public void operationSelected() {
+        serverPath = "http://"+getView().getHost()+":"+getView().getPort()+"/";
+        communicator = new Communicator(serverPath);
+
         ArrayList<String> paramNames = new ArrayList<String>();
         paramNames.add("UserAccessor");
         paramNames.add("Password");
-        
+
         switch (getView().getOperation()) {
         case VALIDATE_USER:
             break;
@@ -71,7 +81,7 @@ public class Controller implements IController {
             assert false;
             break;
         }
-        
+
         getView().setRequest("");
         getView().setResponse("");
         getView().setParameterNames(paramNames.toArray(new String[paramNames.size()]));
@@ -107,15 +117,6 @@ public class Controller implements IController {
         }
     }
 
-    // TODO: Test more of the DAs and Server Classes if possible
-    // TODO: Implement a logger
-    // TODO: UNCOMMENT: Make sure a user is removed when you do "submitBatch"
-    // TODO: Uncomment the download batch debug thing
-    // TODO: Test case for valuesColumn and getRecord, look for more
-
-    private String serverPath = "http://"+getView().getHost()+":"+getView().getPort()+"/";
-    private Communicator communicator = new Communicator(serverPath);
-    
     private void validateUser() {
         ValidateUser_Param validateUserParam = new ValidateUser_Param();
 
