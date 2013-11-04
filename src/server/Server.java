@@ -18,16 +18,14 @@ public class Server {
 
     private static int SERVER_LISTENING_PORT = 8090;
     private static int MAX_WAITING_CONNECTIONS = 10;
-    private static String HOST = "localhost";
 
     private HttpServer server;
 
-    public void run(String host, int port) throws ServerException {
+    public void run(int port) throws ServerException {
 
         /* ***********************************
                    Init Server Args
          *********************************** */
-        HOST = host;
         SERVER_LISTENING_PORT = port;
 
         Database.init(Database.PRODUCTION_MODE);
@@ -56,8 +54,6 @@ public class Server {
 
 
     public static void main(String[] args) throws ServerException {
-
-       new Server().run(args[0], Integer.parseInt(args[1]));
-
+        new Server().run(Integer.parseInt(args[0]));
     }
 }

@@ -30,8 +30,8 @@
     <file path="/Value.java" changelist="0e613439-edf5-4c63-8b9d-9c55338b370a" time="1383384244767" ignored="false" />
     <file path="/Fields_Res.java" changelist="0e613439-edf5-4c63-8b9d-9c55338b370a" time="1383433018420" ignored="false" />
     <file path="/Tuple.java" changelist="0e613439-edf5-4c63-8b9d-9c55338b370a" time="1381811308602" ignored="false" />
-    <file path="/build.xml" changelist="0e613439-edf5-4c63-8b9d-9c55338b370a" time="1382646986339" ignored="false" />
-    <file path="/Server.java" changelist="0e613439-edf5-4c63-8b9d-9c55338b370a" time="1383586713096" ignored="false" />
+    <file path="/build.xml" changelist="0e613439-edf5-4c63-8b9d-9c55338b370a" time="1383587145280" ignored="false" />
+    <file path="/Server.java" changelist="0e613439-edf5-4c63-8b9d-9c55338b370a" time="1383587282427" ignored="false" />
     <file path="/ServerException.java" changelist="0e613439-edf5-4c63-8b9d-9c55338b370a" time="1382748130173" ignored="false" />
     <file path="/Database.java" changelist="0e613439-edf5-4c63-8b9d-9c55338b370a" time="1383340923392" ignored="false" />
     <file path="/BaseModel.java" changelist="0e613439-edf5-4c63-8b9d-9c55338b370a" time="1382998938379" ignored="false" />
@@ -171,10 +171,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Server.java" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="Server.java" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/server/Server.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="59" column="49" selection-start="1999" selection-end="2007" vertical-scroll-proportion="0.0">
+            <state line="56" column="52" selection-start="1929" selection-end="1929" vertical-scroll-proportion="0.7923077">
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -194,10 +194,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="DownloadBatchHandler.java" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="DownloadBatchHandler.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/server/handlers/DownloadBatchHandler.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="44" column="67" selection-start="1544" selection-end="1544" vertical-scroll-proportion="-0.13076924">
+            <state line="44" column="67" selection-start="1544" selection-end="1544" vertical-scroll-proportion="0.0">
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -222,7 +222,7 @@
       <file leaf-file-name="build.xml" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/build.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="146" column="30" selection-start="4628" selection-end="4632" vertical-scroll-proportion="1.88">
+            <state line="106" column="30" selection-start="3408" selection-end="3412" vertical-scroll-proportion="-19.72">
               <folding />
             </state>
           </provider>
@@ -276,7 +276,6 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/src/server/db/UserAccessor.java" />
         <option value="$PROJECT_DIR$/src/server/db/ValueAccessor.java" />
         <option value="$PROJECT_DIR$/src/server/db/importer/Importer.java" />
         <option value="$PROJECT_DIR$/src/server/handlers/GetSampleImageHandler.java" />
@@ -288,10 +287,11 @@
         <option value="$PROJECT_DIR$/test/server/ServerUnitTests.java" />
         <option value="$PROJECT_DIR$/test/server/db/accessors/FieldAccessorTest.java" />
         <option value="$PROJECT_DIR$/src/shared/communication/responses/DownloadBatch_Res.java" />
-        <option value="$PROJECT_DIR$/src/server/Server.java" />
         <option value="$PROJECT_DIR$/src/server/handlers/SubmitBatchHandler.java" />
         <option value="$PROJECT_DIR$/test/servertester/controllers/Controller.java" />
         <option value="$PROJECT_DIR$/src/server/handlers/DownloadBatchHandler.java" />
+        <option value="$PROJECT_DIR$/build.xml" />
+        <option value="$PROJECT_DIR$/src/server/Server.java" />
       </list>
     </option>
   </component>
@@ -1333,15 +1333,6 @@
     <option name="showOnlyWarnings" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/server/handlers/GetProjectsHandler.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/server/db/ImageAccessor.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="21" column="13" selection-start="477" selection-end="477" vertical-scroll-proportion="-3.466119">
@@ -1431,15 +1422,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/server/Server.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="59" column="49" selection-start="1999" selection-end="2007" vertical-scroll-proportion="0.0">
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/test/server/ServerUnitTests.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="25" column="1" selection-start="732" selection-end="732" vertical-scroll-proportion="0.0">
@@ -1474,7 +1456,23 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/server/handlers/DownloadBatchHandler.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="44" column="67" selection-start="1544" selection-end="1544" vertical-scroll-proportion="-0.13076924">
+        <state line="44" column="67" selection-start="1544" selection-end="1544" vertical-scroll-proportion="0.0">
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/build.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="106" column="30" selection-start="3408" selection-end="3412" vertical-scroll-proportion="-19.72">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/server/Server.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="56" column="52" selection-start="1929" selection-end="1929" vertical-scroll-proportion="0.7923077">
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
