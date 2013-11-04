@@ -4,10 +4,7 @@ import factories.Factories;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
-import server.db.ImageAccessor;
-import server.db.ProjectAccessor;
-import server.db.UserAccessor;
-import server.db.ValueAccessor;
+import server.db.*;
 import server.db.common.Database;
 import shared.models.Value;
 
@@ -90,6 +87,48 @@ public class ImageAccessorTest {
         assertNotSame(0, imageAccessor.getId());
 
         assertNotNull(ImageAccessor.find(imageAccessor.getId()));
+    }
+
+    @Test
+    public void testAvailImages() throws Exception {
+
+        // Create a project
+        ProjectAccessor projectAccessor = Factories.sampleProject();
+        assertEquals(true, projectAccessor.save());
+
+        // Assert there are no images
+        assertEquals(0, ImageAccessor.allAvailible(projectAccessor.getId()).size());
+
+        // Add an image
+        ImageAccessor imageAccessor = Factories.sampleImage();
+        imageAccessor.setProjectId(projectAccessor.getId());
+        assertEquals(true, imageAccessor.save());
+
+        // Assert there is one available image
+        assertEquals(1, ImageAccessor.allAvailible(projectAccessor.getId()).size());
+
+        // Create a user
+        UserAccessor userAccessor = Factories.sampleUser();
+        assertEquals(true, userAccessor.save());
+
+        // Assign that image to a user
+        userAccessor.setImageId(imageAccessor.getId());
+        assertEquals(true, userAccessor.save());
+
+        // Assert there are no available images
+        assertEquals(0, ImageAccessor.allAvailible(projectAccessor.getId()).size());
+
+        // Create a record for that image now
+        RecordAccessor recordAccessor = Factories.sampleRecord();
+        recordAccessor.setImageId(imageAccessor.getId());
+        assertEquals(true, recordAccessor.save());
+
+        // Remove from the user
+        userAccessor.setImageId(0);
+        assertEquals(true, userAccessor.save());
+
+        // Assert there are still no available images
+        assertEquals(0, ImageAccessor.allAvailible(projectAccessor.getId()).size());
     }
 
     @Test

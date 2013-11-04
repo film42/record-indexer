@@ -314,7 +314,7 @@ public class Controller implements IController {
             return;
         }
 
-        getView().setResponse(searchRes.toString());
+        getView().setResponse(searchRes.toString(serverPath));
     }
 
     /* ******************************

@@ -26,13 +26,12 @@ public class Search_Res {
         return tuples;
     }
 
-    @Override
-    public String toString() {
+    public String toString(String serverPath) {
         StringBuilder stringBuilder = new StringBuilder();
 
         for(Tuple tuple: tuples) {
             stringBuilder.append(tuple.getBatchId() + "\n");
-            stringBuilder.append(tuple.getImageUrl() + "\n");
+            stringBuilder.append(serverPath + tuple.getImageUrl() + "\n");
             stringBuilder.append(tuple.getRecordNumber() + "\n");
             stringBuilder.append(tuple.getFieldId() + "\n");
         }

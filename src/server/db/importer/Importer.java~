@@ -23,22 +23,18 @@ public class Importer {
         Database.init(Database.PRODUCTION_MODE);
         Database.erase();
 
-
+	
 
         new Importer().run(args[0]);
     }
 
-    public void run(String xmlParam) throws Exception {
+    public void run(String basePath) throws Exception {
         // Copy Files
-        String pathToXML = xmlParam;
-
-        File file = new File(pathToXML);
-
-        String basePath = file.getParentFile().getAbsolutePath();
-
+        String pathToXML = basePath + "/Records.xml";
         String pathToImages = basePath + "/images/";
         String pathToKnownData = basePath + "/knowndata/";
         String pathToFieldHelp = basePath + "/fieldhelp/";
+
 
         File destinationPath = new File("db/statics/");
         // Copy images to statics/images

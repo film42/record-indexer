@@ -28,7 +28,7 @@ public class Communicator {
             throws UnauthorizedAccessException, RemoteServerErrorException {
 
         String resource = "validateUser/";
-        String response = HttpClient.post(serverPath+resource, user.toXML());
+        String response = HttpClient.post(serverPath + resource, user.toXML());
 
         if(response == null)
             return null;
@@ -52,7 +52,7 @@ public class Communicator {
             throws UnauthorizedAccessException, RemoteServerErrorException {
 
         String resource = "getSampleImage/";
-        String response = HttpClient.post(serverPath+resource, sampleImage.toXML());
+        String response = HttpClient.post(serverPath + resource, sampleImage.toXML());
 
         if(response == null)
             return null;
@@ -64,7 +64,7 @@ public class Communicator {
             throws UnauthorizedAccessException, RemoteServerErrorException {
 
         String resource = "downloadBatch/";
-        String response = HttpClient.post(serverPath+resource, downloadBatch.toXML());
+        String response = HttpClient.post(serverPath + resource, downloadBatch.toXML());
 
         if(response == null)
             return null;
@@ -76,7 +76,7 @@ public class Communicator {
             throws UnauthorizedAccessException, RemoteServerErrorException {
 
         String resource = "submitBatch/";
-        String response = HttpClient.post(serverPath+resource, submitBatch.toXML());
+        String response = HttpClient.post(serverPath + resource, submitBatch.toXML());
 
         if(response == null)
             return null;
@@ -88,7 +88,7 @@ public class Communicator {
             throws UnauthorizedAccessException, RemoteServerErrorException {
 
         String resource = "getFields/";
-        String response = HttpClient.post(serverPath+resource, fields.toXML());
+        String response = HttpClient.post(serverPath + resource, fields.toXML());
 
         if(response == null)
             return null;
@@ -100,7 +100,7 @@ public class Communicator {
             throws UnauthorizedAccessException, RemoteServerErrorException {
 
         String resource = "search/";
-        String response = HttpClient.post(serverPath+resource, search.toXML());
+        String response = HttpClient.post(serverPath + resource, search.toXML());
 
         if(response == null)
             return null;
@@ -108,17 +108,16 @@ public class Communicator {
         return Search_Res.serialize(response);
     }
 
-    public void downloadStatic(String rescource) {
+    public void downloadStatic(String resource) {
 
         try {
             //String response = HttpClient.get(url);
-            HttpClient.getStatic(serverPath+rescource);
+            HttpClient.getStatic(serverPath+resource);
         } catch (UnauthorizedAccessException e) {
             e.printStackTrace();
         } catch (RemoteServerErrorException e) {
             e.printStackTrace();
         }
-        //return  null;
 
     }
 

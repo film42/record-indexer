@@ -17,7 +17,6 @@ public class User extends BaseModel {
     private String lastName;
     private String email;
     private int indexedRecords;
-    private int projectId;
     private int imageId;
 
     public int getId() {
@@ -74,14 +73,6 @@ public class User extends BaseModel {
 
     public void setIndexedRecords(int indexedRecords) {
         this.indexedRecords = indexedRecords;
-    }
-
-    public int getProjectId() {
-        return projectId;
-    }
-
-    public void setProjectId(int projectId) {
-        this.projectId = projectId;
     }
 
     public int getImageId() {

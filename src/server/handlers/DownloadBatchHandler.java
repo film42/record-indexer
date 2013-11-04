@@ -64,8 +64,8 @@ public class DownloadBatchHandler extends BaseHanlder {
 
 
                     DownloadBatch_Res downloadBatchRes = new DownloadBatch_Res(
-                                                                        assignImage.getModel(),
-                            projectAccessor.getModel(), fieldAccessorList.size(), 0);
+                            assignImage.getModel(), projectAccessor.getModel(), fieldAccessorList.size(),
+                            projectAccessor.getRecordsPerImage());
 
                     // Add each field
                     for(FieldAccessor fieldAccessor : fieldAccessorList)

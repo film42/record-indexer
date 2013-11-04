@@ -54,8 +54,9 @@ public class ImageAccessor extends Image implements DatabaseAccessor {
                 List<Object> accessorList = new ArrayList<Object>();
 
                 String query;
-                query = "select * from images where project_id = "+projectIdF+" AND id IS NOT "
-                        + "(select image_id from users where image_id is not null);";
+                query = "select * from images where project_id = "+projectIdF+" AND id not in "
+                        + "(select image_id from users where image_id is not null) AND id NOT IN "
+                        + "(select image_id from records);";
                 ResultSet resultSet = database.query(query);
 
                 while(resultSet.next()) {
