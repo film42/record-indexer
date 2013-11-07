@@ -22,14 +22,13 @@ public class Fields_Res {
     @XStreamImplicit()
     private List<Fields> fields = new ArrayList<Fields>();
 
-    private int projectId;
-
     public void addField(Field field, int position) {
 
         Fields response = null;
         response = new Fields(field.getId(), position, field.getTitle(),
                               field.getHelpHtml(), field.getxCoord(),
-                              field.getWidth(), field.getKnownData());
+                              field.getWidth(), field.getKnownData(),
+                              field.getProjectId());
         fields.add(response);
 
     }
@@ -42,20 +41,12 @@ public class Fields_Res {
         return fields;
     }
 
-    public int getProjectId() {
-        return projectId;
-    }
-
-    public void setProjectId(int projectId) {
-        this.projectId = projectId;
-    }
-
     @Override
     public String toString() {
         StringBuilder stringBuilder = new StringBuilder();
 
         for(Fields field : fields) {
-            stringBuilder.append(getProjectId() + "\n");
+            stringBuilder.append(field.getProjectId() + "\n");
             stringBuilder.append(field.getId() + "\n");
             stringBuilder.append(field.getTitle() + "\n");
         }

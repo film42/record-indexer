@@ -265,7 +265,10 @@ public class Controller implements IController {
 
         fieldsParam.setUsername(username);
         fieldsParam.setPassword(password);
-        fieldsParam.setProjectId(Integer.parseInt(projectId));
+        if(projectId.isEmpty())
+            fieldsParam.setProjectId(-1);
+        else
+            fieldsParam.setProjectId(Integer.parseInt(projectId));
 
         getView().setRequest(fieldsParam.toXML());
 

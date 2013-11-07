@@ -10,6 +10,7 @@ import shared.communication.params.Fields_Param;
 import shared.communication.params.Projects_Param;
 import shared.communication.responses.Fields_Res;
 import shared.communication.responses.Projects_Res;
+import shared.models.Field;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -41,18 +42,25 @@ public class GetFieldsHandler extends BaseHanlder {
                 String response;
                 Fields_Res fieldsRes = new Fields_Res();
 
-
-                ProjectAccessor projectAccessor = ProjectAccessor.find(fieldsParam.getProjectId());
-
-                if(projectAccessor == null) {
-                    writeServerErrorResponse(exchange);
-                    return;
+                List<FieldAccessor> fieldAccessorList;
+                ProjectAccessor projectAccessor;
+                if(fieldsParam.getProjectId() == -1) {
+                    fieldAccessorList = FieldAccessor.all();
+                } else {
+                    // if there find a project
+                    projectAccessor = ProjectAccessor.find(fieldsParam.getProjectId());
+                    if(projectAccessor == null) {
+                        writeServerErrorResponse(exchange);
+                        return;
+                    }
+                    // Get the projects fields
+                    fieldAccessorList = projectAccessor.getFields();
                 }
 
-                List<FieldAccessor> fieldAccessorList = projectAccessor.getFields();
-                fieldsRes.setProjectId(projectAccessor.getId());
-                for(int i = 0; i < fieldAccessorList.size(); i++)
-                    fieldsRes.addField(fieldAccessorList.get(i).getModel(), (i+1));
+                for(int i = 0; i < fieldAccessorList.size(); i++) {
+                    Field field = fieldAccessorList.get(i).getModel();
+                    fieldsRes.addField(field, field.getPosition());
+                }
 
                 response = fieldsRes.toXML();
                 writeSuccessResponse(exchange, response);

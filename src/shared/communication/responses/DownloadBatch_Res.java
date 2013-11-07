@@ -52,7 +52,8 @@ public class DownloadBatch_Res {
         Fields response = null;
         response = new Fields(field.getId(), field.getPosition(), field.getTitle(),
                               field.getHelpHtml(), field.getxCoord(),
-                              field.getWidth(), field.getKnownData());
+                              field.getWidth(), field.getKnownData(),
+                              field.getProjectId());
         fields.add(response);
 
     }

@@ -19,12 +19,13 @@ public class Fields {
     private String helpUrl;
     private int xCoord;
     private int pixelWidth;
+    private int projectId;
 
 
     public Fields(int id, int number,
                   String title, String helpUrl,
                   int xCoord, int pixelWidth,
-                  String knownData) {
+                  String knownData, int projectId) {
 
         this.id = id;
         this.number = number;
@@ -33,6 +34,7 @@ public class Fields {
         this.xCoord = xCoord;
         this.pixelWidth = pixelWidth;
         this.knownData = knownData;
+        this.projectId = projectId;
     }
 
     public String getKnownData() {
@@ -61,5 +63,13 @@ public class Fields {
 
     public int getPixelWidth() {
         return pixelWidth;
+    }
+
+    public int getProjectId() {
+        return projectId;
+    }
+
+    public void setProjectId(int projectId) {
+        this.projectId = projectId;
     }
 }
