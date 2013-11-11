@@ -38,6 +38,7 @@ public class Main extends JFrame {
     private JPanel searchResults;
 
     private JSplitPane searchArea;
+    private JSplitPane searchForm;
 
     public Main() {
 
@@ -57,7 +58,7 @@ public class Main extends JFrame {
         searchArea.setDividerLocation(80);
         searchArea.setDividerSize(0);
 
-        JSplitPane searchForm = new JSplitPane(JSplitPane.HORIZONTAL_SPLIT, sidebarPanel, searchArea);
+        searchForm = new JSplitPane(JSplitPane.HORIZONTAL_SPLIT, sidebarPanel, searchArea);
         searchForm.setOneTouchExpandable(false);
         searchForm.setDividerLocation(120);
         searchForm.setEnabled(false);
@@ -109,9 +110,11 @@ public class Main extends JFrame {
                 List<ProjectContainer> projectContainerList =
                         networking.getProjectsWithFields(username, password);
 
+                JPanel search = new JPanel();
+
                 if(projectContainerList != null)
                 for(ProjectContainer projectContainer : projectContainerList) {
-                    sidebarPanel.add(new ProjectGroup(projectContainer));
+                    search.add(new ProjectGroup(projectContainer));
 
                     for(final Fields field : projectContainer.getFieldsList()) {
                         FieldButton fieldButton = new FieldButton(field);
@@ -123,14 +126,17 @@ public class Main extends JFrame {
                                 updateFieldsField(fieldId);
                             }
                         });
-                        sidebarPanel.add(fieldButton);
+                        search.add(fieldButton);
                     }
                 }
 
-                sidebarPanel.validate();
-                sidebarPanel.repaint();
+                searchForm.setLeftComponent(search);
+                searchForm.setDividerLocation(120);
+                searchForm.validate();
+                searchForm.repaint();
 
-                String fieldName = "test";
+
+                String fieldName = "";
                 if(projectContainerList != null)
                     fieldName = projectContainerList.get(0).getFieldsList().get(0).getTitle();
 
@@ -170,7 +176,7 @@ public class Main extends JFrame {
         jPanel.setComponentOrientation(ComponentOrientation.LEFT_TO_RIGHT);
 
         final JButton searchButton = new JButton("Search");
-        final JTextField queryField = new JTextField("one,2,three,4,etc",41);
+        final JTextField queryField = new JTextField("",41);
 
         jPanel.add(new JLabel("Fields: "));
         jPanel.add(fieldsField);
