@@ -72,7 +72,7 @@ public class HttpClient {
         return inputStreamToString(response);
     }
 
-    public static File getStatic(String url)
+    public static ByteArrayOutputStream getStatic(String url)
             throws UnauthorizedAccessException, RemoteServerErrorException {
 
         InputStream response = request(url, "GET", "");
@@ -90,10 +90,7 @@ public class HttpClient {
                     byteArrayOutputStream.write(byteArray, 0, bytesRead);
                 }
 
-                byteArrayOutputStream.writeTo(new FileOutputStream("/tmp/testing.png"));
-
-                byteArrayOutputStream.flush();
-                byteArrayOutputStream.close();
+                return byteArrayOutputStream;
 
 
             } catch (IOException e) {

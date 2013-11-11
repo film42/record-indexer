@@ -4,14 +4,14 @@
     <list default="true" id="0e613439-edf5-4c63-8b9d-9c55338b370a" name="Default" comment="" />
     <ignored path="6-record-indexer.iws" />
     <ignored path=".idea/workspace.xml" />
-    <file path="/fragment.java" changelist="0e613439-edf5-4c63-8b9d-9c55338b370a" time="1383609110910" ignored="false" />
+    <file path="/fragment.java" changelist="0e613439-edf5-4c63-8b9d-9c55338b370a" time="1384132597751" ignored="false" />
     <file path="/Field.java" changelist="0e613439-edf5-4c63-8b9d-9c55338b370a" time="1383384059947" ignored="false" />
     <file path="/DatabaseAccessor.java" changelist="0e613439-edf5-4c63-8b9d-9c55338b370a" time="1382857030564" ignored="false" />
     <file path="/UserAccessor.java" changelist="0e613439-edf5-4c63-8b9d-9c55338b370a" time="1383336128762" ignored="false" />
     <file path="/FieldAccessor.java" changelist="0e613439-edf5-4c63-8b9d-9c55338b370a" time="1383415428622" ignored="false" />
     <file path="/RecordAccessor.java" changelist="0e613439-edf5-4c63-8b9d-9c55338b370a" time="1383418366619" ignored="false" />
     <file path="/ProjectAccessor.java" changelist="0e613439-edf5-4c63-8b9d-9c55338b370a" time="1383353618709" ignored="false" />
-    <file path="/Project.java" changelist="0e613439-edf5-4c63-8b9d-9c55338b370a" time="1382998897420" ignored="false" />
+    <file path="/Project.java" changelist="0e613439-edf5-4c63-8b9d-9c55338b370a" time="1384059426079" ignored="false" />
     <file path="/User.java" changelist="0e613439-edf5-4c63-8b9d-9c55338b370a" time="1383278752835" ignored="false" />
     <file path="/Image.java" changelist="0e613439-edf5-4c63-8b9d-9c55338b370a" time="1382801871783" ignored="false" />
     <file path="/ImageAccessor.java" changelist="0e613439-edf5-4c63-8b9d-9c55338b370a" time="1383417354422" ignored="false" />
@@ -24,8 +24,8 @@
     <file path="/SubmitBatch.java" changelist="0e613439-edf5-4c63-8b9d-9c55338b370a" time="1381803750564" ignored="false" />
     <file path="/Fields.java" changelist="0e613439-edf5-4c63-8b9d-9c55338b370a" time="1383608441751" ignored="false" />
     <file path="/GetFields.java" changelist="0e613439-edf5-4c63-8b9d-9c55338b370a" time="1381802848987" ignored="false" />
-    <file path="/Search.java" changelist="0e613439-edf5-4c63-8b9d-9c55338b370a" time="1381804335504" ignored="false" />
-    <file path="/Communicator.java" changelist="0e613439-edf5-4c63-8b9d-9c55338b370a" time="1383428115187" ignored="false" />
+    <file path="/Search.java" changelist="0e613439-edf5-4c63-8b9d-9c55338b370a" time="1384046161760" ignored="false" />
+    <file path="/Communicator.java" changelist="0e613439-edf5-4c63-8b9d-9c55338b370a" time="1384129870490" ignored="false" />
     <file path="/ValueAccessor.java" changelist="0e613439-edf5-4c63-8b9d-9c55338b370a" time="1383416061731" ignored="false" />
     <file path="/Value.java" changelist="0e613439-edf5-4c63-8b9d-9c55338b370a" time="1383384244767" ignored="false" />
     <file path="/Fields_Res.java" changelist="0e613439-edf5-4c63-8b9d-9c55338b370a" time="1383608573185" ignored="false" />
@@ -63,7 +63,7 @@
     <file path="/GetSampleImageHandler.java" changelist="0e613439-edf5-4c63-8b9d-9c55338b370a" time="1383284704338" ignored="false" />
     <file path="/DownloadBatchHandler.java" changelist="0e613439-edf5-4c63-8b9d-9c55338b370a" time="1383596252120" ignored="false" />
     <file path="/Controller.java" changelist="0e613439-edf5-4c63-8b9d-9c55338b370a" time="1383608042754" ignored="false" />
-    <file path="/HttpClient.java" changelist="0e613439-edf5-4c63-8b9d-9c55338b370a" time="1383426812084" ignored="false" />
+    <file path="/HttpClient.java" changelist="0e613439-edf5-4c63-8b9d-9c55338b370a" time="1384129997589" ignored="false" />
     <file path="/HttpResponse.java" changelist="0e613439-edf5-4c63-8b9d-9c55338b370a" time="1383275929509" ignored="false" />
     <file path="/UnauthorizedAccessException.java" changelist="0e613439-edf5-4c63-8b9d-9c55338b370a" time="1383276845353" ignored="false" />
     <file path="/RemoteServerException.java" changelist="0e613439-edf5-4c63-8b9d-9c55338b370a" time="1383276893097" ignored="false" />
@@ -82,6 +82,14 @@
     <file path="/a.java" changelist="0e613439-edf5-4c63-8b9d-9c55338b370a" time="1383435315203" ignored="false" />
     <file path="/sample.java" changelist="0e613439-edf5-4c63-8b9d-9c55338b370a" time="1383435312830" ignored="false" />
     <file path="/FieldAccessorTest.java" changelist="0e613439-edf5-4c63-8b9d-9c55338b370a" time="1383443854334" ignored="false" />
+    <file path="/MainLayout.java" changelist="0e613439-edf5-4c63-8b9d-9c55338b370a" time="1384045976892" ignored="false" />
+    <file path="/Main.java" changelist="0e613439-edf5-4c63-8b9d-9c55338b370a" time="1384133573805" ignored="false" />
+    <file path="/InputField.java" changelist="0e613439-edf5-4c63-8b9d-9c55338b370a" time="1384047297840" ignored="false" />
+    <file path="/Networking.java" changelist="0e613439-edf5-4c63-8b9d-9c55338b370a" time="1384131829141" ignored="false" />
+    <file path="/ProjectContainer.java" changelist="0e613439-edf5-4c63-8b9d-9c55338b370a" time="1384049752068" ignored="false" />
+    <file path="/FieldButton.java" changelist="0e613439-edf5-4c63-8b9d-9c55338b370a" time="1384057224896" ignored="false" />
+    <file path="/ProjectGroup.java" changelist="0e613439-edf5-4c63-8b9d-9c55338b370a" time="1384059422313" ignored="false" />
+    <file path="/ImageButton.java" changelist="0e613439-edf5-4c63-8b9d-9c55338b370a" time="1384063243982" ignored="false" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -96,6 +104,7 @@
     <disable_hints />
   </component>
   <component name="DebuggerManager">
+    <ui_properties default_suspend_policy="SuspendAll" default_condition_enabled="true" />
     <breakpoint_any default_suspend_policy="SuspendAll" default_condition_enabled="true">
       <breakpoint>
         <option name="NOTIFY_CAUGHT" value="true" />
@@ -132,7 +141,6 @@
         <option name="LOG_MESSAGE" value="&#13;&#13;JAVA" />
       </breakpoint>
     </breakpoint_any>
-    <ui_properties default_suspend_policy="SuspendAll" default_condition_enabled="true" />
     <breakpoint_rules />
     <ui_properties />
   </component>
@@ -142,86 +150,105 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="ImageAccessor.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/server/db/ImageAccessor.java">
+      <file leaf-file-name="Search.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/search/Search.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="61" column="17" selection-start="1866" selection-end="1866" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ImageAccessorTest.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/test/server/db/accessors/ImageAccessorTest.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="131" column="5" selection-start="4334" selection-end="4334" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Search_Res.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/shared/communication/responses/Search_Res.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="28" column="0" selection-start="613" selection-end="613" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="SearchHandler.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/server/handlers/SearchHandler.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="60" column="5" selection-start="2255" selection-end="2255" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Controller.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/test/servertester/controllers/Controller.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="268" column="41" selection-start="8303" selection-end="8303" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="FieldAccessor.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/server/db/FieldAccessor.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="21" column="13" selection-start="477" selection-end="477" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="GetFieldsHandler.java" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/server/handlers/GetFieldsHandler.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="30" column="10" selection-start="926" selection-end="926" vertical-scroll-proportion="0.10552764">
+            <state line="3" column="18" selection-start="57" selection-end="57" vertical-scroll-proportion="0.0">
               <folding>
-                <element signature="e#742#2535#0" expanded="true" />
-                <element signature="e#2528#2529#0" expanded="true" />
+                <element signature="imports" expanded="true" />
+                <element signature="e#265#513#0" expanded="true" />
+                <element signature="e#502#503#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="DownloadBatch_Res.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/shared/communication/responses/DownloadBatch_Res.java">
+      <file leaf-file-name="Main.java" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/search/Main.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="52" column="27" selection-start="1437" selection-end="1437" vertical-scroll-proportion="0.0">
+            <state line="165" column="0" selection-start="5339" selection-end="5339" vertical-scroll-proportion="-0.33426183">
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="e#3078#4766#0" expanded="true" />
+                <element signature="e#3995#4327#0" expanded="true" />
+                <element signature="e#4300#4301#0" expanded="true" />
+                <element signature="e#4755#4756#0" expanded="true" />
+                <element signature="e#5858#7988#0" expanded="true" />
+                <element signature="e#7977#7978#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="HttpClient.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/client/communication/modules/HttpClient.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="98" column="9" selection-start="3054" selection-end="3054" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Fields_Res.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/shared/communication/responses/Fields_Res.java">
+      <file leaf-file-name="ImageButton.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/search/elements/ImageButton.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="23" column="0" selection-start="599" selection-end="599" vertical-scroll-proportion="0.0">
+            <state line="16" column="0" selection-start="218" selection-end="218" vertical-scroll-proportion="0.0">
               <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ProjectGroup.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/search/elements/ProjectGroup.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="25" column="8" selection-start="547" selection-end="639" vertical-scroll-proportion="0.0">
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="FieldButton.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/search/elements/FieldButton.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="12" column="41" selection-start="223" selection-end="223" vertical-scroll-proportion="0.0">
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Networking.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/search/helpers/Networking.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="135" column="19" selection-start="4488" selection-end="4488" vertical-scroll-proportion="0.0">
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="e#2907#2925#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Communicator.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/client/communication/Communicator.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="112" column="32" selection-start="3323" selection-end="3344" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ProjectContainer.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/search/helpers/dataModels/ProjectContainer.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="27" column="31" selection-start="656" selection-end="656" vertical-scroll-proportion="0.0">
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="e#372#380#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -236,22 +263,22 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/test/server/db/accessors/FieldAccessorTest.java" />
-        <option value="$PROJECT_DIR$/src/server/handlers/SubmitBatchHandler.java" />
-        <option value="$PROJECT_DIR$/build.xml" />
-        <option value="$PROJECT_DIR$/src/server/Server.java" />
-        <option value="$PROJECT_DIR$/src/server/db/importer/Importer.java" />
-        <option value="$PROJECT_DIR$/src/client/communication/Communicator.java" />
-        <option value="$PROJECT_DIR$/src/server/handlers/DownloadBatchHandler.java" />
-        <option value="$PROJECT_DIR$/src/shared/models/User.java" />
-        <option value="$PROJECT_DIR$/test/server/db/accessors/ImageAccessorTest.java" />
-        <option value="$PROJECT_DIR$/src/server/db/ImageAccessor.java" />
-        <option value="$PROJECT_DIR$/src/shared/communication/responses/Search_Res.java" />
-        <option value="$PROJECT_DIR$/src/shared/communication/common/Fields.java" />
-        <option value="$PROJECT_DIR$/src/shared/communication/responses/Fields_Res.java" />
         <option value="$PROJECT_DIR$/test/servertester/controllers/Controller.java" />
         <option value="$PROJECT_DIR$/src/server/handlers/GetFieldsHandler.java" />
         <option value="$PROJECT_DIR$/src/shared/communication/responses/DownloadBatch_Res.java" />
+        <option value="$PROJECT_DIR$/src/search/MainLayout.java" />
+        <option value="$PROJECT_DIR$/src/search/Search.java" />
+        <option value="$PROJECT_DIR$/src/search/forms/InputField.java" />
+        <option value="$PROJECT_DIR$/src/search/helpers/fluff/Project.java" />
+        <option value="$PROJECT_DIR$/src/search/helpers/fluff/ProjectContainer.java" />
+        <option value="$PROJECT_DIR$/src/search/elements/Project.java" />
+        <option value="$PROJECT_DIR$/src/search/elements/FieldButton.java" />
+        <option value="$PROJECT_DIR$/src/search/elements/ProjectGroup.java" />
+        <option value="$PROJECT_DIR$/src/search/elements/ImageButton.java" />
+        <option value="$PROJECT_DIR$/src/client/communication/Communicator.java" />
+        <option value="$PROJECT_DIR$/src/client/communication/modules/HttpClient.java" />
+        <option value="$PROJECT_DIR$/src/search/helpers/Networking.java" />
+        <option value="$PROJECT_DIR$/src/search/Main.java" />
       </list>
     </option>
   </component>
@@ -259,10 +286,10 @@
     <treeState />
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="273" />
-    <option name="y" value="36" />
-    <option name="width" value="1308" />
-    <option name="height" value="907" />
+    <option name="x" value="1539" />
+    <option name="y" value="-250" />
+    <option name="width" value="1482" />
+    <option name="height" value="1150" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="false">
     <OptionsSetting value="true" id="Add" />
@@ -290,8 +317,8 @@
       <sortByType />
     </navigator>
     <panes>
-      <pane id="PackagesPane" />
       <pane id="Scope" />
+      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -306,7 +333,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="cs240-record-indexer" />
+              <option name="myItemId" value="6-record-indexer" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -316,15 +343,11 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="cs240-record-indexer" />
+              <option name="myItemId" value="6-record-indexer" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="test" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="servertester" />
+              <option name="myItemId" value="src" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -334,109 +357,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="cs240-record-indexer" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="test" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="servertester" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="controllers" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
               <option name="myItemId" value="6-record-indexer" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="cs240-record-indexer" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="test" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="server" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="6-record-indexer" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="cs240-record-indexer" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="test" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="server" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="db" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="6-record-indexer" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="cs240-record-indexer" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="test" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="server" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="db" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="accessors" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="6-record-indexer" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="cs240-record-indexer" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="test" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="6-record-indexer" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="cs240-record-indexer" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
@@ -444,11 +365,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="shared" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="models" />
+              <option name="myItemId" value="search" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -458,7 +375,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="cs240-record-indexer" />
+              <option name="myItemId" value="6-record-indexer" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
@@ -466,15 +383,11 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="shared" />
+              <option name="myItemId" value="search" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="communication" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="responses" />
+              <option name="myItemId" value="elements" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -484,143 +397,11 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="cs240-record-indexer" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="shared" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="communication" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
               <option name="myItemId" value="6-record-indexer" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="cs240-record-indexer" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="shared" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="6-record-indexer" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="cs240-record-indexer" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="server" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="6-record-indexer" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="cs240-record-indexer" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="server" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="handlers" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="6-record-indexer" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="cs240-record-indexer" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="server" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="db" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="6-record-indexer" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="cs240-record-indexer" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="server" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="db" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="common" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="6-record-indexer" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="cs240-record-indexer" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="communication" />
+              <option name="myItemId" value="demo" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -669,7 +450,7 @@
       <recent name="$PROJECT_DIR$/test/server/db" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.Server">
+  <component name="RunManager" selected="Application.Search">
     <configuration default="false" name="UserAccessorTest" type="JUnit" factoryName="JUnit" temporary="true">
       <module name="6-record-indexer" />
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
@@ -884,6 +665,28 @@
       <ConfigurationWrapper RunnerId="Run" />
       <method />
     </configuration>
+    <configuration default="false" name="Search" type="Application" factoryName="Application">
+      <option name="MAIN_CLASS_NAME" value="search.Search" />
+      <option name="VM_PARAMETERS" value="" />
+      <option name="PROGRAM_PARAMETERS" value="" />
+      <option name="WORKING_DIRECTORY" value="file://$PROJECT_DIR$" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" value="" />
+      <option name="ENABLE_SWING_INSPECTOR" value="false" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <module name="6-record-indexer" />
+      <envs />
+      <RunnerSettings RunnerId="Debug">
+        <option name="DEBUG_PORT" value="" />
+        <option name="TRANSPORT" value="0" />
+        <option name="LOCAL" value="true" />
+      </RunnerSettings>
+      <RunnerSettings RunnerId="Run" />
+      <ConfigurationWrapper RunnerId="Debug" />
+      <ConfigurationWrapper RunnerId="Run" />
+      <method />
+    </configuration>
     <configuration default="false" name="Server Tests" type="JUnit" factoryName="JUnit" editBeforeRun="true">
       <module name="6-record-indexer" />
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
@@ -913,14 +716,15 @@
       <ConfigurationWrapper RunnerId="Run" />
       <method />
     </configuration>
-    <list size="7">
+    <list size="8">
       <item index="0" class="java.lang.String" itemvalue="Application.Importer" />
       <item index="1" class="java.lang.String" itemvalue="Application.Server" />
-      <item index="2" class="java.lang.String" itemvalue="JUnit.Server Tests" />
-      <item index="3" class="java.lang.String" itemvalue="JUnit.UserAccessorTest" />
-      <item index="4" class="java.lang.String" itemvalue="JUnit.UserAccessorTest.testCannotSaveNull" />
-      <item index="5" class="java.lang.String" itemvalue="JUnit.UserAccessorTest.testFind" />
-      <item index="6" class="java.lang.String" itemvalue="JUnit.DatabaseTest.testVoidQuery" />
+      <item index="2" class="java.lang.String" itemvalue="Application.Search" />
+      <item index="3" class="java.lang.String" itemvalue="JUnit.Server Tests" />
+      <item index="4" class="java.lang.String" itemvalue="JUnit.UserAccessorTest" />
+      <item index="5" class="java.lang.String" itemvalue="JUnit.UserAccessorTest.testCannotSaveNull" />
+      <item index="6" class="java.lang.String" itemvalue="JUnit.UserAccessorTest.testFind" />
+      <item index="7" class="java.lang.String" itemvalue="JUnit.DatabaseTest.testVoidQuery" />
     </list>
     <recent_temporary>
       <list size="4">
@@ -987,29 +791,29 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="273" y="36" width="1308" height="907" extended-state="0" />
+    <frame x="1539" y="-250" width="1482" height="1150" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="JetGradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Leiningen" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.41370225" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.25339806" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.31669044" sideWeight="0.5" order="8" side_tool="true" content_ui="tabs" />
-      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.19097503" sideWeight="0.3092006" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.27272728" sideWeight="0.49919614" order="11" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.2724679" sideWeight="0.49919614" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3281027" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Metrics" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.43223965" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.24949153" sideWeight="0.8140531" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32979593" sideWeight="0.8031384" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.26904762" sideWeight="0.58629775" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33860344" sideWeight="0.49966103" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.16504179" sideWeight="0.74660194" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3368932" sideWeight="0.49966103" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Leiningen" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32524964" sideWeight="0.49966103" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Metrics" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.43223965" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
     </layout>
@@ -1088,117 +892,142 @@
     <option name="showOnlyWarnings" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/server/db/common/Transaction.java">
+    <entry file="file://$PROJECT_DIR$/src/shared/communication/responses/Projects_Res.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="34" column="0" selection-start="778" selection-end="778" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$PROJECT_DIR$/lib/sqlite-jdbc-3.8.0-20130827.035027-1.jar!/org/sqlite/JDBC.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="86" column="0" selection-start="2531" selection-end="2531" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/server/db/common/Database.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="82" column="0" selection-start="2468" selection-end="2468" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/shared/models/Image.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="33" column="0" selection-start="542" selection-end="542" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/test/server/db/accessors/UserAccessorTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="38" column="8" selection-start="819" selection-end="919" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/server/db/ImageAccessor.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="61" column="17" selection-start="1866" selection-end="1866" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/shared/communication/responses/Search_Res.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="28" column="0" selection-start="613" selection-end="613" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/server/db/FieldAccessor.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="21" column="13" selection-start="477" selection-end="477" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/shared/models/Field.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="21" column="26" selection-start="423" selection-end="423" vertical-scroll-proportion="0.4002809">
+        <state line="21" column="13" selection-start="577" selection-end="577" vertical-scroll-proportion="-0.03163017">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/shared/communication/responses/Fields_Res.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="23" column="0" selection-start="599" selection-end="599" vertical-scroll-proportion="0.0">
+        <state line="26" column="0" selection-start="655" selection-end="983" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/test/server/db/accessors/ImageAccessorTest.java">
+    <entry file="jar:///Library/Java/JavaVirtualMachines/jdk1.7.0_17.jdk/Contents/Home/src.zip!/java/awt/EventQueue.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="131" column="5" selection-start="4334" selection-end="4334" vertical-scroll-proportion="0.0">
+        <state line="687" column="0" selection-start="23103" selection-end="23103" vertical-scroll-proportion="0.33333334">
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/search/forms/InputField.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="13" column="25" selection-start="254" selection-end="254" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/search/elements/FieldButton.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="12" column="41" selection-start="223" selection-end="223" vertical-scroll-proportion="0.0">
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/search/elements/ProjectGroup.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="25" column="8" selection-start="547" selection-end="639" vertical-scroll-proportion="0.0">
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/test/servertester/controllers/Controller.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="268" column="41" selection-start="8303" selection-end="8303" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/server/handlers/SearchHandler.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="60" column="5" selection-start="2255" selection-end="2255" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/shared/communication/common/Fields.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="24" column="11" selection-start="454" selection-end="454" vertical-scroll-proportion="0.33267328">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/shared/communication/responses/DownloadBatch_Res.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="52" column="27" selection-start="1437" selection-end="1437" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/server/handlers/GetFieldsHandler.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="30" column="10" selection-start="926" selection-end="926" vertical-scroll-proportion="0.10552764">
+        <state line="354" column="0" selection-start="10953" selection-end="11086" vertical-scroll-proportion="0.0">
           <folding>
-            <element signature="e#742#2535#0" expanded="true" />
-            <element signature="e#2528#2529#0" expanded="true" />
+            <element signature="method#validateUser#0;class#Controller#0" expanded="false" />
+            <element signature="method#getSampleImage#0;class#Controller#0" expanded="false" />
+            <element signature="method#downloadBatch#0;class#Controller#0" expanded="false" />
+            <element signature="method#submitBatch#0;class#Controller#0" expanded="false" />
+            <element signature="method#getFields#0;class#Controller#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/shared/communication/responses/Search_Res.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="16" column="13" selection-start="380" selection-end="380" vertical-scroll-proportion="0.33333334">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/search/Search.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="3" column="18" selection-start="57" selection-end="57" vertical-scroll-proportion="0.0">
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#265#513#0" expanded="true" />
+            <element signature="e#502#503#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/search/elements/ImageButton.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="16" column="0" selection-start="218" selection-end="218" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/search/helpers/dataModels/ProjectContainer.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="27" column="31" selection-start="656" selection-end="656" vertical-scroll-proportion="0.0">
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#372#380#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/client/communication/Communicator.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="112" column="32" selection-start="3323" selection-end="3344" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/search/helpers/Networking.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="135" column="19" selection-start="4488" selection-end="4488" vertical-scroll-proportion="0.0">
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#2907#2925#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/client/communication/modules/HttpClient.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="98" column="9" selection-start="3054" selection-end="3054" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar:///Library/Java/JavaVirtualMachines/jdk1.7.0_17.jdk/Contents/Home/src.zip!/java/awt/Dimension.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="137" column="18" selection-start="3125" selection-end="3125" vertical-scroll-proportion="0.33286908">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/search/Main.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="165" column="0" selection-start="5339" selection-end="5339" vertical-scroll-proportion="-0.33426183">
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#3078#4766#0" expanded="true" />
+            <element signature="e#3995#4327#0" expanded="true" />
+            <element signature="e#4300#4301#0" expanded="true" />
+            <element signature="e#4755#4756#0" expanded="true" />
+            <element signature="e#5858#7988#0" expanded="true" />
+            <element signature="e#7977#7978#0" expanded="true" />
           </folding>
         </state>
       </provider>

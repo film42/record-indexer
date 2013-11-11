@@ -6,6 +6,8 @@ import client.communication.modules.HttpClient;
 import shared.communication.params.*;
 import shared.communication.responses.*;
 
+import java.io.ByteArrayOutputStream;
+
 /**
  * Created with IntelliJ IDEA.
  * User: film42
@@ -108,15 +110,14 @@ public class Communicator {
         return Search_Res.serialize(response);
     }
 
-    public void downloadStatic(String resource) {
+    public ByteArrayOutputStream downloadStatic(String resource) {
 
         try {
-            //String response = HttpClient.get(url);
-            HttpClient.getStatic(serverPath+resource);
+            return HttpClient.getStatic(serverPath+resource);
         } catch (UnauthorizedAccessException e) {
-            e.printStackTrace();
+            return null;
         } catch (RemoteServerErrorException e) {
-            e.printStackTrace();
+            return null;
         }
 
     }
