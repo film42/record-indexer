@@ -1,10 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="ArtifactsWorkspaceSettings">
+    <artifacts-to-build>
+      <artifact name="search_gui:jar" />
+    </artifacts-to-build>
+  </component>
   <component name="ChangeListManager">
     <list default="true" id="0e613439-edf5-4c63-8b9d-9c55338b370a" name="Default" comment="" />
     <ignored path="6-record-indexer.iws" />
     <ignored path=".idea/workspace.xml" />
-    <file path="/fragment.java" changelist="0e613439-edf5-4c63-8b9d-9c55338b370a" time="1384132597751" ignored="false" />
+    <file path="/fragment.java" changelist="0e613439-edf5-4c63-8b9d-9c55338b370a" time="1384142043651" ignored="false" />
     <file path="/Field.java" changelist="0e613439-edf5-4c63-8b9d-9c55338b370a" time="1383384059947" ignored="false" />
     <file path="/DatabaseAccessor.java" changelist="0e613439-edf5-4c63-8b9d-9c55338b370a" time="1382857030564" ignored="false" />
     <file path="/UserAccessor.java" changelist="0e613439-edf5-4c63-8b9d-9c55338b370a" time="1383336128762" ignored="false" />
@@ -166,7 +171,7 @@
       <file leaf-file-name="Main.java" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/search/Main.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="165" column="0" selection-start="5339" selection-end="5339" vertical-scroll-proportion="-0.33426183">
+            <state line="195" column="37" selection-start="6464" selection-end="6502" vertical-scroll-proportion="0.2924791">
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="e#3078#4766#0" expanded="true" />
@@ -410,7 +415,7 @@
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="project.structure.last.edited" value="Project" />
+    <property name="project.structure.last.edited" value="Artifacts" />
     <property name="GoToFile.includeJavaFiles" value="false" />
     <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary" value="JUnit4" />
     <property name="project.structure.proportion" value="0.15" />
@@ -1019,7 +1024,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/search/Main.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="165" column="0" selection-start="5339" selection-end="5339" vertical-scroll-proportion="-0.33426183">
+        <state line="195" column="37" selection-start="6464" selection-end="6502" vertical-scroll-proportion="0.2924791">
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="e#3078#4766#0" expanded="true" />
@@ -1038,10 +1043,12 @@
       <state key="ArtifactsStructureConfigurable.UI">
         <settings>
           <artifact-editor />
+          <last-edited>search_gui:jar</last-edited>
           <splitter-proportions>
             <option name="proportions">
               <list>
                 <option value="0.2" />
+                <option value="0.5" />
               </list>
             </option>
           </splitter-proportions>
