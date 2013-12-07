@@ -15,7 +15,7 @@ public class MainWindow extends JFrame {
     JSplitPane body = new JSplitPane(JSplitPane.VERTICAL_SPLIT, new JPanel(), new JPanel());
 
     public MainWindow() {
-        this.setSize(800, 400);
+        this.setSize(1000, 700);
         setupView();
     }
 
@@ -41,6 +41,7 @@ public class MainWindow extends JFrame {
     private void setupSplitView() {
         body.setBottomComponent(new SplitBase());
         body.setBorder(null);
+        body.setDividerLocation(450);
 
         //body.setPreferredSize(new Dimension(800, 100));
     }

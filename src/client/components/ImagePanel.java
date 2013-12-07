@@ -37,7 +37,7 @@ public class ImagePanel extends JPanel {
 
     private void setupImagePanel() {
         String path = "db/statics/images/1890_image0.png";
-        this.add(new ScalableImage(path), BorderLayout.SOUTH);
+        this.add(new ScalableImage(path), BorderLayout.CENTER);
     }
 
 }

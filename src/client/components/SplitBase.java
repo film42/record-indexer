@@ -28,5 +28,7 @@ public class SplitBase extends JSplitPane {
 
         this.setRightComponent(tabbedPane2);
 //        this.setBorder(null);
+
+        this.setDividerLocation(250);
     }
 }
