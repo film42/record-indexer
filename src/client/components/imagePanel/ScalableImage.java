@@ -1,7 +1,9 @@
 package client.components.imagePanel;
 
 import client.components.imagePanel.listeners.ImageControlsListener;
+import client.components.imagePanel.listeners.ImageTable;
 import client.components.listeners.DrawingListener;
+import client.persistence.ImageState;
 
 import javax.imageio.ImageIO;
 import javax.swing.*;
@@ -12,6 +14,7 @@ import java.awt.event.MouseWheelEvent;
 import java.awt.geom.AffineTransform;
 import java.awt.geom.NoninvertibleTransformException;
 import java.awt.geom.Point2D;
+import java.awt.geom.Rectangle2D;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
@@ -36,6 +39,8 @@ public class ScalableImage extends JPanel {
     private int w_dragStartY;
     private int w_dragStartOriginX;
     private int w_dragStartOriginY;
+
+    private ImageTable imageTable;
 
     private double MAX_SCROLL = 1.0f;
     private double MIN_SCROLL = 0.2f;
@@ -65,6 +70,9 @@ public class ScalableImage extends JPanel {
         } catch (IOException ex) {
             // handle exception...
         }
+
+        imageTable = new ImageTable();
+
     }
 
     public BufferedImage getImage() {
@@ -80,13 +88,17 @@ public class ScalableImage extends JPanel {
 
         Graphics2D g2 = (Graphics2D)g;
 
-        g2.translate(this.getWidth()/2, this.getHeight()/2);
+        g2.translate(this.getWidth() / 2, this.getHeight() / 2);
         g2.scale(scale, scale);
         g2.translate(-w_originX, -w_originY);
-        g2.drawImage(image, -this.getWidth()/2, -this.getHeight()/2, null);
+        g2.drawImage(image, 0, 0, null);
 
-        if(redrawHack == false) {
+        imageTable.paint(g2);
+
+        if(!redrawHack) {
             redrawHack = true;
+            // To rematch 0,0 to real origin
+            this.setOrigin(this.getWidth()/2, this.getHeight()/2);
             this.repaint();
         }
     }
@@ -106,41 +118,6 @@ public class ScalableImage extends JPanel {
         redrawHack = false;
         this.repaint();
     }
-
-    /* ********************************************
-                    Listeners
-     ******************************************** */
-
-    private ImageControlsListener imageControlsListener = new ImageControlsListener() {
-        @Override
-        public void onScrollIncrease() {
-            if (scale < MAX_SCROLL) {
-                setScale(scale + 0.02f);
-            }
-        }
-
-        @Override
-        public void onScrollDecrease() {
-            if(scale > MIN_SCROLL ) {
-                setScale(scale - 0.02f);
-            }
-        }
-
-        @Override
-        public void onInvertImage() {
-            invertImage(image);
-        }
-
-        @Override
-        public void onToggleHighlights() {
-            return;
-        }
-    };
-
-    public ImageControlsListener getImageControlsListener() {
-        return imageControlsListener;
-    }
-
 
     /* ********************************************
                      Free Code
@@ -183,6 +160,7 @@ public class ScalableImage extends JPanel {
             int d_Y = e.getY();
 
             AffineTransform transform = new AffineTransform();
+            transform.translate(getWidth()/2, getHeight()/2);
             transform.scale(scale, scale);
             transform.translate(-w_originX, -w_originY);
 
@@ -196,11 +174,15 @@ public class ScalableImage extends JPanel {
             int w_X = (int)w_Pt.getX();
             int w_Y = (int)w_Pt.getY();
 
+            imageTable.contains(w_X, w_Y);
+
             dragging = true;
             w_dragStartX = w_X;
             w_dragStartY = w_Y;
             w_dragStartOriginX = w_originX;
             w_dragStartOriginY = w_originY;
+
+            repaint();
         }
 
         @Override
@@ -210,6 +192,7 @@ public class ScalableImage extends JPanel {
                 int d_Y = e.getY();
 
                 AffineTransform transform = new AffineTransform();
+                transform.translate(getWidth()/2, getHeight()/2);
                 transform.scale(scale, scale);
                 transform.translate(-w_dragStartOriginX, -w_dragStartOriginY);
 
@@ -250,4 +233,39 @@ public class ScalableImage extends JPanel {
             }
         }
     };
+
+    /* ********************************************
+                    Listeners
+     ******************************************** */
+
+    private ImageControlsListener imageControlsListener = new ImageControlsListener() {
+        @Override
+        public void onScrollIncrease() {
+            if (scale < MAX_SCROLL) {
+                setScale(scale + 0.02f);
+            }
+        }
+
+        @Override
+        public void onScrollDecrease() {
+            if(scale > MIN_SCROLL ) {
+                setScale(scale - 0.02f);
+            }
+        }
+
+        @Override
+        public void onInvertImage() {
+            invertImage(image);
+        }
+
+        @Override
+        public void onToggleHighlights() {
+            return;
+        }
+    };
+
+    public ImageControlsListener getImageControlsListener() {
+        return imageControlsListener;
+    }
+
 }
