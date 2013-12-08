@@ -1,7 +1,8 @@
 package client.components;
 
+import client.components.imagePanel.ImagePanel;
+
 import javax.swing.*;
-import javax.swing.plaf.basic.BasicSplitPaneDivider;
 import java.awt.*;
 
 /**

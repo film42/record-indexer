@@ -17,14 +17,14 @@ public class SplitBase extends JSplitPane {
 
     private void setupView() {
         JTabbedPane tabbedPane = new JTabbedPane();
-        tabbedPane.addTab("Test", new JPanel());
-        tabbedPane.addTab("Two", new JPanel());
+        tabbedPane.addTab("Table Entry", new JPanel());
+        tabbedPane.addTab("Form Entry", new JPanel());
 
         this.setLeftComponent(tabbedPane);
 
         JTabbedPane tabbedPane2 = new JTabbedPane();
-        tabbedPane2.addTab("Test", new JPanel());
-        tabbedPane2.addTab("Two", new JPanel());
+        tabbedPane2.addTab("Field Help", new JPanel());
+        tabbedPane2.addTab("Image Navigator", new JPanel());
 
         this.setRightComponent(tabbedPane2);
 //        this.setBorder(null);
