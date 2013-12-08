@@ -1,5 +1,7 @@
 package client.components;
 
+import client.components.fieldHelp.*;
+import client.components.fieldHelp.FieldHelp;
 import client.components.tableEntry.TableEntry;
 
 import javax.swing.*;
@@ -31,7 +33,7 @@ public class SplitBase extends JSplitPane {
         this.setLeftComponent(tabbedPane);
 
         JTabbedPane tabbedPane2 = new JTabbedPane();
-        tabbedPane2.addTab("Field Help", new JPanel());
+        tabbedPane2.addTab("Field Help", new FieldHelp());
         tabbedPane2.addTab("Image Navigator", new JPanel());
 
         this.setRightComponent(tabbedPane2);
