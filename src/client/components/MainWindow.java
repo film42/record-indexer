@@ -40,7 +40,9 @@ public class MainWindow extends JFrame {
     }
 
     private void setupSplitView() {
-        body.setBottomComponent(new SplitBase());
+        SplitBase splitBase = new SplitBase(SplitBase.DEFAULT_DIVIDER_LOCATION);
+
+        body.setBottomComponent(splitBase);
         body.setBorder(null);
         body.setDividerLocation(450);
 

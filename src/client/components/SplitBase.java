@@ -1,5 +1,7 @@
 package client.components;
 
+import client.components.tableEntry.TableEntry;
+
 import javax.swing.*;
 import java.awt.*;
 
@@ -11,13 +13,19 @@ import java.awt.*;
  */
 public class SplitBase extends JSplitPane {
 
-    public SplitBase() {
+    public final static int DEFAULT_DIVIDER_LOCATION = 500;
+
+    private int dividerLocation;
+
+    public SplitBase(int dividerLocation) {
+        this.dividerLocation = dividerLocation;
+
         setupView();
     }
 
     private void setupView() {
         JTabbedPane tabbedPane = new JTabbedPane();
-        tabbedPane.addTab("Table Entry", new JPanel());
+        tabbedPane.addTab("Table Entry", new TableEntry());
         tabbedPane.addTab("Form Entry", new JPanel());
 
         this.setLeftComponent(tabbedPane);
@@ -29,6 +37,8 @@ public class SplitBase extends JSplitPane {
         this.setRightComponent(tabbedPane2);
 //        this.setBorder(null);
 
-        this.setDividerLocation(250);
+
+        this.setDividerLocation(dividerLocation);
+
     }
 }
