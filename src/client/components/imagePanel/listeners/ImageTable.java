@@ -24,7 +24,7 @@ public class ImageTable {
 
     private ImageCell[][] model;
 
-    private Rectangle2D.Double tableBoundries;
+    private Rectangle2D.Double tableBoundaries;
 
     public ImageTable() {
         // TODO: Real data
@@ -34,7 +34,7 @@ public class ImageTable {
         model = new ImageCell[recordsPerImage][columnCount];
 
         generateModel();
-        generateTableBoundries();
+        generateTableBoundaries();
     }
 
     private void generateModel() {
@@ -63,7 +63,7 @@ public class ImageTable {
     }
 
     public void contains(int worldX, int worldY) {
-        if(!tableBoundries.contains(worldX, worldY)) {
+        if(!tableBoundaries.contains(worldX, worldY)) {
             return;
         }
 
@@ -80,7 +80,7 @@ public class ImageTable {
         }
     }
 
-    private void generateTableBoundries() {
+    private void generateTableBoundaries() {
         int y = firstYCoord;
         int x = fieldXValues.get(0);
 
@@ -91,7 +91,7 @@ public class ImageTable {
 
         int height = recordsPerImage * recordHeight;
 
-        tableBoundries = new Rectangle2D.Double(x, y, width, height);
+        tableBoundaries = new Rectangle2D.Double(x, y, width, height);
     }
 
     private void FACTORY() {
