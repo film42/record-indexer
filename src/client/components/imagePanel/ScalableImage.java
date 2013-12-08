@@ -1,9 +1,7 @@
 package client.components.imagePanel;
 
 import client.components.imagePanel.listeners.ImageControlsListener;
-import client.components.imagePanel.listeners.ImageTable;
 import client.components.listeners.DrawingListener;
-import client.persistence.ImageState;
 
 import javax.imageio.ImageIO;
 import javax.swing.*;
@@ -14,7 +12,6 @@ import java.awt.event.MouseWheelEvent;
 import java.awt.geom.AffineTransform;
 import java.awt.geom.NoninvertibleTransformException;
 import java.awt.geom.Point2D;
-import java.awt.geom.Rectangle2D;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
@@ -260,7 +257,13 @@ public class ScalableImage extends JPanel {
 
         @Override
         public void onToggleHighlights() {
-            return;
+            // Alternate, you know, toggle.
+            if(imageTable.isHighlightsEnabled()) {
+                imageTable.enableHighlights(false);
+            } else {
+                imageTable.enableHighlights(true);
+            }
+            repaint();
         }
     };
 

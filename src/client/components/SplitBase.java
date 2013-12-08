@@ -28,7 +28,8 @@ public class SplitBase extends JSplitPane {
     private void setupView() {
         JTabbedPane tabbedPane = new JTabbedPane();
         tabbedPane.addTab("Table Entry", new TableEntry());
-        tabbedPane.addTab("Form Entry", new JPanel());
+        tabbedPane.addTab("Form Entry", new FormEntry());
+        tabbedPane.setSelectedComponent(tabbedPane.getComponentAt(1));
 
         this.setLeftComponent(tabbedPane);
 

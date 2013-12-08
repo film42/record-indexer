@@ -80,7 +80,7 @@ public class ImageControl extends JPanel {
         }
     }
 
-    private void updateToogleHighlightsListeners() {
+    private void updateToggleHighlightsListeners() {
         for(ImageControlsListener cL : imageControlsListeners) {
             cL.onToggleHighlights();
         }
@@ -123,7 +123,7 @@ public class ImageControl extends JPanel {
     private ActionListener toggleHighlightsAction = new AbstractAction() {
         @Override
         public void actionPerformed(ActionEvent e) {
-            updateToogleHighlightsListeners();
+            updateToggleHighlightsListeners();
         }
     };
 

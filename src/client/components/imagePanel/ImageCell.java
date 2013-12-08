@@ -29,7 +29,7 @@ public class ImageCell {
         this.isSelected = false;
     }
 
-    public void paint(Graphics2D g2) {
+    public void paint(Graphics2D g2, boolean isSelected) {
         if(isSelected) {
             g2.setColor(new Color(0,119,204, 150));
         } else {
@@ -42,43 +42,10 @@ public class ImageCell {
         return rectangle2D.contains(x, y);
     }
 
-    public double getX() {
-        return x;
-    }
-
-    public void setX(double x) {
-        this.x = x;
-    }
-
-    public double getY() {
-        return y;
-    }
-
-    public void setY(double y) {
-        this.y = y;
-    }
-
     public double getWidth() {
         return width;
     }
 
     public void setWidth(double width) {
         this.width = width;
-    }
-
-    public double getHeight() {
-        return height;
-    }
-
-    public void setHeight(double height) {
-        this.height = height;
-    }
-
-    public boolean isSelected() {
-        return isSelected;
-    }
-
-    public void setSelected(boolean isSelected) {
-        this.isSelected = isSelected;
-    }
-}
+    }}
