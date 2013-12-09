@@ -1,13 +1,15 @@
 package client.components.formEntry;
 
 import client.persistence.Cell;
+import client.persistence.SyncContext;
 import client.persistence.ImageStateListener;
 
 import javax.swing.*;
 import javax.swing.event.ListSelectionEvent;
 import javax.swing.event.ListSelectionListener;
 import java.awt.*;
-import java.util.ArrayList;
+import java.awt.event.FocusEvent;
+import java.awt.event.FocusListener;
 
 /**
  * Created with IntelliJ IDEA.
@@ -17,45 +19,56 @@ import java.util.ArrayList;
  */
 public class FormEntry extends JPanel {
 
-    private ArrayList<String> listValues;
-
     private JList rowNumberList;
     private FormTable formTable;
     private JSplitPane splitPane;
 
-    public FormEntry() {
+    private String[][] model;
+    private String[] columnNames;
+    private Integer[] rowIds;
 
-        this.listValues = new ArrayList<>();
+    private SyncContext syncContext;
 
-        FACTORY();
+    public FormEntry(SyncContext syncContext,
+                     String[][] model, String[] columnNames) {
+
+        this.model = model;
+        this.columnNames = columnNames;
+        this.syncContext = syncContext;
+
+        this.rowIds = new Integer[model.length];
+        generateListData();
 
         setupView();
     }
 
     private void setupView() {
-        //this.setLayout(new FlowLayout());
-        //this.setLayout(new BoxLayout(this, BoxLayout.X_AXIS));
         this.setLayout(new GridLayout(1,1));
         splitPane = new JSplitPane();
         splitPane.setDividerLocation(50);
         splitPane.setBorder(null);
 
-
-        rowNumberList = new JList(listValues.toArray());
-        rowNumberList.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
-        rowNumberList.setLayoutOrientation(JList.VERTICAL);
-        rowNumberList.setVisibleRowCount(-1);
-
-        rowNumberList.addListSelectionListener(listSelectionListener);
-
-        splitPane.setLeftComponent(rowNumberList);
-
-        formTable = new FormTable(columnNames, data);
+        formTable = new FormTable(syncContext, columnNames, model);
 
         splitPane.setRightComponent(new JScrollPane(formTable));
 
+        rowNumberList = new JList(rowIds);
+        rowNumberList.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
+        rowNumberList.setLayoutOrientation(JList.VERTICAL);
+        rowNumberList.setVisibleRowCount(-1);
+        //rowNumberList.addListSelectionListener(listSelectionListener);
+        rowNumberList.addFocusListener(focusListener);
+        splitPane.setLeftComponent(rowNumberList);
+
+
         this.add(splitPane);
 
+    }
+
+    public void generateListData() {
+        for(int i = 0; i < rowIds.length; i ++) {
+            rowIds[i] = (i+1);
+        }
     }
 
     @Override
@@ -65,6 +78,12 @@ public class FormEntry extends JPanel {
         dim.width = 350;
         return dim;
     }
+
+    public ImageStateListener getImageStateListener() {
+        return imageStateListener;
+    }
+
+    private Cell currentCell;
 
     private ImageStateListener imageStateListener = new ImageStateListener() {
         @Override
@@ -83,6 +102,8 @@ public class FormEntry extends JPanel {
             int row = newSelectedCell.getRecord();
             int column = newSelectedCell.getField();
 
+            currentCell = newSelectedCell;
+
             rowNumberList.setSelectedIndex(row);
             formTable.setCurrentCell(row, column);
 
@@ -90,58 +111,26 @@ public class FormEntry extends JPanel {
         }
     };
 
-    private ListSelectionListener listSelectionListener = new ListSelectionListener() {
+    private FocusListener focusListener = new FocusListener() {
         @Override
-        public void valueChanged(ListSelectionEvent e) {
+        public void focusGained(FocusEvent e) {
             int newRow = rowNumberList.getSelectedIndex();
 
             Cell cell = new Cell();
             cell.setRecord(newRow);
-            cell.setField(2);
+            // TODO: Fix so this wont be a Null Pointer, maybe be setting default to 0,0?
+            cell.setField(currentCell.getField());
 
-            imageStateListener.selectedCellChanged(cell);
+            // TODO: Fix this to call back all listeners, probably set I.S. global
+            //imageStateListener.selectedCellChanged(cell);
+            syncContext.onChangeCurrentCell(cell);
+        }
+
+        @Override
+        public void focusLost(FocusEvent e) {
+            return;
         }
     };
 
-
-
-
-
-
-
-    private void FACTORY() {
-        listValues.add("1");
-        listValues.add("2");
-        listValues.add("3");
-        listValues.add("4");
-        listValues.add("5");
-        listValues.add("6");
-        listValues.add("7");
-        listValues.add("8");
-
-    }
-
-    //
-    // FACTORY
-    //
-
-    private String[] columnNames = {
-            "First Name",
-            "Last Name",
-            "Sport",
-            "# of Years",
-            "Vegetarian"
-    };
-
-    private String[][] data = {
-            {"Kathy", "Smith", "Snowboarding", "5", "false"},
-            {"John", "Doe", "Rowing", "3", "false"},
-            {"Sue", "Black", "Knitting", "2", "false"},
-            {"Jane", "White", "Speed reading", "20", "true"},
-            {"Joe", "Brown", "Pool", "10", "false"},
-            {"Sue", "Black", "Knitting", "2", "false"},
-            {"Jane", "White", "Speed reading", "20", "true"},
-            {"Joe", "Brown", "Pool", "10", "false"}
-    };
 
 }

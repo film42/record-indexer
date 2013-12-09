@@ -1,6 +1,8 @@
 package client.components;
 
 import client.components.imagePanel.ImagePanel;
+import client.persistence.Cell;
+import client.persistence.ImageState;
 
 import javax.swing.*;
 import java.awt.*;
@@ -13,11 +15,21 @@ import java.awt.*;
  */
 public class MainWindow extends JFrame {
 
+    public ImageState imageState;
+
     JSplitPane body = new JSplitPane(JSplitPane.VERTICAL_SPLIT, new JPanel(), new JPanel());
 
     public MainWindow() {
         this.setSize(1000, 700);
+
+        this.imageState = new ImageState(8, 4);
+
         setupView();
+
+        Cell initCell = new Cell();
+        initCell.setField(0);
+        initCell.setRecord(0);
+        this.imageState.setSelectedCell(initCell);
     }
 
     private void setupView() {
@@ -36,11 +48,11 @@ public class MainWindow extends JFrame {
     }
 
     private void setupImagePanel() {
-        body.setTopComponent(new ImagePanel());
+        body.setTopComponent(new ImagePanel(imageState));
     }
 
     private void setupSplitView() {
-        SplitBase splitBase = new SplitBase(SplitBase.DEFAULT_DIVIDER_LOCATION);
+        SplitBase splitBase = new SplitBase(SplitBase.DEFAULT_DIVIDER_LOCATION, imageState);
 
         body.setBottomComponent(splitBase);
         body.setBorder(null);

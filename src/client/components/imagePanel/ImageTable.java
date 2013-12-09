@@ -1,6 +1,8 @@
 package client.components.imagePanel;
 
 import client.components.imagePanel.ImageCell;
+import client.persistence.Cell;
+import client.persistence.SyncContext;
 
 import java.awt.*;
 import java.awt.geom.Rectangle2D;
@@ -29,7 +31,12 @@ public class ImageTable {
 
     private ImageCell currentSelected;
 
-    public ImageTable() {
+    private SyncContext syncContext;
+
+    public ImageTable(SyncContext syncContext) {
+
+        this.syncContext = syncContext;
+
         // TODO: Real data
         FACTORY();
 
@@ -85,9 +92,19 @@ public class ImageTable {
                 if(imageCell.contains(worldX, worldY)) {
                     // Laws of math state there is only ever one.
                     this.currentSelected = imageCell;
+                    setCurrentCell(x, y);
+
+                    Cell cell = new Cell();
+                    cell.setField(x);
+                    cell.setRecord(y);
+                    this.syncContext.onChangeCurrentCell(cell);
                 }
             }
         }
+    }
+
+    public void setCurrentCell(int x, int y) {
+        this.currentSelected = model[y][x];
     }
 
     private void generateTableBoundaries() {

@@ -12,11 +12,16 @@ import java.util.List;
 public class ImageState {
 
     private String[][] values;
+    private String[] columns;
+
     private Cell selectedCell;
     private List<ImageStateListener> listeners;
 
     public ImageState(int recordCount, int fieldCount) {
         values = new String[recordCount][fieldCount];
+
+        FACTORY();
+
         selectedCell = null;
         listeners = new ArrayList<>();
     }
@@ -49,4 +54,30 @@ public class ImageState {
         return this.selectedCell;
     }
 
+
+    private void FACTORY() {
+
+        columns = new String[] {
+                "Last Name", "First Name", "Gender", "Age"
+        };
+
+        values = new String[][] {
+                {"Mooney1", "Dick", "Male", "3"},
+                {"Mooney2", "Dickest", "Male", "3"},
+                {"Moone3", "Szz", "Malde", "3"},
+                {"Moone4", "", "Maldfe", "3"},
+                {"Mooney5", "", "Malse", "3"},
+                {"Mooney6", "", "Male", "3"},
+                {"Mooney7", "Dicker", "Male", "3"},
+                {"Mooney8", "", "Male", "3"}
+        };
+    }
+
+    public String[][] getModel() {
+        return values;
+    }
+
+    public String[] getColumnNames() {
+        return columns;
+    }
 }

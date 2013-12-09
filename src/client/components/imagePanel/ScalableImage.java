@@ -2,6 +2,8 @@ package client.components.imagePanel;
 
 import client.components.imagePanel.listeners.ImageControlsListener;
 import client.components.listeners.DrawingListener;
+import client.persistence.Cell;
+import client.persistence.SyncContext;
 
 import javax.imageio.ImageIO;
 import javax.swing.*;
@@ -42,11 +44,14 @@ public class ScalableImage extends JPanel {
     private double MAX_SCROLL = 1.0f;
     private double MIN_SCROLL = 0.2f;
 
+    private SyncContext syncContext;
+
     private ArrayList<DrawingListener> listeners;
 
     private String path;
 
-    public ScalableImage(String path) {
+    public ScalableImage(SyncContext syncContext, String path) {
+        this.syncContext = syncContext;
         this.path = path;
         this.setBackground(Color.DARK_GRAY);
 
@@ -68,7 +73,7 @@ public class ScalableImage extends JPanel {
             // handle exception...
         }
 
-        imageTable = new ImageTable();
+        imageTable = new ImageTable(syncContext);
 
     }
 
@@ -113,6 +118,16 @@ public class ScalableImage extends JPanel {
         }
 
         redrawHack = false;
+        this.repaint();
+    }
+
+    public void setValue(Cell cell, String value) {
+        imageTable.setCurrentCell(cell.getField(), cell.getRecord());
+        this.repaint();
+    }
+
+    public void setCurrentCell(Cell cell) {
+        imageTable.setCurrentCell(cell.getField(), cell.getRecord());
         this.repaint();
     }
 
