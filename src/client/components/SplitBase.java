@@ -1,11 +1,10 @@
 package client.components;
 
-import client.components.fieldHelp.*;
 import client.components.fieldHelp.FieldHelp;
+import client.components.formEntry.FormEntry;
 import client.components.tableEntry.TableEntry;
 
 import javax.swing.*;
-import java.awt.*;
 
 /**
  * Created with IntelliJ IDEA.
