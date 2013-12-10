@@ -1,6 +1,8 @@
 package client.components.tableEntry;
 
 import client.components.menus.SpellCheckPopup;
+import client.persistence.Cell;
+import client.persistence.ImageState;
 
 import javax.swing.*;
 import javax.swing.table.TableCellRenderer;
@@ -15,6 +17,12 @@ import java.awt.event.*;
  */
 public class EntryCellRenderer extends JLabel implements TableCellRenderer {
 
+    private ImageState imageState;
+
+    public EntryCellRenderer(ImageState imageState) {
+        this.imageState = imageState;
+    }
+
     @Override
     public Component getTableCellRendererComponent(JTable table, Object value, boolean isSelected,
                                                    boolean hasFocus, int row, int column) {
@@ -24,10 +32,15 @@ public class EntryCellRenderer extends JLabel implements TableCellRenderer {
 
         if(isSelected) {
             this.setBorder(BorderFactory.createLineBorder(Color.BLACK, 1));
+
+            Cell cell = new Cell();
+            cell.setRecord(row);
+            cell.setField(column);
+            imageState.setSelectedCell(cell);
         }
 
-        //this.addMouseListener(mouseListener);
         return this;
     }
+
 
 }

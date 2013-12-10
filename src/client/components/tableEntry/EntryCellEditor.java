@@ -1,6 +1,7 @@
 package client.components.tableEntry;
 
 import client.components.menus.SpellCheckPopup;
+import client.persistence.Cell;
 import client.persistence.ImageState;
 
 import javax.swing.*;
@@ -21,6 +22,12 @@ public class EntryCellEditor extends AbstractCellEditor implements TableCellEdit
     private String currentValue;
     private JTextField textField;
 
+    private ImageState imageState;
+
+    public EntryCellEditor(ImageState imageState) {
+        this.imageState = imageState;
+    }
+
     @Override
     public Component getTableCellEditorComponent(JTable table, Object value, boolean isSelected,
                                                  int row, int column) {
@@ -32,6 +39,7 @@ public class EntryCellEditor extends AbstractCellEditor implements TableCellEdit
         textField.setBorder(BorderFactory.createLineBorder(Color.BLUE, 1));
 
         textField.addMouseListener(rightClickPopupAction);
+        textField.addFocusListener(generateFocusListener(row, column));
 
         return textField;
     }
@@ -39,6 +47,24 @@ public class EntryCellEditor extends AbstractCellEditor implements TableCellEdit
     @Override
     public Object getCellEditorValue() {
         return textField.getText();
+    }
+
+    private FocusListener generateFocusListener(final int row, final int column) {
+        return new FocusListener() {
+            @Override
+            public void focusGained(FocusEvent e) {
+                Cell cell = new Cell();
+                cell.setRecord(row);
+                cell.setField(column);
+
+                imageState.setSelectedCell(cell);
+            }
+
+            @Override
+            public void focusLost(FocusEvent e) {
+
+            }
+        };
     }
 
     private MouseListener rightClickPopupAction = new MouseAdapter() {

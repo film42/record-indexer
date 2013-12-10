@@ -66,10 +66,10 @@ public class TableModel extends AbstractTableModel {
         Cell cell = new Cell();
         cell.setField(column);
         cell.setRecord(row);
-        //imageState.setSelectedCell(cell);
         imageState.setValue(cell, (String)value);
         updating = false;
     }
+
 
     private ImageStateListener imageStateListener = new ImageStateListener() {
         @Override
@@ -84,4 +84,8 @@ public class TableModel extends AbstractTableModel {
             if(updating) return;
         }
     };
+
+    public void setValueQuiet(String newValue, int row, int column) {
+        model[row][column] = (String)newValue;
+    }
 }

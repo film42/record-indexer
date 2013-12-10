@@ -7,6 +7,8 @@ import client.persistence.ImageStateListener;
 import client.persistence.SyncContext;
 
 import javax.swing.*;
+import javax.swing.event.TableModelEvent;
+import javax.swing.event.TableModelListener;
 import javax.swing.table.*;
 import java.awt.*;
 import java.awt.event.MouseAdapter;
@@ -49,14 +51,13 @@ public class TableEntry extends JScrollPane {
         table.getTableHeader().setReorderingAllowed(false);
         table.getTableHeader().setResizingAllowed(false);
         table.setAutoResizeMode(JTable.AUTO_RESIZE_OFF);
-        table.get
 
         TableColumnModel columnModel = table.getColumnModel();
         for (int i = 0; i < tableModel.getColumnCount(); ++i) {
             TableColumn column = columnModel.getColumn(i);
-            EntryCellRenderer entryCellRenderer = new EntryCellRenderer();
+            EntryCellRenderer entryCellRenderer = new EntryCellRenderer(imageState);
             column.setCellRenderer(entryCellRenderer);
-            column.setCellEditor(new EntryCellEditor());
+            column.setCellEditor(new EntryCellEditor(imageState));
         }
 
         this.getViewport().add(table.getTableHeader());
@@ -67,11 +68,16 @@ public class TableEntry extends JScrollPane {
     private ImageStateListener imageStateListener = new ImageStateListener() {
         @Override
         public void valueChanged(Cell cell, String newValue) {
+            tableModel.setValueQuiet(newValue, cell.getRecord(), cell.getField());
         }
 
         @Override
         public void selectedCellChanged(Cell newSelectedCell) {
+            table.changeSelection(newSelectedCell.getRecord(),
+                    newSelectedCell.getField(), false, false);
             table.editCellAt(newSelectedCell.getRecord(), newSelectedCell.getField());
         }
     };
+
+
 }
