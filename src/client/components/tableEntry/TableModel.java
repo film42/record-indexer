@@ -20,6 +20,8 @@ public class TableModel extends AbstractTableModel {
 
     private ImageState imageState;
 
+    private boolean quiet = false;
+
     private boolean updating = false;
 
     public TableModel(ImageState imageState) {
@@ -66,7 +68,9 @@ public class TableModel extends AbstractTableModel {
         Cell cell = new Cell();
         cell.setField(column);
         cell.setRecord(row);
-        imageState.setValue(cell, (String)value);
+        if(!quiet) {
+            imageState.setValue(cell, (String)value);
+        }
         updating = false;
     }
 
@@ -86,6 +90,10 @@ public class TableModel extends AbstractTableModel {
     };
 
     public void setValueQuiet(String newValue, int row, int column) {
-        model[row][column] = (String)newValue;
+        model[row][column] = newValue;
+    }
+
+    public void setQuiet(boolean quiet) {
+        this.quiet = quiet;
     }
 }

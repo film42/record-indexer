@@ -104,10 +104,7 @@ public class FormEntry extends JPanel {
             rowNumberList.setSelectedIndex(row);
             formTable.setCurrentCell(row, column);
 
-
             splitPane.repaint();
-
-
         }
     };
 

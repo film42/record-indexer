@@ -37,6 +37,8 @@ public class FormTable extends JPanel {
         this.currentRow = 0;
 
         setupView();
+
+        // TODO: On appear issue InvokeLater
     }
 
     private void setupView() {
@@ -53,7 +55,6 @@ public class FormTable extends JPanel {
             formContainer.add(label, BorderLayout.WEST);
             JTextField textField = new JTextField(textFieldString);
             textField.addFocusListener(generateFocusListener(textField, i));
-            //textField.addMouseListener(generateMouseListener(textField, i));
             textField.setPreferredSize(new Dimension(150, 30));
             formContainer.add(textField, BorderLayout.CENTER);
 
@@ -69,7 +70,9 @@ public class FormTable extends JPanel {
         cell.setRecord(currentRow);
         cell.setField(index);
 
+        updatingCell = true;
         imageState.setSelectedCell(cell);
+        updatingCell = false;
     }
 
     public void updateCellValue(JTextField textField, int index) {
@@ -79,7 +82,11 @@ public class FormTable extends JPanel {
         cell.setRecord(currentRow);
         cell.setField(index);
 
+        values[currentRow][index] = textField.getText();
+
+        updatingCell = true;
         imageState.setValue(cell, textField.getText());
+        updatingCell = false;
     }
 
     // TODO: Save the text
@@ -98,17 +105,6 @@ public class FormTable extends JPanel {
         };
     }
 
-    private MouseListener generateMouseListener(final JTextField textField, final int index) {
-        return new MouseAdapter() {
-            @Override
-            public void mousePressed(MouseEvent e) {
-                super.mousePressed(e);
-
-                updateCellValue(textField, index);
-            }
-        };
-    }
-
     private void updateView() {
         updatingCell = true;
         for(int i = 0; i < this.getComponents().length; i++) {
@@ -119,21 +115,16 @@ public class FormTable extends JPanel {
         updatingCell = false;
     }
 
-    public void setValues(String[][] values) {
-        // TODO: Become model
-        this.values = values;
-    }
-
     public void setValue(String newValue, int row, int column) {
-        values[row][column] = newValue;
+        if(updatingCell) return;
 
         this.updateView();
         this.repaint();
-
-        //this.setFocus(column);
     }
 
     public void setCurrentCell(int row, int column) {
+        if(updatingCell) return;
+
         this.currentRow = row;
 
         this.updateView();
@@ -150,11 +141,7 @@ public class FormTable extends JPanel {
         JPanel formList = (JPanel)this.getComponent(column);
         final JTextField form = (JTextField)formList.getComponent(1);
 
-        SwingUtilities.invokeLater(new Runnable() {
-            public void run() {
-                //form.requestFocus();
-            }
-        });
+        form.requestFocus();
     }
 
 }

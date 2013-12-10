@@ -44,7 +44,7 @@ public class SplitBase extends JSplitPane {
         this.setLeftComponent(tabbedPane);
 
         JTabbedPane tabbedPane2 = new JTabbedPane();
-        tabbedPane2.addTab("Field Help", new FieldHelp());
+        tabbedPane2.addTab("Field Help", new FieldHelp(imageState));
         tabbedPane2.addTab("Image Navigator", new JPanel());
 
         this.setRightComponent(tabbedPane2);

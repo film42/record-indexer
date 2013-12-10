@@ -73,10 +73,16 @@ public class TableEntry extends JScrollPane {
 
         @Override
         public void selectedCellChanged(Cell newSelectedCell) {
+            if(!isVisible()) {
+                tableModel.setQuiet(true);
+            }
+
             table.changeSelection(newSelectedCell.getRecord(),
                     newSelectedCell.getField(), false, false);
 
             table.editCellAt(newSelectedCell.getRecord(), newSelectedCell.getField());
+
+            tableModel.setQuiet(false);
         }
     };
 

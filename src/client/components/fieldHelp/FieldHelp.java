@@ -1,5 +1,9 @@
 package client.components.fieldHelp;
 
+import client.persistence.Cell;
+import client.persistence.ImageState;
+import client.persistence.ImageStateListener;
+
 import javax.swing.*;
 import java.awt.*;
 import java.io.IOException;
@@ -12,13 +16,25 @@ import java.io.IOException;
  */
 public class FieldHelp extends JPanel {
 
-    public FieldHelp() {
+    private ImageState imageState;
+
+    private String[] columns;
+    private int currentColumn;
+    private JEditorPane editorPane;
+
+    public FieldHelp(ImageState imageState) {
+        this.imageState = imageState;
+        this.currentColumn = 0;
+        this.columns = imageState.getColumnNames();
+
         setupView();
+
+        this.imageState.addListener(imageStateListener);
     }
 
     private void setupView() {
         String html = "<!DOCTYPE html><html><body><h1>Testing</h1>This should be helpful to you.</body></html>";
-        JEditorPane editorPane = new JEditorPane();
+        editorPane = new JEditorPane();
 
         editorPane.setContentType("text/html");
         editorPane.setEditable(false);
@@ -34,4 +50,24 @@ public class FieldHelp extends JPanel {
         this.setLayout(new BoxLayout(this, BoxLayout.PAGE_AXIS));
         this.add(editorPane, BorderLayout.CENTER);
     }
+
+    private void updateView() {
+        String html = "<!DOCTYPE html><html><body><h1>"
+                      + columns[currentColumn] +
+                      "</h1>This should be helpful to you.</body></html>";
+        editorPane.setText(html);
+    }
+
+    private ImageStateListener imageStateListener = new ImageStateListener() {
+        @Override
+        public void valueChanged(Cell cell, String newValue) {
+
+        }
+
+        @Override
+        public void selectedCellChanged(Cell newSelectedCell) {
+            currentColumn = newSelectedCell.getField();
+            updateView();
+        }
+    };
 }
