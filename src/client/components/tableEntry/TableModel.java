@@ -1,5 +1,9 @@
 package client.components.tableEntry;
 
+import client.persistence.Cell;
+import client.persistence.ImageState;
+import client.persistence.ImageStateListener;
+
 import javax.swing.table.AbstractTableModel;
 
 /**
@@ -10,24 +14,24 @@ import javax.swing.table.AbstractTableModel;
  */
 public class TableModel extends AbstractTableModel {
 
-    private String[] columnNames = {"First Name",
-            "Last Name",
-            "Sport",
-            "# of Years",
-            "Vegetarian"};
+    private String[] columnNames;
 
-    private Object[][] data = {
-            {"Kathy", "Smith",
-                    "Snowboarding", "5", "false"},
-            {"John", "Doe",
-                    "Rowing", "3", "false"},
-            {"Sue", "Black",
-                    "Knitting", "2", "false"},
-            {"Jane", "White",
-                    "Speed reading", "20", "true"},
-            {"Joe", "Brown",
-                    "Pool", "10", "false"}
-    };
+    private String[][] model;
+
+    private ImageState imageState;
+
+    private boolean updating = false;
+
+    public TableModel(ImageState imageState) {
+
+        this.imageState = imageState;
+
+
+        this.columnNames = this.imageState.getColumnNames();
+        this.model = this.imageState.getModel();
+
+        imageState.addListener(imageStateListener);
+    }
 
     @Override
     public boolean isCellEditable(int row, int column) {
@@ -41,7 +45,7 @@ public class TableModel extends AbstractTableModel {
 
     @Override
     public int getRowCount() {
-        return data.length;
+        return model.length;
     }
 
     @Override
@@ -51,11 +55,33 @@ public class TableModel extends AbstractTableModel {
 
     @Override
     public Object getValueAt(int rowIndex, int columnIndex) {
-        return data[rowIndex][columnIndex];
+        return model[rowIndex][columnIndex];
     }
 
     @Override
     public void setValueAt(Object value, int row, int column) {
-        data[row][column] = value;
+        model[row][column] = (String)value;
+
+        updating = true;
+        Cell cell = new Cell();
+        cell.setField(column);
+        cell.setRecord(row);
+        //imageState.setSelectedCell(cell);
+        imageState.setValue(cell, (String)value);
+        updating = false;
     }
+
+    private ImageStateListener imageStateListener = new ImageStateListener() {
+        @Override
+        public void valueChanged(Cell cell, String newValue) {
+            if(updating) return;
+
+            model[cell.getRecord()][cell.getField()] = newValue;
+        }
+
+        @Override
+        public void selectedCellChanged(Cell newSelectedCell) {
+            if(updating) return;
+        }
+    };
 }

@@ -1,6 +1,7 @@
 package client.components.formEntry;
 
 import client.persistence.Cell;
+import client.persistence.ImageState;
 import client.persistence.SyncContext;
 import client.persistence.ImageStateListener;
 
@@ -8,8 +9,7 @@ import javax.swing.*;
 import javax.swing.event.ListSelectionEvent;
 import javax.swing.event.ListSelectionListener;
 import java.awt.*;
-import java.awt.event.FocusEvent;
-import java.awt.event.FocusListener;
+import java.awt.event.*;
 
 /**
  * Created with IntelliJ IDEA.
@@ -27,14 +27,13 @@ public class FormEntry extends JPanel {
     private String[] columnNames;
     private Integer[] rowIds;
 
-    private SyncContext syncContext;
+    private ImageState imageState;
 
-    public FormEntry(SyncContext syncContext,
-                     String[][] model, String[] columnNames) {
+    public FormEntry(ImageState imageState) {
+        this.imageState = imageState;
 
-        this.model = model;
-        this.columnNames = columnNames;
-        this.syncContext = syncContext;
+        this.model = this.imageState.getModel();
+        this.columnNames = this.imageState.getColumnNames();
 
         this.rowIds = new Integer[model.length];
         generateListData();
@@ -48,7 +47,7 @@ public class FormEntry extends JPanel {
         splitPane.setDividerLocation(50);
         splitPane.setBorder(null);
 
-        formTable = new FormTable(syncContext, columnNames, model);
+        formTable = new FormTable(imageState);
 
         splitPane.setRightComponent(new JScrollPane(formTable));
 
@@ -56,12 +55,14 @@ public class FormEntry extends JPanel {
         rowNumberList.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
         rowNumberList.setLayoutOrientation(JList.VERTICAL);
         rowNumberList.setVisibleRowCount(-1);
-        //rowNumberList.addListSelectionListener(listSelectionListener);
-        rowNumberList.addFocusListener(focusListener);
+        rowNumberList.addListSelectionListener(listSelectionListener);
+        //rowNumberList.addFocusListener(focusListener);
         splitPane.setLeftComponent(rowNumberList);
 
 
         this.add(splitPane);
+
+        imageState.addListener(imageStateListener);
 
     }
 
@@ -77,10 +78,6 @@ public class FormEntry extends JPanel {
         Dimension dim = super.getMinimumSize();
         dim.width = 350;
         return dim;
-    }
-
-    public ImageStateListener getImageStateListener() {
-        return imageStateListener;
     }
 
     private Cell currentCell;
@@ -111,9 +108,9 @@ public class FormEntry extends JPanel {
         }
     };
 
-    private FocusListener focusListener = new FocusListener() {
+    private ListSelectionListener listSelectionListener = new ListSelectionListener() {
         @Override
-        public void focusGained(FocusEvent e) {
+        public void valueChanged(ListSelectionEvent e) {
             int newRow = rowNumberList.getSelectedIndex();
 
             Cell cell = new Cell();
@@ -123,14 +120,44 @@ public class FormEntry extends JPanel {
 
             // TODO: Fix this to call back all listeners, probably set I.S. global
             //imageStateListener.selectedCellChanged(cell);
-            syncContext.onChangeCurrentCell(cell);
-        }
-
-        @Override
-        public void focusLost(FocusEvent e) {
-            return;
+            imageState.setSelectedCell(cell);
+            repaint();
         }
     };
 
+//    private MouseListener mouseListener = new MouseAdapter() {
+//        @Override
+//        public void mouseClicked(MouseEvent e) {
+//            super.mouseClicked(e);
+//        }
+//
+//        @Override
+//        public void mouseDragged(MouseEvent e) {
+//            super.mouseDragged(e);
+//        }
+//    };
+//
+//    // TODO: Swap for something more slide friendly
+//    private FocusListener focusListener = new FocusListener() {
+//        @Override
+//        public void focusGained(FocusEvent e) {
+//            int newRow = rowNumberList.getSelectedIndex();
+//
+//            Cell cell = new Cell();
+//            cell.setRecord(newRow);
+//            // TODO: Fix so this wont be a Null Pointer, maybe be setting default to 0,0?
+//            cell.setField(currentCell.getField());
+//
+//            // TODO: Fix this to call back all listeners, probably set I.S. global
+//            //imageStateListener.selectedCellChanged(cell);
+//            imageState.setSelectedCell(cell);
+//            repaint();
+//        }
+//
+//        @Override
+//        public void focusLost(FocusEvent e) {
+//            return;
+//        }
+//    };
 
 }

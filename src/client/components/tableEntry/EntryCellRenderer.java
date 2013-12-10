@@ -5,9 +5,7 @@ import client.components.menus.SpellCheckPopup;
 import javax.swing.*;
 import javax.swing.table.TableCellRenderer;
 import java.awt.*;
-import java.awt.event.MouseAdapter;
-import java.awt.event.MouseEvent;
-import java.awt.event.MouseListener;
+import java.awt.event.*;
 
 /**
  * Created with IntelliJ IDEA.
@@ -29,7 +27,6 @@ public class EntryCellRenderer extends JLabel implements TableCellRenderer {
         }
 
         //this.addMouseListener(mouseListener);
-
         return this;
     }
 

@@ -1,6 +1,7 @@
 package client.components.formEntry;
 
 import client.persistence.Cell;
+import client.persistence.ImageState;
 import client.persistence.SyncContext;
 
 import javax.swing.*;
@@ -22,14 +23,16 @@ public class FormTable extends JPanel {
 
     private boolean updatingCell;
 
-    private SyncContext syncContext;
+    private ImageState imageState;
 
     private int currentRow;
 
-    public FormTable(SyncContext syncContext, String[] fieldNames, String[][] values) {
-        this.fieldNames = fieldNames;
-        this.values = values;
-        this.syncContext = syncContext;
+    public FormTable(ImageState imageState) {
+
+        this.imageState = imageState;
+
+        this.fieldNames = this.imageState.getColumnNames();
+        this.values = this.imageState.getModel();
 
         this.currentRow = 0;
 
@@ -49,44 +52,51 @@ public class FormTable extends JPanel {
             label.setPreferredSize(new Dimension(100,30));
             formContainer.add(label, BorderLayout.WEST);
             JTextField textField = new JTextField(textFieldString);
-            //textField.addFocusListener(generateFocusListener(textField, i));
-            textField.addMouseListener(generateMouseListener(textField, i));
-            textField.getDocument().addDocumentListener(generateDocumentListener(textField, i));
+            textField.addFocusListener(generateFocusListener(textField, i));
+            //textField.addMouseListener(generateMouseListener(textField, i));
             textField.setPreferredSize(new Dimension(150, 30));
             formContainer.add(textField, BorderLayout.CENTER);
 
             this.add(formContainer);
         }
-
-        currentRow = 2;
-        updateCellValue(null, 1);
+        currentRow = 0;
     }
 
-    public void updateCellValue(JTextField textField, int index) {
+    public void updateCurrentCell(JTextField textField, int index) {
         if(updatingCell) return;
-
-        updatingCell = true;
 
         Cell cell = new Cell();
         cell.setRecord(currentRow);
         cell.setField(index);
 
-        syncContext.onChangeCurrentCell(cell);
+        imageState.setSelectedCell(cell);
     }
 
-//    private FocusListener generateFocusListener(final JTextField textField, final int index) {
-//        return new FocusListener() {
-//            @Override
-//            public void focusGained(FocusEvent e) {
-//                updateCellValue(textField, index);
-//            }
-//
-//            @Override
-//            public void focusLost(FocusEvent e) {
-//                updateCellValue(textField, index);
-//            }
-//        };
-//    }
+    public void updateCellValue(JTextField textField, int index) {
+        if(updatingCell) return;
+
+        Cell cell = new Cell();
+        cell.setRecord(currentRow);
+        cell.setField(index);
+
+        imageState.setValue(cell, textField.getText());
+    }
+
+    // TODO: Save the text
+    // TODO: Make this not freak out when going onFocusWindow to focusOnField, they swap forever
+    private FocusListener generateFocusListener(final JTextField textField, final int index) {
+        return new FocusListener() {
+            @Override
+            public void focusGained(FocusEvent e) {
+                updateCurrentCell(textField, index);
+            }
+
+            @Override
+            public void focusLost(FocusEvent e) {
+                updateCellValue(textField, index);
+            }
+        };
+    }
 
     private MouseListener generateMouseListener(final JTextField textField, final int index) {
         return new MouseAdapter() {
@@ -94,25 +104,6 @@ public class FormTable extends JPanel {
             public void mousePressed(MouseEvent e) {
                 super.mousePressed(e);
 
-                updateCellValue(textField, index);
-            }
-        };
-    }
-
-    private DocumentListener generateDocumentListener(final JTextField textField, final int index) {
-        return new DocumentListener() {
-            @Override
-            public void insertUpdate(DocumentEvent e) {
-                updateCellValue(textField, index);
-            }
-
-            @Override
-            public void removeUpdate(DocumentEvent e) {
-                updateCellValue(textField, index);
-            }
-
-            @Override
-            public void changedUpdate(DocumentEvent e) {
                 updateCellValue(textField, index);
             }
         };
@@ -143,14 +134,12 @@ public class FormTable extends JPanel {
     }
 
     public void setCurrentCell(int row, int column) {
-
         this.currentRow = row;
 
         this.updateView();
         this.repaint();
 
         this.setFocus(column);
-
     }
 
     public void setFocus(int columnField) {
@@ -163,7 +152,7 @@ public class FormTable extends JPanel {
 
         SwingUtilities.invokeLater(new Runnable() {
             public void run() {
-                form.requestFocusInWindow();
+                //form.requestFocus();
             }
         });
     }

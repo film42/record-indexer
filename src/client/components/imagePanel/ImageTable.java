@@ -2,6 +2,8 @@ package client.components.imagePanel;
 
 import client.components.imagePanel.ImageCell;
 import client.persistence.Cell;
+import client.persistence.ImageState;
+import client.persistence.ImageStateListener;
 import client.persistence.SyncContext;
 
 import java.awt.*;
@@ -31,11 +33,11 @@ public class ImageTable {
 
     private ImageCell currentSelected;
 
-    private SyncContext syncContext;
+    private ImageState imageState;
 
-    public ImageTable(SyncContext syncContext) {
+    public ImageTable(ImageState imageState) {
 
-        this.syncContext = syncContext;
+        this.imageState = imageState;
 
         // TODO: Real data
         FACTORY();
@@ -97,7 +99,7 @@ public class ImageTable {
                     Cell cell = new Cell();
                     cell.setField(x);
                     cell.setRecord(y);
-                    this.syncContext.onChangeCurrentCell(cell);
+                    this.imageState.setSelectedCell(cell);
                 }
             }
         }
@@ -148,4 +150,16 @@ public class ImageTable {
         fieldWidthValues.add(205);
         fieldWidthValues.add(120);
     }
+
+    private ImageStateListener imageStateListener = new ImageStateListener() {
+        @Override
+        public void valueChanged(Cell cell, String newValue) {
+            return;
+        }
+
+        @Override
+        public void selectedCellChanged(Cell newSelectedCell) {
+            return;
+        }
+    };
 }

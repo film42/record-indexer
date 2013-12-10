@@ -3,6 +3,8 @@ package client.components.imagePanel;
 import client.components.imagePanel.listeners.ImageControlsListener;
 import client.components.listeners.DrawingListener;
 import client.persistence.Cell;
+import client.persistence.ImageState;
+import client.persistence.ImageStateListener;
 import client.persistence.SyncContext;
 
 import javax.imageio.ImageIO;
@@ -44,14 +46,15 @@ public class ScalableImage extends JPanel {
     private double MAX_SCROLL = 1.0f;
     private double MIN_SCROLL = 0.2f;
 
-    private SyncContext syncContext;
+    private ImageState imageState;
 
     private ArrayList<DrawingListener> listeners;
 
     private String path;
 
-    public ScalableImage(SyncContext syncContext, String path) {
-        this.syncContext = syncContext;
+    public ScalableImage(ImageState imageState, String path) {
+        this.imageState = imageState;
+
         this.path = path;
         this.setBackground(Color.DARK_GRAY);
 
@@ -64,6 +67,8 @@ public class ScalableImage extends JPanel {
         setupView();
 
         this.setScale(0.8f);
+
+        this.imageState.addListener(imageStateListener);
     }
 
     private void setupView() {
@@ -73,7 +78,7 @@ public class ScalableImage extends JPanel {
             // handle exception...
         }
 
-        imageTable = new ImageTable(syncContext);
+        imageTable = new ImageTable(imageState);
 
     }
 
@@ -249,6 +254,20 @@ public class ScalableImage extends JPanel {
     /* ********************************************
                     Listeners
      ******************************************** */
+
+    private ImageStateListener imageStateListener = new ImageStateListener() {
+        @Override
+        public void valueChanged(Cell cell, String newValue) {
+            return;
+        }
+
+        @Override
+        public void selectedCellChanged(Cell newSelectedCell) {
+            imageTable.setCurrentCell(newSelectedCell.getField(), newSelectedCell.getRecord());
+
+            repaint();
+        }
+    };
 
     private ImageControlsListener imageControlsListener = new ImageControlsListener() {
         @Override

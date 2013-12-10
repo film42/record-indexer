@@ -33,42 +33,15 @@ public class ImagePanel extends JPanel {
         this.setBackground(Color.DARK_GRAY);
 
         String path = "db/statics/images/1890_image0.png";
-        scalableImage = new ScalableImage(syncContext, path);
+        scalableImage = new ScalableImage(imageState, path);
         ImageControlsListener imageControlsListener = scalableImage.getImageControlsListener();
 
         imageControl = new ImageControl();
         imageControl.addControlsListener(imageControlsListener);
 
-
-        imageState.addListener(imageStateListener);
-
         this.add(imageControl, Component.LEFT_ALIGNMENT);
 
         this.add(scalableImage, BorderLayout.CENTER);
     }
-
-    private SyncContext syncContext = new SyncContext() {
-        @Override
-        public void onChangeCurrentCell(Cell cell) {
-            imageState.setSelectedCell(cell);
-        }
-
-        @Override
-        public void onChnageCellValue(Cell cell, String value) {
-            imageState.setValue(cell, value);
-        }
-    };
-
-    private ImageStateListener imageStateListener = new ImageStateListener() {
-        @Override
-        public void valueChanged(Cell cell, String newValue) {
-            scalableImage.setValue(cell, newValue);
-        }
-
-        @Override
-        public void selectedCellChanged(Cell newSelectedCell) {
-            scalableImage.setCurrentCell(newSelectedCell);
-        }
-    };
 
 }

@@ -34,13 +34,12 @@ public class SplitBase extends JSplitPane {
 
     private void setupView() {
         JTabbedPane tabbedPane = new JTabbedPane();
-        tabbedPane.addTab("Table Entry", new TableEntry());
+        TableEntry tableEntry = new TableEntry(imageState);
+        tabbedPane.addTab("Table Entry", tableEntry);
 
-        FormEntry formEntry = new FormEntry(syncContext,
-                                            imageState.getModel(), imageState.getColumnNames());
-        imageState.addListener(formEntry.getImageStateListener());
+        FormEntry formEntry = new FormEntry(imageState);
         tabbedPane.addTab("Form Entry", formEntry);
-        tabbedPane.setSelectedComponent(tabbedPane.getComponentAt(1));
+        //tabbedPane.setSelectedComponent(tabbedPane.getComponentAt(1));
 
         this.setLeftComponent(tabbedPane);
 
@@ -56,15 +55,4 @@ public class SplitBase extends JSplitPane {
 
     }
 
-    private SyncContext syncContext = new SyncContext() {
-        @Override
-        public void onChangeCurrentCell(Cell cell) {
-            imageState.setSelectedCell(cell);
-        }
-
-        @Override
-        public void onChnageCellValue(Cell cell, String value) {
-            imageState.setValue(cell, value);
-        }
-    };
 }

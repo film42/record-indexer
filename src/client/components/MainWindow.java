@@ -26,6 +26,7 @@ public class MainWindow extends JFrame {
 
         setupView();
 
+        // TODO: Remove Factory
         Cell initCell = new Cell();
         initCell.setField(0);
         initCell.setRecord(0);

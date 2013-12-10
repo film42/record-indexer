@@ -12,6 +12,6 @@ public interface SyncContext {
 
     public void onChangeCurrentCell(Cell cell);
 
-    public void onChnageCellValue(Cell cell, String value);
+    public void onChangeCellValue(Cell cell, String value);
 
 }

@@ -1,14 +1,13 @@
 package client.components.tableEntry;
 
 import client.components.menus.SpellCheckPopup;
+import client.persistence.ImageState;
 
 import javax.swing.*;
 import javax.swing.event.CellEditorListener;
 import javax.swing.table.TableCellEditor;
 import java.awt.*;
-import java.awt.event.MouseAdapter;
-import java.awt.event.MouseEvent;
-import java.awt.event.MouseListener;
+import java.awt.event.*;
 import java.util.EventObject;
 
 /**
