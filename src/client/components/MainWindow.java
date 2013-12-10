@@ -1,5 +1,6 @@
 package client.components;
 
+import client.components.downloadModal.DownloadModal;
 import client.components.imagePanel.ImagePanel;
 import client.persistence.Cell;
 import client.persistence.ImageState;

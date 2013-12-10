@@ -1,7 +1,9 @@
 package client;
 
 import client.components.MainWindow;
+import client.components.downloadModal.DownloadModal;
 
+import javax.swing.*;
 import java.awt.*;
 
 /**
@@ -23,6 +25,9 @@ public class Client {
             public void run() {
                 MainWindow frame = new MainWindow();
                 frame.setVisible(true);
+
+                DownloadModal downloadModal = new DownloadModal();
+                downloadModal.setVisible(true);
             }
         });
 
