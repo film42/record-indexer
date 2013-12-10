@@ -39,7 +39,15 @@ public class EntryCellEditor extends AbstractCellEditor implements TableCellEdit
         textField.setBorder(BorderFactory.createLineBorder(Color.BLUE, 1));
 
         textField.addMouseListener(rightClickPopupAction);
-        textField.addFocusListener(generateFocusListener(row, column));
+        textField.addMouseListener(generateMouseListener(row, column));
+        //textField.addFocusListener(generateFocusListener(row, column));
+
+        if(isSelected) {
+            Cell cell = new Cell();
+            cell.setRecord(row);
+            cell.setField(column);
+            //imageState.setSelectedCell(cell);
+        }
 
         return textField;
     }
@@ -47,6 +55,20 @@ public class EntryCellEditor extends AbstractCellEditor implements TableCellEdit
     @Override
     public Object getCellEditorValue() {
         return textField.getText();
+    }
+
+    private MouseListener generateMouseListener(final int row, final int column){
+        return new MouseAdapter() {
+            @Override
+            public void mousePressed(MouseEvent e) {
+                super.mouseClicked(e);
+
+                Cell cell = new Cell();
+                cell.setRecord(row);
+                cell.setField(column);
+                imageState.setSelectedCell(cell);
+            }
+        };
     }
 
     private FocusListener generateFocusListener(final int row, final int column) {
@@ -57,7 +79,7 @@ public class EntryCellEditor extends AbstractCellEditor implements TableCellEdit
                 cell.setRecord(row);
                 cell.setField(column);
 
-                imageState.setSelectedCell(cell);
+                //imageState.setSelectedCell(cell);
             }
 
             @Override

@@ -130,7 +130,7 @@ public class FormTable extends JPanel {
         this.updateView();
         this.repaint();
 
-        this.setFocus(column);
+        //this.setFocus(column);
     }
 
     public void setCurrentCell(int row, int column) {

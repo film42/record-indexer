@@ -36,7 +36,7 @@ public class EntryCellRenderer extends JLabel implements TableCellRenderer {
             Cell cell = new Cell();
             cell.setRecord(row);
             cell.setField(column);
-            imageState.setSelectedCell(cell);
+                    imageState.setSelectedCell(cell);
         }
 
         return this;

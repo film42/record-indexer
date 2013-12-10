@@ -104,13 +104,19 @@ public class FormEntry extends JPanel {
             rowNumberList.setSelectedIndex(row);
             formTable.setCurrentCell(row, column);
 
+
             splitPane.repaint();
+
+
         }
     };
 
     private ListSelectionListener listSelectionListener = new ListSelectionListener() {
         @Override
         public void valueChanged(ListSelectionEvent e) {
+            // OMG the hackery!!
+            if(!formTable.getParent().getParent().getParent().getParent().isVisible()) return;
+
             int newRow = rowNumberList.getSelectedIndex();
 
             Cell cell = new Cell();
@@ -122,6 +128,7 @@ public class FormEntry extends JPanel {
             //imageStateListener.selectedCellChanged(cell);
             imageState.setSelectedCell(cell);
             repaint();
+
         }
     };
 
