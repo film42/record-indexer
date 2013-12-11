@@ -20,6 +20,7 @@ public class LoginWindow extends JFrame {
     private void setupView() {
         this.setTitle("Login to Indexer");
         this.setSize(350, 130);
+        this.setResizable(false);
         this.setLayout(new FlowLayout());
         this.setLocationRelativeTo(null);
 
