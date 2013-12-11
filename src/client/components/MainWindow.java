@@ -31,6 +31,8 @@ public class MainWindow extends JFrame {
         this.imageState = new ImageState(new Settings(), username, password);
         Settings settings = imageState.getSettings();
 
+        this.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
+
         this.setSize(settings.getWindowWidth(), settings.getWindowHeight());
         this.setLocation(settings.getWindowPositionX(), settings.getWindowPositionY());
 
@@ -65,7 +67,7 @@ public class MainWindow extends JFrame {
 
     private void setupFileMenu() {
         // Setup File Menu
-        this.add(new FileMenu(), BorderLayout.NORTH);
+        this.add(new FileMenu(this), BorderLayout.NORTH);
     }
 
     private void setupImagePanel() {

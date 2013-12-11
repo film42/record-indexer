@@ -2,7 +2,6 @@ package client;
 
 import client.communication.Communicator;
 import client.components.MainWindow;
-import client.components.downloadModal.DownloadModal;
 import client.components.loginWindow.ErrorLoginDialog;
 import client.components.loginWindow.LoginWindow;
 import client.components.loginWindow.SuccessLoginDialog;
@@ -68,7 +67,7 @@ public class Client {
                 loginWindow.setVisible(false);
 
                 SuccessLoginDialog successLoginDialog = new SuccessLoginDialog(validateUserRes);
-                successLoginDialog.addWindowListener(windowListener);
+                successLoginDialog.addWindowListener(openMainWindowListener);
                 successLoginDialog.setVisible(true);
 
 
@@ -79,7 +78,7 @@ public class Client {
         }
     };
 
-    private WindowListener windowListener = new WindowAdapter() {
+    private WindowListener openMainWindowListener = new WindowAdapter() {
         @Override
         public void windowClosed(WindowEvent e) {
             super.windowClosed(e);
@@ -89,7 +88,25 @@ public class Client {
                 public void run() {
                     MainWindow frame = new MainWindow(communicator, loginWindow.getUsername(),
                                                       loginWindow.getPassword());
+                    frame.addWindowListener(logoutListener);
                     frame.setVisible(true);
+                }
+            });
+        }
+    };
+
+    private WindowListener logoutListener = new WindowAdapter() {
+        @Override
+        public void windowClosed(WindowEvent e) {
+            super.windowClosed(e);
+
+            loginWindow = new LoginWindow(communicator);
+            loginWindow.addLoginListener(loginListener);
+
+            // Run
+            EventQueue.invokeLater(new Runnable() {
+                public void run() {
+                    loginWindow.setVisible(true);
                 }
             });
         }
