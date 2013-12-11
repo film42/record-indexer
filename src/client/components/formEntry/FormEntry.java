@@ -129,39 +129,9 @@ public class FormEntry extends JPanel {
         }
     };
 
-//    private MouseListener mouseListener = new MouseAdapter() {
-//        @Override
-//        public void mouseClicked(MouseEvent e) {
-//            super.mouseClicked(e);
-//        }
-//
-//        @Override
-//        public void mouseDragged(MouseEvent e) {
-//            super.mouseDragged(e);
-//        }
-//    };
-//
-//    // TODO: Swap for something more slide friendly
-//    private FocusListener focusListener = new FocusListener() {
-//        @Override
-//        public void focusGained(FocusEvent e) {
-//            int newRow = rowNumberList.getSelectedIndex();
-//
-//            Cell cell = new Cell();
-//            cell.setRecord(newRow);
-//            // TODO: Fix so this wont be a Null Pointer, maybe be setting default to 0,0?
-//            cell.setField(currentCell.getField());
-//
-//            // TODO: Fix this to call back all listeners, probably set I.S. global
-//            //imageStateListener.selectedCellChanged(cell);
-//            imageState.setSelectedCell(cell);
-//            repaint();
-//        }
-//
-//        @Override
-//        public void focusLost(FocusEvent e) {
-//            return;
-//        }
-//    };
+    public void becameVisible() {
+        formTable.setCurrentCellForce();
+    }
+
 
 }

@@ -8,6 +8,8 @@ import client.persistence.Cell;
 import client.persistence.ImageState;
 
 import javax.swing.*;
+import javax.swing.event.ChangeEvent;
+import javax.swing.event.ChangeListener;
 import java.beans.PropertyChangeEvent;
 import java.beans.PropertyChangeListener;
 
@@ -20,6 +22,9 @@ import java.beans.PropertyChangeListener;
 public class SplitBase extends JSplitPane {
 
     private ImageState imageState;
+    private JTabbedPane tabbedPane;
+    private TableEntry tableEntry;
+    private FormEntry formEntry;
 
     private int dividerLocation;
 
@@ -28,14 +33,17 @@ public class SplitBase extends JSplitPane {
         this.imageState = imageState;
 
         setupView();
+
     }
 
     private void setupView() {
-        JTabbedPane tabbedPane = new JTabbedPane();
-        TableEntry tableEntry = new TableEntry(imageState);
+        tabbedPane = new JTabbedPane();
+        tabbedPane.addChangeListener(changeListener);
+
+        tableEntry = new TableEntry(imageState);
         tabbedPane.addTab("Table Entry", tableEntry);
 
-        FormEntry formEntry = new FormEntry(imageState);
+        formEntry = new FormEntry(imageState);
         tabbedPane.addTab("Form Entry", formEntry);
         //tabbedPane.setSelectedComponent(tabbedPane.getComponentAt(1));
 
@@ -61,5 +69,14 @@ public class SplitBase extends JSplitPane {
         this.setDividerLocation(imageState.getSettings().getBaseSplitX());
 
     }
+
+    private ChangeListener changeListener = new ChangeListener() {
+        @Override
+        public void stateChanged(ChangeEvent e) {
+            if(tabbedPane.getSelectedIndex() == 1) {
+                formEntry.becameVisible();
+            }
+        }
+    };
 
 }

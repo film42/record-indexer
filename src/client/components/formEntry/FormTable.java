@@ -1,5 +1,6 @@
 package client.components.formEntry;
 
+import client.components.MainWindow;
 import client.persistence.Cell;
 import client.persistence.ImageState;
 import client.persistence.SyncContext;
@@ -131,6 +132,15 @@ public class FormTable extends JPanel {
         this.repaint();
 
         this.setFocus(column);
+    }
+
+    public void setCurrentCellForce() {
+        final Cell cell = imageState.getSelectedCell();
+        SwingUtilities.invokeLater(new Runnable() {
+            public void run() {
+                setFocus(cell.getField());
+            }
+        });
     }
 
     public void setFocus(int columnField) {
