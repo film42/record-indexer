@@ -1,6 +1,7 @@
 package client.components.imagePanel;
 
 import client.components.imagePanel.listeners.ImageControlsListener;
+import client.persistence.ImageState;
 
 import javax.swing.*;
 import java.awt.*;
@@ -18,31 +19,48 @@ public class ImageControl extends JPanel {
 
     private ArrayList<ImageControlsListener> imageControlsListeners;
 
-    public ImageControl() {
+    private ImageState imageState;
+
+    public ImageControl(ImageState imageState) {
+        this.imageState = imageState;
+
         setupView();
 
         imageControlsListeners = new ArrayList<>();
     }
 
     private void setupView() {
+        boolean enabled = true;
+
+        if(imageState.getModel().length == 0) enabled = false;
+
         JButton zoomInButton = new JButton("Zoom In");
         zoomInButton.addActionListener(zoomInAction);
+        zoomInButton.setEnabled(enabled);
         this.add(zoomInButton, BorderLayout.WEST);
 
         JButton zoomOutButton = new JButton("Zoom Out");
         zoomOutButton.addActionListener(zoomOutAction);
+        zoomOutButton.setEnabled(enabled);
         this.add(zoomOutButton, BorderLayout.WEST);
 
         JButton invertButton = new JButton("Invert");
         invertButton.addActionListener(invertImageAction);
+        invertButton.setEnabled(enabled);
         this.add(invertButton, BorderLayout.WEST);
 
         JButton toggleHighlightsButton = new JButton("Toggle Highlights");
         toggleHighlightsButton.addActionListener(toggleHighlightsAction);
+        toggleHighlightsButton.setEnabled(enabled);
         this.add(toggleHighlightsButton, BorderLayout.WEST);
 
-        this.add(new JButton("Save"), BorderLayout.WEST);
-        this.add(new JButton("Submit"), BorderLayout.WEST);
+        JButton saveButton = new JButton("Save");
+        saveButton.setEnabled(enabled);
+        this.add(saveButton, BorderLayout.WEST);
+
+        JButton submitButton = new JButton("Submit");
+        submitButton.setEnabled(enabled);
+        this.add(submitButton, BorderLayout.WEST);
 
         this.setComponentOrientation(ComponentOrientation.LEFT_TO_RIGHT);
     }

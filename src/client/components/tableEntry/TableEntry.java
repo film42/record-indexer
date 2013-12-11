@@ -60,14 +60,14 @@ public class TableEntry extends JScrollPane {
             column.setCellRenderer(entryCellRenderer);
             column.setCellEditor(new EntryCellEditor(imageState));
         }
+        this.getViewport().add(table.getTableHeader());
+        this.getViewport().add(table);
+
+        if(imageState.getModel().length == 0) return;
 
         TableColumn column = columnModel.getColumn(0);
         column.setCellRenderer(new RecordCellRenderer(imageState));
         column.setCellEditor(new RecordCellEditor(imageState));
-
-        this.getViewport().add(table.getTableHeader());
-        this.getViewport().add(table);
-
     }
 
     private ImageStateListener imageStateListener = new ImageStateListener() {

@@ -1,11 +1,17 @@
 package client;
 
+import client.communication.Communicator;
 import client.components.MainWindow;
 import client.components.downloadModal.DownloadModal;
+import client.components.loginWindow.ErrorLoginDialog;
 import client.components.loginWindow.LoginWindow;
+import client.components.loginWindow.SuccessLoginDialog;
+import shared.communication.params.ValidateUser_Param;
+import shared.communication.responses.ValidateUser_Res;
 
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.*;
 
 /**
  * Created with IntelliJ IDEA.
@@ -15,24 +21,80 @@ import java.awt.*;
  */
 public class Client {
 
-    public static void main(String[] args) {
+    private LoginWindow loginWindow;
+    private Communicator communicator;
 
-        // Create Window
+    public Client(Communicator communicator) {
+        this.communicator = communicator;
+    }
 
-        // Setup Listeners
+    public void run() {
+        loginWindow = new LoginWindow(communicator);
+        loginWindow.addLoginListener(loginListener);
 
         // Run
         EventQueue.invokeLater(new Runnable() {
             public void run() {
-                MainWindow frame = new MainWindow();
-                frame.setVisible(true);
+                loginWindow.setVisible(true);
+
+                //MainWindow frame = new MainWindow();
+                //frame.setVisible(true);
             }
         });
-
-        // Save before close
-
-        // Close
-
     }
+
+    public static void main(String[] args) {
+        // Create Window
+        String host = args[0];
+        String port = args[1];
+        String server = "http://"+host+":"+port+"/";
+        Communicator communicator = new Communicator(server);
+
+        Client client = new Client(communicator);
+        client.run();
+    }
+
+    private ActionListener loginListener = new AbstractAction() {
+        @Override
+        public void actionPerformed(ActionEvent e) {
+            ValidateUser_Param param = new ValidateUser_Param();
+            param.setUsername(loginWindow.getUsername());
+            param.setPassword(loginWindow.getPassword());
+
+            try {
+                ValidateUser_Res validateUserRes;
+                validateUserRes = communicator.validateUser(param);
+
+                loginWindow.setVisible(false);
+
+                SuccessLoginDialog successLoginDialog = new SuccessLoginDialog(validateUserRes);
+                successLoginDialog.addWindowListener(windowListener);
+                successLoginDialog.setVisible(true);
+
+
+            } catch (Exception execption) {
+                ErrorLoginDialog errorLoginDialog = new ErrorLoginDialog();
+                errorLoginDialog.setVisible(true);
+            }
+        }
+    };
+
+    private WindowListener windowListener = new WindowAdapter() {
+        @Override
+        public void windowClosed(WindowEvent e) {
+            super.windowClosed(e);
+
+            // Run
+            EventQueue.invokeLater(new Runnable() {
+                public void run() {
+                    MainWindow frame = new MainWindow(communicator, loginWindow.getUsername(),
+                                                      loginWindow.getPassword());
+                    frame.setVisible(true);
+                }
+            });
+        }
+    };
+
+
 
 }

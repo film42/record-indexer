@@ -1,5 +1,6 @@
 package client.components;
 
+import client.communication.Communicator;
 import client.components.downloadModal.DownloadModal;
 import client.components.imagePanel.ImagePanel;
 import client.persistence.Cell;
@@ -26,8 +27,8 @@ public class MainWindow extends JFrame {
 
     JSplitPane body = new JSplitPane(JSplitPane.VERTICAL_SPLIT, new JPanel(), new JPanel());
 
-    public MainWindow() {
-        this.imageState = new ImageState(new Settings(), 8, 4);
+    public MainWindow(Communicator communicator, String username, String password) {
+        this.imageState = new ImageState(new Settings(), username, password);
         Settings settings = imageState.getSettings();
 
         this.setSize(settings.getWindowWidth(), settings.getWindowHeight());

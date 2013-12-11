@@ -27,10 +27,14 @@ public class TableModel extends AbstractTableModel {
     public TableModel(ImageState imageState) {
 
         this.imageState = imageState;
-
-        overrideTableModel();
+        this.model = this.imageState.getModel();
+        this.columnNames = this.imageState.getColumnNames();
 
         imageState.addListener(imageStateListener);
+
+        if(model.length == 0) return;
+        overrideTableModel();
+
     }
 
     private void overrideTableModel() {
@@ -39,10 +43,11 @@ public class TableModel extends AbstractTableModel {
 
         String[][] imageStateModel = this.imageState.getModel();
 
+        this.model = new String[imageStateModel.length][width + 1];
+
         this.columnNames = new String[width + 1];
         this.columnNames[0] = "Record Number";
 
-        this.model = new String[imageStateModel.length][width + 1];
 
         // Copy Column names from image state so we can have record number
         for(int i = 0; i < width; i++) {

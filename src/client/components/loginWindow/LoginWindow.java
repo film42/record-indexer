@@ -1,5 +1,11 @@
 package client.components.loginWindow;
 
+import client.communication.Communicator;
+import client.communication.errors.RemoteServerErrorException;
+import client.communication.errors.UnauthorizedAccessException;
+import shared.communication.params.ValidateUser_Param;
+import shared.communication.responses.ValidateUser_Res;
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
@@ -13,7 +19,14 @@ import java.awt.event.ActionListener;
  */
 public class LoginWindow extends JFrame {
 
-    public LoginWindow() {
+    private Communicator communicator;
+    private JPasswordField passwordTextField;
+    private JTextField userTextField;
+    private JButton loginButton;
+
+    public LoginWindow(Communicator communicator) {
+        this.communicator = communicator;
+
         setupView();
     }
 
@@ -26,36 +39,44 @@ public class LoginWindow extends JFrame {
 
         JLabel usernameLabel = new JLabel("Username: ");
         this.add(usernameLabel);
-        JTextField userTextField = new JTextField();
+        userTextField = new JTextField();
         userTextField.setPreferredSize(new Dimension(250, 30));
         this.add(userTextField);
 
         JLabel passwordLabel = new JLabel("Password: ");
         this.add(passwordLabel);
-        JTextField passwordTextField = new JTextField();
+        passwordTextField = new JPasswordField();
         passwordTextField.setPreferredSize(new Dimension(250, 30));
         this.add(passwordTextField);
 
-        JButton loginButton = new JButton("Login");
-        loginButton.addActionListener(loginListener);
+        loginButton = new JButton("Login");
         this.add(loginButton);
 
         JButton exitButton = new JButton("Exit");
         exitButton.addActionListener(exitListener);
         this.add(exitButton);
+
+        //TODO: Remove me (factory)
+        this.userTextField.setText("sheila");
+        this.passwordTextField.setText("parker");
     }
 
-    private ActionListener loginListener = new AbstractAction() {
-        @Override
-        public void actionPerformed(ActionEvent e) {
-
-        }
-    };
+    public void addLoginListener(ActionListener actionListener) {
+        loginButton.addActionListener(actionListener);
+    }
 
     private ActionListener exitListener = new AbstractAction() {
         @Override
         public void actionPerformed(ActionEvent e) {
-
+            System.exit(1);
         }
     };
+
+    public String getUsername() {
+        return this.userTextField.getText();
+    }
+
+    public String getPassword() {
+        return this.passwordTextField.getText();
+    }
 }

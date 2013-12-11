@@ -76,11 +76,7 @@ public class ScalableImage extends JPanel {
     }
 
     private void setupView() {
-        try {
-            image = ImageIO.read(new File(path));
-        } catch (IOException ex) {
-            // handle exception...
-        }
+        image = imageState.getImage();
 
         imageTable = new ImageTable(imageState);
 
@@ -167,6 +163,9 @@ public class ScalableImage extends JPanel {
 
         @Override
         public void mousePressed(MouseEvent e) {
+            // Do we actually have a real image?
+            if(image.getHeight()  < 20) return;
+
             int d_X = e.getX();
             int d_Y = e.getY();
 

@@ -26,7 +26,28 @@ public class Settings {
     private String[][] values;
 
     public Settings() {
-        FACTORY();
+        loadDefaults();
+
+        //FACTORY();
+    }
+
+    private void loadDefaults() {
+        this.windowHeight = 650;
+        this.windowWidth = 1000;
+        this.windowPositionX = 36;
+        this.windowPositionY = 73;
+        this.baseSplitY = 400;
+        this.baseSplitX = 500;
+        this.imageScaleLevel = 0.8f;
+        this.imageOriginX = 0;
+        this.imageOriginY = 0;
+        this.imageHighlights = true;
+        this.imageInverted = false;
+        this.image = new BufferedImage(1, 1, BufferedImage.TYPE_INT_ARGB);
+
+        columns = new String[0];
+        values = new String[0][0];
+
     }
 
     private void FACTORY() {

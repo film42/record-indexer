@@ -38,8 +38,6 @@ public class FormTable extends JPanel {
         this.currentRow = 0;
 
         setupView();
-
-        // TODO: On appear issue InvokeLater
     }
 
     private void setupView() {
@@ -146,6 +144,8 @@ public class FormTable extends JPanel {
     public void setFocus(int columnField) {
         // offset is x - 1, cause start at 0.
         int column = columnField;
+
+        if(values.length == 0) return;
 
         // get the column textField and request focus
         JPanel formList = (JPanel)this.getComponent(column);

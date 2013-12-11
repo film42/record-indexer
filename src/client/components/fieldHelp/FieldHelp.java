@@ -50,7 +50,7 @@ public class FieldHelp extends JPanel {
 
     private void updateView() {
         String html = "<!DOCTYPE html><html><body><h1>"
-                      + columns[currentColumn] +
+                     +// + columns[currentColumn] +
                       "</h1>This should be helpful to you.</body></html>";
         editorPane.setText(html);
     }

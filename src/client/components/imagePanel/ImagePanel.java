@@ -36,7 +36,7 @@ public class ImagePanel extends JPanel {
         scalableImage = new ScalableImage(imageState, path);
         ImageControlsListener imageControlsListener = scalableImage.getImageControlsListener();
 
-        imageControl = new ImageControl();
+        imageControl = new ImageControl(imageState);
         imageControl.addControlsListener(imageControlsListener);
 
         this.add(imageControl, Component.LEFT_ALIGNMENT);

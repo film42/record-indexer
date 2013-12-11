@@ -39,13 +39,17 @@ public class ImageTable {
 
         this.imageState = imageState;
 
-        // TODO: Real data
-        FACTORY();
+        this.recordsPerImage = imageState.getRecordsPerImage();
+        this.firstYCoord = imageState.getFirstYCoord();
+        this.recordHeight = imageState.getRecordHeight();
+        this.columnCount = imageState.getColumnCount();
 
         // Note we go [y][x]
         model = new ImageCell[recordsPerImage][columnCount];
 
         highlightsEnabled = imageState.getSettings().isImageHighlights();
+
+        if(model.length == 0) return;
 
         generateModel();
         generateTableBoundaries();
@@ -106,10 +110,13 @@ public class ImageTable {
     }
 
     public void setCurrentCell(int x, int y) {
+        if(model.length == 0) return;
+
         this.currentSelected = model[y][x];
     }
 
     private void generateTableBoundaries() {
+
         int y = firstYCoord;
         int x = fieldXValues.get(0);
 
@@ -129,26 +136,6 @@ public class ImageTable {
 
     public boolean isHighlightsEnabled() {
         return highlightsEnabled;
-    }
-
-    private void FACTORY() {
-        this.firstYCoord = 199;
-        this.recordHeight = 60;
-        this.columnCount = 4;
-        this.recordsPerImage = 8;
-
-        fieldXValues = new ArrayList<>();
-        fieldWidthValues = new ArrayList<>();
-
-        fieldXValues.add(60);
-        fieldXValues.add(360);
-        fieldXValues.add(640);
-        fieldXValues.add(845);
-
-        fieldWidthValues.add(300);
-        fieldWidthValues.add(280);
-        fieldWidthValues.add(205);
-        fieldWidthValues.add(120);
     }
 
     private ImageStateListener imageStateListener = new ImageStateListener() {
