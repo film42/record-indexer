@@ -5,26 +5,24 @@ import client.persistence.Cell;
 import client.persistence.ImageState;
 
 import javax.swing.*;
-import javax.swing.event.CellEditorListener;
 import javax.swing.table.TableCellEditor;
 import java.awt.*;
 import java.awt.event.*;
-import java.util.EventObject;
 
 /**
  * Created with IntelliJ IDEA.
  * User: film42
- * Date: 12/7/13
- * Time: 8:00 PM
+ * Date: 12/10/13
+ * Time: 11:17 PM
  */
-public class EntryCellEditor extends AbstractCellEditor implements TableCellEditor {
+public class RecordCellEditor extends AbstractCellEditor implements TableCellEditor {
 
     private String currentValue;
     private JTextField textField;
 
     private ImageState imageState;
 
-    public EntryCellEditor(ImageState imageState) {
+    public RecordCellEditor(ImageState imageState) {
         this.imageState = imageState;
     }
 
@@ -38,16 +36,15 @@ public class EntryCellEditor extends AbstractCellEditor implements TableCellEdit
         textField.setText(currentValue);
         textField.setBorder(BorderFactory.createLineBorder(Color.BLUE, 1));
 
-        textField.addMouseListener(rightClickPopupAction);
         textField.addMouseListener(generateMouseListener(row, column));
-        //textField.addFocusListener(generateFocusListener(row, column));
 
-        if(isSelected) {
-            Cell cell = new Cell();
-            cell.setRecord(row);
-            cell.setField(column);
-            //imageState.setSelectedCell(cell);
-        }
+        textField.addFocusListener(new FocusAdapter() {
+            @Override
+            public void focusGained(FocusEvent e) {
+                super.focusGained(e);
+                System.out.println("focs");
+            }
+        });
 
         return textField;
     }
@@ -65,20 +62,9 @@ public class EntryCellEditor extends AbstractCellEditor implements TableCellEdit
 
                 Cell cell = new Cell();
                 cell.setRecord(row);
-                cell.setField(column - 1);
+                cell.setField(0);
                 imageState.setSelectedCell(cell);
             }
         };
     }
-
-    private MouseListener rightClickPopupAction = new MouseAdapter() {
-        @Override
-        public void mousePressed(MouseEvent e) {
-            if(e.isPopupTrigger()) {
-                SpellCheckPopup spellCheckPopup = new SpellCheckPopup();
-                spellCheckPopup.show(e.getComponent(), e.getX(), e.getY());
-            }
-        }
-
-    };
 }

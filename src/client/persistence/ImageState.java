@@ -32,7 +32,7 @@ public class ImageState {
     }
 
     public void setValue(Cell cell, String value) {
-        values[cell.getRecord()][cell.getField()] = value;
+            values[cell.getRecord()][cell.getField()] = value;
 
         for(ImageStateListener isl : listeners) {
             isl.valueChanged(cell, value);

@@ -28,11 +28,37 @@ public class TableModel extends AbstractTableModel {
 
         this.imageState = imageState;
 
-
-        this.columnNames = this.imageState.getColumnNames();
-        this.model = this.imageState.getModel();
+        overrideTableModel();
 
         imageState.addListener(imageStateListener);
+    }
+
+    private void overrideTableModel() {
+        String[] imageStateColumns = this.imageState.getColumnNames();
+        int width = imageStateColumns.length;
+
+        String[][] imageStateModel = this.imageState.getModel();
+
+        this.columnNames = new String[width + 1];
+        this.columnNames[0] = "Record Number";
+
+        this.model = new String[imageStateModel.length][width + 1];
+
+        // Copy Column names from image state so we can have record number
+        for(int i = 0; i < width; i++) {
+            this.columnNames[i+1] = imageStateColumns[i];
+        }
+
+        // Copy Model values
+        for(int x = 0; x < imageStateModel.length; x ++) {
+            // Set row number first
+            this.model[x][0] = Integer.toString(x + 1);
+
+            // Copy the values with the new offset
+            for(int i = 0; i < width; i++) {
+                this.model[x][i+1] = imageStateModel[x][i];
+            }
+        }
     }
 
     @Override
@@ -66,7 +92,13 @@ public class TableModel extends AbstractTableModel {
 
         updating = true;
         Cell cell = new Cell();
-        cell.setField(column);
+        cell.setField(column - 1);
+
+        // Check for record number col which is 0
+        if(column == 0) {
+            cell.setField(0);
+        }
+
         cell.setRecord(row);
         if(!quiet) {
             imageState.setValue(cell, (String)value);
@@ -80,7 +112,7 @@ public class TableModel extends AbstractTableModel {
         public void valueChanged(Cell cell, String newValue) {
             if(updating) return;
 
-            model[cell.getRecord()][cell.getField()] = newValue;
+            model[cell.getRecord()][cell.getField() + 1] = newValue;
         }
 
         @Override

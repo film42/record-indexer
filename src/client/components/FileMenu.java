@@ -1,7 +1,11 @@
 package client.components;
 
+import client.components.downloadModal.DownloadModal;
+
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 /**
  * Created with IntelliJ IDEA.
@@ -22,13 +26,15 @@ public class FileMenu extends JMenuBar {
         JMenu file1 = new JMenu("File");
 
         JMenuItem eMenuItem1 = new JMenuItem("Download Batch");
+        eMenuItem1.addActionListener(actionListener);
         eMenuItem1.setToolTipText("Exit application");
 
         JMenuItem eMenuItem2 = new JMenuItem("Save");
-        eMenuItem1.setToolTipText("Exit application");
+        eMenuItem2.setEnabled(false);
+        eMenuItem2.setToolTipText("Exit application");
 
         JMenuItem eMenuItem3 = new JMenuItem("Exit");
-        eMenuItem1.setToolTipText("Exit application");
+        eMenuItem2.setToolTipText("Exit application");
 
         file1.add(eMenuItem1);
         file1.add(eMenuItem2);
@@ -38,4 +44,12 @@ public class FileMenu extends JMenuBar {
         this.add(file1);
         this.setBackground(Color.WHITE);
     }
+
+    private ActionListener actionListener = new AbstractAction() {
+        @Override
+        public void actionPerformed(ActionEvent e) {
+            DownloadModal downloadModal = new DownloadModal();
+            downloadModal.setVisible(true);
+        }
+    };
 }

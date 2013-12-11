@@ -48,8 +48,6 @@ public class ScalableImage extends JPanel {
 
     private ImageState imageState;
 
-    private ArrayList<DrawingListener> listeners;
-
     private String path;
 
     public ScalableImage(ImageState imageState, String path) {
@@ -157,16 +155,6 @@ public class ScalableImage extends JPanel {
         w_originX = w_newOriginX;
         w_originY = w_newOriginY;
         this.repaint();
-    }
-
-    public void addDrawingListener(DrawingListener listener) {
-        listeners.add(listener);
-    }
-
-    private void notifyOriginChanged(int w_newOriginX, int w_newOriginY) {
-        for (DrawingListener listener : listeners) {
-            listener.originChanged(w_newOriginX, w_newOriginY);
-        }
     }
 
     private MouseAdapter mouseAdapter = new MouseAdapter() {

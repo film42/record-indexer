@@ -1,25 +1,23 @@
 package client.components.tableEntry;
 
-import client.components.menus.SpellCheckPopup;
 import client.persistence.Cell;
 import client.persistence.ImageState;
 
 import javax.swing.*;
 import javax.swing.table.TableCellRenderer;
 import java.awt.*;
-import java.awt.event.*;
 
 /**
  * Created with IntelliJ IDEA.
  * User: film42
- * Date: 12/7/13
- * Time: 6:58 PM
+ * Date: 12/11/13
+ * Time: 12:26 AM
  */
-public class EntryCellRenderer extends JLabel implements TableCellRenderer {
+public class RecordCellRenderer extends JLabel implements TableCellRenderer {
 
     private ImageState imageState;
 
-    public EntryCellRenderer(ImageState imageState) {
+    public RecordCellRenderer(ImageState imageState) {
         this.imageState = imageState;
     }
 
@@ -31,11 +29,9 @@ public class EntryCellRenderer extends JLabel implements TableCellRenderer {
         this.setBorder(BorderFactory.createLineBorder(Color.LIGHT_GRAY, 1));
 
         if(isSelected) {
-            this.setBorder(BorderFactory.createLineBorder(Color.BLACK, 1));
-
             Cell cell = new Cell();
             cell.setRecord(row);
-            cell.setField(column - 1);
+            cell.setField(0);
             imageState.setSelectedCell(cell);
         }
 

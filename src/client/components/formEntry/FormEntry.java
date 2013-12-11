@@ -57,7 +57,7 @@ public class FormEntry extends JPanel {
         rowNumberList.setVisibleRowCount(-1);
         rowNumberList.addListSelectionListener(listSelectionListener);
         //rowNumberList.addFocusListener(focusListener);
-        splitPane.setLeftComponent(rowNumberList);
+        splitPane.setLeftComponent(new JScrollPane(rowNumberList));
 
 
         this.add(splitPane);

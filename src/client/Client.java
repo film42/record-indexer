@@ -25,9 +25,6 @@ public class Client {
             public void run() {
                 MainWindow frame = new MainWindow();
                 frame.setVisible(true);
-
-                DownloadModal downloadModal = new DownloadModal();
-                downloadModal.setVisible(true);
             }
         });
 

@@ -33,12 +33,9 @@ public class FieldHelp extends JPanel {
     }
 
     private void setupView() {
-        String html = "<!DOCTYPE html><html><body><h1>Testing</h1>This should be helpful to you.</body></html>";
         editorPane = new JEditorPane();
-
         editorPane.setContentType("text/html");
         editorPane.setEditable(false);
-        editorPane.setText(html);
 
 //        FOR LATER ;)
 //        try {
@@ -48,7 +45,7 @@ public class FieldHelp extends JPanel {
 //        }
 
         this.setLayout(new BoxLayout(this, BoxLayout.PAGE_AXIS));
-        this.add(editorPane, BorderLayout.CENTER);
+        this.add(new JScrollPane(editorPane), BorderLayout.CENTER);
     }
 
     private void updateView() {

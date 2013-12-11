@@ -53,12 +53,17 @@ public class TableEntry extends JScrollPane {
         table.setAutoResizeMode(JTable.AUTO_RESIZE_OFF);
 
         TableColumnModel columnModel = table.getColumnModel();
-        for (int i = 0; i < tableModel.getColumnCount(); ++i) {
+
+        for (int i = 1; i < tableModel.getColumnCount(); ++i) {
             TableColumn column = columnModel.getColumn(i);
             EntryCellRenderer entryCellRenderer = new EntryCellRenderer(imageState);
             column.setCellRenderer(entryCellRenderer);
             column.setCellEditor(new EntryCellEditor(imageState));
         }
+
+        TableColumn column = columnModel.getColumn(0);
+        column.setCellRenderer(new RecordCellRenderer(imageState));
+        column.setCellEditor(new RecordCellEditor(imageState));
 
         this.getViewport().add(table.getTableHeader());
         this.getViewport().add(table);
@@ -68,19 +73,17 @@ public class TableEntry extends JScrollPane {
     private ImageStateListener imageStateListener = new ImageStateListener() {
         @Override
         public void valueChanged(Cell cell, String newValue) {
-            tableModel.setValueQuiet(newValue, cell.getRecord(), cell.getField());
+            tableModel.setValueQuiet(newValue, cell.getRecord(), cell.getField() + 1);
         }
 
         @Override
         public void selectedCellChanged(Cell newSelectedCell) {
-            if(!isVisible()) {
-                tableModel.setQuiet(true);
-            }
+            tableModel.setQuiet(true);
 
             table.changeSelection(newSelectedCell.getRecord(),
-                    newSelectedCell.getField(), false, false);
+                    newSelectedCell.getField() + 1, false, false);
 
-            table.editCellAt(newSelectedCell.getRecord(), newSelectedCell.getField());
+            table.editCellAt(newSelectedCell.getRecord(), newSelectedCell.getField() + 1);
 
             tableModel.setQuiet(false);
         }
