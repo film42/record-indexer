@@ -1,6 +1,5 @@
 package client.persistence;
 
-import javax.swing.*;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -18,10 +17,15 @@ public class ImageState {
     private Cell selectedCell;
     private List<ImageStateListener> listeners;
 
-    public ImageState(int recordCount, int fieldCount) {
+    private Settings settings;
+
+    public ImageState(Settings settings, int recordCount, int fieldCount) {
+        this.settings = settings;
+
         values = new String[recordCount][fieldCount];
 
-        FACTORY();
+        values = settings.getValues();
+        columns = settings.getColumns();
 
         selectedCell = null;
         listeners = new ArrayList<>();
@@ -56,22 +60,8 @@ public class ImageState {
     }
 
 
-    private void FACTORY() {
-
-        columns = new String[] {
-                "Last Name", "First Name", "Gender", "Age"
-        };
-
-        values = new String[][] {
-                {"Mooney1", "Dick", "Male", "3"},
-                {"Mooney2", "Dickest", "Male", "3"},
-                {"Moone3", "Szz", "Malde", "3"},
-                {"Moone4", "", "Maldfe", "3"},
-                {"Mooney5", "", "Malse", "3"},
-                {"Mooney6", "", "Male", "3"},
-                {"Mooney7", "Dicker", "Male", "3"},
-                {"Mooney8", "", "Male", "3"}
-        };
+    public Settings getSettings() {
+        return settings;
     }
 
     public String[][] getModel() {
@@ -80,5 +70,9 @@ public class ImageState {
 
     public String[] getColumnNames() {
         return columns;
+    }
+
+    public void save() {
+
     }
 }

@@ -25,27 +25,31 @@ public class DownloadModal extends JDialog {
     private void setupView() {
         this.setModalityType(Dialog.ModalityType.DOCUMENT_MODAL);
         this.setTitle("Download Image");
-        this.setSize(300, 300);
+        this.setSize(350, 100);
         this.setResizable(false);
         this.setLocationRelativeTo(null);
+        this.setLayout(new FlowLayout());
 
         // TODO: Make this block the main window
 
-        JButton jButton = new JButton("Close");
-        jButton.addActionListener(closeListener);
-
-        this.add(jButton, BorderLayout.SOUTH);
+        JLabel label = new JLabel("Project: ");
+        this.add(label);
 
         String[] things = {"War 2012", "1890 Census"};
         JComboBox batchSelect = new JComboBox(things);
-
-        this.add(batchSelect, BorderLayout.NORTH);
+        this.add(batchSelect);
 
         JButton sampleImageButton = new JButton("Sample Image?");
         sampleImageButton.addActionListener(getSampleImageListener);
         this.add(sampleImageButton);
 
+        JButton cancelButton = new JButton("Cancel");
+        cancelButton.addActionListener(closeListener);
+        this.add(cancelButton);
 
+        JButton downloadButton = new JButton("Download");
+        downloadButton.addActionListener(closeListener);
+        this.add(downloadButton);
     }
 
     private ActionListener getSampleImageListener = new AbstractAction() {

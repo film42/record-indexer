@@ -8,6 +8,8 @@ import client.persistence.Cell;
 import client.persistence.ImageState;
 
 import javax.swing.*;
+import java.beans.PropertyChangeEvent;
+import java.beans.PropertyChangeListener;
 
 /**
  * Created with IntelliJ IDEA.
@@ -17,15 +19,11 @@ import javax.swing.*;
  */
 public class SplitBase extends JSplitPane {
 
-    public final static int DEFAULT_DIVIDER_LOCATION = 500;
-
     private ImageState imageState;
 
     private int dividerLocation;
 
-    public SplitBase(int dividerLocation, ImageState imageState) {
-        this.dividerLocation = dividerLocation;
-
+    public SplitBase(ImageState imageState) {
         // TODO: Get this away from here
         this.imageState = imageState;
 
@@ -50,8 +48,17 @@ public class SplitBase extends JSplitPane {
         this.setRightComponent(tabbedPane2);
 //        this.setBorder(null);
 
+        this.addPropertyChangeListener(JSplitPane.DIVIDER_LOCATION_PROPERTY, new PropertyChangeListener() {
+            @Override
+            public void propertyChange(PropertyChangeEvent pce) {
+                int dividerLocation = getDividerLocation();
 
-        this.setDividerLocation(dividerLocation);
+                imageState.getSettings().setBaseSplitX(dividerLocation);
+            }
+        });
+
+
+        this.setDividerLocation(imageState.getSettings().getBaseSplitX());
 
     }
 

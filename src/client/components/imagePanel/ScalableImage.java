@@ -64,9 +64,10 @@ public class ScalableImage extends JPanel {
 
         setupView();
 
-        this.setScale(0.8f);
-
         this.imageState.addListener(imageStateListener);
+
+        this.setScale(imageState.getSettings().getImageScaleLevel());
+        // TODO: this.setOrigin();
     }
 
     private void setupView() {
