@@ -88,6 +88,8 @@ public class TableModel extends AbstractTableModel {
 
     @Override
     public void setValueAt(Object value, int row, int column) {
+        if(quiet) return;
+
         model[row][column] = (String)value;
 
         updating = true;
@@ -100,9 +102,7 @@ public class TableModel extends AbstractTableModel {
         }
 
         cell.setRecord(row);
-        if(!quiet) {
-            imageState.setValue(cell, (String)value);
-        }
+        imageState.setValue(cell, (String)value);
         updating = false;
     }
 

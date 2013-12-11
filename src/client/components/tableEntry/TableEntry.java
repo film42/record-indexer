@@ -73,7 +73,8 @@ public class TableEntry extends JScrollPane {
     private ImageStateListener imageStateListener = new ImageStateListener() {
         @Override
         public void valueChanged(Cell cell, String newValue) {
-            tableModel.setValueQuiet(newValue, cell.getRecord(), cell.getField() + 1);
+            //tableModel.setValueQuiet(newValue, cell.getRecord(), cell.getField() + 1);
+            //table.repaint();
         }
 
         @Override
