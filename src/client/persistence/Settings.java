@@ -17,8 +17,10 @@ public class Settings {
     private int windowPositionY;
     private int windowPositionX;
     private double imageScaleLevel;
-    private double imageZoomLevel;
+    private int imageOriginX;
+    private int imageOriginY;
     private boolean imageInverted;
+    private boolean imageHighlights;
     private BufferedImage image;
     private String[] columns;
     private String[][] values;
@@ -35,7 +37,11 @@ public class Settings {
         this.windowPositionY = 73;
         this.baseSplitY = 400;
         this.baseSplitX = 500;
-        this.imageScaleLevel = 0.8f;
+        this.imageScaleLevel = 0.6f;
+        this.imageOriginX = 820;
+        this.imageOriginY = 256;
+        this.imageHighlights = true;
+        this.imageInverted = false;
 
         columns = new String[] {
                 "Last Name", "First Name", "Gender", "Age"
@@ -125,20 +131,36 @@ public class Settings {
         this.imageScaleLevel = imageScaleLevel;
     }
 
-    public double getImageZoomLevel() {
-        return imageZoomLevel;
-    }
-
-    public void setImageZoomLevel(double imageZoomLevel) {
-        this.imageZoomLevel = imageZoomLevel;
-    }
-
     public boolean isImageInverted() {
         return imageInverted;
     }
 
     public void setImageInverted(boolean imageInverted) {
         this.imageInverted = imageInverted;
+    }
+
+    public boolean isImageHighlights() {
+        return imageHighlights;
+    }
+
+    public void setImageHighlights(boolean imageHighlights) {
+        this.imageHighlights = imageHighlights;
+    }
+
+    public int getImageOriginX() {
+        return imageOriginX;
+    }
+
+    public void setImageOriginX(int imageOriginX) {
+        this.imageOriginX = imageOriginX;
+    }
+
+    public int getImageOriginY() {
+        return imageOriginY;
+    }
+
+    public void setImageOriginY(int imageOriginY) {
+        this.imageOriginY = imageOriginY;
     }
 
     public BufferedImage getImage() {

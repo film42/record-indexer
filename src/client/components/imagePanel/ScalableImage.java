@@ -65,9 +65,14 @@ public class ScalableImage extends JPanel {
         setupView();
 
         this.imageState.addListener(imageStateListener);
+        this.setOrigin(imageState.getSettings().getImageOriginX(),
+                       imageState.getSettings().getImageOriginY());
 
         this.setScale(imageState.getSettings().getImageScaleLevel());
-        // TODO: this.setOrigin();
+
+        if(this.imageState.getSettings().isImageInverted()) {
+            invertImage(image);
+        }
     }
 
     private void setupView() {
@@ -104,7 +109,7 @@ public class ScalableImage extends JPanel {
         if(!redrawHack) {
             redrawHack = true;
             // To rematch 0,0 to real origin
-            this.setOrigin(this.getWidth()/2, this.getHeight()/2);
+            //this.setOrigin(this.getWidth()/2, this.getHeight()/2);
             this.repaint();
         }
     }
@@ -188,6 +193,9 @@ public class ScalableImage extends JPanel {
             w_dragStartOriginX = w_originX;
             w_dragStartOriginY = w_originY;
 
+            imageState.getSettings().setWindowPositionX(w_originX);
+            imageState.getSettings().setWindowPositionY(w_originY);
+
             repaint();
         }
 
@@ -237,6 +245,8 @@ public class ScalableImage extends JPanel {
             } else if (scale < MAX_SCROLL) {
                 setScale(scale + 0.02f);
             }
+
+            imageState.getSettings().setImageScaleLevel(scale);
         }
     };
 

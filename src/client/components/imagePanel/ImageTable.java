@@ -45,7 +45,7 @@ public class ImageTable {
         // Note we go [y][x]
         model = new ImageCell[recordsPerImage][columnCount];
 
-        this.highlightsEnabled = true;
+        highlightsEnabled = imageState.getSettings().isImageHighlights();
 
         generateModel();
         generateTableBoundaries();
