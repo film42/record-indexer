@@ -2,6 +2,7 @@ package client;
 
 import client.components.MainWindow;
 import client.components.downloadModal.DownloadModal;
+import client.components.loginWindow.LoginWindow;
 
 import javax.swing.*;
 import java.awt.*;
