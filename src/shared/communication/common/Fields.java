@@ -2,6 +2,8 @@ package shared.communication.common;
 
 import com.thoughtworks.xstream.annotations.XStreamAlias;
 
+import java.io.Serializable;
+
 /**
  * Created with IntelliJ IDEA.
  * User: film42
@@ -10,7 +12,7 @@ import com.thoughtworks.xstream.annotations.XStreamAlias;
  */
 
 @XStreamAlias("field")
-public class Fields {
+public class Fields implements Serializable{
 
     private String knownData;
     private int id;

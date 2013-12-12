@@ -1,12 +1,14 @@
 package client.persistence;
 
+import java.io.Serializable;
+
 /**
  * Created with IntelliJ IDEA.
  * User: film42
  * Date: 12/3/13
  * Time: 9:22 AM
  */
-public class Cell {
+public class Cell implements Serializable {
 
     private int record;
     private int field;

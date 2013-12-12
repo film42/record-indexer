@@ -15,6 +15,7 @@ import java.awt.event.WindowEvent;
 import java.awt.event.WindowListener;
 import java.beans.PropertyChangeEvent;
 import java.beans.PropertyChangeListener;
+import java.io.*;
 
 /**
  * Created with IntelliJ IDEA.
@@ -22,19 +23,28 @@ import java.beans.PropertyChangeListener;
  * Date: 12/3/13
  * Time: 11:05 AM
  */
-public class MainWindow extends JFrame {
+public class MainWindow extends JFrame implements Serializable {
 
     public ImageState imageState;
-    Communicator communicator;
+    private Communicator communicator;
 
     JSplitPane body = new JSplitPane(JSplitPane.VERTICAL_SPLIT, new JPanel(), new JPanel());
 
     public MainWindow(Communicator communicator, String username, String password) {
-        this.imageState = new ImageState(new Settings(), communicator, username, password);
+        Settings settings = loadSettings(username);
+
+        this.imageState = loadImageState(username);
+
+        if(this.imageState == null) {
+            this.imageState = new ImageState(settings, communicator, username, password);
+        } else {
+            this.imageState.setCommunicator(communicator);
+        }
+
+        this.imageState.setSettings(settings);
+
         this.imageState.addNewProjectListener(newProjectListener);
         this.communicator = communicator;
-
-        Settings settings = imageState.getSettings();
 
         this.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
 
@@ -85,6 +95,44 @@ public class MainWindow extends JFrame {
         body.setBottomComponent(splitBase);
         body.setBorder(null);
         body.setDividerLocation(imageState.getSettings().getBaseSplitY());
+    }
+
+    public ImageState loadImageState(String username) {
+        File dest = new File("profiles/"+username);
+        if(dest.exists()) {
+            FileInputStream fis = null;
+            ObjectInputStream in = null;
+            try {
+                fis = new FileInputStream("profiles/"+username+"/state.ser");
+                in = new ObjectInputStream(fis);
+                return (ImageState)in.readObject();
+            } catch (IOException e) {
+                e.printStackTrace();
+            } catch (ClassNotFoundException e) {
+                e.printStackTrace();
+            }
+        }
+
+        return null;
+    }
+
+    public Settings loadSettings(String username) {
+        File dest = new File("profiles/"+username);
+        if(dest.exists()) {
+            FileInputStream fis = null;
+            ObjectInputStream in = null;
+            try {
+                fis = new FileInputStream("profiles/"+username+"/settings.ser");
+                in = new ObjectInputStream(fis);
+                return (Settings)in.readObject();
+            } catch (IOException e) {
+                e.printStackTrace();
+            } catch (ClassNotFoundException e) {
+                e.printStackTrace();
+            }
+        }
+
+        return Settings.defaultSettings();
     }
 
     private WindowListener windowListener = new WindowAdapter() {

@@ -70,12 +70,17 @@ public class ScalableImage extends JPanel {
         imageTable = new ImageTable(imageState);
 
         this.setOrigin(imageState.getSettings().getImageOriginX(),
-                imageState.getSettings().getImageOriginY());
+                       imageState.getSettings().getImageOriginY());
 
         this.setScale(imageState.getSettings().getImageScaleLevel());
 
         if(this.imageState.getSettings().isImageInverted()) {
-            invertImage(image);
+            SwingUtilities.invokeLater(new Runnable() {
+                @Override
+                public void run() {
+                    invertImage(image);
+                }
+            });
         }
 
     }
@@ -85,9 +90,6 @@ public class ScalableImage extends JPanel {
         setupView();
     }
 
-//    public BufferedImage getImage() {
-//        return image;
-//    }
 
     // Right now this will redraw a second time to ensure matrix calc is happy.
     boolean redrawHack = false;

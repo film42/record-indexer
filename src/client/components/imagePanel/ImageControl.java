@@ -66,6 +66,7 @@ public class ImageControl extends JPanel {
 
         saveButton = new JButton("Save");
         saveButton.setEnabled(enabled);
+        saveButton.addActionListener(saveAction);
         this.add(saveButton, BorderLayout.WEST);
 
         submitButton = new JButton("Submit");
@@ -159,6 +160,8 @@ public class ImageControl extends JPanel {
         @Override
         public void actionPerformed(ActionEvent e) {
             updateSaveListeners();
+
+            imageState.save();
         }
     };
 

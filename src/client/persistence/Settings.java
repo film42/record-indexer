@@ -1,6 +1,7 @@
 package client.persistence;
 
 import java.awt.image.BufferedImage;
+import java.io.Serializable;
 
 /**
  * Created with IntelliJ IDEA.
@@ -8,7 +9,7 @@ import java.awt.image.BufferedImage;
  * Date: 12/11/13
  * Time: 12:36 AM
  */
-public class Settings {
+public class Settings implements Serializable {
 
     private int baseSplitY;
     private int baseSplitX;
@@ -128,4 +129,9 @@ public class Settings {
         this.imageOriginY = imageOriginY;
     }
 
+    public static Settings defaultSettings() {
+        Settings settings = new Settings();
+        settings.loadDefaults();
+        return settings;
+    }
 }

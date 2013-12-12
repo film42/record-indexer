@@ -52,7 +52,7 @@ public class ImageTable {
 
         highlightsEnabled = imageState.getSettings().isImageHighlights();
 
-        if(model.length == 0) return;
+        if(!imageState.isHasImage()) return;
 
         generateModel();
         generateTableBoundaries();
@@ -137,6 +137,8 @@ public class ImageTable {
 
     public void enableHighlights(boolean value) {
         this.highlightsEnabled = value;
+
+        imageState.getSettings().setImageHighlights(value);
     }
 
     public boolean isHighlightsEnabled() {

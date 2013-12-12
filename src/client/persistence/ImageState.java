@@ -6,10 +6,12 @@ import client.communication.errors.UnauthorizedAccessException;
 import shared.communication.common.Fields;
 import shared.communication.params.DownloadBatch_Param;
 import shared.communication.responses.DownloadBatch_Res;
+import shared.models.Image;
 import shared.models.Project;
 
 import javax.imageio.ImageIO;
 import java.awt.image.BufferedImage;
+import java.io.*;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
@@ -20,16 +22,16 @@ import java.util.List;
  * Date: 12/3/13
  * Time: 9:09 AM
  */
-public class ImageState {
+public class ImageState implements Serializable {
 
     private String[][] values;
     private String[] columns;
 
     private Cell selectedCell;
-    private List<ImageStateListener> listeners;
-    private List<NewProjectListener> projectListeners;
+    private transient List<ImageStateListener> listeners;
+    private transient List<NewProjectListener> projectListeners;
     private List<Fields> fieldsMetaData;
-    private Communicator communicator;
+    private transient Communicator communicator;
 
     private String username;
     private String password;
@@ -37,7 +39,7 @@ public class ImageState {
     private int recordHeight = 0;
     private int columnCount = 0;
     private int recordsPerImage = 0;
-    private BufferedImage image;
+    private transient BufferedImage image;
     private boolean hasImage;
     private ArrayList<Integer> fieldXValues;
     private ArrayList<Integer> fieldWidthValues;
@@ -120,7 +122,50 @@ public class ImageState {
     }
 
     public void save() {
+        try{
+            // Create path
+            File dest = new File("profiles/"+username);
+            if(!dest.exists()) dest.mkdirs();
 
+            ObjectOutputStream out = new ObjectOutputStream(
+                    new FileOutputStream("profiles/"+username+"/settings.ser"));
+            out.writeObject(settings);
+            out.close();
+
+            ByteArrayOutputStream bos = new ByteArrayOutputStream() ;
+            out = new ObjectOutputStream(bos) ;
+            out.writeObject(settings);
+            out.close();
+
+
+            ObjectOutputStream out1 = new ObjectOutputStream(
+                    new FileOutputStream("profiles/"+username+"/state.ser"));
+            out1.writeObject(this);
+            out1.close();
+
+            ByteArrayOutputStream bos1 = new ByteArrayOutputStream() ;
+            out1 = new ObjectOutputStream(bos1) ;
+            out1.writeObject(this);
+            out1.close();
+
+
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    private void writeObject(ObjectOutputStream out) throws IOException {
+        out.defaultWriteObject();
+        ImageIO.write(image, "png", out); // png is lossless
+    }
+
+    private void readObject(ObjectInputStream in) throws IOException, ClassNotFoundException {
+        in.defaultReadObject();
+        image = ImageIO.read(in);
+
+        listeners = new ArrayList<>();
+        projectListeners = new ArrayList<>();
     }
 
     public ArrayList<Integer> getFieldWidthValues() {
@@ -167,12 +212,20 @@ public class ImageState {
         return fieldsMetaData;
     }
 
+    public void setCommunicator(Communicator communicator) {
+        this.communicator = communicator;
+    }
+
     public boolean isHasImage() {
         return hasImage;
     }
 
     public void setHasImage(boolean hasImage) {
         this.hasImage = hasImage;
+    }
+
+    public void setSettings(Settings settings) {
+        this.settings = settings;
     }
 
     public BufferedImage getImage() {
