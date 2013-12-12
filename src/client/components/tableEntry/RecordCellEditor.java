@@ -35,6 +35,7 @@ public class RecordCellEditor extends AbstractCellEditor implements TableCellEdi
 
         textField.setText(currentValue);
         textField.setBorder(BorderFactory.createLineBorder(Color.BLUE, 1));
+        textField.setEnabled(false);
 
         textField.addMouseListener(generateMouseListener(row, column));
 

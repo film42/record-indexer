@@ -63,78 +63,74 @@
     <breakpoint_rules />
     <ui_properties />
   </component>
+  <component name="DockManager">
+    <window id="3">
+      <content type="file-editors">
+        <state>
+          <leaf>
+            <file leaf-file-name="ImageState.java" pinned="false" current="false" current-in-tab="true">
+              <entry file="file://$PROJECT_DIR$/src/client/persistence/ImageState.java">
+                <provider selected="true" editor-type-id="text-editor">
+                  <state line="223" column="28" selection-start="5668" selection-end="5668" vertical-scroll-proportion="0.69113696" vertical-offset="2063" max-vertical-offset="3255">
+                    <folding>
+                      <element signature="e#2938#2939#0" expanded="true" />
+                      <element signature="e#2969#2970#0" expanded="true" />
+                      <element signature="e#3005#3006#0" expanded="true" />
+                      <element signature="e#3034#3035#0" expanded="true" />
+                      <element signature="e#3074#3075#0" expanded="true" />
+                      <element signature="e#3104#3105#0" expanded="true" />
+                      <element signature="e#3914#3915#0" expanded="true" />
+                      <element signature="e#3951#3952#0" expanded="true" />
+                      <element signature="e#3986#3987#0" expanded="true" />
+                      <element signature="e#4017#4018#0" expanded="true" />
+                      <element signature="e#4066#4067#0" expanded="true" />
+                      <element signature="e#4106#4107#0" expanded="true" />
+                      <element signature="e#4145#4146#0" expanded="true" />
+                      <element signature="e#4173#4174#0" expanded="true" />
+                    </folding>
+                  </state>
+                </provider>
+              </entry>
+            </file>
+            <file leaf-file-name="DownloadBatch_Res.java" pinned="false" current="false" current-in-tab="false">
+              <entry file="file://$PROJECT_DIR$/src/shared/communication/responses/DownloadBatch_Res.java">
+                <provider selected="true" editor-type-id="text-editor">
+                  <state line="37" column="8" selection-start="960" selection-end="1329" vertical-scroll-proportion="0.0" vertical-offset="150" max-vertical-offset="1800">
+                    <folding />
+                  </state>
+                </provider>
+              </entry>
+            </file>
+          </leaf>
+        </state>
+      </content>
+    </window>
+  </component>
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FavoritesManager">
     <favorites_list name="6-record-indexer" />
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="TableEntry.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/client/components/tableEntry/TableEntry.java">
+      <file leaf-file-name="ImageTable.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/client/components/imagePanel/ImageTable.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="87" column="0" selection-start="2825" selection-end="2825" vertical-scroll-proportion="0.0" vertical-offset="778" max-vertical-offset="1275">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="FileMenu.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/client/components/FileMenu.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="62" column="55" selection-start="1940" selection-end="1940" vertical-scroll-proportion="0.0" vertical-offset="615" max-vertical-offset="1275">
-              <folding>
-                <element signature="e#1791#2031#0" expanded="true" />
-                <element signature="e#2024#2025#0" expanded="true" />
-                <element signature="e#2076#2475#0" expanded="true" />
-                <element signature="e#2468#2469#0" expanded="true" />
-                <element signature="e#2518#2655#0" expanded="true" />
-                <element signature="e#2648#2649#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="DownloadModal.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/client/components/downloadModal/DownloadModal.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="118" column="0" selection-start="3653" selection-end="3653" vertical-scroll-proportion="0.0" vertical-offset="1605" max-vertical-offset="2400">
+            <state line="145" column="0" selection-start="4147" selection-end="4147" vertical-scroll-proportion="0.0" vertical-offset="1246" max-vertical-offset="2370">
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#3285#3796#0" expanded="true" />
-                <element signature="e#3789#3790#0" expanded="true" />
-                <element signature="e#3842#4074#0" expanded="true" />
-                <element signature="e#4067#4068#0" expanded="true" />
+                <element signature="e#4200#4201#0" expanded="true" />
+                <element signature="e#4246#4247#0" expanded="true" />
+                <element signature="e#4284#4285#0" expanded="true" />
+                <element signature="e#4318#4319#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="SampleImageModal.java" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/client/components/downloadModal/SampleImageModal.java">
+      <file leaf-file-name="FieldHelp.java" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/client/components/fieldHelp/FieldHelp.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="26" column="0" selection-start="601" selection-end="601" vertical-scroll-proportion="0.2112676" vertical-offset="285" max-vertical-offset="945">
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="SampleImage.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/client/components/downloadModal/SampleImage.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="18" column="0" selection-start="328" selection-end="328" vertical-scroll-proportion="0.0" vertical-offset="58" max-vertical-offset="555">
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ImageState.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/client/persistence/ImageState.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="93" column="0" selection-start="2293" selection-end="2293" vertical-scroll-proportion="0.0" vertical-offset="1198" max-vertical-offset="2055">
+            <state line="38" column="0" selection-start="977" selection-end="977" vertical-scroll-proportion="0.3976234" vertical-offset="0" max-vertical-offset="1094">
               <folding />
             </state>
           </provider>
@@ -143,7 +139,7 @@
       <file leaf-file-name="MainWindow.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/client/components/MainWindow.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="72" column="22" selection-start="2215" selection-end="2215" vertical-scroll-proportion="0.0" vertical-offset="765" max-vertical-offset="1560">
+            <state line="82" column="41" selection-start="2590" selection-end="2590" vertical-scroll-proportion="0.0" vertical-offset="526" max-vertical-offset="1680">
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -151,17 +147,79 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Client.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/client/Client.java">
+      <file leaf-file-name="SplitBase.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/client/components/SplitBase.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="19" column="3" selection-start="526" selection-end="526" vertical-scroll-proportion="0.0" vertical-offset="927" max-vertical-offset="1590">
+            <state line="54" column="53" selection-start="1555" selection-end="1555" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1065">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="TableEntry.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/client/components/tableEntry/TableEntry.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="73" column="5" selection-start="2199" selection-end="2199" vertical-scroll-proportion="0.0" vertical-offset="451" max-vertical-offset="1590">
               <folding>
-                <element signature="e#2442#3006#0" expanded="true" />
-                <element signature="e#2999#3000#0" expanded="true" />
-                <element signature="e#3053#3500#0" expanded="true" />
-                <element signature="e#3348#3482#0" expanded="true" />
-                <element signature="e#3467#3468#0" expanded="true" />
-                <element signature="e#3493#3494#0" expanded="true" />
+                <element signature="e#2947#3311#0" expanded="true" />
+                <element signature="e#3304#3305#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="FileMenu.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/client/components/FileMenu.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="45" column="8" selection-start="1377" selection-end="1377" vertical-scroll-proportion="0.0" vertical-offset="61" max-vertical-offset="1155">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="TableModel.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/client/components/tableEntry/TableModel.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="125" column="0" selection-start="3146" selection-end="3146" vertical-scroll-proportion="0.0" vertical-offset="1066" max-vertical-offset="2160">
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="e#1899#1900#0" expanded="true" />
+                <element signature="e#1945#1946#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ScalableImage.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/client/components/imagePanel/ScalableImage.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="268" column="0" selection-start="7783" selection-end="7783" vertical-scroll-proportion="0.0" vertical-offset="3656" max-vertical-offset="4830">
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="e#7973#8099#0" expanded="true" />
+                <element signature="e#8092#8093#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ImagePanel.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/client/components/imagePanel/ImagePanel.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="40" column="5" selection-start="1072" selection-end="1072" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="660">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="FormTable.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/client/components/formEntry/FormTable.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="76" column="31" selection-start="1962" selection-end="1962" vertical-scroll-proportion="0.0" vertical-offset="146" max-vertical-offset="2670">
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="e#4623#4624#0" expanded="true" />
+                <element signature="e#4669#4670#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -177,7 +235,6 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/src/client/Cell.java" />
         <option value="$PROJECT_DIR$/src/client/persistence/Cell.java" />
         <option value="$PROJECT_DIR$/src/client/components/listeners/DrawingListener.java" />
         <option value="$PROJECT_DIR$/src/client/components/listeners/ControlAdapter.java" />
@@ -203,31 +260,32 @@
         <option value="$PROJECT_DIR$/src/client/components/formEntry/FormContext.java" />
         <option value="$PROJECT_DIR$/src/client/components/formEntry/FormEntryContext.java" />
         <option value="$PROJECT_DIR$/src/client/components/tableEntry/EntryCellEditor.java" />
-        <option value="$PROJECT_DIR$/src/client/components/tableEntry/RecordCellEditor.java" />
         <option value="$PROJECT_DIR$/src/client/components/tableEntry/EntryCellRenderer.java" />
         <option value="$PROJECT_DIR$/src/client/components/tableEntry/RecordCellRenderer.java" />
         <option value="$PROJECT_DIR$/build.xml" />
-        <option value="$PROJECT_DIR$/src/client/components/SplitBase.java" />
-        <option value="$PROJECT_DIR$/src/client/components/formEntry/FormEntry.java" />
         <option value="$PROJECT_DIR$/src/client/components/loginWindow/ErrorLoginDialog.java" />
         <option value="$PROJECT_DIR$/src/client/components/loginWindow/LoginWindow.java" />
         <option value="$PROJECT_DIR$/src/client/components/loginWindow/SuccessLoginDialog.java" />
-        <option value="$PROJECT_DIR$/src/client/components/formEntry/FormTable.java" />
-        <option value="$PROJECT_DIR$/src/client/components/fieldHelp/FieldHelp.java" />
-        <option value="$PROJECT_DIR$/src/client/persistence/Settings.java" />
-        <option value="$PROJECT_DIR$/src/client/persistence/ImageState.java" />
-        <option value="$PROJECT_DIR$/src/client/components/imagePanel/ImageTable.java" />
-        <option value="$PROJECT_DIR$/src/client/components/tableEntry/TableEntry.java" />
-        <option value="$PROJECT_DIR$/src/client/components/tableEntry/TableModel.java" />
-        <option value="$PROJECT_DIR$/src/client/components/imagePanel/ImageControl.java" />
-        <option value="$PROJECT_DIR$/src/client/components/imagePanel/ImagePanel.java" />
-        <option value="$PROJECT_DIR$/src/client/components/imagePanel/ScalableImage.java" />
-        <option value="$PROJECT_DIR$/src/client/Client.java" />
-        <option value="$PROJECT_DIR$/src/client/components/MainWindow.java" />
-        <option value="$PROJECT_DIR$/src/client/components/FileMenu.java" />
         <option value="$PROJECT_DIR$/src/client/components/downloadModal/SampleImage.java" />
-        <option value="$PROJECT_DIR$/src/client/components/downloadModal/DownloadModal.java" />
         <option value="$PROJECT_DIR$/src/client/components/downloadModal/SampleImageModal.java" />
+        <option value="$PROJECT_DIR$/src/client/Client.java" />
+        <option value="$PROJECT_DIR$/src/client/components/downloadModal/DownloadModal.java" />
+        <option value="$PROJECT_DIR$/src/client/persistence/NewProjectListener.java" />
+        <option value="$PROJECT_DIR$/src/client/persistence/Settings.java" />
+        <option value="$PROJECT_DIR$/src/client/components/imagePanel/ImagePanel.java" />
+        <option value="$PROJECT_DIR$/src/client/components/imagePanel/ImageControl.java" />
+        <option value="$PROJECT_DIR$/src/client/components/tableEntry/TableModel.java" />
+        <option value="$PROJECT_DIR$/src/client/components/formEntry/FormTable.java" />
+        <option value="$PROJECT_DIR$/src/client/components/formEntry/FormEntry.java" />
+        <option value="$PROJECT_DIR$/src/client/components/tableEntry/RecordCellEditor.java" />
+        <option value="$PROJECT_DIR$/src/client/components/tableEntry/TableEntry.java" />
+        <option value="$PROJECT_DIR$/src/client/components/FileMenu.java" />
+        <option value="$PROJECT_DIR$/src/client/components/imagePanel/ScalableImage.java" />
+        <option value="$PROJECT_DIR$/src/client/components/imagePanel/ImageTable.java" />
+        <option value="$PROJECT_DIR$/src/client/components/MainWindow.java" />
+        <option value="$PROJECT_DIR$/src/client/components/SplitBase.java" />
+        <option value="$PROJECT_DIR$/src/client/components/fieldHelp/FieldHelp.java" />
+        <option value="$PROJECT_DIR$/src/client/persistence/ImageState.java" />
       </list>
     </option>
   </component>
@@ -235,10 +293,10 @@
     <treeState />
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="227" />
-    <option name="y" value="22" />
-    <option name="width" value="1123" />
-    <option name="height" value="821" />
+    <option name="x" value="1440" />
+    <option name="y" value="-518" />
+    <option name="width" value="1069" />
+    <option name="height" value="1418" />
   </component>
   <component name="ProjectInspectionProfilesVisibleTreeState">
     <entry key="Project Default">
@@ -461,7 +519,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="loginWindow" />
+              <option name="myItemId" value="fieldHelp" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -483,37 +541,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="components" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="formEntry" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="6-record-indexer" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="6-record-indexer" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="client" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="components" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="downloadModal" />
+              <option name="myItemId" value="communication" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -984,7 +1012,7 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="227" y="22" width="1123" height="821" extended-state="0" />
+    <frame x="1440" y="-518" width="1069" height="1418" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
@@ -994,18 +1022,18 @@
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32524964" sideWeight="0.49966103" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.24937448" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.2712766" sideWeight="0.49960908" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.15122312" sideWeight="0.49960908" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.17790957" sideWeight="0.50039095" order="10" side_tool="true" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.2043935" sideWeight="0.31781915" order="3" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.26861703" sideWeight="0.49919614" order="12" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.26834694" sideWeight="0.49919614" order="12" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3281027" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Metrics" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.16234247" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.24949153" sideWeight="0.8140531" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32979593" sideWeight="0.8031384" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.26536065" sideWeight="0.68085104" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.2787652" sideWeight="0.68085104" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.22340426" sideWeight="0.49966103" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Leiningen" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
@@ -1073,20 +1101,6 @@
     <option name="showOnlyWarnings" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="jar:///Library/Java/JavaVirtualMachines/jdk1.7.0_17.jdk/Contents/Home/jre/lib/rt.jar!/com/apple/laf/AquaBorder.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="19" column="27" selection-start="920" selection-end="920" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="585">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar:///Library/Java/JavaVirtualMachines/jdk1.7.0_17.jdk/Contents/Home/src.zip!/javax/swing/JList.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="1797" column="0" selection-start="68355" selection-end="68355" vertical-scroll-proportion="0.0" vertical-offset="25543" max-vertical-offset="54825">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="jar:///Library/Java/JavaVirtualMachines/jdk1.7.0_17.jdk/Contents/Home/src.zip!/java/awt/AWTEventMulticaster.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="229" column="0" selection-start="7831" selection-end="7831" vertical-scroll-proportion="0.0" vertical-offset="2685" max-vertical-offset="15135">
@@ -1156,17 +1170,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/client/components/tableEntry/RecordCellEditor.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="27" column="0" selection-start="646" selection-end="646" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1095">
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#1134#1334#0" expanded="true" />
-            <element signature="e#1323#1324#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/client/components/tableEntry/RecordCellRenderer.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="33" column="27" selection-start="944" selection-end="944" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="690">
@@ -1208,22 +1211,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/client/components/formEntry/FormEntry.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="113" column="32" selection-start="3172" selection-end="3172" vertical-scroll-proportion="0.0" vertical-offset="1393" max-vertical-offset="2100">
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/build.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="39" column="38" selection-start="1393" selection-end="1398" vertical-scroll-proportion="0.49563318" vertical-offset="358" max-vertical-offset="3090">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/client/communication/Communicator.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="16" column="13" selection-start="428" selection-end="428" vertical-scroll-proportion="-0.06036217" vertical-offset="180" max-vertical-offset="1845">
@@ -1244,13 +1231,6 @@
           <folding>
             <element signature="e#1358#1359#0" expanded="false" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar:///Library/Java/JavaVirtualMachines/jdk1.7.0_17.jdk/Contents/Home/src.zip!/java/awt/Component.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="3286" column="0" selection-start="113734" selection-end="113734" vertical-scroll-proportion="0.0" vertical-offset="47344" max-vertical-offset="149310">
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1286,31 +1266,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/client/persistence/Settings.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="38" column="30" selection-start="904" selection-end="904" vertical-scroll-proportion="0.0" vertical-offset="270" max-vertical-offset="2160">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/client/components/fieldHelp/FieldHelp.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="41" column="55" selection-start="997" selection-end="997" vertical-scroll-proportion="0.0" vertical-offset="510" max-vertical-offset="1050">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/client/components/formEntry/FormTable.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="147" column="38" selection-start="4086" selection-end="4086" vertical-scroll-proportion="0.0" vertical-offset="1903" max-vertical-offset="2445">
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#3798#3913#0" expanded="true" />
-            <element signature="e#3902#3903#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/client/components/loginWindow/LoginWindow.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="66" column="0" selection-start="2025" selection-end="2025" vertical-scroll-proportion="0.0" vertical-offset="784" max-vertical-offset="1320">
@@ -1319,57 +1274,6 @@
             <element signature="e#2068#2205#0" expanded="true" />
             <element signature="e#2198#2199#0" expanded="true" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/client/components/SplitBase.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="42" column="0" selection-start="1051" selection-end="1051" vertical-scroll-proportion="0.0" vertical-offset="304" max-vertical-offset="1065">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/client/components/tableEntry/TableModel.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="30" column="31" selection-start="688" selection-end="688" vertical-scroll-proportion="0.0" vertical-offset="255" max-vertical-offset="2070">
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#2122#2123#0" expanded="true" />
-            <element signature="e#2163#2164#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/client/components/imagePanel/ImageControl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="61" column="39" selection-start="1941" selection-end="1941" vertical-scroll-proportion="0.0" vertical-offset="375" max-vertical-offset="2145">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/client/components/imagePanel/ImageTable.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="90" column="0" selection-start="2561" selection-end="2561" vertical-scroll-proportion="0.0" vertical-offset="1185" max-vertical-offset="2340">
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/client/components/imagePanel/ScalableImage.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="163" column="17" selection-start="4411" selection-end="4411" vertical-scroll-proportion="0.0" vertical-offset="2025" max-vertical-offset="4410">
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="method#invertImage#0;class#ScalableImage#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/client/components/imagePanel/ImagePanel.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="26" column="0" selection-start="640" selection-end="640" vertical-scroll-proportion="0.0" vertical-offset="88" max-vertical-offset="690">
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1384,44 +1288,9 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/client/components/FieldHelp.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="8" column="13" selection-start="131" selection-end="131" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="240">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/client/components/tableEntry/TableEntry.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="87" column="0" selection-start="2825" selection-end="2825" vertical-scroll-proportion="0.0" vertical-offset="778" max-vertical-offset="1275">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/client/components/FileMenu.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="62" column="55" selection-start="1940" selection-end="1940" vertical-scroll-proportion="0.0" vertical-offset="615" max-vertical-offset="1275">
-          <folding>
-            <element signature="e#1791#2031#0" expanded="true" />
-            <element signature="e#2024#2025#0" expanded="true" />
-            <element signature="e#2076#2475#0" expanded="true" />
-            <element signature="e#2468#2469#0" expanded="true" />
-            <element signature="e#2518#2655#0" expanded="true" />
-            <element signature="e#2648#2649#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/shared/communication/responses/Projects_Res.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="34" column="11" selection-start="851" selection-end="868" vertical-scroll-proportion="0.33199194" vertical-offset="195" max-vertical-offset="885">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/search/Main.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="203" column="32" selection-start="6743" selection-end="6748" vertical-scroll-proportion="0.33187774" vertical-offset="2443" max-vertical-offset="3435">
           <folding />
         </state>
       </provider>
@@ -1440,45 +1309,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/client/persistence/ImageState.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="93" column="0" selection-start="2293" selection-end="2293" vertical-scroll-proportion="0.0" vertical-offset="1198" max-vertical-offset="2055">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/client/components/MainWindow.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="72" column="22" selection-start="2215" selection-end="2215" vertical-scroll-proportion="0.0" vertical-offset="765" max-vertical-offset="1560">
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/client/Client.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="19" column="3" selection-start="526" selection-end="526" vertical-scroll-proportion="0.0" vertical-offset="12" max-vertical-offset="1590">
-          <folding>
-            <element signature="e#2442#3006#0" expanded="true" />
-            <element signature="e#2999#3000#0" expanded="true" />
-            <element signature="e#3053#3500#0" expanded="true" />
-            <element signature="e#3348#3482#0" expanded="true" />
-            <element signature="e#3467#3468#0" expanded="true" />
-            <element signature="e#3493#3494#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/client/components/downloadModal/SampleImage.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="18" column="0" selection-start="328" selection-end="328" vertical-scroll-proportion="0.0" vertical-offset="58" max-vertical-offset="555">
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/search/helpers/Networking.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="141" column="9" selection-start="4668" selection-end="4668" vertical-scroll-proportion="0.63380283" vertical-offset="1500" max-vertical-offset="2070">
@@ -1486,25 +1316,239 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/client/components/downloadModal/DownloadModal.java">
+    <entry file="file://$PROJECT_DIR$/src/shared/communication/responses/DownloadBatch_Res.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="118" column="0" selection-start="3653" selection-end="3653" vertical-scroll-proportion="0.0" vertical-offset="1605" max-vertical-offset="2400">
+        <state line="37" column="8" selection-start="960" selection-end="1329" vertical-scroll-proportion="0.0" vertical-offset="150" max-vertical-offset="1800">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/client/persistence/NewProjectListener.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="10" column="16" selection-start="175" selection-end="175" vertical-scroll-proportion="0.13711151" vertical-offset="0" max-vertical-offset="1094">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/client/Client.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="79" column="0" selection-start="2389" selection-end="2389" vertical-scroll-proportion="0.0" vertical-offset="406" max-vertical-offset="1500">
+          <folding>
+            <element signature="e#2442#3006#0" expanded="true" />
+            <element signature="e#2999#3000#0" expanded="true" />
+            <element signature="e#3053#3500#0" expanded="true" />
+            <element signature="e#3493#3494#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/client/components/downloadModal/SampleImage.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="18" column="0" selection-start="328" selection-end="328" vertical-scroll-proportion="0.24680074" vertical-offset="0" max-vertical-offset="1094">
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#3285#3796#0" expanded="true" />
-            <element signature="e#3789#3790#0" expanded="true" />
-            <element signature="e#3842#4074#0" expanded="true" />
-            <element signature="e#4067#4068#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/client/components/downloadModal/DownloadModal.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="141" column="91" selection-start="4531" selection-end="4531" vertical-scroll-proportion="0.0" vertical-offset="1297" max-vertical-offset="2595">
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#3288#3799#0" expanded="true" />
+            <element signature="e#3792#3793#0" expanded="true" />
+            <element signature="e#3845#4077#0" expanded="true" />
+            <element signature="e#4070#4071#0" expanded="true" />
+            <element signature="e#4126#4547#0" expanded="true" />
+            <element signature="e#4540#4541#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar:///Library/Java/JavaVirtualMachines/jdk1.7.0_17.jdk/Contents/Home/src.zip!/java/awt/Component.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="2964" column="16" selection-start="101798" selection-end="101798" vertical-scroll-proportion="0.33302498" vertical-offset="42315" max-vertical-offset="149310">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/search/Main.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="203" column="32" selection-start="6743" selection-end="6748" vertical-scroll-proportion="0.0" vertical-offset="2354" max-vertical-offset="3435">
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/client/components/downloadModal/SampleImageModal.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="26" column="0" selection-start="601" selection-end="601" vertical-scroll-proportion="0.2112676" vertical-offset="285" max-vertical-offset="945">
+        <state line="40" column="29" selection-start="985" selection-end="985" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="945">
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/client/persistence/Settings.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="123" column="0" selection-start="2822" selection-end="2822" vertical-scroll-proportion="0.8334875" vertical-offset="374" max-vertical-offset="1455">
+          <folding>
+            <element signature="e#2648#2649#0" expanded="true" />
+            <element signature="e#2683#2684#0" expanded="true" />
+            <element signature="e#2855#2856#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/client/components/imagePanel/ImageControl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="169" column="6" selection-start="4902" selection-end="4902" vertical-scroll-proportion="0.0" vertical-offset="1396" max-vertical-offset="2490">
+          <folding>
+            <element signature="e#4956#5388#0" expanded="true" />
+            <element signature="e#5381#5382#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/client/components/formEntry/FormEntry.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="117" column="68" selection-start="3260" selection-end="3260" vertical-scroll-proportion="0.0" vertical-offset="1027" max-vertical-offset="2325">
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#2915#3404#0" expanded="true" />
+            <element signature="e#3397#3398#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/client/components/tableEntry/RecordCellEditor.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="45" column="39" selection-start="1343" selection-end="1343" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1065">
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/client/components/formEntry/FormTable.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="76" column="31" selection-start="1962" selection-end="1962" vertical-scroll-proportion="0.0" vertical-offset="146" max-vertical-offset="2670">
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#4623#4624#0" expanded="true" />
+            <element signature="e#4669#4670#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/client/components/imagePanel/ImagePanel.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="40" column="5" selection-start="1072" selection-end="1072" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="660">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/client/components/tableEntry/TableModel.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="125" column="0" selection-start="3146" selection-end="3146" vertical-scroll-proportion="0.0" vertical-offset="1066" max-vertical-offset="2160">
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#1899#1900#0" expanded="true" />
+            <element signature="e#1945#1946#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/client/components/FileMenu.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="45" column="8" selection-start="1377" selection-end="1377" vertical-scroll-proportion="0.0" vertical-offset="61" max-vertical-offset="1155">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/client/components/imagePanel/ScalableImage.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="268" column="0" selection-start="7783" selection-end="7783" vertical-scroll-proportion="0.0" vertical-offset="3656" max-vertical-offset="4830">
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#7973#8099#0" expanded="true" />
+            <element signature="e#8092#8093#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/client/components/imagePanel/ImageTable.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="145" column="0" selection-start="4147" selection-end="4147" vertical-scroll-proportion="0.0" vertical-offset="1246" max-vertical-offset="2370">
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#4200#4201#0" expanded="true" />
+            <element signature="e#4246#4247#0" expanded="true" />
+            <element signature="e#4284#4285#0" expanded="true" />
+            <element signature="e#4318#4319#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/client/components/tableEntry/TableEntry.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="73" column="5" selection-start="2199" selection-end="2199" vertical-scroll-proportion="0.0" vertical-offset="451" max-vertical-offset="1590">
+          <folding>
+            <element signature="e#2947#3311#0" expanded="true" />
+            <element signature="e#3304#3305#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/build.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="39" column="38" selection-start="1393" selection-end="1398" vertical-scroll-proportion="0.20999075" vertical-offset="358" max-vertical-offset="3090">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/client/components/MainWindow.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="82" column="41" selection-start="2590" selection-end="2590" vertical-scroll-proportion="0.0" vertical-offset="526" max-vertical-offset="1680">
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/client/components/SplitBase.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="54" column="53" selection-start="1555" selection-end="1555" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1065">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/client/persistence/ImageState.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="223" column="28" selection-start="5668" selection-end="5668" vertical-scroll-proportion="0.69113696" vertical-offset="2063" max-vertical-offset="3255">
+          <folding>
+            <element signature="e#2938#2939#0" expanded="true" />
+            <element signature="e#2969#2970#0" expanded="true" />
+            <element signature="e#3005#3006#0" expanded="true" />
+            <element signature="e#3034#3035#0" expanded="true" />
+            <element signature="e#3074#3075#0" expanded="true" />
+            <element signature="e#3104#3105#0" expanded="true" />
+            <element signature="e#3914#3915#0" expanded="true" />
+            <element signature="e#3951#3952#0" expanded="true" />
+            <element signature="e#3986#3987#0" expanded="true" />
+            <element signature="e#4017#4018#0" expanded="true" />
+            <element signature="e#4066#4067#0" expanded="true" />
+            <element signature="e#4106#4107#0" expanded="true" />
+            <element signature="e#4145#4146#0" expanded="true" />
+            <element signature="e#4173#4174#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/client/components/fieldHelp/FieldHelp.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="38" column="0" selection-start="977" selection-end="977" vertical-scroll-proportion="0.3976234" vertical-offset="0" max-vertical-offset="1094">
+          <folding />
         </state>
       </provider>
     </entry>

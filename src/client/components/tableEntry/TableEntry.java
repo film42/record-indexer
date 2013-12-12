@@ -1,10 +1,7 @@
 package client.components.tableEntry;
 
 import client.components.menus.SpellCheckPopup;
-import client.persistence.Cell;
-import client.persistence.ImageState;
-import client.persistence.ImageStateListener;
-import client.persistence.SyncContext;
+import client.persistence.*;
 
 import javax.swing.*;
 import javax.swing.event.TableModelEvent;
@@ -36,9 +33,12 @@ public class TableEntry extends JScrollPane {
         this.imageState = imageState;
         this.tableModel = new TableModel(imageState);
 
+        this.imageState.addNewProjectListener(newProjectListener);
+
         setupView();
 
-        imageState.addListener(imageStateListener);
+        if(imageState.isHasImage())
+            imageState.addListener(imageStateListener);
     }
 
     private void setupView() {
@@ -52,6 +52,9 @@ public class TableEntry extends JScrollPane {
         table.getTableHeader().setResizingAllowed(false);
         table.setAutoResizeMode(JTable.AUTO_RESIZE_OFF);
 
+    }
+
+    private void tableInit() {
         TableColumnModel columnModel = table.getColumnModel();
 
         for (int i = 1; i < tableModel.getColumnCount(); ++i) {
@@ -63,7 +66,7 @@ public class TableEntry extends JScrollPane {
         this.getViewport().add(table.getTableHeader());
         this.getViewport().add(table);
 
-        if(imageState.getModel().length == 0) return;
+        if(!imageState.isHasImage()) return;
 
         TableColumn column = columnModel.getColumn(0);
         column.setCellRenderer(new RecordCellRenderer(imageState));
@@ -87,6 +90,21 @@ public class TableEntry extends JScrollPane {
             table.editCellAt(newSelectedCell.getRecord(), newSelectedCell.getField() + 1);
 
             tableModel.setQuiet(false);
+        }
+    };
+
+    private NewProjectListener newProjectListener = new NewProjectListener() {
+        @Override
+        public void hasNewProject() {
+            tableModel.setDeactivated(true);
+
+            if(imageState.isHasImage())
+                imageState.addListener(imageStateListener);
+
+            tableModel = new TableModel(imageState);
+            table.setModel(tableModel);
+
+            tableInit();
         }
     };
 

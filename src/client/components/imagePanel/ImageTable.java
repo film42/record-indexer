@@ -34,6 +34,7 @@ public class ImageTable {
     private ImageCell currentSelected;
 
     private ImageState imageState;
+    private boolean deactivated = false;
 
     public ImageTable(ImageState imageState) {
 
@@ -43,6 +44,8 @@ public class ImageTable {
         this.firstYCoord = imageState.getFirstYCoord();
         this.recordHeight = imageState.getRecordHeight();
         this.columnCount = imageState.getColumnCount();
+        this.fieldXValues = imageState.getFieldXValues();
+        this.fieldWidthValues = imageState.getFieldWidthValues();
 
         // Note we go [y][x]
         model = new ImageCell[recordsPerImage][columnCount];
@@ -110,7 +113,9 @@ public class ImageTable {
     }
 
     public void setCurrentCell(int x, int y) {
-        if(model.length == 0) return;
+        if(model.length == 0 || deactivated) return;
+
+        // TODO: Fix array index out of bounds error
 
         this.currentSelected = model[y][x];
     }
@@ -138,15 +143,12 @@ public class ImageTable {
         return highlightsEnabled;
     }
 
-    private ImageStateListener imageStateListener = new ImageStateListener() {
-        @Override
-        public void valueChanged(Cell cell, String newValue) {
-            return;
-        }
 
-        @Override
-        public void selectedCellChanged(Cell newSelectedCell) {
-            return;
-        }
-    };
+    public void setDeactivated(boolean deactivated) {
+        this.deactivated = deactivated;
+    }
+
+    public boolean isDeactivated() {
+        return deactivated;
+    }
 }

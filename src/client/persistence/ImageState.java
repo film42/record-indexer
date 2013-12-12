@@ -1,6 +1,16 @@
 package client.persistence;
 
+import client.communication.Communicator;
+import client.communication.errors.RemoteServerErrorException;
+import client.communication.errors.UnauthorizedAccessException;
+import shared.communication.common.Fields;
+import shared.communication.params.DownloadBatch_Param;
+import shared.communication.responses.DownloadBatch_Res;
+import shared.models.Project;
+
+import javax.imageio.ImageIO;
 import java.awt.image.BufferedImage;
+import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -17,59 +27,59 @@ public class ImageState {
 
     private Cell selectedCell;
     private List<ImageStateListener> listeners;
+    private List<NewProjectListener> projectListeners;
+    private List<Fields> fieldsMetaData;
+    private Communicator communicator;
 
     private String username;
     private String password;
-
-    private int firstYCoord = 199;
-    private int recordHeight = 60;
-    private int columnCount = 4;
-    private int recordsPerImage = 8;
-
+    private int firstYCoord = 0;
+    private int recordHeight = 0;
+    private int columnCount = 0;
+    private int recordsPerImage = 0;
+    private BufferedImage image;
+    private boolean hasImage;
     private ArrayList<Integer> fieldXValues;
     private ArrayList<Integer> fieldWidthValues;
-
     private Settings settings;
 
-    public ImageState(Settings settings, String username, String password) {
+
+    public ImageState(Settings settings, Communicator communicator,
+                      String username, String password) {
         this.settings = settings;
+        this.communicator = communicator;
         this.username = username;
         this.password = password;
 
         values = new String[0][0];
 
-        values = settings.getValues();
-        columns = settings.getColumns();
 
         selectedCell = null;
-        listeners = new ArrayList<>();
 
-        loadFromSettings();
+        listeners = new ArrayList<>();
+        projectListeners = new ArrayList<>();
+
+        loadFromNoSettings();
     }
 
-    public void loadFromSettings() {
+    public void loadFromNoSettings() {
         firstYCoord = 0;
         recordHeight = 0;
         columnCount = 0;
         recordsPerImage = 0;
-//        firstYCoord = 199;
-//        recordHeight = 60;
-//        columnCount = 4;
-//        recordsPerImage = 8;
-//
-//        fieldXValues.add(60);
-//        fieldXValues.add(360);
-//        fieldXValues.add(640);
-//        fieldXValues.add(845);
-//
-//        fieldWidthValues.add(300);
-//        fieldWidthValues.add(280);
-//        fieldWidthValues.add(205);
-//        fieldWidthValues.add(120);
+        hasImage = false;
+        image = new BufferedImage(1, 1, BufferedImage.TYPE_INT_ARGB);
+        columns = new String[0];
+        values = new String[0][0];
+
     }
 
     public void addListener(ImageStateListener imageStateListener) {
         listeners.add(imageStateListener);
+    }
+
+    public void addNewProjectListener(NewProjectListener npl) {
+        projectListeners.add(npl);
     }
 
     public void setValue(Cell cell, String value) {
@@ -153,9 +163,83 @@ public class ImageState {
         return values;
     }
 
+    public List<Fields> getFieldsMetaData() {
+        return fieldsMetaData;
+    }
+
+    public boolean isHasImage() {
+        return hasImage;
+    }
+
+    public void setHasImage(boolean hasImage) {
+        this.hasImage = hasImage;
+    }
+
     public BufferedImage getImage() {
+        return image;
+    }
 
-        return settings.getImage();
+    private void initWithProject(DownloadBatch_Res downloadBatch) {
+        hasImage = true;
+        firstYCoord = downloadBatch.getFirstYCoord();
+        recordHeight = downloadBatch.getRecordHeight();
+        columnCount = downloadBatch.getNumberOfFields();
+        recordsPerImage = downloadBatch.getRecordsPerImage();
 
+        values = new String[recordsPerImage][columnCount];
+        columns = new String[columnCount];
+
+        fieldsMetaData = downloadBatch.getFields();
+
+        fieldXValues = new ArrayList<>();
+        fieldWidthValues = new ArrayList<>();
+
+        List<Fields> fields = downloadBatch.getFields();
+        for(int i = 0; i < fields.size(); i++) {
+            // Copy essential values and store the rest
+            columns[i] = fields.get(i).getTitle();
+            fieldXValues.add(fields.get(i).getxCoord());
+            fieldWidthValues.add(fields.get(i).getPixelWidth());
+
+            for(int y = 0; y < recordsPerImage; y++) {
+                // Ensure we have no null values.
+                values[y][i] = "";
+            }
+        }
+
+        String path = communicator.getServerPath() + downloadBatch.getImageUrl();
+        try {
+            image = ImageIO.read(new URL(path));
+        } catch (Exception e1) {
+            return;
+        }
+
+        for(NewProjectListener npl : projectListeners) {
+            npl.hasNewProject();
+        }
+
+        Cell cell = new Cell();
+        cell.setField(0);
+        cell.setRecord(0);
+        setSelectedCell(cell);
+    }
+
+    public void downloadProject(int projectId) {
+        //if(hasImage) return;
+
+        //if(true == true) return;
+
+        DownloadBatch_Param param = new DownloadBatch_Param();
+        param.setUsername(this.username);
+        param.setPassword(this.password);
+        param.setProjectId(projectId);
+
+        DownloadBatch_Res downloadBatchRes = null;
+        try {
+            downloadBatchRes = communicator.downloadBatch(param);
+            initWithProject(downloadBatchRes);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 }

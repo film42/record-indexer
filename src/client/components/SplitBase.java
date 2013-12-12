@@ -1,5 +1,6 @@
 package client.components;
 
+import client.communication.Communicator;
 import client.components.fieldHelp.FieldHelp;
 import client.components.formEntry.FormEntry;
 import client.persistence.SyncContext;
@@ -25,12 +26,14 @@ public class SplitBase extends JSplitPane {
     private JTabbedPane tabbedPane;
     private TableEntry tableEntry;
     private FormEntry formEntry;
+    private Communicator communicator;
 
     private int dividerLocation;
 
-    public SplitBase(ImageState imageState) {
+    public SplitBase(ImageState imageState, Communicator communicator) {
         // TODO: Get this away from here
         this.imageState = imageState;
+        this.communicator = communicator;
 
         setupView();
 
@@ -45,16 +48,14 @@ public class SplitBase extends JSplitPane {
 
         formEntry = new FormEntry(imageState);
         tabbedPane.addTab("Form Entry", formEntry);
-        //tabbedPane.setSelectedComponent(tabbedPane.getComponentAt(1));
 
         this.setLeftComponent(tabbedPane);
 
         JTabbedPane tabbedPane2 = new JTabbedPane();
-        tabbedPane2.addTab("Field Help", new FieldHelp(imageState));
+        tabbedPane2.addTab("Field Help", new FieldHelp(imageState, communicator));
         tabbedPane2.addTab("Image Navigator", new JPanel());
 
         this.setRightComponent(tabbedPane2);
-//        this.setBorder(null);
 
         this.addPropertyChangeListener(JSplitPane.DIVIDER_LOCATION_PROPERTY, new PropertyChangeListener() {
             @Override

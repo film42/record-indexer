@@ -1,9 +1,6 @@
 package client.components.formEntry;
 
-import client.persistence.Cell;
-import client.persistence.ImageState;
-import client.persistence.SyncContext;
-import client.persistence.ImageStateListener;
+import client.persistence.*;
 
 import javax.swing.*;
 import javax.swing.event.ListSelectionEvent;
@@ -35,14 +32,17 @@ public class FormEntry extends JPanel {
         this.model = this.imageState.getModel();
         this.columnNames = this.imageState.getColumnNames();
 
-        this.rowIds = new Integer[model.length];
-        generateListData();
+        this.imageState.addNewProjectListener(newProjectListener);
 
         setupView();
     }
 
     private void setupView() {
         this.setLayout(new GridLayout(1,1));
+
+        this.rowIds = new Integer[model.length];
+        generateListData();
+
         splitPane = new JSplitPane();
         splitPane.setDividerLocation(50);
         splitPane.setBorder(null);
@@ -56,7 +56,6 @@ public class FormEntry extends JPanel {
         rowNumberList.setLayoutOrientation(JList.VERTICAL);
         rowNumberList.setVisibleRowCount(-1);
         rowNumberList.addListSelectionListener(listSelectionListener);
-        //rowNumberList.addFocusListener(focusListener);
         splitPane.setLeftComponent(new JScrollPane(rowNumberList));
 
 
@@ -108,11 +107,27 @@ public class FormEntry extends JPanel {
         }
     };
 
+    private NewProjectListener newProjectListener = new NewProjectListener() {
+        @Override
+        public void hasNewProject() {
+            model = imageState.getModel();
+            columnNames = imageState.getColumnNames();
+
+            formTable.setDeactivated(true);
+            formTable = new FormTable(imageState);
+            splitPane.setRightComponent(new JScrollPane(formTable));
+
+            rowIds = new Integer[model.length];
+            generateListData();
+            rowNumberList.setListData(rowIds);
+        }
+    };
+
     private ListSelectionListener listSelectionListener = new ListSelectionListener() {
         @Override
         public void valueChanged(ListSelectionEvent e) {
             // OMG the hackery!!
-            if(!formTable.getParent().getParent().getParent().getParent().isVisible()) return;
+            if(!getParent().getParent().getParent().isVisible()) return;
 
             int newRow = rowNumberList.getSelectedIndex();
 

@@ -2,6 +2,7 @@ package client.components.imagePanel;
 
 import client.components.imagePanel.listeners.ImageControlsListener;
 import client.persistence.ImageState;
+import client.persistence.NewProjectListener;
 
 import javax.swing.*;
 import java.awt.*;
@@ -21,8 +22,17 @@ public class ImageControl extends JPanel {
 
     private ImageState imageState;
 
+    private JButton zoomInButton;
+    private JButton zoomOutButton;
+    private JButton invertButton;
+    private JButton toggleHighlightsButton;
+    private JButton saveButton;
+    private JButton submitButton;
+
     public ImageControl(ImageState imageState) {
         this.imageState = imageState;
+
+        this.imageState.addNewProjectListener(newProjectListener);
 
         setupView();
 
@@ -30,35 +40,35 @@ public class ImageControl extends JPanel {
     }
 
     private void setupView() {
-        boolean enabled = true;
+        boolean enabled = false;
 
-        if(imageState.getModel().length == 0) enabled = false;
+        if(imageState.isHasImage()) enabled = true;
 
-        JButton zoomInButton = new JButton("Zoom In");
+        zoomInButton = new JButton("Zoom In");
         zoomInButton.addActionListener(zoomInAction);
         zoomInButton.setEnabled(enabled);
         this.add(zoomInButton, BorderLayout.WEST);
 
-        JButton zoomOutButton = new JButton("Zoom Out");
+        zoomOutButton = new JButton("Zoom Out");
         zoomOutButton.addActionListener(zoomOutAction);
         zoomOutButton.setEnabled(enabled);
         this.add(zoomOutButton, BorderLayout.WEST);
 
-        JButton invertButton = new JButton("Invert");
+        invertButton = new JButton("Invert");
         invertButton.addActionListener(invertImageAction);
         invertButton.setEnabled(enabled);
         this.add(invertButton, BorderLayout.WEST);
 
-        JButton toggleHighlightsButton = new JButton("Toggle Highlights");
+        toggleHighlightsButton = new JButton("Toggle Highlights");
         toggleHighlightsButton.addActionListener(toggleHighlightsAction);
         toggleHighlightsButton.setEnabled(enabled);
         this.add(toggleHighlightsButton, BorderLayout.WEST);
 
-        JButton saveButton = new JButton("Save");
+        saveButton = new JButton("Save");
         saveButton.setEnabled(enabled);
         this.add(saveButton, BorderLayout.WEST);
 
-        JButton submitButton = new JButton("Submit");
+        submitButton = new JButton("Submit");
         submitButton.setEnabled(enabled);
         this.add(submitButton, BorderLayout.WEST);
 
@@ -156,6 +166,20 @@ public class ImageControl extends JPanel {
         @Override
         public void actionPerformed(ActionEvent e) {
             updateSubmitListeners();
+        }
+    };
+
+    private NewProjectListener newProjectListener = new NewProjectListener() {
+        @Override
+        public void hasNewProject() {
+            boolean status = imageState.isHasImage();
+
+            zoomInButton.setEnabled(status);
+            zoomOutButton.setEnabled(status);
+            invertButton.setEnabled(status);
+            toggleHighlightsButton.setEnabled(status);
+            saveButton.setEnabled(status);
+            submitButton.setEnabled(status);
         }
     };
 

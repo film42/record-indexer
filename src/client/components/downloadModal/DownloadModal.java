@@ -74,7 +74,7 @@ public class DownloadModal extends JDialog {
         this.add(cancelButton);
 
         JButton downloadButton = new JButton("Download");
-        downloadButton.addActionListener(closeListener);
+        downloadButton.addActionListener(downloadListener);
         this.add(downloadButton);
     }
 
@@ -125,6 +125,19 @@ public class DownloadModal extends JDialog {
     private ActionListener closeListener = new AbstractAction() {
         @Override
         public void actionPerformed(ActionEvent e) {
+            setVisible(false);
+            dispatchEvent(new WindowEvent(DownloadModal.this, WindowEvent.WINDOW_CLOSING));
+        }
+    };
+
+    private ActionListener downloadListener = new AbstractAction() {
+        @Override
+        public void actionPerformed(ActionEvent e) {
+            String projectTitle = (String)batchSelect.getSelectedItem();
+            int projectId = getProjectIdForName(projectTitle);
+
+            imageState.downloadProject(projectId);
+
             setVisible(false);
             dispatchEvent(new WindowEvent(DownloadModal.this, WindowEvent.WINDOW_CLOSING));
         }

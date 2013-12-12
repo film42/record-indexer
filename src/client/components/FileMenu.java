@@ -4,6 +4,7 @@ import client.communication.Communicator;
 import client.components.downloadModal.DownloadModal;
 import client.components.loginWindow.ErrorLoginDialog;
 import client.persistence.ImageState;
+import client.persistence.NewProjectListener;
 
 import javax.swing.*;
 import java.awt.*;
@@ -21,11 +22,14 @@ public class FileMenu extends JMenuBar {
     private MainWindow mainWindow;
     private Communicator communicator;
     private ImageState imageState;
+    private JMenuItem eMenuItem1;
 
     public FileMenu(MainWindow mainWindow, Communicator communicator, ImageState imageState) {
         this.mainWindow = mainWindow;
         this.communicator = communicator;
         this.imageState = imageState;
+
+        this.imageState.addNewProjectListener(newProjectListener);
 
         setupView();
     }
@@ -36,8 +40,9 @@ public class FileMenu extends JMenuBar {
 
         JMenu file1 = new JMenu("File");
 
-        JMenuItem eMenuItem1 = new JMenuItem("Download Batch");
+        eMenuItem1 = new JMenuItem("Download Batch");
         eMenuItem1.addActionListener(downloadBatchAction);
+        //eMenuItem1.setEnabled(!imageState.isHasImage());
         eMenuItem1.setToolTipText("Exit application");
 
         JMenuItem eMenuItem2 = new JMenuItem("Logout");
@@ -69,13 +74,6 @@ public class FileMenu extends JMenuBar {
         @Override
         public void actionPerformed(ActionEvent e) {
             mainWindow.dispose();
-
-//            SwingUtilities.invokeLater(new Runnable() {
-//                @Override
-//                public void run() {
-//                    dispatchEvent(new WindowEvent(mainWindow, WindowEvent.WINDOW_CLOSED));
-//                }
-//            });
         }
     };
 
@@ -85,4 +83,13 @@ public class FileMenu extends JMenuBar {
             System.exit(1);
         }
     };
+
+    private NewProjectListener newProjectListener = new NewProjectListener() {
+        @Override
+        public void hasNewProject() {
+            //boolean status = imageState.isHasImage();
+            //eMenuItem1.setEnabled(!status);
+        }
+    };
+
 }

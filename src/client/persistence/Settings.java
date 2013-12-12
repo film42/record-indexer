@@ -21,14 +21,9 @@ public class Settings {
     private int imageOriginY;
     private boolean imageInverted;
     private boolean imageHighlights;
-    private BufferedImage image;
-    private String[] columns;
-    private String[][] values;
 
     public Settings() {
         loadDefaults();
-
-        //FACTORY();
     }
 
     private void loadDefaults() {
@@ -43,57 +38,6 @@ public class Settings {
         this.imageOriginY = 0;
         this.imageHighlights = true;
         this.imageInverted = false;
-        this.image = new BufferedImage(1, 1, BufferedImage.TYPE_INT_ARGB);
-
-        columns = new String[0];
-        values = new String[0][0];
-
-    }
-
-    private void FACTORY() {
-
-        this.windowHeight = 650;
-        this.windowWidth = 1000;
-        this.windowPositionX = 36;
-        this.windowPositionY = 73;
-        this.baseSplitY = 400;
-        this.baseSplitX = 500;
-        this.imageScaleLevel = 0.6f;
-        this.imageOriginX = 820;
-        this.imageOriginY = 256;
-        this.imageHighlights = true;
-        this.imageInverted = false;
-
-        columns = new String[] {
-                "Last Name", "First Name", "Gender", "Age"
-        };
-
-        values = new String[][] {
-                {"Mooney1", "Dick", "Male", "3"},
-                {"Mooney2", "Dickest", "Male", "3"},
-                {"Moone3", "Szz", "Malde", "3"},
-                {"Moone4", "", "Maldfe", "3"},
-                {"Mooney5", "", "Malse", "3"},
-                {"Mooney6", "", "Male", "3"},
-                {"Mooney7", "Dicker", "Male", "3"},
-                {"Mooney8", "", "Male", "3"}
-        };
-    }
-
-    public String[] getColumns() {
-        return columns;
-    }
-
-    public void setColumns(String[] columns) {
-        this.columns = columns;
-    }
-
-    public String[][] getValues() {
-        return values;
-    }
-
-    public void setValues(String[][] values) {
-        this.values = values;
     }
 
     public int getBaseSplitY() {
@@ -184,11 +128,4 @@ public class Settings {
         this.imageOriginY = imageOriginY;
     }
 
-    public BufferedImage getImage() {
-        return image;
-    }
-
-    public void setImage(BufferedImage image) {
-        this.image = image;
-    }
 }

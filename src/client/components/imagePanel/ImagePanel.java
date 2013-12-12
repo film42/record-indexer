@@ -1,10 +1,7 @@
 package client.components.imagePanel;
 
 import client.components.imagePanel.listeners.ImageControlsListener;
-import client.persistence.Cell;
-import client.persistence.ImageState;
-import client.persistence.ImageStateListener;
-import client.persistence.SyncContext;
+import client.persistence.*;
 
 import javax.swing.*;
 import java.awt.*;
@@ -32,8 +29,7 @@ public class ImagePanel extends JPanel {
         this.setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
         this.setBackground(Color.DARK_GRAY);
 
-        String path = "db/statics/images/1890_image0.png";
-        scalableImage = new ScalableImage(imageState, path);
+        scalableImage = new ScalableImage(imageState);
         ImageControlsListener imageControlsListener = scalableImage.getImageControlsListener();
 
         imageControl = new ImageControl(imageState);
@@ -43,5 +39,4 @@ public class ImagePanel extends JPanel {
 
         this.add(scalableImage, BorderLayout.CENTER);
     }
-
 }

@@ -2,10 +2,7 @@ package client.components.imagePanel;
 
 import client.components.imagePanel.listeners.ImageControlsListener;
 import client.components.listeners.DrawingListener;
-import client.persistence.Cell;
-import client.persistence.ImageState;
-import client.persistence.ImageStateListener;
-import client.persistence.SyncContext;
+import client.persistence.*;
 
 import javax.imageio.ImageIO;
 import javax.swing.*;
@@ -48,12 +45,10 @@ public class ScalableImage extends JPanel {
 
     private ImageState imageState;
 
-    private String path;
 
-    public ScalableImage(ImageState imageState, String path) {
+    public ScalableImage(ImageState imageState) {
         this.imageState = imageState;
 
-        this.path = path;
         this.setBackground(Color.DARK_GRAY);
 
         initDrag();
@@ -65,14 +60,8 @@ public class ScalableImage extends JPanel {
         setupView();
 
         this.imageState.addListener(imageStateListener);
-        this.setOrigin(imageState.getSettings().getImageOriginX(),
-                       imageState.getSettings().getImageOriginY());
+        this.imageState.addNewProjectListener(newProjectListener);
 
-        this.setScale(imageState.getSettings().getImageScaleLevel());
-
-        if(this.imageState.getSettings().isImageInverted()) {
-            invertImage(image);
-        }
     }
 
     private void setupView() {
@@ -80,11 +69,25 @@ public class ScalableImage extends JPanel {
 
         imageTable = new ImageTable(imageState);
 
+        this.setOrigin(imageState.getSettings().getImageOriginX(),
+                imageState.getSettings().getImageOriginY());
+
+        this.setScale(imageState.getSettings().getImageScaleLevel());
+
+        if(this.imageState.getSettings().isImageInverted()) {
+            invertImage(image);
+        }
+
     }
 
-    public BufferedImage getImage() {
-        return image;
+    public void refreshImage() {
+        imageTable.setDeactivated(true);
+        setupView();
     }
+
+//    public BufferedImage getImage() {
+//        return image;
+//    }
 
     // Right now this will redraw a second time to ensure matrix calc is happy.
     boolean redrawHack = false;
@@ -121,6 +124,10 @@ public class ScalableImage extends JPanel {
                 b.setRGB(x, y, col.getRGB());
             }
         }
+
+        // Toggle whether it's set to invert or not
+        boolean current = imageState.getSettings().isImageInverted();
+        imageState.getSettings().setImageInverted(!current);
 
         redrawHack = false;
         this.repaint();
@@ -164,7 +171,7 @@ public class ScalableImage extends JPanel {
         @Override
         public void mousePressed(MouseEvent e) {
             // Do we actually have a real image?
-            if(image.getHeight()  < 20) return;
+            if(!imageState.isHasImage()) return;
 
             int d_X = e.getX();
             int d_Y = e.getY();
@@ -225,8 +232,6 @@ public class ScalableImage extends JPanel {
                 w_originX = w_dragStartOriginX - w_deltaX;
                 w_originY = w_dragStartOriginY - w_deltaY;
 
-                //notifyOriginChanged(w_originX, w_originY);
-
                 repaint();
             }
         }
@@ -264,6 +269,13 @@ public class ScalableImage extends JPanel {
             imageTable.setCurrentCell(newSelectedCell.getField(), newSelectedCell.getRecord());
 
             repaint();
+        }
+    };
+
+    private NewProjectListener newProjectListener = new NewProjectListener() {
+        @Override
+        public void hasNewProject() {
+            refreshImage();
         }
     };
 

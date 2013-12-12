@@ -27,6 +27,7 @@ public class FormTable extends JPanel {
     private ImageState imageState;
 
     private int currentRow;
+    private boolean deactivated = false;
 
     public FormTable(ImageState imageState) {
 
@@ -43,6 +44,13 @@ public class FormTable extends JPanel {
     private void setupView() {
         this.setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
 
+        currentRow = 0;
+
+        initForm();
+
+    }
+
+    private void initForm() {
         for(int i = 0; i < fieldNames.length; i++) {
             String labelString = fieldNames[i];
             String textFieldString = values[currentRow][i];
@@ -52,18 +60,19 @@ public class FormTable extends JPanel {
             JLabel label = new JLabel(labelString);
             label.setPreferredSize(new Dimension(100,30));
             formContainer.add(label, BorderLayout.WEST);
+
             JTextField textField = new JTextField(textFieldString);
             textField.addFocusListener(generateFocusListener(textField, i));
             textField.setPreferredSize(new Dimension(150, 30));
+
             formContainer.add(textField, BorderLayout.CENTER);
 
             this.add(formContainer);
         }
-        currentRow = 0;
     }
 
     public void updateCurrentCell(JTextField textField, int index) {
-        if(updatingCell) return;
+        if(updatingCell || deactivated) return;
 
         Cell cell = new Cell();
         cell.setRecord(currentRow);
@@ -75,7 +84,7 @@ public class FormTable extends JPanel {
     }
 
     public void updateCellValue(JTextField textField, int index) {
-        if(updatingCell) return;
+        if(updatingCell || deactivated) return;
 
         Cell cell = new Cell();
         cell.setRecord(currentRow);
@@ -105,6 +114,8 @@ public class FormTable extends JPanel {
     }
 
     private void updateView() {
+        if(deactivated) return;
+
         updatingCell = true;
         for(int i = 0; i < this.getComponents().length; i++) {
             JPanel formSet = (JPanel)this.getComponent(i);
@@ -115,14 +126,14 @@ public class FormTable extends JPanel {
     }
 
     public void setValue(String newValue, int row, int column) {
-        if(updatingCell) return;
+        if(updatingCell || deactivated) return;
 
         this.updateView();
         this.repaint();
     }
 
     public void setCurrentCell(int row, int column) {
-        if(updatingCell) return;
+        if(updatingCell || deactivated) return;
 
         this.currentRow = row;
 
@@ -133,6 +144,8 @@ public class FormTable extends JPanel {
     }
 
     public void setCurrentCellForce() {
+        if(deactivated) return;
+
         final Cell cell = imageState.getSelectedCell();
         SwingUtilities.invokeLater(new Runnable() {
             public void run() {
@@ -142,6 +155,8 @@ public class FormTable extends JPanel {
     }
 
     public void setFocus(int columnField) {
+        if(deactivated) return;
+
         // offset is x - 1, cause start at 0.
         int column = columnField;
 
@@ -152,6 +167,10 @@ public class FormTable extends JPanel {
         final JTextField form = (JTextField)formList.getComponent(1);
 
         form.requestFocus();
+    }
+
+    public void setDeactivated(boolean deactivated) {
+        this.deactivated = deactivated;
     }
 
 }

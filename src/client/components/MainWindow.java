@@ -5,6 +5,7 @@ import client.components.downloadModal.DownloadModal;
 import client.components.imagePanel.ImagePanel;
 import client.persistence.Cell;
 import client.persistence.ImageState;
+import client.persistence.NewProjectListener;
 import client.persistence.Settings;
 
 import javax.swing.*;
@@ -29,7 +30,8 @@ public class MainWindow extends JFrame {
     JSplitPane body = new JSplitPane(JSplitPane.VERTICAL_SPLIT, new JPanel(), new JPanel());
 
     public MainWindow(Communicator communicator, String username, String password) {
-        this.imageState = new ImageState(new Settings(), username, password);
+        this.imageState = new ImageState(new Settings(), communicator, username, password);
+        this.imageState.addNewProjectListener(newProjectListener);
         this.communicator = communicator;
 
         Settings settings = imageState.getSettings();
@@ -78,13 +80,11 @@ public class MainWindow extends JFrame {
     }
 
     private void setupSplitView() {
-        SplitBase splitBase = new SplitBase(imageState);
+        SplitBase splitBase = new SplitBase(imageState, communicator);
 
         body.setBottomComponent(splitBase);
         body.setBorder(null);
         body.setDividerLocation(imageState.getSettings().getBaseSplitY());
-
-        //body.setPreferredSize(new Dimension(800, 100));
     }
 
     private WindowListener windowListener = new WindowAdapter() {
@@ -99,6 +99,14 @@ public class MainWindow extends JFrame {
             imageState.getSettings().setWindowPositionX((int) point.getX());
             imageState.getSettings().setWindowPositionY((int) point.getY());
             imageState.save();
+        }
+    };
+
+    private NewProjectListener newProjectListener = new NewProjectListener() {
+        @Override
+        public void hasNewProject() {
+
+
         }
     };
 }

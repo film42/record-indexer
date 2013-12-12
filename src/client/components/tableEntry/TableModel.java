@@ -24,6 +24,8 @@ public class TableModel extends AbstractTableModel {
 
     private boolean updating = false;
 
+    private boolean deactivated = false;
+
     public TableModel(ImageState imageState) {
 
         this.imageState = imageState;
@@ -32,7 +34,7 @@ public class TableModel extends AbstractTableModel {
 
         imageState.addListener(imageStateListener);
 
-        if(model.length == 0) return;
+        if(!this.imageState.isHasImage()) return;
         overrideTableModel();
 
     }
@@ -66,6 +68,10 @@ public class TableModel extends AbstractTableModel {
         }
     }
 
+    public void setDeactivated(boolean deactivated) {
+        this.deactivated = deactivated;
+    }
+
     @Override
     public boolean isCellEditable(int row, int column) {
         return true;
@@ -93,7 +99,7 @@ public class TableModel extends AbstractTableModel {
 
     @Override
     public void setValueAt(Object value, int row, int column) {
-        if(quiet) return;
+        if(quiet || deactivated) return;
 
         model[row][column] = (String)value;
 
@@ -115,7 +121,7 @@ public class TableModel extends AbstractTableModel {
     private ImageStateListener imageStateListener = new ImageStateListener() {
         @Override
         public void valueChanged(Cell cell, String newValue) {
-            if(updating) return;
+            if(updating || deactivated) return;
 
             model[cell.getRecord()][cell.getField() + 1] = newValue;
         }
@@ -127,6 +133,8 @@ public class TableModel extends AbstractTableModel {
     };
 
     public void setValueQuiet(String newValue, int row, int column) {
+        if(deactivated) return;
+
         model[row][column] = newValue;
     }
 
