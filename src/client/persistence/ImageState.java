@@ -239,10 +239,6 @@ public class ImageState implements Serializable {
     }
 
     public void downloadProject(int projectId) {
-        //if(hasImage) return;
-
-        //if(true == true) return;
-
         DownloadBatch_Param param = new DownloadBatch_Param();
         param.setUsername(this.username);
         param.setPassword(this.password);
@@ -252,9 +248,12 @@ public class ImageState implements Serializable {
         try {
             downloadBatchRes = communicator.downloadBatch(param);
             initWithProject(downloadBatchRes);
-        } catch (Exception e) {
+        } catch (UnauthorizedAccessException e) {
+            e.printStackTrace();
+        } catch (RemoteServerErrorException e) {
             e.printStackTrace();
         }
+
     }
 
     /* ********************************************
