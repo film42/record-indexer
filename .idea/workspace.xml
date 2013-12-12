@@ -85,10 +85,10 @@
       <content type="file-editors">
         <state>
           <leaf>
-            <file leaf-file-name="ImageState.java" pinned="false" current="true" current-in-tab="true">
+            <file leaf-file-name="ImageState.java" pinned="false" current="false" current-in-tab="true">
               <entry file="file://$PROJECT_DIR$/src/client/persistence/ImageState.java">
                 <provider selected="true" editor-type-id="text-editor">
-                  <state line="240" column="48" selection-start="7091" selection-end="7091" vertical-scroll-proportion="0.11817368" vertical-offset="3258" max-vertical-offset="4725">
+                  <state line="240" column="48" selection-start="7091" selection-end="7091" vertical-scroll-proportion="0.169448" vertical-offset="3258" max-vertical-offset="4725">
                     <folding>
                       <element signature="e#7893#7894#0" expanded="true" />
                       <element signature="e#7924#7925#0" expanded="true" />
@@ -198,10 +198,19 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Communicator.java" pinned="false" current="false" current-in-tab="true">
+      <file leaf-file-name="Communicator.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/client/communication/Communicator.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="68" column="0" selection-start="1994" selection-end="1994" vertical-scroll-proportion="0.33293414" vertical-offset="622" max-vertical-offset="1845">
+            <state line="74" column="5" selection-start="2198" selection-end="2198" vertical-scroll-proportion="0.0" vertical-offset="622" max-vertical-offset="1845">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="FileMenu.java" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/client/components/FileMenu.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="103" column="39" selection-start="3277" selection-end="3277" vertical-scroll-proportion="0.7424893" vertical-offset="884" max-vertical-offset="1380">
               <folding />
             </state>
           </provider>
@@ -237,17 +246,6 @@
           <provider selected="true" editor-type-id="text-editor">
             <state line="73" column="53" selection-start="2317" selection-end="2317" vertical-scroll-proportion="0.0" vertical-offset="327" max-vertical-offset="2475">
               <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="TableModel.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/client/components/tableEntry/TableModel.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="65" column="26" selection-start="1787" selection-end="1787" vertical-scroll-proportion="0.0" vertical-offset="269" max-vertical-offset="2130">
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
             </state>
           </provider>
         </entry>
@@ -339,11 +337,11 @@
         <option value="$PROJECT_DIR$/src/client/components/tableEntry/TableModel.java" />
         <option value="$PROJECT_DIR$/src/client/components/tableEntry/TableEntry.java" />
         <option value="$PROJECT_DIR$/src/client/components/MainWindow.java" />
-        <option value="$PROJECT_DIR$/src/client/components/FileMenu.java" />
         <option value="$PROJECT_DIR$/src/client/components/imagePanel/ImageControl.java" />
         <option value="$PROJECT_DIR$/src/client/components/imagePanel/ScalableImage.java" />
         <option value="$PROJECT_DIR$/src/client/components/fieldHelp/FieldHelp.java" />
         <option value="$PROJECT_DIR$/src/client/persistence/ImageState.java" />
+        <option value="$PROJECT_DIR$/src/client/components/FileMenu.java" />
       </list>
     </option>
   </component>
@@ -351,10 +349,9 @@
     <treeState />
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="1440" />
-    <option name="y" value="-518" />
+    <option name="y" value="22" />
     <option name="width" value="1069" />
-    <option name="height" value="1361" />
+    <option name="height" value="821" />
   </component>
   <component name="ProjectInspectionProfilesVisibleTreeState">
     <entry key="Project Default">
@@ -1034,7 +1031,7 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="1440" y="-518" width="1069" height="1361" extended-state="0" />
+    <frame x="0" y="22" width="1069" height="821" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
@@ -1044,7 +1041,7 @@
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32524964" sideWeight="0.49966103" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.24937448" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.29643962" sideWeight="0.49960908" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.2819149" sideWeight="0.49960908" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.17790957" sideWeight="0.50039095" order="10" side_tool="true" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.2043935" sideWeight="0.31781915" order="3" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
@@ -1443,13 +1440,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/client/components/FileMenu.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="88" column="30" selection-start="2950" selection-end="2950" vertical-scroll-proportion="0.87762237" vertical-offset="297" max-vertical-offset="1305">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/client/components/imagePanel/ImageControl.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="73" column="53" selection-start="2317" selection-end="2317" vertical-scroll-proportion="0.0" vertical-offset="327" max-vertical-offset="2475">
@@ -1522,16 +1512,9 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/client/communication/Communicator.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="68" column="0" selection-start="1994" selection-end="1994" vertical-scroll-proportion="0.33293414" vertical-offset="622" max-vertical-offset="1845">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/client/persistence/ImageState.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="240" column="48" selection-start="7091" selection-end="7091" vertical-scroll-proportion="0.11817368" vertical-offset="3258" max-vertical-offset="4725">
+        <state line="240" column="48" selection-start="7091" selection-end="7091" vertical-scroll-proportion="0.169448" vertical-offset="3258" max-vertical-offset="4725">
           <folding>
             <element signature="e#7893#7894#0" expanded="true" />
             <element signature="e#7924#7925#0" expanded="true" />
@@ -1554,6 +1537,20 @@
             <element signature="e#9267#9268#0" expanded="true" />
             <element signature="e#9295#9296#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/client/communication/Communicator.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="74" column="5" selection-start="2198" selection-end="2198" vertical-scroll-proportion="0.0" vertical-offset="622" max-vertical-offset="1845">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/client/components/FileMenu.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="103" column="39" selection-start="3277" selection-end="3277" vertical-scroll-proportion="0.7424893" vertical-offset="884" max-vertical-offset="1380">
+          <folding />
         </state>
       </provider>
     </entry>

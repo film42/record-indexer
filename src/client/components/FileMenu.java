@@ -62,41 +62,46 @@ public class FileMenu extends JMenuBar {
         this.setBackground(Color.WHITE);
     }
 
+    private void updateSettings() {
+        imageState.getSettings().setWindowHeight(mainWindow.getHeight());
+        imageState.getSettings().setWindowWidth(mainWindow.getWidth());
+
+        Point point = mainWindow.getLocationOnScreen();
+        imageState.getSettings().setWindowPositionX((int) point.getX());
+        imageState.getSettings().setWindowPositionY((int) point.getY());
+        imageState.save();
+    }
+
+
     private ActionListener downloadBatchAction = new AbstractAction() {
         @Override
         public void actionPerformed(ActionEvent e) {
-            DownloadModal downloadModal = new DownloadModal(imageState, communicator);
-            downloadModal.setVisible(true);
+        DownloadModal downloadModal = new DownloadModal(imageState, communicator);
+        downloadModal.setVisible(true);
         }
     };
 
     private ActionListener logoutAction = new AbstractAction() {
         @Override
         public void actionPerformed(ActionEvent e) {
-            mainWindow.dispose();
+        updateSettings();
+        mainWindow.dispose();
         }
     };
 
     private ActionListener exitAction = new AbstractAction() {
         @Override
         public void actionPerformed(ActionEvent e) {
-            imageState.getSettings().setWindowHeight(mainWindow.getHeight());
-            imageState.getSettings().setWindowWidth(mainWindow.getWidth());
-
-            Point point = mainWindow.getLocationOnScreen();
-            imageState.getSettings().setWindowPositionX((int) point.getX());
-            imageState.getSettings().setWindowPositionY((int) point.getY());
-            imageState.save();
-
-            System.exit(1);
+        updateSettings();
+        System.exit(1);
         }
     };
 
     private NewProjectListener newProjectListener = new NewProjectListener() {
         @Override
         public void hasNewProject() {
-            boolean status = imageState.isHasImage();
-            eMenuItem1.setEnabled(!status);
+        boolean status = imageState.isHasImage();
+        eMenuItem1.setEnabled(!status);
         }
     };
 
