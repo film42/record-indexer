@@ -52,6 +52,8 @@ public class TableEntry extends JScrollPane {
         table.getTableHeader().setResizingAllowed(false);
         table.setAutoResizeMode(JTable.AUTO_RESIZE_OFF);
 
+        tableInit();
+
     }
 
     private void tableInit() {

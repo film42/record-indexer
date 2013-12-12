@@ -71,6 +71,7 @@ public class ImageControl extends JPanel {
 
         submitButton = new JButton("Submit");
         submitButton.setEnabled(enabled);
+        submitButton.addActionListener(submitAction);
         this.add(submitButton, BorderLayout.WEST);
 
         this.setComponentOrientation(ComponentOrientation.LEFT_TO_RIGHT);
@@ -116,11 +117,11 @@ public class ImageControl extends JPanel {
     }
 
     private void updateSaveListeners() {
-
+        imageState.save();
     }
 
     private void updateSubmitListeners() {
-
+        imageState.submitProject();
     }
 
 
@@ -160,8 +161,6 @@ public class ImageControl extends JPanel {
         @Override
         public void actionPerformed(ActionEvent e) {
             updateSaveListeners();
-
-            imageState.save();
         }
     };
 

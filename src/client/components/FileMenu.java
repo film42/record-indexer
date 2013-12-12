@@ -42,7 +42,7 @@ public class FileMenu extends JMenuBar {
 
         eMenuItem1 = new JMenuItem("Download Batch");
         eMenuItem1.addActionListener(downloadBatchAction);
-        //eMenuItem1.setEnabled(!imageState.isHasImage());
+        eMenuItem1.setEnabled(!imageState.isHasImage());
         eMenuItem1.setToolTipText("Exit application");
 
         JMenuItem eMenuItem2 = new JMenuItem("Logout");
@@ -80,6 +80,14 @@ public class FileMenu extends JMenuBar {
     private ActionListener exitAction = new AbstractAction() {
         @Override
         public void actionPerformed(ActionEvent e) {
+            imageState.getSettings().setWindowHeight(mainWindow.getHeight());
+            imageState.getSettings().setWindowWidth(mainWindow.getWidth());
+
+            Point point = mainWindow.getLocationOnScreen();
+            imageState.getSettings().setWindowPositionX((int) point.getX());
+            imageState.getSettings().setWindowPositionY((int) point.getY());
+            imageState.save();
+
             System.exit(1);
         }
     };
@@ -87,8 +95,8 @@ public class FileMenu extends JMenuBar {
     private NewProjectListener newProjectListener = new NewProjectListener() {
         @Override
         public void hasNewProject() {
-            //boolean status = imageState.isHasImage();
-            //eMenuItem1.setEnabled(!status);
+            boolean status = imageState.isHasImage();
+            eMenuItem1.setEnabled(!status);
         }
     };
 

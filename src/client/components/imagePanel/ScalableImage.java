@@ -74,15 +74,7 @@ public class ScalableImage extends JPanel {
 
         this.setScale(imageState.getSettings().getImageScaleLevel());
 
-        if(this.imageState.getSettings().isImageInverted()) {
-            SwingUtilities.invokeLater(new Runnable() {
-                @Override
-                public void run() {
-                    invertImage(image);
-                }
-            });
-        }
-
+        this.repaint();
     }
 
     public void refreshImage() {
@@ -201,9 +193,6 @@ public class ScalableImage extends JPanel {
             w_dragStartOriginX = w_originX;
             w_dragStartOriginY = w_originY;
 
-            imageState.getSettings().setWindowPositionX(w_originX);
-            imageState.getSettings().setWindowPositionY(w_originY);
-
             repaint();
         }
 
@@ -241,6 +230,9 @@ public class ScalableImage extends JPanel {
         @Override
         public void mouseReleased(MouseEvent e) {
             initDrag();
+
+            imageState.getSettings().setImageOriginX(w_originX);
+            imageState.getSettings().setImageOriginY(w_originY);
         }
 
         @Override

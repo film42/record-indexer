@@ -32,7 +32,7 @@ public class TableModel extends AbstractTableModel {
         this.model = this.imageState.getModel();
         this.columnNames = this.imageState.getColumnNames();
 
-        imageState.addListener(imageStateListener);
+        this.imageState.addListener(imageStateListener);
 
         if(!this.imageState.isHasImage()) return;
         overrideTableModel();

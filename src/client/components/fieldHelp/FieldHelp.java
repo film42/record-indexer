@@ -36,6 +36,7 @@ public class FieldHelp extends JPanel {
         setupView();
 
         this.imageState.addListener(imageStateListener);
+        this.imageState.addNewProjectListener(newProjectListener);
     }
 
     private void setupView() {
@@ -70,6 +71,13 @@ public class FieldHelp extends JPanel {
         public void selectedCellChanged(Cell newSelectedCell) {
             currentColumn = newSelectedCell.getField();
             updateView();
+        }
+    };
+
+    private NewProjectListener newProjectListener = new NewProjectListener() {
+        @Override
+        public void hasNewProject() {
+            editorPane.setText("");
         }
     };
 }

@@ -5,9 +5,9 @@ import client.communication.errors.RemoteServerErrorException;
 import client.communication.errors.UnauthorizedAccessException;
 import shared.communication.common.Fields;
 import shared.communication.params.DownloadBatch_Param;
+import shared.communication.params.SubmitBatch_Param;
 import shared.communication.responses.DownloadBatch_Res;
-import shared.models.Image;
-import shared.models.Project;
+import shared.models.Value;
 
 import javax.imageio.ImageIO;
 import java.awt.image.BufferedImage;
@@ -35,6 +35,7 @@ public class ImageState implements Serializable {
 
     private String username;
     private String password;
+    private int imageId = -1;
     private int firstYCoord = 0;
     private int recordHeight = 0;
     private int columnCount = 0;
@@ -53,11 +54,7 @@ public class ImageState implements Serializable {
         this.username = username;
         this.password = password;
 
-        values = new String[0][0];
-
-
-        selectedCell = null;
-
+        // Init Listeners
         listeners = new ArrayList<>();
         projectListeners = new ArrayList<>();
 
@@ -65,15 +62,27 @@ public class ImageState implements Serializable {
     }
 
     public void loadFromNoSettings() {
+        values = new String[0][0];
+
         firstYCoord = 0;
         recordHeight = 0;
         columnCount = 0;
         recordsPerImage = 0;
         hasImage = false;
         image = new BufferedImage(1, 1, BufferedImage.TYPE_INT_ARGB);
+
         columns = new String[0];
         values = new String[0][0];
 
+        Cell initCell = new Cell();
+        initCell.setField(0);
+        initCell.setRecord(0);
+
+        selectedCell = initCell;
+    }
+
+    public void initEvents() {
+        setSelectedCell(selectedCell);
     }
 
     public void addListener(ImageStateListener imageStateListener) {
@@ -102,23 +111,6 @@ public class ImageState implements Serializable {
         for(ImageStateListener isl : listeners) {
             isl.selectedCellChanged(cell);
         }
-    }
-
-    public Cell getSelectedCell() {
-        return this.selectedCell;
-    }
-
-
-    public Settings getSettings() {
-        return settings;
-    }
-
-    public String[][] getModel() {
-        return values;
-    }
-
-    public String[] getColumnNames() {
-        return columns;
     }
 
     public void save() {
@@ -166,6 +158,124 @@ public class ImageState implements Serializable {
 
         listeners = new ArrayList<>();
         projectListeners = new ArrayList<>();
+    }
+
+    private void initWithProject(DownloadBatch_Res downloadBatch) {
+        hasImage = true;
+        firstYCoord = downloadBatch.getFirstYCoord();
+        recordHeight = downloadBatch.getRecordHeight();
+        columnCount = downloadBatch.getNumberOfFields();
+        recordsPerImage = downloadBatch.getRecordsPerImage();
+        imageId = downloadBatch.getBatchId();
+
+        values = new String[recordsPerImage][columnCount];
+        columns = new String[columnCount];
+
+        fieldsMetaData = downloadBatch.getFields();
+
+        fieldXValues = new ArrayList<>();
+        fieldWidthValues = new ArrayList<>();
+
+        List<Fields> fields = downloadBatch.getFields();
+        for(int i = 0; i < fields.size(); i++) {
+            // Copy essential values and store the rest
+            columns[i] = fields.get(i).getTitle();
+            fieldXValues.add(fields.get(i).getxCoord());
+            fieldWidthValues.add(fields.get(i).getPixelWidth());
+
+            for(int y = 0; y < recordsPerImage; y++) {
+                // Ensure we have no null values.
+                values[y][i] = "";
+            }
+        }
+
+        String path = communicator.getServerPath() + downloadBatch.getImageUrl();
+        try {
+            image = ImageIO.read(new URL(path));
+        } catch (Exception e1) {
+            return;
+        }
+
+        for(NewProjectListener npl : projectListeners) {
+            npl.hasNewProject();
+        }
+
+        Cell cell = new Cell();
+        cell.setField(0);
+        cell.setRecord(0);
+        setSelectedCell(cell);
+    }
+
+    public void submitProject() {
+
+        SubmitBatch_Param param = new SubmitBatch_Param();
+        param.setImageId(imageId);
+        param.setUsername(username);
+        param.setPassword(password);
+
+        for(String[] vs : values) {
+            List<Value> valueList = new ArrayList<>();
+            for(String v : vs) {
+                Value model = new Value();
+                model.setValue(v);
+                model.setType("String");
+                valueList.add(model);
+            }
+            param.addRecord(valueList);
+        }
+
+        try {
+            communicator.submitBatch(param);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        loadFromNoSettings();
+        save();
+
+        for(NewProjectListener npl : projectListeners) {
+            npl.hasNewProject();
+        }
+    }
+
+    public void downloadProject(int projectId) {
+        //if(hasImage) return;
+
+        //if(true == true) return;
+
+        DownloadBatch_Param param = new DownloadBatch_Param();
+        param.setUsername(this.username);
+        param.setPassword(this.password);
+        param.setProjectId(projectId);
+
+        DownloadBatch_Res downloadBatchRes = null;
+        try {
+            downloadBatchRes = communicator.downloadBatch(param);
+            initWithProject(downloadBatchRes);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    /* ********************************************
+                  Obligatory Fluff
+     ******************************************** */
+
+    public Cell getSelectedCell() {
+        return this.selectedCell;
+    }
+
+
+    public Settings getSettings() {
+        return settings;
+    }
+
+    public String[][] getModel() {
+        return values;
+    }
+
+    public String[] getColumnNames() {
+        return columns;
     }
 
     public ArrayList<Integer> getFieldWidthValues() {
@@ -230,69 +340,5 @@ public class ImageState implements Serializable {
 
     public BufferedImage getImage() {
         return image;
-    }
-
-    private void initWithProject(DownloadBatch_Res downloadBatch) {
-        hasImage = true;
-        firstYCoord = downloadBatch.getFirstYCoord();
-        recordHeight = downloadBatch.getRecordHeight();
-        columnCount = downloadBatch.getNumberOfFields();
-        recordsPerImage = downloadBatch.getRecordsPerImage();
-
-        values = new String[recordsPerImage][columnCount];
-        columns = new String[columnCount];
-
-        fieldsMetaData = downloadBatch.getFields();
-
-        fieldXValues = new ArrayList<>();
-        fieldWidthValues = new ArrayList<>();
-
-        List<Fields> fields = downloadBatch.getFields();
-        for(int i = 0; i < fields.size(); i++) {
-            // Copy essential values and store the rest
-            columns[i] = fields.get(i).getTitle();
-            fieldXValues.add(fields.get(i).getxCoord());
-            fieldWidthValues.add(fields.get(i).getPixelWidth());
-
-            for(int y = 0; y < recordsPerImage; y++) {
-                // Ensure we have no null values.
-                values[y][i] = "";
-            }
-        }
-
-        String path = communicator.getServerPath() + downloadBatch.getImageUrl();
-        try {
-            image = ImageIO.read(new URL(path));
-        } catch (Exception e1) {
-            return;
-        }
-
-        for(NewProjectListener npl : projectListeners) {
-            npl.hasNewProject();
-        }
-
-        Cell cell = new Cell();
-        cell.setField(0);
-        cell.setRecord(0);
-        setSelectedCell(cell);
-    }
-
-    public void downloadProject(int projectId) {
-        //if(hasImage) return;
-
-        //if(true == true) return;
-
-        DownloadBatch_Param param = new DownloadBatch_Param();
-        param.setUsername(this.username);
-        param.setPassword(this.password);
-        param.setProjectId(projectId);
-
-        DownloadBatch_Res downloadBatchRes = null;
-        try {
-            downloadBatchRes = communicator.downloadBatch(param);
-            initWithProject(downloadBatchRes);
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
     }
 }

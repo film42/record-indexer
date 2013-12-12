@@ -115,7 +115,7 @@ public class ImageTable {
     public void setCurrentCell(int x, int y) {
         if(model.length == 0 || deactivated) return;
 
-        // TODO: Fix array index out of bounds error
+        // TODO: Fix array index out of bounds error on new batch
 
         this.currentSelected = model[y][x];
     }

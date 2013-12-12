@@ -53,11 +53,7 @@ public class MainWindow extends JFrame implements Serializable {
 
         setupView();
 
-        // TODO: Remove Factory
-        Cell initCell = new Cell();
-        initCell.setField(0);
-        initCell.setRecord(0);
-        this.imageState.setSelectedCell(initCell);
+        this.imageState.initEvents();
         this.addWindowListener(windowListener);
     }
 
@@ -140,13 +136,12 @@ public class MainWindow extends JFrame implements Serializable {
         public void windowClosing(WindowEvent e) {
             super.windowClosing(e);
 
-            imageState.getSettings().setWindowHeight(getHeight());
-            imageState.getSettings().setWindowWidth(getWidth());
+        }
 
-            Point point = getLocationOnScreen();
-            imageState.getSettings().setWindowPositionX((int) point.getX());
-            imageState.getSettings().setWindowPositionY((int) point.getY());
-            imageState.save();
+        @Override
+        public void windowClosed(WindowEvent e) {
+            super.windowClosed(e);
+
         }
     };
 
