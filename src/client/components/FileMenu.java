@@ -1,7 +1,9 @@
 package client.components;
 
+import client.communication.Communicator;
 import client.components.downloadModal.DownloadModal;
 import client.components.loginWindow.ErrorLoginDialog;
+import client.persistence.ImageState;
 
 import javax.swing.*;
 import java.awt.*;
@@ -16,10 +18,14 @@ import java.awt.event.WindowEvent;
  * Time: 11:18 AM
  */
 public class FileMenu extends JMenuBar {
-    MainWindow mainWindow;
+    private MainWindow mainWindow;
+    private Communicator communicator;
+    private ImageState imageState;
 
-    public FileMenu(MainWindow mainWindow) {
+    public FileMenu(MainWindow mainWindow, Communicator communicator, ImageState imageState) {
         this.mainWindow = mainWindow;
+        this.communicator = communicator;
+        this.imageState = imageState;
 
         setupView();
     }
@@ -54,7 +60,7 @@ public class FileMenu extends JMenuBar {
     private ActionListener downloadBatchAction = new AbstractAction() {
         @Override
         public void actionPerformed(ActionEvent e) {
-            DownloadModal downloadModal = new DownloadModal();
+            DownloadModal downloadModal = new DownloadModal(imageState, communicator);
             downloadModal.setVisible(true);
         }
     };

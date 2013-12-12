@@ -24,11 +24,14 @@ import java.beans.PropertyChangeListener;
 public class MainWindow extends JFrame {
 
     public ImageState imageState;
+    Communicator communicator;
 
     JSplitPane body = new JSplitPane(JSplitPane.VERTICAL_SPLIT, new JPanel(), new JPanel());
 
     public MainWindow(Communicator communicator, String username, String password) {
         this.imageState = new ImageState(new Settings(), username, password);
+        this.communicator = communicator;
+
         Settings settings = imageState.getSettings();
 
         this.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
@@ -67,7 +70,7 @@ public class MainWindow extends JFrame {
 
     private void setupFileMenu() {
         // Setup File Menu
-        this.add(new FileMenu(this), BorderLayout.NORTH);
+        this.add(new FileMenu(this, communicator, imageState), BorderLayout.NORTH);
     }
 
     private void setupImagePanel() {

@@ -1,11 +1,9 @@
 package client.components.downloadModal;
 
-import javax.imageio.ImageIO;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.image.BufferedImage;
-import java.io.File;
-import java.io.IOException;
+
 
 /**
  * Created with IntelliJ IDEA.
@@ -15,20 +13,10 @@ import java.io.IOException;
  */
 public class SampleImage extends JPanel {
 
-    String path;
     BufferedImage image;
 
-    public SampleImage(String path) {
-        this.path = path;
-        setupView();
-    }
-
-    private void setupView() {
-        try {
-            image = ImageIO.read(new File(path));
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+    public SampleImage(BufferedImage image) {
+        this.image = image;
     }
 
     @Override

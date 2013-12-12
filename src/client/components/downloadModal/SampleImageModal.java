@@ -9,6 +9,7 @@ import java.awt.event.WindowEvent;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
+import java.net.URL;
 
 /**
  * Created with IntelliJ IDEA.
@@ -18,7 +19,15 @@ import java.io.IOException;
  */
 public class SampleImageModal extends JDialog {
 
-    public SampleImageModal() {
+    BufferedImage image;
+
+    public SampleImageModal(String path) {
+        try {
+            image = ImageIO.read(new URL(path));
+        } catch (Exception e1) {
+            return;
+        }
+
         setupView();
     }
 
@@ -31,8 +40,7 @@ public class SampleImageModal extends JDialog {
         this.setResizable(false);
         this.setLocationRelativeTo(null);
 
-        String path = "db/statics/images/1890_image0.png";
-        SampleImage sampleImage = new SampleImage(path);
+        SampleImage sampleImage = new SampleImage(image);
 
         this.add(sampleImage, BorderLayout.CENTER);
 
