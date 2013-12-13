@@ -1,5 +1,6 @@
 package client.components.tableEntry;
 
+import client.modules.spellChecker.KnownData;
 import client.persistence.Cell;
 import client.persistence.ImageState;
 

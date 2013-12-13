@@ -37,6 +37,8 @@ public class LoginWindow extends JFrame {
         this.setLayout(new FlowLayout());
         this.setLocationRelativeTo(null);
 
+        this.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
+
         JLabel usernameLabel = new JLabel("Username: ");
         this.add(usernameLabel);
         userTextField = new JTextField();

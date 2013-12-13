@@ -1,5 +1,6 @@
 package client.components.formEntry;
 
+import client.modules.spellChecker.KnownData;
 import client.persistence.*;
 
 import javax.swing.*;
@@ -20,6 +21,7 @@ public class FormEntry extends JPanel {
     private FormTable formTable;
     private JSplitPane splitPane;
 
+    private Cell currentCell;
     private String[][] model;
     private String[] columnNames;
     private Integer[] rowIds;
@@ -78,8 +80,6 @@ public class FormEntry extends JPanel {
         dim.width = 350;
         return dim;
     }
-
-    private Cell currentCell;
 
     private ImageStateListener imageStateListener = new ImageStateListener() {
         @Override

@@ -1,15 +1,13 @@
 package client.components.formEntry;
 
-import client.components.MainWindow;
+import client.modules.spellChecker.KnownData;
 import client.persistence.Cell;
 import client.persistence.ImageState;
-import client.persistence.SyncContext;
 
 import javax.swing.*;
-import javax.swing.event.DocumentEvent;
-import javax.swing.event.DocumentListener;
 import java.awt.*;
-import java.awt.event.*;
+import java.awt.event.FocusEvent;
+import java.awt.event.FocusListener;
 
 /**
  * Created with IntelliJ IDEA.
@@ -65,6 +63,10 @@ public class FormTable extends JPanel {
             textField.addFocusListener(generateFocusListener(textField, i));
             textField.setPreferredSize(new Dimension(150, 30));
 
+            if(hasSuggestion(textField.getText(), i)) {
+                textField.setBackground(Color.RED);
+            }
+
             formContainer.add(textField, BorderLayout.CENTER);
 
             this.add(formContainer);
@@ -92,9 +94,26 @@ public class FormTable extends JPanel {
 
         values[currentRow][index] = textField.getText();
 
+        if(hasSuggestion(textField.getText(), index)) {
+            textField.setBackground(Color.RED);
+        } else {
+            textField.setBackground(Color.WHITE);
+        }
+
         updatingCell = true;
         imageState.setValue(cell, textField.getText());
         updatingCell = false;
+    }
+
+    public boolean hasSuggestion(String value, int column) {
+        if(value.equals("")) return false;
+        KnownData knownData = imageState.getKnownDataValues().get(column);
+
+        for(String val : knownData.getWords()) {
+            if(val.toLowerCase().equals(value.toLowerCase())) return false;
+        }
+
+        return true;
     }
 
     // TODO: Save the text
@@ -121,6 +140,12 @@ public class FormTable extends JPanel {
             JPanel formSet = (JPanel)this.getComponent(i);
             JTextField form = (JTextField)formSet.getComponent(1);
             form.setText(values[currentRow][i]);
+
+            if(hasSuggestion(form.getText(), i)) {
+                form.setBackground(Color.RED);
+            } else {
+                form.setBackground(Color.WHITE);
+            }
         }
         updatingCell = false;
     }

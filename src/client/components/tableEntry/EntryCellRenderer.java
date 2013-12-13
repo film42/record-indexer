@@ -1,6 +1,7 @@
 package client.components.tableEntry;
 
 import client.components.menus.SpellCheckPopup;
+import client.modules.spellChecker.KnownData;
 import client.persistence.Cell;
 import client.persistence.ImageState;
 
@@ -23,6 +24,19 @@ public class EntryCellRenderer extends JLabel implements TableCellRenderer {
         this.imageState = imageState;
     }
 
+    public boolean hasSuggestion(String value, int column) {
+
+        if(value.equals("")) return false;
+
+        KnownData knownData = imageState.getKnownDataValues().get(column);
+
+        for(String val : knownData.getWords()) {
+            if(val.toLowerCase().equals(value.toLowerCase())) return false;
+        }
+
+        return true;
+    }
+
     @Override
     public Component getTableCellRendererComponent(JTable table, Object value, boolean isSelected,
                                                    boolean hasFocus, int row, int column) {
@@ -37,6 +51,11 @@ public class EntryCellRenderer extends JLabel implements TableCellRenderer {
             cell.setRecord(row);
             cell.setField(column - 1);
             imageState.setSelectedCell(cell);
+        }
+
+        if(hasSuggestion((String)value, column - 1)) {
+            this.setBorder(BorderFactory.createLineBorder(Color.RED, 1));
+            this.setBackground(Color.RED);
         }
 
         return this;

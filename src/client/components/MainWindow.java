@@ -58,8 +58,6 @@ public class MainWindow extends JFrame implements Serializable {
     }
 
     private void setupView() {
-        //this.setLayout(new GridBagLayout());
-
         setupFileMenu();
         setupImagePanel();
         setupSplitView();

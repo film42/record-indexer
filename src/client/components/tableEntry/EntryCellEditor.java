@@ -1,6 +1,7 @@
 package client.components.tableEntry;
 
 import client.components.menus.SpellCheckPopup;
+import client.modules.spellChecker.KnownData;
 import client.persistence.Cell;
 import client.persistence.ImageState;
 
@@ -28,6 +29,19 @@ public class EntryCellEditor extends AbstractCellEditor implements TableCellEdit
         this.imageState = imageState;
     }
 
+    public boolean hasSuggestion(String value, int column) {
+
+        if(value.equals("")) return false;
+
+        KnownData knownData = imageState.getKnownDataValues().get(column);
+
+        for(String val : knownData.getWords()) {
+            if(val.toLowerCase().equals(value.toLowerCase())) return false;
+        }
+
+        return true;
+    }
+
     @Override
     public Component getTableCellEditorComponent(JTable table, Object value, boolean isSelected,
                                                  int row, int column) {
@@ -47,6 +61,10 @@ public class EntryCellEditor extends AbstractCellEditor implements TableCellEdit
             cell.setRecord(row);
             cell.setField(column);
             //imageState.setSelectedCell(cell);
+        }
+
+        if(hasSuggestion((String)value, column - 1)) {
+            textField.setBackground(Color.RED);
         }
 
         return textField;

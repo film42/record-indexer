@@ -3,6 +3,7 @@ package client.persistence;
 import client.communication.Communicator;
 import client.communication.errors.RemoteServerErrorException;
 import client.communication.errors.UnauthorizedAccessException;
+import client.modules.spellChecker.KnownData;
 import shared.communication.common.Fields;
 import shared.communication.params.DownloadBatch_Param;
 import shared.communication.params.SubmitBatch_Param;
@@ -44,6 +45,7 @@ public class ImageState implements Serializable {
     private boolean hasImage;
     private ArrayList<Integer> fieldXValues;
     private ArrayList<Integer> fieldWidthValues;
+    private ArrayList<KnownData> knownDataValues;
     private Settings settings;
 
 
@@ -70,6 +72,7 @@ public class ImageState implements Serializable {
         recordsPerImage = 0;
         hasImage = false;
         image = new BufferedImage(1, 1, BufferedImage.TYPE_INT_ARGB);
+        knownDataValues = new ArrayList<>();
 
         columns = new String[0];
         values = new String[0][0];
@@ -171,6 +174,8 @@ public class ImageState implements Serializable {
         values = new String[recordsPerImage][columnCount];
         columns = new String[columnCount];
 
+        knownDataValues = new ArrayList<>();
+
         fieldsMetaData = downloadBatch.getFields();
 
         fieldXValues = new ArrayList<>();
@@ -182,6 +187,13 @@ public class ImageState implements Serializable {
             columns[i] = fields.get(i).getTitle();
             fieldXValues.add(fields.get(i).getxCoord());
             fieldWidthValues.add(fields.get(i).getPixelWidth());
+
+            if(fields.get(i).getKnownData() != null) {
+                knownDataValues.add(KnownData.getList(communicator.getServerPath() +
+                        fields.get(i).getKnownData()));
+            } else {
+                knownDataValues.add(new KnownData());
+            }
 
             for(int y = 0; y < recordsPerImage; y++) {
                 // Ensure we have no null values.
@@ -339,5 +351,9 @@ public class ImageState implements Serializable {
 
     public BufferedImage getImage() {
         return image;
+    }
+
+    public ArrayList<KnownData> getKnownDataValues() {
+        return knownDataValues;
     }
 }
