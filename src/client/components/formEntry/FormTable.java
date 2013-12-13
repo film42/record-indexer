@@ -1,13 +1,14 @@
 package client.components.formEntry;
 
+import client.components.menus.SpellCheckPopup;
 import client.modules.spellChecker.KnownData;
+import client.modules.spellChecker.SpellChecker;
 import client.persistence.Cell;
 import client.persistence.ImageState;
 
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.FocusEvent;
-import java.awt.event.FocusListener;
+import java.awt.event.*;
 
 /**
  * Created with IntelliJ IDEA.
@@ -65,6 +66,10 @@ public class FormTable extends JPanel {
 
             if(hasSuggestion(textField.getText(), i)) {
                 textField.setBackground(Color.RED);
+                MouseListener listener = generateRightClickPopupAction(textField);
+                textField.addMouseListener(listener);
+            } else {
+                textField.removeMouseListener(generateRightClickPopupAction(textField));
             }
 
             formContainer.add(textField, BorderLayout.CENTER);
@@ -83,6 +88,18 @@ public class FormTable extends JPanel {
         updatingCell = true;
         imageState.setSelectedCell(cell);
         updatingCell = false;
+    }
+
+    private MouseListener generateRightClickPopupAction(final JTextField textField) {
+        return new MouseAdapter() {
+            @Override
+            public void mousePressed(MouseEvent e) {
+                if(e.isPopupTrigger()) {;
+                    SpellCheckPopup spellCheckPopup = new SpellCheckPopup();
+                    spellCheckPopup.show(textField, e.getX(), e.getY());
+                }
+            }
+        };
     }
 
     public void updateCellValue(JTextField textField, int index) {
@@ -109,7 +126,9 @@ public class FormTable extends JPanel {
         if(value.equals("")) return false;
         KnownData knownData = imageState.getKnownDataValues().get(column);
 
-        for(String val : knownData.getWords()) {
+        String[] words = knownData.getWordArray();
+
+        for(String val : words) {
             if(val.toLowerCase().equals(value.toLowerCase())) return false;
         }
 

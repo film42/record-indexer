@@ -1,6 +1,7 @@
 package client.components.menus;
 
 import javax.swing.*;
+import java.awt.event.ActionListener;
 
 /**
  * Created with IntelliJ IDEA.
@@ -10,13 +11,18 @@ import javax.swing.*;
  */
 public class SpellCheckPopup extends JPopupMenu {
 
+    private JMenuItem show;
+
     public SpellCheckPopup() {
         setupView();
     }
 
     private void setupView() {
-        JMenuItem eMenuItem1 = new JMenuItem("See Suggestions?");
+        show = new JMenuItem("See Suggestions?");
+        this.add(show);
+    }
 
-        this.add(eMenuItem1);
+    public void addShowAction(ActionListener actionListener) {
+        show.addActionListener(actionListener);
     }
 }

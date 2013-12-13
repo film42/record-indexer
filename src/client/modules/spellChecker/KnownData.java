@@ -34,6 +34,17 @@ public class KnownData implements Serializable {
         words.add(word);
     }
 
+    public String[] getWordArray() {
+
+        String[] arr = new String[words.size()];
+
+        for(int i = 0; i < words.size(); i++) {
+            arr[i] = words.get(i);
+        }
+
+        return arr;
+    }
+
     public List<String> getWords() {
         return words;
     }
