@@ -72,7 +72,29 @@
       <file leaf-file-name="ImageTable.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/client/components/imagePanel/ImageTable.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="116" column="0" selection-start="3522" selection-end="3522" vertical-scroll-proportion="0.0" vertical-offset="1589" max-vertical-offset="2310">
+            <state line="95" column="9" selection-start="2818" selection-end="2818" vertical-scroll-proportion="0.0" vertical-offset="1349" max-vertical-offset="2310">
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="SpellingModal.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/client/components/spellCheck/SpellingModal.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="54" column="14" selection-start="1623" selection-end="1623" vertical-scroll-proportion="0.0" vertical-offset="722" max-vertical-offset="1425">
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="SpellChecker.java" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/client/modules/spellChecker/SpellChecker.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="39" column="51" selection-start="983" selection-end="983" vertical-scroll-proportion="0.45603272" vertical-offset="362" max-vertical-offset="2490">
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -85,17 +107,6 @@
           <provider selected="true" editor-type-id="text-editor">
             <state line="81" column="0" selection-start="2505" selection-end="2505" vertical-scroll-proportion="0.0" vertical-offset="944" max-vertical-offset="2460">
               <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ImageState.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/client/persistence/ImageState.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="356" column="0" selection-start="9826" selection-end="9826" vertical-scroll-proportion="0.0" vertical-offset="4161" max-vertical-offset="4650">
-              <folding>
-                <element signature="e#9862#9863#0" expanded="true" />
-              </folding>
             </state>
           </provider>
         </entry>
@@ -120,10 +131,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="DownloadModal.java" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="DownloadModal.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/client/components/downloadModal/DownloadModal.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="54" column="0" selection-start="1643" selection-end="1643" vertical-scroll-proportion="0.30879346" vertical-offset="659" max-vertical-offset="2415">
+            <state line="54" column="0" selection-start="1643" selection-end="1643" vertical-scroll-proportion="0.0" vertical-offset="659" max-vertical-offset="2415">
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -155,15 +166,6 @@
         <entry file="file://$PROJECT_DIR$/src/client/components/SplitBase.java">
           <provider selected="true" editor-type-id="text-editor">
             <state line="28" column="38" selection-start="815" selection-end="815" vertical-scroll-proportion="0.0" vertical-offset="565" max-vertical-offset="1020">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="WordSelectedListener.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/client/modules/spellChecker/WordSelectedListener.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="12" column="0" selection-start="214" selection-end="214" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="270">
               <folding />
             </state>
           </provider>
@@ -218,7 +220,6 @@
         <option value="$PROJECT_DIR$/src/client/components/spellcheck/SpellingModal.java" />
         <option value="$PROJECT_DIR$/src/client/components/menus/SpellCheckPopup.java" />
         <option value="$PROJECT_DIR$/src/client/modules/spellChecker/KnownData.java" />
-        <option value="$PROJECT_DIR$/src/client/modules/spellChecker/SpellChecker.java" />
         <option value="$PROJECT_DIR$/src/client/modules/spellChecker/WordSelectedListener.java" />
         <option value="$PROJECT_DIR$/src/client/components/tableEntry/EntryCellEditor.java" />
         <option value="$PROJECT_DIR$/src/client/components/spellCheck/SpellingModal.java" />
@@ -230,6 +231,7 @@
         <option value="$PROJECT_DIR$/src/client/components/imagePanel/ImageControl.java" />
         <option value="$PROJECT_DIR$/src/client/components/formEntry/FormEntry.java" />
         <option value="$PROJECT_DIR$/src/client/components/downloadModal/DownloadModal.java" />
+        <option value="$PROJECT_DIR$/src/client/modules/spellChecker/SpellChecker.java" />
       </list>
     </option>
   </component>
@@ -1192,15 +1194,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/client/modules/spellChecker/SpellChecker.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="51" column="17" selection-start="1323" selection-end="1323" vertical-scroll-proportion="0.0" vertical-offset="495" max-vertical-offset="2565">
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/client/components/menus/SpellCheckPopup.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="18" column="0" selection-start="322" selection-end="322" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="510">
@@ -1214,19 +1207,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state line="2279" column="0" selection-start="99141" selection-end="99141" vertical-scroll-proportion="0.0" vertical-offset="33067" max-vertical-offset="38220">
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/client/components/spellCheck/SpellingModal.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="54" column="8" selection-start="1617" selection-end="1821" vertical-scroll-proportion="0.0" vertical-offset="572" max-vertical-offset="1515">
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#2214#2592#0" expanded="true" />
-            <element signature="e#2585#2586#0" expanded="true" />
-            <element signature="e#2653#2833#0" expanded="true" />
-            <element signature="e#2826#2827#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1290,15 +1270,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/client/components/imagePanel/ImageTable.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="116" column="0" selection-start="3522" selection-end="3522" vertical-scroll-proportion="0.0" vertical-offset="1589" max-vertical-offset="2310">
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/client/components/imagePanel/ImageControl.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="81" column="0" selection-start="2505" selection-end="2505" vertical-scroll-proportion="0.0" vertical-offset="944" max-vertical-offset="2460">
@@ -1317,7 +1288,34 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/client/components/downloadModal/DownloadModal.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="54" column="0" selection-start="1643" selection-end="1643" vertical-scroll-proportion="0.30879346" vertical-offset="659" max-vertical-offset="2415">
+        <state line="54" column="0" selection-start="1643" selection-end="1643" vertical-scroll-proportion="0.0" vertical-offset="659" max-vertical-offset="2415">
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/client/components/imagePanel/ImageTable.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="95" column="9" selection-start="2818" selection-end="2818" vertical-scroll-proportion="0.0" vertical-offset="1349" max-vertical-offset="2310">
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/client/components/spellCheck/SpellingModal.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="54" column="14" selection-start="1623" selection-end="1623" vertical-scroll-proportion="0.0" vertical-offset="722" max-vertical-offset="1425">
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/client/modules/spellChecker/SpellChecker.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="39" column="51" selection-start="983" selection-end="983" vertical-scroll-proportion="0.45603272" vertical-offset="362" max-vertical-offset="2490">
           <folding>
             <element signature="imports" expanded="true" />
           </folding>

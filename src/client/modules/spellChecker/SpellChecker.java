@@ -38,14 +38,9 @@ public class SpellChecker {
     }
 
     public void restrictToList(List<String> list) {
-
-        if(true == true) return;
-
         Set<String> set = new TreeSet<>();
 
-        List<String> test = new ArrayList<>(words);
-
-        for(String similar : test) {
+        for(String similar : words) {
             for(String foregin : list) {
                 if(foregin.toLowerCase().equals(similar.toLowerCase())) {
                     set.add(foregin);
