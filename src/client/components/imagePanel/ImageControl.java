@@ -79,7 +79,6 @@ public class ImageControl extends JPanel {
 
     @Override
     public Dimension getMaximumSize() {
-        // TODO Auto-generated method stub
         Dimension dim = super.getMaximumSize();
         dim.height = 60;
         return dim;

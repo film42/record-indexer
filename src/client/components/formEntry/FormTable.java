@@ -1,14 +1,13 @@
 package client.components.formEntry;
 
-import client.components.menus.SpellCheckPopup;
 import client.modules.spellChecker.KnownData;
-import client.modules.spellChecker.SpellChecker;
 import client.persistence.Cell;
 import client.persistence.ImageState;
 
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.*;
+import java.awt.event.FocusEvent;
+import java.awt.event.FocusListener;
 
 /**
  * Created with IntelliJ IDEA.
@@ -66,10 +65,6 @@ public class FormTable extends JPanel {
 
             if(hasSuggestion(textField.getText(), i)) {
                 textField.setBackground(Color.RED);
-                MouseListener listener = generateRightClickPopupAction(textField);
-                textField.addMouseListener(listener);
-            } else {
-                textField.removeMouseListener(generateRightClickPopupAction(textField));
             }
 
             formContainer.add(textField, BorderLayout.CENTER);
@@ -88,18 +83,6 @@ public class FormTable extends JPanel {
         updatingCell = true;
         imageState.setSelectedCell(cell);
         updatingCell = false;
-    }
-
-    private MouseListener generateRightClickPopupAction(final JTextField textField) {
-        return new MouseAdapter() {
-            @Override
-            public void mousePressed(MouseEvent e) {
-                if(e.isPopupTrigger()) {;
-                    SpellCheckPopup spellCheckPopup = new SpellCheckPopup();
-                    spellCheckPopup.show(textField, e.getX(), e.getY());
-                }
-            }
-        };
     }
 
     public void updateCellValue(JTextField textField, int index) {
@@ -135,8 +118,6 @@ public class FormTable extends JPanel {
         return true;
     }
 
-    // TODO: Save the text
-    // TODO: Make this not freak out when going onFocusWindow to focusOnField, they swap forever
     private FocusListener generateFocusListener(final JTextField textField, final int index) {
         return new FocusListener() {
             @Override

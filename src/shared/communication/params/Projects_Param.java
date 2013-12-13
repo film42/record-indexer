@@ -36,8 +36,6 @@ public class Projects_Param {
         XStream xstream = new XStream(new StaxDriver());
         xstream.alias("project", Projects_Param.class);
 
-        // TODO: This is returning exception or something if extra fields exist.
-
         return (Projects_Param)xstream.fromXML(xml);
     }
 

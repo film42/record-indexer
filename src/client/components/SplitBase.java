@@ -28,10 +28,7 @@ public class SplitBase extends JSplitPane {
     private FormEntry formEntry;
     private Communicator communicator;
 
-    private int dividerLocation;
-
     public SplitBase(ImageState imageState, Communicator communicator) {
-        // TODO: Get this away from here
         this.imageState = imageState;
         this.communicator = communicator;
 

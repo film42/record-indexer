@@ -53,8 +53,6 @@ public class DownloadModal extends JDialog {
         this.setLocationRelativeTo(null);
         this.setLayout(new FlowLayout());
 
-        // TODO: Make this block the main window
-
         JLabel label = new JLabel("Project: ");
         this.add(label);
 
@@ -86,7 +84,6 @@ public class DownloadModal extends JDialog {
         try {
             return communicator.getProjects(param);
         } catch (Exception e) {
-            // TODO: Remove
             e.printStackTrace();
         }
 

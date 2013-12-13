@@ -57,10 +57,6 @@ public class LoginWindow extends JFrame {
         JButton exitButton = new JButton("Exit");
         exitButton.addActionListener(exitListener);
         this.add(exitButton);
-
-        //TODO: Remove me (factory)
-        this.userTextField.setText("test1");
-        this.passwordTextField.setText("test1");
     }
 
     public void addLoginListener(ActionListener actionListener) {

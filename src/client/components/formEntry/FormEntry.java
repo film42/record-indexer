@@ -75,7 +75,6 @@ public class FormEntry extends JPanel {
 
     @Override
     public Dimension getMinimumSize() {
-        // TODO Auto-generated method stub
         Dimension dim = super.getMinimumSize();
         dim.width = 350;
         return dim;
@@ -133,11 +132,8 @@ public class FormEntry extends JPanel {
 
             Cell cell = new Cell();
             cell.setRecord(newRow);
-            // TODO: Fix so this wont be a Null Pointer, maybe be setting default to 0,0?
             cell.setField(currentCell.getField());
 
-            // TODO: Fix this to call back all listeners, probably set I.S. global
-            //imageStateListener.selectedCellChanged(cell);
             imageState.setSelectedCell(cell);
             repaint();
 
